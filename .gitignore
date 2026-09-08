@@ -1,0 +1,9 @@
+.ollama/
+.venv/
+.hf_cache/
+lib/
+bin/
+__pycache__/
+.vscode/
+ollama_*.log
+*.out
