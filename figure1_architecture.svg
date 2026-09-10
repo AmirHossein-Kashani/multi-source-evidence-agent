@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 720" role="img" aria-label="Pipeline diagram in four columns. A: an open-ended ADR question passes through LLM entity extraction into a per-question graph holding curated ClinPGx edges and LLM-hypothesized edges. B: the question's drug and phenotype terms look up the ClinPGx snapshot, which seeds curated edges into the graph and links to database-cited abstracts; question and graph terms drive PubMed search, PMC full text and LLM paper digestion. C: curated records and extracted findings become claim records, scored by a fixed evidence ledger rule and a disagreement-analysis rule. D: a citation-guided LLM writes the answer with references and an evidence log; a dotted audit trail leads back to the cited passages.">
+<style>
+  svg { font-family: Helvetica, Arial, sans-serif; }
+  .hdr { fill: #1f2937; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; }
+  .hdrline { stroke: #d1d5db; stroke-width: 1.2; }
+  .box { fill: #f4f7fa; stroke: #7d8794; stroke-width: 1.3; }
+  .llm { fill: #f3ebf8; stroke: #8b5fb5; stroke-width: 1.5; }
+  .rule { fill: #fdf8ea; stroke: #c39a3a; stroke-width: 1.5; }
+  .rule-in { fill: none; stroke: #c39a3a; stroke-width: 0.9; }
+  .grp { fill: #f8fafc; stroke: #a9b2bf; stroke-width: 1.3; }
+  .t { fill: #1f2937; font-size: 14px; font-weight: 700; }
+  .s { fill: #374151; font-size: 12px; }
+  .al { fill: #4b5563; font-size: 11px; paint-order: stroke; stroke: #ffffff; stroke-width: 4px; stroke-linejoin: round; }
+  .note { fill: #4b5563; font-size: 11.5px; }
+  .flow { stroke: #4b5563; stroke-width: 1.5; fill: none; }
+  .steer { stroke: #7a4ea8; stroke-width: 1.6; fill: none; stroke-dasharray: 6 4; }
+  .audit { stroke: #6b7280; stroke-width: 1.3; fill: none; stroke-dasharray: 2 4; }
+</style>
+<rect x="0" y="0" width="1260" height="720" fill="#ffffff"/>
+<defs>
+  <marker id="arr" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0 0, 10 4, 0 8" fill="#4b5563"/>
+  </marker>
+  <marker id="arrA" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0 0, 10 4, 0 8" fill="#7a4ea8"/>
+  </marker>
+  <marker id="arrM" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+    <polygon points="0 0, 10 4, 0 8" fill="#6b7280"/>
+  </marker>
+</defs>
+
+<!-- ===== Column headers ===== -->
+<text class="hdr" x="20" y="30">A  QUESTION AND GRAPH</text>
+<line class="hdrline" x1="20" y1="42" x2="250" y2="42"/>
+<text class="hdr" x="340" y="30">B  EVIDENCE RETRIEVAL</text>
+<line class="hdrline" x1="340" y1="42" x2="600" y2="42"/>
+<text class="hdr" x="670" y="30">C  EVIDENCE ASSESSMENT</text>
+<line class="hdrline" x1="670" y1="42" x2="905" y2="42"/>
+<text class="hdr" x="970" y="30">D  ANSWER</text>
+<line class="hdrline" x1="970" y1="42" x2="1235" y2="42"/>
+
+<!-- ===== Column A: question and graph ===== -->
+<rect class="box" x="20" y="70" width="230" height="64" rx="6"/>
+<text class="t" x="34" y="94">Open-ended ADR question</text>
+<text class="s" x="34" y="116">Example: cisplatin ototoxicity</text>
+
+<line class="flow" x1="130" y1="134" x2="130" y2="176" marker-end="url(#arr)"/>
+
+<rect class="llm" x="20" y="180" width="230" height="64" rx="6"/>
+<text class="t" x="34" y="204">Entity extraction</text>
+<text class="s" x="34" y="226">LLM identifies question entities</text>
+
+<line class="flow" x1="130" y1="244" x2="130" y2="326" marker-end="url(#arr)"/>
+<text class="al" x="136" y="290">Entities</text>
+
+<rect class="grp" x="20" y="330" width="230" height="200" rx="6"/>
+<text class="t" x="34" y="354">Per-question graph</text>
+
+<rect class="box" x="32" y="372" width="206" height="58" rx="5"/>
+<text class="t" x="44" y="394">Curated edges</text>
+<text class="s" x="44" y="416">Evidence level &#8594; edge weight</text>
+
+<rect class="llm" x="32" y="446" width="206" height="58" rx="5"/>
+<text class="t" x="44" y="468">Hypothesized edges</text>
+<text class="s" x="44" y="490">LLM pairwise relations</text>
+
+<text class="note" x="20" y="558">LLM knowledge guides search;</text>
+<text class="note" x="20" y="574">it is not ledger evidence.</text>
+
+<!-- A -> B: the question's drug / phenotype terms look up the ClinPGx tables -->
+<line class="flow" x1="250" y1="102" x2="336" y2="102" marker-end="url(#arr)"/>
+<text class="al" x="293" y="94" text-anchor="middle">Question terms</text>
+
+<!-- B -> A: ClinPGx rows are seeded into the graph as curated edges -->
+<path class="flow" d="M 340 140 H 300 V 300 H 205 V 368" marker-end="url(#arr)"/>
+<text class="al" x="300" y="206" text-anchor="middle">Curated</text>
+<text class="al" x="300" y="219" text-anchor="middle">edges</text>
+
+<!-- A -> B: question + graph entities / relations become the PubMed queries (guidance, not evidence) -->
+<path class="steer" d="M 250 342 H 336" marker-end="url(#arrA)"/>
+<text class="al" x="293" y="322" text-anchor="middle">Question +</text>
+<text class="al" x="293" y="335" text-anchor="middle">graph terms</text>
+
+<!-- ===== Column B: evidence retrieval ===== -->
+<rect class="box" x="340" y="70" width="260" height="88" rx="6"/>
+<text class="t" x="354" y="94">ClinPGx snapshot</text>
+<text class="s" x="354" y="116">clinicalVariants / relationships</text>
+<text class="s" x="354" y="136">Snapshot: July 5, 2026</text>
+
+<line class="flow" x1="470" y1="158" x2="470" y2="192" marker-end="url(#arr)"/>
+<text class="al" x="476" y="180">Cited PMIDs</text>
+
+<rect class="box" x="340" y="196" width="260" height="56" rx="6"/>
+<text class="t" x="354" y="220">Database-cited abstracts</text>
+<text class="s" x="354" y="242">Linked PMIDs</text>
+
+<rect class="box" x="340" y="310" width="260" height="64" rx="6"/>
+<text class="t" x="354" y="334">PubMed search</text>
+<text class="s" x="354" y="356">Queries combine graph terms</text>
+
+<line class="flow" x1="470" y1="374" x2="470" y2="424" marker-end="url(#arr)"/>
+<text class="al" x="476" y="404">Full-text access</text>
+
+<rect class="box" x="340" y="428" width="260" height="64" rx="6"/>
+<text class="t" x="354" y="452">PMC full text</text>
+<text class="s" x="354" y="474">Open-access body, when available</text>
+
+<line class="flow" x1="470" y1="492" x2="470" y2="544" marker-end="url(#arr)"/>
+<text class="al" x="476" y="522">Bounded batches</text>
+
+<!-- abstracts join digestion via a right-side bus -->
+<path class="flow" d="M 600 224 H 622 V 596 H 604" marker-end="url(#arr)"/>
+
+<rect class="llm" x="340" y="548" width="260" height="96" rx="6"/>
+<text class="t" x="354" y="572">Paper digestion</text>
+<text class="s" x="354" y="594">Stance, study type, direction</text>
+<text class="s" x="354" y="612">Population, cancer, endpoint, dose</text>
+<text class="s" x="354" y="630">Document / paragraph references</text>
+
+<!-- ===== Column C: evidence assessment ===== -->
+<!-- snapshot -> claims -->
+<path class="flow" d="M 600 92 H 640 V 150 H 666" marker-end="url(#arr)"/>
+<text class="al" x="646" y="84">Curated records</text>
+
+<!-- digestion -> claims -->
+<path class="flow" d="M 600 620 H 648 V 200 H 666" marker-end="url(#arr)"/>
+<text class="al" x="642" y="284" text-anchor="end">Findings</text>
+
+<rect class="box" x="670" y="120" width="235" height="104" rx="6"/>
+<text class="t" x="684" y="144">Claim records</text>
+<text class="s" x="684" y="166">Gene, drug, stance, study type</text>
+<text class="s" x="684" y="184">Clinical context and source</text>
+<text class="s" x="684" y="202">Curated or extracted finding</text>
+
+<line class="flow" x1="787" y1="224" x2="787" y2="306" marker-end="url(#arr)"/>
+
+<rect class="rule" x="670" y="310" width="235" height="80" rx="6"/>
+<rect class="rule-in" x="674" y="314" width="227" height="72" rx="4"/>
+<text class="t" x="684" y="336">Evidence ledger</text>
+<text class="s" x="684" y="358">Fixed scoring rule (Section 3)</text>
+<text class="s" x="684" y="376">Evidence label and flags</text>
+
+<line class="flow" x1="787" y1="390" x2="787" y2="474" marker-end="url(#arr)"/>
+<text class="al" x="793" y="436">Scored evidence</text>
+
+<rect class="rule" x="670" y="478" width="235" height="110" rx="6"/>
+<rect class="rule-in" x="674" y="482" width="227" height="102" rx="4"/>
+<text class="t" x="684" y="504">Disagreement analysis</text>
+<text class="s" x="684" y="526">Clinical / mechanistic gate</text>
+<text class="s" x="684" y="544">Five evidence statuses</text>
+<text class="s" x="684" y="562">Context differences (Section 4)</text>
+
+<!-- ledger -> answer generation -->
+<path class="flow" d="M 905 350 H 966" marker-end="url(#arr)"/>
+<!-- disagreement -> answer generation -->
+<path class="flow" d="M 905 533 H 936 V 366 H 966" marker-end="url(#arr)"/>
+
+<!-- ===== Column D: answer ===== -->
+<rect class="llm" x="970" y="300" width="265" height="96" rx="6"/>
+<text class="t" x="984" y="324">Answer generation</text>
+<text class="s" x="984" y="346">Evidence ledger + disagreement cards</text>
+<text class="s" x="984" y="364">Citation-guided prompt</text>
+<text class="s" x="984" y="382">LLM, greedy decoding, T = 0</text>
+
+<line class="flow" x1="1102" y1="396" x2="1102" y2="474" marker-end="url(#arr)"/>
+
+<rect class="box" x="970" y="478" width="265" height="88" rx="6"/>
+<text class="t" x="984" y="502">Answer and audit records</text>
+<text class="s" x="984" y="524">Explanation with references</text>
+<text class="s" x="984" y="542">references + evidence_log</text>
+
+<!-- audit trail: from the evidence log back to the cited passages -->
+<path class="audit" d="M 1102 566 V 665 H 300 V 460 H 336" marker-end="url(#arrM)"/>
+<text class="note" x="700" y="686" text-anchor="middle">Audit: inspect curated records and cited passages</text>
+
+<!-- ===== Legend ===== -->
+<rect class="llm" x="20" y="678" width="22" height="14" rx="3"/>
+<text class="note" x="50" y="689">LLM operations (purple)</text>
+<rect class="rule" x="200" y="678" width="22" height="14" rx="3"/>
+<rect class="rule-in" x="203" y="681" width="16" height="8" rx="2"/>
+<text class="note" x="230" y="689">Fixed rules (double border)</text>
+</svg>
