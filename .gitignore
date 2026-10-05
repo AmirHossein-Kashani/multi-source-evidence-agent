@@ -7,3 +7,10 @@ __pycache__/
 .vscode/
 ollama_*.log
 *.out
+# local secrets and per-user settings
+.env
+.claude/settings.local.json
+# duplicate of the unzipped dataset/ADR_DataSet/
+dataset/ADR_DataSet.zip
+# quarantined output from a run where the LLM tunnel died
+results/*.bad.jsonl
