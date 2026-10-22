@@ -1,0 +1,380 @@
+{
+ "acute kidney injury": {
+  "entry_terms": [
+   "Acute Kidney Injury",
+   "Acute Kidney Injuries",
+   "Kidney Injuries, Acute",
+   "Kidney Injury, Acute",
+   "Acute Renal Injury",
+   "Acute Renal Injuries",
+   "Renal Injuries, Acute",
+   "Renal Injury, Acute",
+   "Kidney Failure, Acute",
+   "Acute Kidney Failures",
+   "Kidney Failures, Acute",
+   "Acute Kidney Failure",
+   "Acute Renal Failure",
+   "Acute Renal Failures",
+   "Renal Failures, Acute",
+   "Renal Failure, Acute",
+   "Renal Insufficiency, Acute",
+   "Acute Renal Insufficiencies",
+   "Renal Insufficiencies, Acute",
+   "Acute Kidney Insufficiency",
+   "Acute Renal Insufficiency",
+   "Kidney Insufficiency, Acute",
+   "Acute Kidney Insufficiencies",
+   "Kidney Insufficiencies, Acute"
+  ],
+  "heading": "Acute Kidney Injury",
+  "parents": [
+   "Renal Insufficiency"
+  ],
+  "tree": [
+   "C12.050.351.968.419.780.050",
+   "C12.200.777.419.780.050",
+   "C12.950.419.780.050"
+  ],
+  "uid": "68058186"
+ },
+ "cardiotoxicity": {
+  "entry_terms": [
+   "Cardiotoxicity",
+   "Cardiotoxicities",
+   "Cardiac Toxicity",
+   "Cardiac Toxicities",
+   "Toxicity, Cardiac"
+  ],
+  "heading": "Cardiotoxicity",
+  "parents": [
+   "Heart Diseases",
+   "Pathologic Processes",
+   "Radiation Injuries",
+   "Drug-Related Side Effects and Adverse Reactions"
+  ],
+  "tree": [
+   "C14.280.260",
+   "C23.550.161",
+   "C25.100.389",
+   "C26.733.266",
+   "G01.750.748.500.266"
+  ],
+  "uid": "68066126"
+ },
+ "cisplatin": {
+  "entry_terms": [
+   "Cisplatin",
+   "cis-Diamminedichloroplatinum",
+   "cis Diamminedichloroplatinum",
+   "cis-Diamminedichloroplatinum(II)",
+   "cis-Dichlorodiammineplatinum(II)",
+   "cis-Platinum",
+   "cis Platinum",
+   "Dichlorodiammineplatinum",
+   "Platinum Diamminodichloride",
+   "Diamminodichloride, Platinum",
+   "Biocisplatinum",
+   "Platidiam",
+   "Platino",
+   "Platinol",
+   "NSC-119875"
+  ],
+  "heading": "Cisplatin",
+  "parents": [
+   "Chlorine Compounds",
+   "Platinum Compounds",
+   "Nitrogen Compounds"
+  ],
+  "tree": [
+   "D01.210.375",
+   "D01.625.125",
+   "D01.710.100"
+  ],
+  "uid": "68002945"
+ },
+ "clinically significant hearing loss": null,
+ "doxorubicin": {
+  "entry_terms": [
+   "Doxorubicin",
+   "Doxorubicin Hydrochloride",
+   "Hydrochloride, Doxorubicin",
+   "Doxolem",
+   "Doxorubicine Baxter",
+   "Doxorubicina Tedec",
+   "Doxorubicina Funk",
+   "Doxorubicina Ferrer Farm",
+   "Doxorubicin NC",
+   "Adrimedac",
+   "Doxorubicin Hexal",
+   "DOXO-cell",
+   "DOXO cell",
+   "Urokit Doxo-cell",
+   "Urokit Doxo cell",
+   "Myocet",
+   "Farmiblastina",
+   "Doxotec",
+   "Ribodoxo",
+   "Onkodox",
+   "Rubex",
+   "Adriamycin",
+   "Adriblastin",
+   "Adriablastine",
+   "Adriablastin",
+   "Adriblastina",
+   "Adriblastine"
+  ],
+  "heading": "Doxorubicin",
+  "parents": [
+   "Daunorubicin"
+  ],
+  "tree": [
+   "D02.455.426.559.847.562.050.200.175",
+   "D04.615.562.050.200.175",
+   "D09.408.051.059.200.175"
+  ],
+  "uid": "68004317"
+ },
+ "hearing impairment": {
+  "entry_terms": [
+   "Hearing Loss",
+   "Loss, Hearing",
+   "Hearing Impairment",
+   "Hypoacusis",
+   "Hypoacuses",
+   "Deafness, Transitory",
+   "Deafnesses, Transitory",
+   "Transitory Deafness",
+   "Transitory Deafnesses",
+   "Hearing Loss, Transitory",
+   "Loss, Transitory Hearing",
+   "Transitory Hearing Losses",
+   "Transitory Hearing Loss"
+  ],
+  "heading": "Hearing Loss",
+  "parents": [
+   "Hearing Disorders"
+  ],
+  "tree": [
+   "C09.218.458.341",
+   "C10.597.751.418.341",
+   "C23.888.592.763.393.341"
+  ],
+  "uid": "68034381"
+ },
+ "hearing loss": {
+  "entry_terms": [
+   "Hearing Loss",
+   "Loss, Hearing",
+   "Hearing Impairment",
+   "Hypoacusis",
+   "Hypoacuses",
+   "Deafness, Transitory",
+   "Deafnesses, Transitory",
+   "Transitory Deafness",
+   "Transitory Deafnesses",
+   "Hearing Loss, Transitory",
+   "Loss, Transitory Hearing",
+   "Transitory Hearing Losses",
+   "Transitory Hearing Loss"
+  ],
+  "heading": "Hearing Loss",
+  "parents": [
+   "Hearing Disorders"
+  ],
+  "tree": [
+   "C09.218.458.341",
+   "C10.597.751.418.341",
+   "C23.888.592.763.393.341"
+  ],
+  "uid": "68034381"
+ },
+ "hearing threshold shift": null,
+ "mercaptopurine": {
+  "entry_terms": [
+   "Mercaptopurine",
+   "6-Mercaptopurine",
+   "6 Mercaptopurine",
+   "6H-Purine-6-thione, 1,7-dihydro-",
+   "6-Thiohypoxanthine",
+   "6 Thiohypoxanthine",
+   "6-Thiopurine",
+   "6 Thiopurine",
+   "1,7-Dihydro-6H-purine-6-thione",
+   "6-Mercaptopurine Monohydrate",
+   "6 Mercaptopurine Monohydrate",
+   "Purinethol",
+   "Puri-Nethol",
+   "Purimethol",
+   "Leupurin",
+   "BW 57-323H",
+   "BW 57323H",
+   "BW 57 323H",
+   "Mercaptopurina Wellcome",
+   "Mecaptopurine Anhydrous"
+  ],
+  "heading": "Mercaptopurine",
+  "parents": [
+   "Purines",
+   "Sulfhydryl Compounds"
+  ],
+  "tree": [
+   "D02.886.489.534",
+   "D03.633.100.759.570"
+  ],
+  "uid": "68015122"
+ },
+ "ototoxicity": {
+  "entry_terms": [
+   "Ototoxicity",
+   "Ototoxicities",
+   "Otological Toxicity",
+   "Toxicity, Otological",
+   "Drug-Induced Ototoxicity",
+   "Drug-Induced Ototoxicities",
+   "Drug Induced Ototoxicity",
+   "Ototoxicities, Drug-Induced",
+   "Ototoxicity, Drug-Induced",
+   "Drug-Induced Otological Toxicity",
+   "Drug-Induced Otological Toxicities",
+   "Drug Induced Otological Toxicity",
+   "Otological Toxicities, Drug-Induced",
+   "Otological Toxicity, Drug-Induced",
+   "Drug-Related Otological Toxicity",
+   "Drug-Related Otological Toxicities",
+   "Drug Related Otological Toxicity",
+   "Otological Toxicities, Drug-Related",
+   "Otological Toxicity, Drug-Related",
+   "Drug-Related Ototoxicity",
+   "Drug-Related Ototoxicities",
+   "Drug Related Ototoxicity",
+   "Ototoxicities, Drug-Related",
+   "Ototoxicity, Drug-Related",
+   "Drug-Induced Cochleotoxicity",
+   "Cochleotoxicities, Drug-Induced",
+   "Cochleotoxicity, Drug-Induced",
+   "Drug-Induced Cochleotoxicities",
+   "Drug Induced Cochleotoxicity",
+   "Drug-Induced Cochlear Toxicity",
+   "Cochlear Toxicities, Drug-Induced",
+   "Cochlear Toxicity, Drug-Induced",
+   "Drug-Induced Cochlear Toxicities",
+   "Drug Induced Cochlear Toxicity",
+   "Drug-Related Cochlear Toxicity",
+   "Cochlear Toxicities, Drug-Related",
+   "Cochlear Toxicity, Drug-Related",
+   "Drug-Related Cochlear Toxicities",
+   "Drug Related Cochlear Toxicity",
+   "Drug-Related Cochleotoxicity",
+   "Cochleotoxicities, Drug-Related",
+   "Cochleotoxicity, Drug-Related",
+   "Drug-Related Cochleotoxicities",
+   "Drug Related Cochleotoxicity",
+   "Drug-Induced Vestibulotoxicity",
+   "Drug-Induced Vestibulotoxicities",
+   "Drug Induced Vestibulotoxicity",
+   "Vestibulotoxicities, Drug-Induced",
+   "Vestibulotoxicity, Drug-Induced",
+   "Drug-Induced Vestibular Toxicity",
+   "Drug-Induced Vestibular Toxicities",
+   "Drug Induced Vestibular Toxicity",
+   "Vestibular Toxicities, Drug-Induced",
+   "Vestibular Toxicity, Drug-Induced",
+   "Auditory Toxicity",
+   "Radiation-Induced Ototoxicity",
+   "Ototoxicities, Radiation-Induced",
+   "Ototoxicity, Radiation-Induced",
+   "Radiation-Induced Ototoxicities",
+   "Radiation Induced Ototoxicity"
+  ],
+  "heading": "Ototoxicity",
+  "parents": [
+   "Ear Diseases",
+   "Pathologic Processes",
+   "Radiation Injuries",
+   "Drug-Related Side Effects and Adverse Reactions"
+  ],
+  "tree": [
+   "C09.218.788",
+   "C23.550.753",
+   "C25.100.656",
+   "C26.733.650",
+   "G01.750.748.500.650"
+  ],
+  "uid": "2031054"
+ },
+ "platinol": {
+  "entry_terms": [
+   "Cisplatin",
+   "cis-Diamminedichloroplatinum",
+   "cis Diamminedichloroplatinum",
+   "cis-Diamminedichloroplatinum(II)",
+   "cis-Dichlorodiammineplatinum(II)",
+   "cis-Platinum",
+   "cis Platinum",
+   "Dichlorodiammineplatinum",
+   "Platinum Diamminodichloride",
+   "Diamminodichloride, Platinum",
+   "Biocisplatinum",
+   "Platidiam",
+   "Platino",
+   "Platinol",
+   "NSC-119875"
+  ],
+  "heading": "Cisplatin",
+  "parents": [
+   "Chlorine Compounds",
+   "Platinum Compounds",
+   "Nitrogen Compounds"
+  ],
+  "tree": [
+   "D01.210.375",
+   "D01.625.125",
+   "D01.710.100"
+  ],
+  "uid": "68002945"
+ },
+ "tinnitus": {
+  "entry_terms": [
+   "Tinnitus",
+   "Ringing-Buzzing-Tinnitus",
+   "Ringing Buzzing Tinnitus",
+   "Pulsatile Tinnitus",
+   "Tinnitus, Pulsatile",
+   "Tinnitus of Vascular Origin",
+   "Vascular Origin Tinnitus",
+   "Tinnitus, Vascular Origin",
+   "Tinnitus, Clicking",
+   "Clicking Tinnitus",
+   "Tinnitus, Leudet",
+   "Leudet Tinnitus",
+   "Tinnitus, Leudet's",
+   "Leudet's Tinnitus",
+   "Tinnitus, Leudets",
+   "Tinnitus, Noise Induced",
+   "Induced Tinnitus, Noise",
+   "Noise Induced Tinnitus",
+   "Tinnitus, Objective",
+   "Objective Tinnitus",
+   "Tinnitus, Spontaneous Oto-Acoustic Emission",
+   "Tinnitus, Spontaneous Oto Acoustic Emission",
+   "Spontaneous Oto-Acoustic Emission Tinnitus",
+   "Spontaneous Oto Acoustic Emission Tinnitus",
+   "Tinnitus, Subjective",
+   "Subjective Tinnitus",
+   "Tinnitus, Tensor Palatini Induced",
+   "Tensor Palatini Induced Tinnitus",
+   "Tinnitus, Tensor Tympani Induced",
+   "Tensor Tympani Induced Tinnitus"
+  ],
+  "heading": "Tinnitus",
+  "parents": [
+   "Hearing Disorders"
+  ],
+  "tree": [
+   "C09.218.458.670",
+   "C10.597.751.418.670",
+   "C23.888.592.763.393.670"
+  ],
+  "uid": "68014012"
+ }
+}

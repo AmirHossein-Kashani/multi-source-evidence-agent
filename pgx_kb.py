@@ -60,7 +60,12 @@ def _split(field: str) -> List[str]:
 class PharmGKBSearcher:
     """Drop-in evidence retriever backed by local ClinPGx tables."""
 
-    def __init__(self, clinvar_path: str = DEFAULT_CLINVAR, rel_path: str = DEFAULT_REL):
+    def __init__(self, clinvar_path: str = DEFAULT_CLINVAR, rel_path: str = DEFAULT_REL,
+                 vocab=None):
+        # Optional mesh_terms.MeshVocab: adds MeSH entry terms to phenotype expansion and MeSH
+        # tree parents ("platinum compounds") to drug-class expansion. Static tables remain the
+        # offline fallback.
+        self.vocab = vocab
         self.clinvar_rows: List[dict] = []
         self.by_drug_pheno: Dict[Tuple[str, str], List[dict]] = {}
         self.by_drug: Dict[str, List[dict]] = {}
@@ -121,15 +126,36 @@ class PharmGKBSearcher:
         """CYP2D6*4 -> cyp2d6 ; leaves rsIDs / plain genes unchanged."""
         return _norm(re.sub(r"\*.*$", "", token))
 
-    def _expand_drug(self, drug: str) -> List[str]:
+    def expand_drug_detailed(self, drug: str) -> Dict[str, List[str]]:
+        """{'exact': the drug and its brand synonyms, 'class': table tokens for the classes it
+        belongs to}. Class tokens are what make a 'Platinum compounds' row count for cisplatin
+        (the audit found literal matching missed those rows). A class name given as the drug
+        ('anthracyclines') expands to its members under 'exact'."""
         d = _norm(drug)
-        out = {d}
+        exact = {d}
         if d in DRUG_SYNONYMS:
-            out.add(DRUG_SYNONYMS[d])
+            exact.add(DRUG_SYNONYMS[d])
         for cls, members in DRUG_CLASS_MEMBERS.items():
             if cls in d:
-                out.update(members)
-        return list(out)
+                exact.update(members)
+        classes: set = set()
+        class_names = {cls for cls, members in DRUG_CLASS_MEMBERS.items()
+                       if any(m in exact for m in members)}
+        if self.vocab is not None:
+            for e in list(exact):
+                class_names.update(self.vocab.parents(e))
+        for cls in class_names:
+            if len(cls) < 5:
+                continue
+            for tok in self.drug_vocab:
+                if tok == cls or cls in tok:          # 'anthracyclines and related substances'
+                    classes.add(tok)
+        classes -= exact
+        return {"exact": sorted(exact), "class": sorted(classes)}
+
+    def _expand_drug(self, drug: str) -> List[str]:
+        ex = self.expand_drug_detailed(drug)
+        return ex["exact"] + ex["class"]          # exact names first
 
     def _expand_pheno(self, pheno: str) -> List[str]:
         p = _norm(pheno)
@@ -137,6 +163,8 @@ class PharmGKBSearcher:
         for k, v in PHENO_SYNONYMS.items():
             if k in p:
                 out.add(v)
+        if self.vocab is not None and p:
+            out |= {s for s in self.vocab.synonyms(p) if s in self.pheno_vocab}
         return list(out)
 
     def extract_entities(self, text: str) -> Dict[str, List[str]]:
@@ -214,14 +242,24 @@ class PharmGKBSearcher:
         """Drop-in for PubMedSearcher.search: evidence strings for the query, or []."""
         return [d["text"] for d in self.search_detailed(query, max_results=max_results)]
 
+    def association_detailed(self, gene: str, drug: str) -> Optional[dict]:
+        """{'assoc', 'match': 'exact'|'class', 'chemical'} for the gene-drug pair, or None.
+
+        The drug's own rows win; a class row ('Platinum compounds') is used only when no exact
+        row exists, and is labelled so the ledger can say the evidence is class-level."""
+        g = self.gene_of_allele(gene)
+        ex = self.expand_drug_detailed(drug)
+        for match, tokens in (("exact", ex["exact"]), ("class", ex["class"])):
+            for d in tokens:
+                rec = self.pair_assoc.get((g, _norm(d)))
+                if rec:
+                    return {"assoc": rec["assoc"], "match": match, "chemical": d}
+        return None
+
     def is_associated(self, gene: str, drug: str) -> Optional[str]:
         """'associated' | 'not associated' | 'ambiguous', or None if the pair is absent."""
-        g = self.gene_of_allele(gene)
-        for d in self._expand_drug(drug):
-            rec = self.pair_assoc.get((g, _norm(d)))
-            if rec:
-                return rec["assoc"]
-        return None
+        rec = self.association_detailed(gene, drug)
+        return rec["assoc"] if rec else None
 
     def pmids_for_pair(self, gene: str, drug: str) -> List[str]:
         """PMIDs backing the gene-drug association in relationships.tsv ([] if none)."""
@@ -256,6 +294,7 @@ class PharmGKBSearcher:
         else:
             return []
         out, seen = [], set()
+        exact_tokens = set(self.expand_drug_detailed(drug_label)["exact"]) if drug_label else set()
         for row in rows:
             text = self._format(row, drug_label)
             if text in seen:
@@ -266,14 +305,18 @@ class PharmGKBSearcher:
             level = (row["level"] or "").upper()
             drug = drug_label or (row["chemicals"][0] if row["chemicals"] else "")
             pmids = self.pmids_for_pair(row["gene"], drug) if drug else []
+            row_chems = {_norm(c) for c in row["chemicals"]}
+            match = "exact" if not drug_label or (row_chems & exact_tokens) else "class"
             out.append({
                 "source": "ClinPGx",
                 "ref": f"ClinPGx:{gene}{'/' + variant if variant else ''}:L{level or 'NA'}",
-                "text": text,
+                "text": text + (f" [class-level row: {', '.join(sorted(row_chems))[:60]}]"
+                                if match == "class" else ""),
                 "gene": gene,
                 "variant": variant,
                 "level": level,
                 "drug": drug,
+                "match": match,
                 "phenotypes": row["phenotypes"][:3],
                 "pmids": pmids,
             })
