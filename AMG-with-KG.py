@@ -60,9 +60,26 @@ except Exception as _e:
 # Contradiction resolution (phase 13): normalises claims, groups them and explains WHY
 # sources disagree, instead of only flagging that they do.
 try:
-    from contradiction_layer import build_cards, cards_to_prompt
+    from contradiction_layer import build_cards, cards_to_prompt, followup_queries
 except Exception as _e:
-    build_cards = cards_to_prompt = None
+    build_cards = cards_to_prompt = followup_queries = None
+# Phase 15 (docs/PLAN.md): MeSH synonyms / drug classes, typed-path discovery over the global
+# ClinPGx graph, and the edge queue that allocates the search budget across rounds.
+try:
+    from mesh_terms import MeshVocab, outcome_family
+    from pgx_kb import PHENO_SYNONYMS as PGX_PHENO_SYNONYMS
+except Exception as _e:
+    MeshVocab = outcome_family = None
+    PGX_PHENO_SYNONYMS = {}
+try:
+    from graph_paths import ClinPGxGraph, propose_for_question
+except Exception as _e:
+    ClinPGxGraph = propose_for_question = None
+try:
+    from edge_queue import EdgeQueue
+except Exception as _e:
+    EdgeQueue = None
+from collections import Counter as _Counter
 
 @dataclass
 class MedicalEntity:
@@ -242,6 +259,10 @@ class PubMedSearcher:
                         _xml_text(a) for a in art.findall(".//Abstract/AbstractText"))
                     journal = _xml_text(art.find(".//Journal/Title"))
                     year = art.findtext(".//JournalIssue/PubDate/Year") or ""
+                    # PubMed's own design labels (Meta-Analysis, Case Reports, Retracted
+                    # Publication, ...): a cross-check on the model's study-type call.
+                    pub_types = [_xml_text(p) for p in
+                                 art.findall(".//PublicationTypeList/PublicationType")]
                     doi = ""
                     for aid in art.findall(".//ArticleId"):
                         if (aid.get("IdType") or "").lower() == "doi" and aid.text:
@@ -257,6 +278,7 @@ class PubMedSearcher:
                         "journal": journal,
                         "year": year,
                         "doi": doi,
+                        "pub_types": pub_types,
                         "text": f"[PMID {pmid}]{src_tag} {title} {abstract}".strip()[:2000],
                     }
             except Exception as e:
@@ -620,6 +642,27 @@ class AMG_RAG_System:
         self.pubmed_fulltext = os.environ.get("AMG_PUBMED_FULLTEXT", "0") == "1"
         self.fulltext_max_chars = int(os.environ.get("AMG_FULLTEXT_MAX_CHARS", "3000"))
 
+        # Phase 15 (docs/PLAN.md). All default to off so phase 13 reproduces unchanged.
+        #   AMG_PATH_DISCOVERY=1  typed-path proposals (A outcome, B gene-gene, C drug class)
+        #                         over the global ClinPGx graph enter the edge queue
+        #   AMG_SEARCH_ROUNDS=N   N targeted rounds after the base retrieval; each round the
+        #                         queue spends AMG_QUERY_BUDGET queries where uncertainty x
+        #                         prior is highest, new papers are digested, the ledger and
+        #                         cards are rebuilt, and literature edges are written back
+        #   AMG_FOLLOWUP_SEARCH=1 disagreement cards generate the next round's queries
+        self.path_discovery = (os.environ.get("AMG_PATH_DISCOVERY", "0") == "1"
+                               and ClinPGxGraph is not None)
+        self.search_rounds = int(os.environ.get("AMG_SEARCH_ROUNDS", "0"))
+        self.query_budget = int(os.environ.get("AMG_QUERY_BUDGET", "6"))
+        self.followup_search = (os.environ.get("AMG_FOLLOWUP_SEARCH", "0") == "1"
+                                and followup_queries is not None)
+        self.path_max_candidates = int(os.environ.get("AMG_PATH_MAX_CANDIDATES", "10"))
+        self.edge_queue = EdgeQueue() if EdgeQueue is not None else None
+        self.path_candidates: List[dict] = []
+        self.rounds: List[dict] = []
+        self.off_drug_claims: List[dict] = []
+        self._digest_cache: Dict[str, dict] = {}
+
         # Per-question provenance: every retrieval appends here (see _log_evidence);
         # answer_question/answer_open_question reset it and attach it to the result.
         self.evidence_log: List[dict] = []
@@ -645,11 +688,23 @@ class AMG_RAG_System:
                 and PharmGKBSearcher is not None):
             clinvar = os.environ.get("AMG_KB_CLINVAR", "").strip() or None
             rel = os.environ.get("AMG_KB_REL", "").strip() or None
-            self.pgx = PharmGKBSearcher(*( [clinvar, rel] if clinvar and rel else [] ))
+            # MeSH vocabulary (cached in dataset/mesh_cache.json; static tables if absent).
+            self.vocab = MeshVocab() if MeshVocab is not None else None
+            self.pgx = PharmGKBSearcher(*( [clinvar, rel] if clinvar and rel else [] ),
+                                        vocab=self.vocab)
             print(f"[ClinPGx] loaded {len(self.pgx.clinvar_rows)} clinicalVariants rows, "
                   f"{len(self.pgx.pair_assoc)} relationship pairs")
+            self.pathg = None
+            if self.path_discovery:
+                # Same (possibly masked) tables as the KB, so a masked pair stays masked.
+                self.pathg = ClinPGxGraph(*( [rel, clinvar] if clinvar and rel else [] ))
+                print(f"[paths] global ClinPGx graph: {len(self.pathg.chem_genes)} chemicals, "
+                      f"{len(self.pathg.disease_genes)} diseases, {len(self.pathg.gg)} genes "
+                      f"with gene-gene links")
         else:
             self.pgx = None
+            self.vocab = None
+            self.pathg = None
         if self.use_external_sources:
             self.embeddings = HuggingFaceEmbeddings(
                 model_name="sentence-transformers/all-MiniLM-L6-v2"
@@ -684,7 +739,8 @@ class AMG_RAG_System:
                 "ref": it.get("ref"),
                 "snippet": (it.get("text") or "")[:300],
             }
-            for k in ("title", "journal", "year", "level", "pmids", "via", "pmcid"):
+            for k in ("title", "journal", "year", "level", "pmids", "via", "pmcid",
+                      "proposed_via", "edge", "match", "pub_types"):
                 if it.get(k):
                     entry[k] = it[k]
             self.evidence_log.append(entry)
@@ -906,25 +962,7 @@ class AMG_RAG_System:
         groups = self._combo_groups(query, items, stage)
         if not groups:
             return []
-        collected = []
-        for terms in groups:
-            arity = len(terms)
-            used, hits, backoff = list(terms), [], 0
-            while used:
-                term = " AND ".join(used)
-                hits = self.pubmed.search_detailed(term, max_results=self.open_per_phrase)
-                if hits or len(used) <= 2:
-                    break
-                used = used[:-1]      # over-constrained: relax by one term
-                backoff += 1
-            self.combo_stats.append({
-                "stage": stage, "requested_arity": arity, "used_arity": len(used),
-                "terms": used, "backoffs": backoff, "hits": len(hits),
-            })
-            for d in hits:
-                d["via"] = f"combo{len(used)}:{' + '.join(used)}"
-                d["combo_arity"] = len(used)
-            collected.append(hits)
+        collected = [self._search_term_group(terms, stage) for terms in groups]
 
         out, seen = [], set()
         for rank in range(max((len(h) for h in collected), default=0)):
@@ -935,6 +973,35 @@ class AMG_RAG_System:
                     if len(out) >= max_results:
                         return out
         return out
+
+    def _search_term_group(self, terms: List[str], stage: str,
+                           meta: Optional[dict] = None) -> List[dict]:
+        """One conjunctive PubMed query with back-off, recorded in combo_stats.
+
+        `meta` (phase 15) tags the hits with the provenance of the edge that asked for the
+        search, so a paper found through a path proposal or a follow-up query carries that
+        tag into the evidence log, the digest and the ledger."""
+        arity = len(terms)
+        used, hits, backoff = list(terms), [], 0
+        while used:
+            term = " AND ".join(used)
+            hits = self.pubmed.search_detailed(term, max_results=self.open_per_phrase)
+            if hits or len(used) <= 2:
+                break
+            used = used[:-1]      # over-constrained: relax by one term
+            backoff += 1
+        rec = {"stage": stage, "requested_arity": arity, "used_arity": len(used),
+               "terms": used, "backoffs": backoff, "hits": len(hits)}
+        if meta:
+            rec.update({k: meta[k] for k in ("provenance", "edge") if meta.get(k)})
+        self.combo_stats.append(rec)
+        for d in hits:
+            d["via"] = f"combo{len(used)}:{' + '.join(used)}"
+            d["combo_arity"] = len(used)
+            if meta:
+                d["proposed_via"] = meta.get("provenance", "")
+                d["edge"] = meta.get("edge", "")
+        return hits
 
     @staticmethod
     def _sanitize_query(q: str) -> str:
@@ -1724,7 +1791,26 @@ class AMG_RAG_System:
                 description=("Direction of the reported effect for the supported genes: "
                              "'increases', 'decreases', 'no_effect', or 'unknown'."),
                 type="string"
-            )
+            ),
+            # Phase 15: the drug the paper actually studied (audit case SLCO1B1: a methotrexate
+            # paper was counted as cisplatin evidence) and the kind of biological evidence
+            # (audit case CPVL/PIGR: plasma proteins counted as inherited variants).
+            ResponseSchema(
+                name="drugs_studied",
+                description=("Drug or drug class names whose effect these paragraphs actually "
+                             "report on (e.g. [\"cisplatin\"], [\"platinum compounds\"]). "
+                             "Empty list if no drug is named."),
+                type="array"
+            ),
+            ResponseSchema(
+                name="evidence_kind",
+                description=("What the gene evidence consists of, exactly one of: "
+                             "germline_variant (inherited SNPs, star alleles, polymorphisms), "
+                             "somatic (tumour mutations), expression (mRNA / expression "
+                             "levels), protein_biomarker (plasma or tissue protein levels), "
+                             "unknown."),
+                type="string"
+            ),
         ]
         digest_parser = StructuredOutputParser.from_response_schemas(digest_schemas)
 
@@ -1750,6 +1836,10 @@ class AMG_RAG_System:
             reconciled: who was studied (population), the disease or cancer type, the outcome
             measured (endpoint), the dose or regimen, and the direction of the effect. Use
             'unknown' for anything the text does not state -- do not guess.
+
+            Finally, name the DRUG(S) these paragraphs report on (not drugs mentioned only as
+            background), and say what KIND of gene evidence this is: inherited variants,
+            somatic mutations, expression levels, or protein biomarkers.
             {format_instructions}""",
             input_variables=["question", "title", "paragraphs"],
             partial_variables={"format_instructions": digest_parser.get_format_instructions()}
@@ -2059,8 +2149,14 @@ class AMG_RAG_System:
             }
 
     def _papers_for_digest(self) -> List[dict]:
-        """Distinct papers retrieved for this question, reasoning-stage ones first."""
-        order = {"reasoning": 0, "question_context": 1}
+        """Distinct papers retrieved for this question, reasoning-stage ones first.
+
+        Not capped here: _digest_papers caps the NEW papers it reads per call, so a later
+        search round can add papers without the first round's cap shutting them out."""
+        def rank_of(stage: str) -> int:
+            if stage.startswith("reasoning"):
+                return 0
+            return 1 if stage == "question_context" else 2
         best: Dict[str, dict] = {}
         for e in self.evidence_log:
             if e.get("source") != "PubMed":
@@ -2068,11 +2164,36 @@ class AMG_RAG_System:
             pmid = (e.get("ref") or "").replace("PMID:", "").split("/")[0]
             if not pmid:
                 continue
-            rank = order.get(e.get("stage", ""), 2)
+            rank = rank_of(e.get("stage", ""))
             if pmid not in best or rank < best[pmid]["_rank"]:
                 best[pmid] = {"pmid": pmid, "title": e.get("title", ""), "ref": e.get("ref"),
-                              "via": e.get("via", ""), "_rank": rank}
-        return sorted(best.values(), key=lambda d: d["_rank"])[:self.digest_max_papers]
+                              "via": e.get("via", ""), "_rank": rank,
+                              "proposed_via": e.get("proposed_via", ""), "edge": e.get("edge", "")}
+            elif e.get("proposed_via") and not best[pmid].get("proposed_via"):
+                best[pmid]["proposed_via"], best[pmid]["edge"] = e["proposed_via"], e.get("edge", "")
+        return sorted(best.values(), key=lambda d: d["_rank"])
+
+    @staticmethod
+    def _study_type_from_pubtypes(pub_types: List[str]) -> str:
+        """PubMed publication types -> our study_type vocabulary ('' when they say nothing
+        about design). Only design-naming types count; 'Journal Article' says nothing."""
+        pt = {p.lower() for p in pub_types or []}
+        if "meta-analysis" in pt:
+            return "meta_analysis"
+        if "systematic review" in pt:
+            return "systematic_review"
+        if "genome-wide association study" in pt:
+            return "gwas"
+        if pt & {"randomized controlled trial", "clinical trial", "controlled clinical trial",
+                 "clinical trial, phase ii", "clinical trial, phase iii", "pragmatic clinical trial"}:
+            return "clinical_trial"
+        if "case reports" in pt:
+            return "case_report"
+        if pt & {"observational study", "multicenter study", "comparative study"}:
+            return "human_cohort"
+        if "review" in pt:
+            return "review"
+        return ""
 
     def _digest_one_paper(self, question: str, paper: dict) -> Optional[dict]:
         """Read one paper and return the paragraphs that matter, with citable indices.
@@ -2080,11 +2201,15 @@ class AMG_RAG_System:
         Full text is read in batches so long articles are covered without blowing the serving
         model's context window; abstract-only papers are digested as a single batch."""
         pmid = paper["pmid"]
+        art = (self.pubmed.fetch_by_pmids([pmid]) or [{}])[0]
+        pub_types = art.get("pub_types") or []
+        if any("retracted publication" == p.lower() for p in pub_types):
+            print(f"[digest] PMID:{pmid} is a retracted publication -- skipped")
+            return None
         ft = self.pubmed.fetch_fulltext(pmid, max_chars=10 ** 7)   # no truncation here
         if ft and ft.get("paragraphs"):
             paras, source, ref = ft["paragraphs"], ft["via"], f"PMID:{pmid}/{ft['pmcid']}"
         else:
-            art = (self.pubmed.fetch_by_pmids([pmid]) or [{}])[0]
             abstract = art.get("abstract") or ""
             if not abstract:
                 return None
@@ -2152,6 +2277,7 @@ class AMG_RAG_System:
 
         picked, notes = [], []
         study_types, sup_genes, ref_genes = [], [], []
+        drugs_studied, kinds = [], []
         ctx_fields: Dict[str, str] = {}      # population / cancer_type / endpoint / dose / direction
         for batch in ranked[:covered]:
             numbered = "\n".join(f"[{i}] {p['text']}" for i, p in batch)
@@ -2188,16 +2314,39 @@ class AMG_RAG_System:
                     g = re.sub(r"[^A-Za-z0-9\-]", "", str(g)).upper()
                     if 2 < len(g) <= 12 and g not in bucket:
                         bucket.append(g)
+            for d in (res.get("drugs_studied") or []):
+                d = " ".join(str(d).strip().lower().split())
+                if d and d not in ("unknown", "none") and d not in drugs_studied:
+                    drugs_studied.append(d)
+            kind = str(res.get("evidence_kind") or "").strip().lower().replace(" ", "_")
+            if kind and kind != "unknown":
+                kinds.append(kind)
 
         if not picked and not notes:
             return None
+        # Study type: the design PubMed itself indexed wins; otherwise the majority over the
+        # chunks read (ties broken by rank). "Strongest chunk wins" let a cohort study that
+        # cites a meta-analysis in its discussion be weighted as a meta-analysis.
+        indexed = self._study_type_from_pubtypes(pub_types)
+        if study_types:
+            counts = _Counter(study_types)
+            voted = max(counts, key=lambda t: (counts[t], STUDY_RANK.get(t, 0)))
+        else:
+            voted = "unknown"
+        if indexed and (indexed != "review" or voted in ("review", "unknown")):
+            study_type = indexed
+        else:
+            study_type = voted
+        kind = (_Counter(kinds).most_common(1)[0][0] if kinds else "unknown")
         return {
             "ref": ref, "pmid": pmid, "title": paper.get("title", ""),
             "source": source, "via": paper.get("via", ""),
+            "proposed_via": paper.get("proposed_via", ""), "edge": paper.get("edge", ""),
             "n_paragraphs": len(paras), "batches_read": covered, "batches_total": len(batches),
-            # Strongest study type seen wins: a meta-analysis section outranks a review section.
-            "study_type": (sorted(study_types,
-                                  key=lambda t: STUDY_RANK.get(t, 0), reverse=True) or ["unknown"])[0],
+            "study_type": study_type,
+            "study_type_llm": voted, "pub_types": pub_types[:6],
+            "drugs_studied": drugs_studied[:6],
+            "evidence_kind": kind,
             "genes_supported": sup_genes[:8],
             "genes_refuted": ref_genes[:8],
             # Study context, used by the contradiction layer to tell a real disagreement from
@@ -2220,13 +2369,24 @@ class AMG_RAG_System:
         papers = self._papers_for_digest()
         if not papers:
             return ""
-        print(f"[digest] reading {len(papers)} paper(s) for this question")
-        for paper in papers:
+        # Papers read in an earlier round are reused; at most digest_max_papers NEW ones are
+        # read per call, so each search round gets its own reading budget.
+        new = [p for p in papers if p["pmid"] not in self._digest_cache][:self.digest_max_papers]
+        if new:
+            print(f"[digest] reading {len(new)} new paper(s) for this question "
+                  f"({len(self._digest_cache)} already read)")
+        for paper in new:
             d = self._digest_one_paper(question, paper)
+            self._digest_cache[paper["pmid"]] = d          # None = read, nothing relevant
             if d:
-                self.paper_digests.append(d)
                 print(f"[digest] {d['ref']}: {len(d['paragraphs'])} relevant paragraph(s) "
-                      f"of {d['n_paragraphs']} ({d['source']})")
+                      f"of {d['n_paragraphs']} ({d['source']}, {d['study_type']})")
+        for paper in papers:
+            d = self._digest_cache.get(paper["pmid"])
+            if d:
+                if paper.get("proposed_via") and not d.get("proposed_via"):
+                    d["proposed_via"], d["edge"] = paper["proposed_via"], paper.get("edge", "")
+                self.paper_digests.append(d)
         if not self.paper_digests:
             return ""
         blocks = []
@@ -2246,58 +2406,246 @@ class AMG_RAG_System:
         the genes each digested paper reported as supported or refuted. Scoring happens in
         evidence_ledger.py -- by formula, never by the model."""
         self.gene_ledger = []
+        self.off_drug_claims = []
         if not self.evidence_ledger_on or Claim is None:
             return ""
         claims: List[Claim] = []
+        q_drug, q_outcome = self._question_terms(question)
 
-        # (a) curated claims
+        # (a) curated claims (class-level rows arrive with match="class")
         if self._pgx_enabled():
-            drug_hint = ""
-            ents = self.pgx.extract_entities(question)
-            if ents.get("drugs"):
-                drug_hint = ents["drugs"][0]
             for row in self.pgx.search_detailed(question, max_results=8):
-                assoc = self.pgx.is_associated(row["gene"], row["drug"] or drug_hint)
+                drug = row["drug"] or q_drug
+                assoc = self.pgx.is_associated(row["gene"], drug)
+                # A row lists several phenotypes (cancer type, toxicity, ...); file it under the
+                # one in the question's outcome family when it has one, else its first.
+                phenos = row.get("phenotypes") or []
+                pheno = next((p for p in phenos if self._outcome_key(p, q_outcome) == q_outcome),
+                             phenos[0] if phenos else "")
                 claims.append(Claim(
-                    gene=row["gene"], drug=row["drug"] or drug_hint,
-                    phenotype=(row.get("phenotypes") or [""])[0], variant=row.get("variant", ""),
+                    gene=row["gene"], drug=drug, phenotype=pheno, variant=row.get("variant", ""),
                     stance="refutes" if assoc == "not associated" else "supports",
                     study_type="curated", ref=row["ref"], pmid="",
-                    level=row.get("level", ""), source="ClinPGx", text=row.get("text", "")))
+                    level=row.get("level", ""), source="ClinPGx", text=row.get("text", ""),
+                    outcome=self._outcome_key(pheno, q_outcome),
+                    drug_match=row.get("match", "exact")))
 
-        # (b) literature claims, one per gene the paper supported or refuted
-        drug = ""
-        if self._pgx_enabled():
-            ents = self.pgx.extract_entities(question)
-            drug = (ents.get("drugs") or [""])[0]
+        # (b) literature claims, one per gene the paper supported or refuted. The drug and the
+        # outcome come from the PAPER (digest fields), not from the question: a paper about
+        # another drug is logged and excluded, a different outcome forms its own group.
         for d in self.paper_digests:
             para_ref = (d["paragraphs"][0]["ref"] if d.get("paragraphs") else d["ref"])
+            match = self._drug_match(d.get("drugs_studied") or [], q_drug)
+            outcome = self._outcome_key(d.get("endpoint", ""), q_outcome)
             for gene, stance in ([(g, "supports") for g in d.get("genes_supported", [])]
                                  + [(g, "refutes") for g in d.get("genes_refuted", [])]):
-                c = Claim(
-                    gene=gene, drug=drug, stance=stance,
+                if match == "mismatch":
+                    self.off_drug_claims.append({
+                        "gene": gene, "stance": stance, "ref": para_ref,
+                        "drugs_studied": d.get("drugs_studied", []), "question_drug": q_drug})
+                    continue
+                claims.append(Claim(
+                    gene=gene, drug=q_drug, stance=stance,
                     study_type=d.get("study_type", "unknown"),
                     ref=para_ref, pmid=d.get("pmid", ""), source="PubMed",
                     direction=d.get("direction", ""),
-                    text=(d.get("summary") or "")[:200])
-                # context axes travel with the claim (Claim has no slots, so attach directly)
-                for fld in ("population", "cancer_type", "endpoint", "dose_context"):
-                    setattr(c, fld, d.get(fld, ""))
-                claims.append(c)
+                    text=(d.get("summary") or "")[:200],
+                    outcome=outcome, evidence_kind=d.get("evidence_kind", "unknown"),
+                    drug_match=match, proposed_via=d.get("proposed_via", ""),
+                    population=d.get("population", ""), cancer_type=d.get("cancer_type", ""),
+                    endpoint=d.get("endpoint", ""), dose_context=d.get("dose_context", "")))
+        if self.off_drug_claims:
+            print(f"[ledger] {len(self.off_drug_claims)} claim(s) excluded: the paper studied "
+                  f"another drug ({', '.join(sorted({d for c in self.off_drug_claims for d in c['drugs_studied']})[:4])})")
 
         if not claims:
             return ""
         self.gene_ledger = build_ledger(claims, self.pgx if self._pgx_enabled() else None)
         self._claims_by_pair = {}
         for c in claims:
-            key = (c.gene.strip().upper(), " ".join(str(c.drug or "").strip().lower().split()))
+            key = (c.gene.strip().upper(), " ".join(str(c.drug or "").strip().lower().split()),
+                   " ".join(str(c.outcome or "").strip().lower().split()))
             sup, ref = self._claims_by_pair.setdefault(key, ([], []))
             (sup if c.stance == "supports" else ref).append(c)
         disputed = sum(1 for e in self.gene_ledger if e["disputed"])
-        print(f"[ledger] {len(self.gene_ledger)} gene-drug pairs | disputed: {disputed} | "
-              f"top: " + ", ".join(f"{e['gene']}={e['confidence']:.2f}"
-                                   for e in self.gene_ledger[:4]))
+        cands = sum(1 for e in self.gene_ledger if e.get("candidate"))
+        print(f"[ledger] {len(self.gene_ledger)} gene-drug-outcome groups | disputed: {disputed} "
+              f"| candidates: {cands} | top: "
+              + ", ".join(f"{e['gene']}={e['confidence']:.2f}" for e in self.gene_ledger[:4]))
         return ledger_to_prompt(self.gene_ledger)
+
+    # ---- phase 15 helpers -----------------------------------------------------------
+    def _question_terms(self, question: str) -> Tuple[str, str]:
+        """(drug, outcome) named in the question, via the KB vocabulary ('' when absent)."""
+        if not self._pgx_enabled():
+            return "", ""
+        ents = self.pgx.extract_entities(question)
+        return (ents.get("drugs") or [""])[0], (ents.get("phenotypes") or [""])[0]
+
+    def _outcome_key(self, term: str, q_outcome: str) -> str:
+        """Ledger grouping key for an outcome (mesh_terms.outcome_family when available)."""
+        if outcome_family is None:
+            return " ".join(str(term or "").strip().lower().split())
+        return outcome_family(term, q_outcome, self.vocab, PGX_PHENO_SYNONYMS)
+
+    def _drug_match(self, drugs_studied: List[str], q_drug: str) -> str:
+        """How a paper's drugs relate to the question's: exact | class | unstated | mismatch."""
+        if not drugs_studied or not q_drug:
+            return "unstated"
+        if self._pgx_enabled():
+            ex = self.pgx.expand_drug_detailed(q_drug)
+            exact, classes = set(ex["exact"]), set(ex["class"])
+        else:
+            exact, classes = {q_drug.lower()}, set()
+        parents_q = set(self.vocab.parents(q_drug)) if self.vocab is not None else set()
+
+        def near(a: str, b: str) -> bool:
+            return a == b or (len(a) >= 5 and len(b) >= 5 and (a in b or b in a))
+
+        for d in drugs_studied:
+            if any(near(d, e) for e in exact):
+                return "exact"
+        for d in drugs_studied:
+            if any(near(d, c) for c in classes | parents_q):
+                return "class"                           # "platinum compounds"
+            if self.vocab is not None and parents_q & set(self.vocab.parents(d)):
+                return "class"                           # sibling drug (carboplatin)
+        return "mismatch"
+
+    def _assess_evidence(self, question: str) -> Tuple[str, str, str]:
+        """Digest the retrieved papers, build the ledger and the cards -> the three prompt
+        blocks (digest, ledger, cards); any may be ''."""
+        digest_context = self._digest_papers(question) if self.paper_digest else ""
+        ledger_context = self._build_gene_ledger(question)
+        cards_context = ""
+        self.contradiction_cards = []
+        if self.contradiction_layer_on and self.gene_ledger:
+            self.contradiction_cards = build_cards(
+                self.gene_ledger, getattr(self, "_claims_by_pair", {}),
+                self.pgx if self._pgx_enabled() else None)
+            cards_context = cards_to_prompt(self.contradiction_cards)
+            print("[contradictions] " + ", ".join(
+                f"{k}={v}" for k, v in
+                _Counter(c["status"] for c in self.contradiction_cards).items()))
+        return digest_context, ledger_context, cards_context
+
+    def _populate_queue(self, question: str, round_no: int) -> None:
+        """Feed the edge queue: LLM-hypothesised gene edges from the graph, typed-path
+        proposals (round 1 only), the ledger's groups with their statuses, and follow-up
+        queries from the cards."""
+        q = self.edge_queue
+        q_drug, q_outcome = self._question_terms(question)
+        if not q_drug:
+            return
+        # hypothesised: genes the LLM put in the graph that no curated row vouches for
+        for name, ent in self.kg.entities.items():
+            if "gene" in (ent.entity_type or "").lower() and "ClinPGx" not in (ent.sources or []):
+                g = name.split()[0].upper()
+                if self._pgx_enabled() and g.lower() in self.pgx.gene_vocab:
+                    q.add(g, q_drug, q_outcome, provenance="hypothesised")
+        # typed-path proposals over the global ClinPGx graph, once per question
+        if (round_no == 1 and self.path_discovery and self.pathg is not None
+                and self._pgx_enabled()):
+            known = {e["gene"] for e in self.gene_ledger}
+            self.path_candidates = propose_for_question(
+                self.pathg, self.pgx, question, vocab=self.vocab,
+                k=self.path_max_candidates, exclude=known)
+            for c in self.path_candidates:
+                q.add(c["gene"], c["drug"], c.get("outcome") or q_outcome,
+                      provenance=c["via"][0], prior=c["prior"], path=c["paths"][0])
+            if self.path_candidates:
+                print(f"[paths] {len(self.path_candidates)} candidate gene(s) proposed: "
+                      + ", ".join(f"{c['gene']}({'/'.join(v.split(':')[1] for v in c['via'])})"
+                                  for c in self.path_candidates[:8]))
+        # statuses from the ledger and the cards (adds groups the queue has not seen)
+        q.update_from_ledger(self.gene_ledger, self.contradiction_cards)
+        # follow-ups: a card's status says what is missing; its terms replace the plain query
+        if self.followup_search and self.contradiction_cards:
+            for f in followup_queries(self.contradiction_cards, q_outcome):
+                q.add(f["gene"], f["drug"], f["outcome"], provenance=f["provenance"],
+                      query_terms=f["terms"])
+
+    def _write_back_edges(self, q_drug: str) -> int:
+        """Literature-backed ledger groups become graph edges carrying their ledger score and
+        refs, so the next round's queries (and the reasoning prompt) can start from them."""
+        added = 0
+        for e in self.gene_ledger:
+            lit_refs = [s["ref"] for s in e["supporting"] if not s["ref"].startswith("ClinPGx")]
+            if not lit_refs or e["confidence"] < 0.25:
+                continue
+            gene, drug = e["gene"], e["drug"] or q_drug
+            if not drug:
+                continue
+            existing = next((r for r in self.kg.relations if r.source == drug and r.target == gene), None)
+            if existing is not None:
+                if existing.relation_type.startswith("literature_supported"):
+                    continue                                  # written in an earlier round
+                # a seeded curated edge: attach the literature to it rather than duplicating
+                extra = "; ".join(lit_refs[:3])
+                if extra not in (existing.evidence or ""):
+                    existing.evidence = f"{existing.evidence}; literature: {extra}".strip("; ")
+                    self.kg.graph[drug][gene]["evidence"] = existing.evidence
+                    added += 1
+                continue
+            if gene not in self.kg.entities:
+                self.kg.add_entity(MedicalEntity(gene, "Gene (literature)", "gene",
+                                                 e["confidence"], ["PubMed"]))
+            if drug not in self.kg.entities:
+                self.kg.add_entity(MedicalEntity(drug, "Drug", "drug", 0.9, ["question"]))
+            self.kg.add_relation(MedicalRelation(
+                drug, gene, f"literature_supported[{e['label']}]", e["confidence"],
+                "; ".join(lit_refs[:3]), ["PubMed"]))
+            added += 1
+        return added
+
+    def _run_search_rounds(self, question: str, digest_context: str, ledger_context: str,
+                           cards_context: str) -> Tuple[str, str, str]:
+        """Phase 15 loop: populate the queue -> spend the budget on the most uncertain edges
+        -> digest the new papers -> rebuild ledger and cards -> write literature edges back.
+        Stops after AMG_SEARCH_ROUNDS rounds, or when a round reads no cohort-or-better paper
+        (the guard against evidence dilution)."""
+        if self.edge_queue is None:
+            return digest_context, ledger_context, cards_context
+        strong = {"meta_analysis", "systematic_review", "gwas", "human_cohort", "clinical_trial"}
+        q_drug, _ = self._question_terms(question)
+        n_rounds = max(self.search_rounds, 1 if self.path_discovery else 0)
+        for r in range(1, n_rounds + 1):
+            self._populate_queue(question, r)
+            chosen = self.edge_queue.select(self.query_budget, round_no=r)
+            if not chosen:
+                print(f"[round {r}] nothing left to test")
+                break
+            stage, before, items, issued = f"reasoning_r{r}", set(self._digest_cache), [], []
+            for e in chosen:
+                terms = e.last_terms or self.edge_queue.query_terms(e)
+                meta = {"provenance": e.provenance[-1], "edge": "|".join(e.key())}
+                hits = self._search_term_group(terms, stage, meta=meta)
+                if self.pubmed_fulltext:
+                    for d in hits[:2]:
+                        ft = self.pubmed.fetch_fulltext(d["pmid"], self.fulltext_max_chars)
+                        if ft:
+                            d.update({"pmcid": ft["pmcid"], "ref": f"PMID:{d['pmid']}/{ft['pmcid']}",
+                                      "via": "+".join(v for v in (d.get("via"), ft["via"]) if v)})
+                items += hits
+                issued.append({"edge": "|".join(e.key()), "provenance": e.provenance[-1],
+                               "terms": terms, "hits": len(hits)})
+            self._log_evidence(stage, f"round {r}: {len(chosen)} edge queries", items)
+            digest_context, ledger_context, cards_context = self._assess_evidence(question)
+            self.edge_queue.update_from_ledger(self.gene_ledger, self.contradiction_cards)
+            new_pmids = set(self._digest_cache) - before
+            new_strong = [p for p in new_pmids
+                          if (self._digest_cache.get(p) or {}).get("study_type") in strong]
+            written = self._write_back_edges(q_drug)
+            self.rounds.append({"round": r, "queries": issued, "new_papers": len(new_pmids),
+                                "new_strong_papers": len(new_strong), "edges_written": written,
+                                "queue": self.edge_queue.counts()})
+            print(f"[round {r}] {len(chosen)} queries -> {len(items)} hits, {len(new_pmids)} new "
+                  f"paper(s) read ({len(new_strong)} cohort-or-better), {written} edge(s) written "
+                  f"back | queue {self.edge_queue.counts()}")
+            if not new_strong:
+                print(f"[round {r}] no new cohort-or-better paper: stopping")
+                break
+        return digest_context, ledger_context, cards_context
 
     def reason_open_with_graph(self, question: str) -> Dict[str, Any]:
         """Open-ended reasoning: produce a free-text doctor reply (no A-E options).
@@ -2344,18 +2692,12 @@ class AMG_RAG_System:
 
         # Paper-digest stage: read each retrieved paper, keep the paragraphs that bear on the
         # question, and reason over those instead of raw article text.
-        digest_context = self._digest_papers(question) if self.paper_digest else ""
-        ledger_context = self._build_gene_ledger(question)
-        cards_context = ""
-        self.contradiction_cards = []
-        if self.contradiction_layer_on and self.gene_ledger:
-            self.contradiction_cards = build_cards(
-                self.gene_ledger, getattr(self, "_claims_by_pair", {}),
-                self.pgx if self._pgx_enabled() else None)
-            cards_context = cards_to_prompt(self.contradiction_cards)
-            from collections import Counter as _C
-            print("[contradictions] " + ", ".join(
-                f"{k}={v}" for k, v in _C(c["status"] for c in self.contradiction_cards).items()))
+        digest_context, ledger_context, cards_context = self._assess_evidence(question)
+        # Phase 15: targeted search rounds driven by the edge queue (path proposals, follow-ups
+        # from the cards), each followed by a fresh assessment.
+        if self.search_rounds > 0 or self.path_discovery:
+            digest_context, ledger_context, cards_context = self._run_search_rounds(
+                question, digest_context, ledger_context, cards_context)
         if digest_context:
             search_context = ("Findings extracted from the retrieved papers "
                               "(each cites its paragraph):\n" + digest_context
@@ -2465,6 +2807,11 @@ class AMG_RAG_System:
         self.gene_ledger = []
         self.contradiction_cards = []
         self._current_question = question
+        # phase 15 state
+        self.path_candidates, self.rounds, self.off_drug_claims = [], [], []
+        self._digest_cache = {}
+        if EdgeQueue is not None:
+            self.edge_queue = EdgeQueue()
 
         # Step 1: build KG from the question alone (no options)
         self.build_knowledge_graph(question, {})
@@ -2489,6 +2836,11 @@ class AMG_RAG_System:
         result["paper_digests"] = list(self.paper_digests)
         result["gene_ledger"] = list(self.gene_ledger)
         result["contradiction_cards"] = list(self.contradiction_cards)
+        # Phase 15: what was proposed, what was tested, and what was excluded.
+        result["path_candidates"] = list(self.path_candidates)
+        result["edge_queue"] = self.edge_queue.summary() if self.edge_queue is not None else []
+        result["search_rounds"] = list(self.rounds)
+        result["off_drug_claims"] = list(self.off_drug_claims)
         return result
 
     def answer_question(self, question_data: Dict[str, Any]) -> Dict[str, Any]:
