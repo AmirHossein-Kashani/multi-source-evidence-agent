@@ -224,12 +224,13 @@ def build_cards(ledger: List[dict], claims_by_pair: Dict, pgx=None) -> List[dict
              STATUS_CONSISTENT: 3, STATUS_INSUFFICIENT: 4}
     cards = []
     for e in ledger:
-        key = (e.get("gene", "").upper(), _norm(e.get("drug", "")))
-        sup, ref = claims_by_pair.get(key, ([], []))
+        key3 = (e.get("gene", "").upper(), _norm(e.get("drug", "")), _norm(e.get("outcome", "")))
+        sup, ref = claims_by_pair.get(key3) or claims_by_pair.get(key3[:2], ([], []))
         assoc = (e.get("components") or {}).get("clinpgx_association")
         res = resolve_group(sup, ref, assoc)
         cards.append({
-            "gene": e.get("gene"), "drug": e.get("drug"),
+            "gene": e.get("gene"), "drug": e.get("drug"), "outcome": e.get("outcome", ""),
+            "candidate": bool(e.get("candidate")),
             "variants": e.get("variants", []),
             "phenotypes": e.get("phenotypes", []),
             "status": res["status"],
@@ -249,11 +250,56 @@ def build_cards(ledger: List[dict], claims_by_pair: Dict, pgx=None) -> List[dict
     return cards
 
 
+# Follow-up searches (docs/PLAN.md, idea 3): the card's status says what evidence is missing,
+# so the next query asks for exactly that instead of repeating the first search.
+_DESIGN_FILTER = "(meta-analysis[pt] OR systematic review[pt] OR cohort studies[mh])"
+
+
+def followup_queries(cards: List[dict], question_outcome: str = "") -> List[dict]:
+    """One targeted PubMed query per unresolved card.
+
+    INSUFFICIENT            -> the pair, restricted to meta-analyses / reviews / cohorts
+    CONTEXT-DEPENDENT       -> the pair plus the refuting side's value on the separating axis
+    CONFLICTING             -> the pair plus "replication"
+    CURATED-LITERATURE CONFLICT -> the pair plus meta-analysis[pt]
+    The last term is the one the combined search drops first when a query over-constrains,
+    so the filter relaxes before the pair itself does. Field tags are passed through verbatim."""
+    out = []
+    for c in cards:
+        st = c.get("status")
+        gene, drug = c.get("gene") or "", c.get("drug") or ""
+        if not gene or not drug or st == STATUS_CONSISTENT:
+            continue
+        outcome = c.get("outcome") or question_outcome or ""
+        base = [t for t in (gene, drug, outcome) if t]
+        if st == STATUS_INSUFFICIENT:
+            terms, prov, why = base + [_DESIGN_FILTER], "followup:INSUFFICIENT", \
+                "too little comparable clinical evidence: ask for stronger designs"
+        elif st == STATUS_CONTEXT:
+            r = (c.get("reasons") or [{}])[0]
+            axis = r.get("axis", "context")
+            val = (r.get("refuting_values") or r.get("supporting_values") or [""])[0]
+            terms, prov, why = base + ([val] if val else []), f"followup:CONTEXT:{axis}", \
+                f"apparent conflict explained by {axis}: search within '{val}'"
+        elif st == STATUS_CONFLICTING:
+            terms, prov, why = base + ["replication"], "followup:CONFLICTING", \
+                "comparable studies disagree: look for replication attempts"
+        elif st == STATUS_CURATED_CONFLICT:
+            terms, prov, why = base + ["meta-analysis[pt]"], "followup:CURATED_CONFLICT", \
+                "database and literature disagree: look for a pooled estimate"
+        else:
+            continue
+        out.append({"gene": gene, "drug": drug, "outcome": outcome, "terms": terms,
+                    "provenance": prov, "reason": why, "status": st})
+    return out
+
+
 def cards_to_prompt(cards: List[dict], max_cards: int = 10) -> str:
     """Render the cards for the answer prompt."""
     out = []
     for c in cards[:max_cards]:
-        head = f"{c['gene']} - {c['drug']} :: {c['status']} (confidence {c['confidence']:.2f})"
+        head = f"{c['gene']} - {c['drug']}" + (f" [{c['outcome']}]" if c.get("outcome") else "") + \
+               f" :: {c['status']} (confidence {c['confidence']:.2f})"
         out.append(head)
         for r in c["reasons"]:
             out.append(f"    why: {r['detail']}")

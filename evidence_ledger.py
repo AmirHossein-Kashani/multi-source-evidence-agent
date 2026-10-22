@@ -15,6 +15,12 @@ Inputs are `Claim` records, which come from two places:
 Contradiction detection uses signal that already exists in the ClinPGx bulk download but was
 previously unused: of 127,988 relationship rows, 33,100 say "not associated" and 20,032 say
 "ambiguous" -- the latter meaning the curators themselves found conflicting evidence.
+
+Phase 15 changes (docs/PLAN.md, section 4): claims are grouped by gene + drug + OUTCOME, a
+claim whose paper studied another drug is excluded from this drug's ledger, expression /
+protein-biomarker findings weigh half of an inherited-variant finding, a literature-only
+pair backed by two independent strong sources starts from a higher base, and a candidate
+association is no longer reported as "disputed".
 """
 from dataclasses import dataclass, field
 from math import log1p
@@ -41,12 +47,26 @@ STUDY_WEIGHT = {
     "in_vitro": 0.2,
     "unknown": 0.4,
 }
+# What kind of biological evidence the claim rests on. A pharmacogenomic association is about
+# inherited variation; an expression or plasma-protein finding (audit case CPVL/PIGR) is
+# related evidence, not the same claim, so it counts half.
+KIND_FACTOR = {
+    "germline_variant": 1.0, "unknown": 1.0,
+    "somatic": 0.5, "expression": 0.5, "protein_biomarker": 0.5,
+}
 
 # Base confidence when the pair is not in the curated tables at all, and when the curators
 # explicitly say the pair is NOT associated.
 BASE_ABSENT = 0.25
 BASE_NOT_ASSOCIATED = 0.15
 BASE_ASSOCIATED_NO_LEVEL = 0.55
+# A pair with no curated row but at least LIT_ESTABLISHED_MIN_SOURCES independent sources of
+# weight >= LIT_ESTABLISHED_MIN_WEIGHT (cohort or better) starts between curated level 4
+# (0.40) and level 3 (0.55). The most such a pair can reach is ~0.64 (moderate): "high" stays
+# curated-only. Decided in docs/PLAN.md, section 2.
+BASE_LITERATURE_ESTABLISHED = 0.45
+LIT_ESTABLISHED_MIN_WEIGHT = 0.85
+LIT_ESTABLISHED_MIN_SOURCES = 2
 
 SUPPORT_K = 0.18      # how fast independent support raises confidence
 REFUTE_M = 0.30       # how hard refuting evidence pulls it down
@@ -59,10 +79,13 @@ NOVEL_SUPPORT_MIN = 0.8
 
 LABEL_HIGH, LABEL_MODERATE, LABEL_LOW = 0.75, 0.50, 0.25
 
+# Flags that describe a pair's standing rather than a disagreement between sources.
+NON_DISPUTE_FLAGS = ("unsupported_claim", "uncurated_literature_claim")
+
 
 @dataclass
 class Claim:
-    """One assertion about a gene-drug(-phenotype) relationship, from one source."""
+    """One assertion about a gene-drug(-outcome) relationship, from one source."""
     gene: str
     drug: str = ""
     phenotype: str = ""
@@ -75,6 +98,16 @@ class Claim:
     level: str = ""                # ClinPGx evidence level, curated claims only
     source: str = ""               # "ClinPGx" | "PubMed"
     text: str = ""                 # the sentence(s) the claim came from
+    # phase 15
+    outcome: str = ""              # normalised outcome family (mesh_terms.outcome_family)
+    evidence_kind: str = "unknown" # germline_variant | somatic | expression | protein_biomarker
+    drug_match: str = "exact"      # exact | class | mismatch (paper studied another drug)
+    proposed_via: str = ""         # how the search that found this source was proposed
+    # study context, compared by the contradiction layer
+    population: str = ""
+    cancer_type: str = ""
+    endpoint: str = ""
+    dose_context: str = ""
 
     def source_id(self) -> str:
         """Identity for counting INDEPENDENT sources (several paragraphs of one paper
@@ -87,19 +120,22 @@ def _norm(s: str) -> str:
 
 
 def _weight(claim: Claim) -> float:
-    return STUDY_WEIGHT.get(_norm(claim.study_type).replace(" ", "_"), STUDY_WEIGHT["unknown"])
+    w = STUDY_WEIGHT.get(_norm(claim.study_type).replace(" ", "_"), STUDY_WEIGHT["unknown"])
+    return w * KIND_FACTOR.get(_norm(getattr(claim, "evidence_kind", "")) or "unknown", 1.0)
 
 
 def compute_confidence(level: str, assoc: Optional[str],
                        supporting: List[Claim], refuting: List[Claim]) -> Tuple[float, dict]:
-    """Confidence for one gene-drug pair, plus the components that produced it.
+    """Confidence for one gene-drug(-outcome) group, plus the components that produced it.
 
     base       curated evidence level (1A .98 ... 4 .40); 0.25 if the pair is absent from
-               ClinPGx, 0.15 if the curators record it as NOT associated
+               ClinPGx (0.45 once two independent strong sources support it), 0.15 if the
+               curators record it as NOT associated
     support    sum of study weights over DISTINCT supporting sources (log-damped)
     refute     same for refuting sources, subtracted
     """
     lvl = _norm(level)
+    literature_established = False
     if lvl and lvl in LEVEL_CONF:
         base = LEVEL_CONF[lvl]
     elif assoc == "not associated":
@@ -110,6 +146,10 @@ def compute_confidence(level: str, assoc: Optional[str],
         base = BASE_ASSOCIATED_NO_LEVEL * 0.8
     else:
         base = BASE_ABSENT
+        strong = {c.source_id() for c in supporting if _weight(c) >= LIT_ESTABLISHED_MIN_WEIGHT}
+        if len(strong) >= LIT_ESTABLISHED_MIN_SOURCES:
+            base = BASE_LITERATURE_ESTABLISHED
+            literature_established = True
 
     def summed(claims):
         best: Dict[str, float] = {}
@@ -132,6 +172,7 @@ def compute_confidence(level: str, assoc: Optional[str],
         "support_weight": round(sup_w, 3), "support_sources": sup_n,
         "refute_weight": round(ref_w, 3), "refute_sources": ref_n,
         "clinpgx_level": lvl.upper() or None, "clinpgx_association": assoc,
+        "literature_established": literature_established,
     }
 
 
@@ -186,20 +227,34 @@ def detect_contradictions(assoc: Optional[str], supporting: List[Claim],
     return flags
 
 
-def build_ledger(claims: List[Claim], pgx=None) -> List[dict]:
-    """Aggregate claims into one entry per gene-drug pair, strongest confidence first.
+def _association(pgx, gene: str, drug: str) -> Tuple[Optional[str], str]:
+    """Curated association for the pair and how it matched ('exact' drug name or a 'class')."""
+    if pgx is None or not drug:
+        return None, ""
+    try:
+        if hasattr(pgx, "association_detailed"):
+            rec = pgx.association_detailed(gene, drug)
+            return (rec["assoc"], rec["match"]) if rec else (None, "")
+        return pgx.is_associated(gene, drug), "exact"
+    except Exception:
+        return None, ""
 
-    `pgx` is an optional PharmGKBSearcher; when given, its `is_associated` supplies the
-    curated stance even for pairs no retrieved claim mentioned.
-    """
-    groups: Dict[Tuple[str, str], List[Claim]] = {}
+
+def build_ledger(claims: List[Claim], pgx=None) -> List[dict]:
+    """Aggregate claims into one entry per gene-drug-outcome group, strongest confidence first.
+
+    `pgx` is an optional PharmGKBSearcher; when given, it supplies the curated stance even for
+    pairs no retrieved claim mentioned. Claims whose paper studied another drug
+    (drug_match == "mismatch") never enter a group: they are the caller's to log."""
+    groups: Dict[Tuple[str, str, str], List[Claim]] = {}
     for c in claims:
-        if not c.gene:
+        if not c.gene or getattr(c, "drug_match", "exact") == "mismatch":
             continue
-        groups.setdefault((c.gene.strip().upper(), _norm(c.drug)), []).append(c)
+        key = (c.gene.strip().upper(), _norm(c.drug), _norm(getattr(c, "outcome", "")))
+        groups.setdefault(key, []).append(c)
 
     out = []
-    for (gene, drug), group in groups.items():
+    for (gene, drug, outcome), group in groups.items():
         supporting = [c for c in group if _norm(c.stance) == "supports"]
         refuting = [c for c in group if _norm(c.stance) == "refutes"]
         inconclusive = [c for c in group if _norm(c.stance) == "inconclusive"]
@@ -210,29 +265,37 @@ def build_ledger(claims: List[Claim], pgx=None) -> List[dict]:
                             > LEVEL_CONF.get(_norm(level), 0)):
                 level = c.level
 
-        assoc = None
-        if pgx is not None and drug:
-            try:
-                assoc = pgx.is_associated(gene, drug)
-            except Exception:
-                assoc = None
-
+        assoc, match = _association(pgx, gene, drug)
         score, parts = compute_confidence(level, assoc, supporting, refuting)
+        parts["clinpgx_match"] = match or None
         flags = detect_contradictions(assoc, supporting, refuting, bool(curated))
         variants = sorted({c.variant for c in group if c.variant})
         phenos = sorted({c.phenotype for c in group if c.phenotype})
+        kinds = sorted({_norm(getattr(c, "evidence_kind", "")) for c in group
+                        if _norm(getattr(c, "evidence_kind", "")) not in ("", "unknown")})
+        via = sorted({c.proposed_via for c in group if getattr(c, "proposed_via", "")})
+
+        def _src(c: Claim) -> dict:
+            d = {"ref": c.ref, "study_type": c.study_type, "text": c.text[:200]}
+            if getattr(c, "evidence_kind", "unknown") not in ("", "unknown"):
+                d["evidence_kind"] = c.evidence_kind
+            if getattr(c, "drug_match", "exact") != "exact":
+                d["drug_match"] = c.drug_match
+            return d
 
         out.append({
-            "gene": gene, "drug": drug,
+            "gene": gene, "drug": drug, "outcome": outcome,
             "variants": variants[:4], "phenotypes": phenos[:3],
             "confidence": round(score, 3),
             "label": label_for(score),
-            "disputed": bool(flags and any(f["type"] != "unsupported_claim" for f in flags)),
+            "curated": bool(curated) or assoc is not None,
+            "candidate": any(f["type"] == "uncurated_literature_claim" for f in flags),
+            "disputed": any(f["type"] not in NON_DISPUTE_FLAGS for f in flags),
             "contradictions": flags,
-            "supporting": [{"ref": c.ref, "study_type": c.study_type, "text": c.text[:200]}
-                           for c in supporting[:5]],
-            "refuting": [{"ref": c.ref, "study_type": c.study_type, "text": c.text[:200]}
-                         for c in refuting[:5]],
+            "evidence_kinds": kinds,
+            "proposed_via": via,
+            "supporting": [_src(c) for c in supporting[:5]],
+            "refuting": [_src(c) for c in refuting[:5]],
             "inconclusive_count": len(inconclusive),
             "components": parts,
         })
@@ -240,21 +303,48 @@ def build_ledger(claims: List[Claim], pgx=None) -> List[dict]:
     return out
 
 
-def ledger_to_prompt(ledger: List[dict], max_entries: int = 12) -> str:
-    """Render the ledger for the answer prompt: every gene, with its confidence and conflict."""
-    lines = []
-    for e in ledger[:max_entries]:
+def ledger_to_prompt(ledger: List[dict], max_entries: int = 12, max_candidates: int = 8) -> str:
+    """Render the ledger for the answer prompt: every gene, with its confidence and conflict.
+
+    Candidate associations (literature-only, strong support) get their own block that sits
+    OUTSIDE the max_entries cut, so a low-scoring candidate still reaches the answer."""
+    def _entry_lines(e: dict) -> List[str]:
         bits = [f"{e['gene']}"]
-        if e["variants"]:
+        if e.get("variants"):
             bits.append("(" + ", ".join(e["variants"][:2]) + ")")
+        if e.get("outcome"):
+            bits.append(f"[{e['outcome']}]")
         bits.append(f"- confidence {e['confidence']:.2f} [{e['label']}]")
-        if e["disputed"]:
-            bits.append("** DISPUTED: " + "; ".join(f["type"] for f in e["contradictions"]) + " **")
-        lines.append(" ".join(bits))
+        if e.get("disputed"):
+            bits.append("** DISPUTED: " + "; ".join(
+                f["type"] for f in e["contradictions"] if f["type"] not in NON_DISPUTE_FLAGS) + " **")
+        if e.get("evidence_kinds"):
+            bits.append("(evidence kind: " + ", ".join(e["evidence_kinds"]) + ")")
+        lines = [" ".join(bits)]
         for s in e["supporting"][:2]:
             lines.append(f"    supports  ({s['ref']}, {s['study_type']})")
         for s in e["refuting"][:2]:
             lines.append(f"    REFUTES   ({s['ref']}, {s['study_type']})")
         for f in e["contradictions"]:
-            lines.append(f"    conflict: {f['detail']}")
+            if f["type"] not in NON_DISPUTE_FLAGS:
+                lines.append(f"    conflict: {f['detail']}")
+        return lines
+
+    lines: List[str] = []
+    main = [e for e in ledger if not e.get("candidate")]
+    for e in main[:max_entries]:
+        lines += _entry_lines(e)
+    cands = [e for e in ledger if e.get("candidate")]
+    if cands:
+        lines.append("")
+        lines.append("CANDIDATE ASSOCIATIONS NOT IN ClinPGx (literature only; report them as "
+                     "candidates needing verification, never as established):")
+        for e in cands[:max_candidates]:
+            lines += _entry_lines(e)
+            if e.get("proposed_via"):
+                lines.append(f"    proposed by: {', '.join(e['proposed_via'])}")
+    weak = sum(1 for e in ledger if not e.get("curated") and not e.get("candidate"))
+    if weak:
+        lines.append(f"({weak} further literature-only pair(s) have only weak support and are "
+                     f"omitted)")
     return "\n".join(lines)
