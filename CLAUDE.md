@@ -24,7 +24,7 @@ python eval_genmedgpt.py                       # BERTScore (roberta-large, resca
 python eval_genmedgpt.py --judge               # + LLM-as-judge (weak llama3.1:8b approximation of the paper's GPT-4 ranking)
 ```
 
-There are no tests or linters configured.
+No linters. Offline tests for the phase-15 modules live in `tests/` (see the Phase 15 section).
 
 ## LLM routing (env vars, read in `AMG_RAG_System.__init__`)
 
@@ -80,6 +80,19 @@ The ADR/ClinPGx experiment is organized as retrieval "phases", selected via env 
 - `sbatch run_adr_phase45_alliance.bash` runs phases 4 then 5 on the ADR discovery set (aborts cleanly if NCBI is unreachable from the compute node).
 
 **Provenance**: every retrieval (ClinPGx row, PubMed abstract, PMC full text, Wikipedia summary) is logged to `AMG_RAG_System.evidence_log` with a stage tag (`question_context`, `entity:<name>`, `reasoning`) and a stable ref (`PMID:xxx`, `PMID:xxx/PMCxxx`, `ClinPGx:GENE/variant:Llevel`, `Wikipedia:title`). Both entry points attach `references` (deduped citations via `collect_references()`) and `evidence_log` to the result, and `run_genmedgpt.py` persists both fields in the results JSONL. The log resets per question in `answer_question`/`answer_open_question`. `PubMedSearcher` caches per-PMID (abstract + full text) and rate-limits NCBI calls to ~3/s.
+
+### Phase 15: edge queue, typed-path discovery, search rounds (`docs/PLAN.md`)
+
+Everything is behind env vars read in `__init__`; with none set, phase 13 reproduces unchanged. `sbatch run_adr_phase15_alliance.bash` turns them all on.
+
+- `AMG_PATH_DISCOVERY=1` — `graph_paths.py` proposes gene–drug edges absent from ClinPGx via typed 2-hop paths over the *global* tables (A: gene–outcome, B: gene–gene with Adamic–Adar hub penalty, C: gene–drug class). Curated rows only; LLM-hypothesised edges never compose into paths.
+- `AMG_SEARCH_ROUNDS=N`, `AMG_QUERY_BUDGET=k` — `edge_queue.py` holds every candidate (gene, drug, outcome) as an `Edge` with status/provenance/prior; each round `select()` spends `k` queries by uncertainty × prior (a third reserved for untested edges), `_run_search_rounds` digests new papers, rebuilds ledger + cards, writes literature edges back into `kg`, and stops early when no cohort-or-better paper was read.
+- `AMG_FOLLOWUP_SEARCH=1` — `contradiction_layer.followup_queries` turns unresolved cards into the next queries (INSUFFICIENT → `[pt]` design filter, CONTEXT-DEPENDENT → the separating axis value).
+- `mesh_terms.py` — MeSH synonyms and tree parents through E-utilities, cached in `dataset/mesh_cache.json` (`AMG_MESH_ONLINE=0` = cache only). Used for outcome grouping (`outcome_family`) and drug-class matching in `pgx_kb` (`expand_drug_detailed`, `association_detailed` with `match=exact|class`).
+- Ledger changes (`evidence_ledger.py`): groups are gene + drug + **outcome**; `Claim` carries `outcome`, `evidence_kind`, `drug_match`, `proposed_via`; `drug_match=mismatch` claims (paper studied another drug) are excluded and logged in `result["off_drug_claims"]`; literature-only pairs with ≥2 independent cohort-or-better sources start from base 0.45 (max ≈0.64, never "high"); `uncurated_literature_claim` no longer sets `disputed`; `ledger_to_prompt` adds a candidates block outside the 12-entry cut. `claims_by_pair` and `build_cards` are keyed by the 3-tuple.
+- Digest (`_digest_one_paper`): new fields `drugs_studied`, `evidence_kind`; study type = majority over chunks, overridden by PubMed `PublicationType` when it names a design; retracted papers skipped; digests cached per question in `_digest_cache` so later rounds only read new papers.
+- Result JSONL gains `path_candidates`, `edge_queue`, `search_rounds`, `off_drug_claims`.
+- Tests: `tests/` — `test_phase15_modules.py`, `test_phase15_ledger.py` (stdlib + tables; MeSH test needs network or the cache) and `test_phase15_system.py` (full loop with fake PubMed/digest; run under `module load StdEnv/2023 python/3.11.5 arrow/17.0.0` + `.venv`).
 
 ### Self-hosted LLM (replaces the ngrok tunnel)
 

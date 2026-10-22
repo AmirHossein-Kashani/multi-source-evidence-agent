@@ -72,6 +72,7 @@ All phases use the same code, model, and questions, and differ **only in environ
 | 10 | `pharmgkb+pubmed_free` | Model-written queries; paragraph-level paper digestion |
 | 11, 9L, 12 | `…_free`, `…_combo`, `…_free` | **Evidence ledger** (12 also widens open-access full-text routes) |
 | **13** | `pharmgkb+pubmed_combo` | **Disagreement analysis** on top of phase-9 retrieval and the ledger |
+| **15** | `pharmgkb+pubmed_combo` + `AMG_PATH_DISCOVERY`, `AMG_SEARCH_ROUNDS`, `AMG_FOLLOWUP_SEARCH` | **Edge queue and search rounds**: typed-path proposals over the global ClinPGx graph and follow-up queries from the cards, budgeted by uncertainty; evidence grouped by outcome, drug taken from the paper, MeSH drug classes ([docs/PLAN.md](docs/PLAN.md)) |
 
 [`docs/PHASES_EVOLUTION.md`](docs/PHASES_EVOLUTION.md) explains what changed at each step and why. [`docs/PHASES_COMPARISON.md`](docs/PHASES_COMPARISON.md) and [`PHASE_SCORECARD.md`](PHASE_SCORECARD.md) have per-phase metrics.
 
@@ -133,6 +134,9 @@ The runner appends JSONL and can resume: on restart it skips questions that alre
 | `AMG_CONTRADICTION_LAYER` | `0` / `1` | Disagreement analysis and cards |
 | `AMG_ANSWER_STYLE` | `doctor`, `pgx`, `adr` | Answer prompt: empathetic reply / short factual PGx / ADR evidence assessment |
 | `AMG_USE_EXTERNAL` | `0` / `1` | Original AMG-RAG PubMed and Wikipedia retrieval |
+| `AMG_PATH_DISCOVERY` | `0` / `1` | Typed-path candidate proposals (A outcome, B gene–gene, C drug class) over the global ClinPGx graph |
+| `AMG_SEARCH_ROUNDS`, `AMG_QUERY_BUDGET` | int | Targeted search rounds after the base retrieval, and queries per round, allocated by uncertainty × prior |
+| `AMG_FOLLOWUP_SEARCH` | `0` / `1` | Disagreement cards generate the next round's queries |
 
 ## Repository layout
 
@@ -140,7 +144,10 @@ The runner appends JSONL and can resume: on restart it skips questions that alre
 AMG-with-KG.py              Core agent (graph, retrieval, ledger and contradiction hooks, answering)
 pgx_kb.py                   ClinPGx table lookup (gene/allele, drug alias and class, phenotype synonyms)
 evidence_ledger.py          Rule-based evidence scoring and flags
-contradiction_layer.py      Evidence grouping, context comparison, disagreement statuses
+contradiction_layer.py      Evidence grouping, context comparison, disagreement statuses, follow-up queries
+mesh_terms.py               MeSH synonyms and drug classes via E-utilities (cached in dataset/mesh_cache.json)
+graph_paths.py              Typed-path proposals over the global ClinPGx graph (phase 15)
+edge_queue.py               Edge statuses, provenance and the search-budget allocator (phase 15)
 run_genmedgpt.py            Resumable batch runner (all datasets)
 run_*_alliance.bash         Slurm job per experiment and phase; setup_ollama.bash installs the LLM server
 convert_*.py, make_pgx_benchmark.py   Dataset builders (GenMedGPT-5k, PharmGKB QA, 72-pair benchmark)
