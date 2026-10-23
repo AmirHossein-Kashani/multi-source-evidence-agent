@@ -134,6 +134,13 @@ def main():
                     "gene_ledger": result.get("gene_ledger", []),
                     # Phase 13: status + explanation per gene-drug pair.
                     "contradiction_cards": result.get("contradiction_cards", []),
+                    # Phase 15: path proposals, edge queue, search rounds, excluded claims,
+                    # and the candidate genes the answer named.
+                    "path_candidates": result.get("path_candidates", []),
+                    "edge_queue": result.get("edge_queue", []),
+                    "search_rounds": result.get("search_rounds", []),
+                    "off_drug_claims": result.get("off_drug_claims", []),
+                    "candidate_genes": result.get("candidate_genes", []),
                 })
                 if result.get("error"):
                     record["error"] = result["error"]

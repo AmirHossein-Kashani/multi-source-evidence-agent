@@ -103,6 +103,7 @@ class Claim:
     evidence_kind: str = "unknown" # germline_variant | somatic | expression | protein_biomarker
     drug_match: str = "exact"      # exact | class | mismatch (paper studied another drug)
     proposed_via: str = ""         # how the search that found this source was proposed
+    symbol_status: str = ""        # verified | unverified | unknown (gene_symbols), "" = not checked
     # study context, compared by the contradiction layer
     population: str = ""
     cancer_type: str = ""
@@ -274,6 +275,14 @@ def build_ledger(claims: List[Claim], pgx=None) -> List[dict]:
         kinds = sorted({_norm(getattr(c, "evidence_kind", "")) for c in group
                         if _norm(getattr(c, "evidence_kind", "")) not in ("", "unknown")})
         via = sorted({c.proposed_via for c in group if getattr(c, "proposed_via", "")})
+        # A symbol is unverified when NCBI Gene has no human record for it (family names,
+        # aliases). Curated rows vouch for their own symbols.
+        statuses = {getattr(c, "symbol_status", "") for c in group}
+        symbol_status = ("verified" if curated or "verified" in statuses else
+                         "unverified" if "unverified" in statuses else
+                         "unknown" if "unknown" in statuses else "")
+        is_candidate = (any(f["type"] == "uncurated_literature_claim" for f in flags)
+                        and symbol_status != "unverified")
 
         def _src(c: Claim) -> dict:
             d = {"ref": c.ref, "study_type": c.study_type, "text": c.text[:200]}
@@ -289,7 +298,8 @@ def build_ledger(claims: List[Claim], pgx=None) -> List[dict]:
             "confidence": round(score, 3),
             "label": label_for(score),
             "curated": bool(curated) or assoc is not None,
-            "candidate": any(f["type"] == "uncurated_literature_claim" for f in flags),
+            "candidate": is_candidate,
+            "symbol_status": symbol_status,
             "disputed": any(f["type"] not in NON_DISPUTE_FLAGS for f in flags),
             "contradictions": flags,
             "evidence_kinds": kinds,
@@ -320,6 +330,8 @@ def ledger_to_prompt(ledger: List[dict], max_entries: int = 12, max_candidates: 
                 f["type"] for f in e["contradictions"] if f["type"] not in NON_DISPUTE_FLAGS) + " **")
         if e.get("evidence_kinds"):
             bits.append("(evidence kind: " + ", ".join(e["evidence_kinds"]) + ")")
+        if e.get("symbol_status") == "unverified":
+            bits.append("(not an official gene symbol)")
         lines = [" ".join(bits)]
         for s in e["supporting"][:2]:
             lines.append(f"    supports  ({s['ref']}, {s['study_type']})")

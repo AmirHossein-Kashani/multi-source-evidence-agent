@@ -79,6 +79,10 @@ try:
     from edge_queue import EdgeQueue
 except Exception as _e:
     EdgeQueue = None
+try:
+    from gene_symbols import GeneSymbols
+except Exception as _e:
+    GeneSymbols = None
 from collections import Counter as _Counter
 
 @dataclass
@@ -690,6 +694,9 @@ class AMG_RAG_System:
             rel = os.environ.get("AMG_KB_REL", "").strip() or None
             # MeSH vocabulary (cached in dataset/mesh_cache.json; static tables if absent).
             self.vocab = MeshVocab() if MeshVocab is not None else None
+            # Official gene symbols (NCBI Gene, cached): a candidate association needs a real
+            # symbol, not a family name ("CBR") or an alias ("MATE1") as the paper wrote it.
+            self.genes = GeneSymbols() if GeneSymbols is not None else None
             self.pgx = PharmGKBSearcher(*( [clinvar, rel] if clinvar and rel else [] ),
                                         vocab=self.vocab)
             print(f"[ClinPGx] loaded {len(self.pgx.clinvar_rows)} clinicalVariants rows, "
@@ -704,6 +711,7 @@ class AMG_RAG_System:
         else:
             self.pgx = None
             self.vocab = None
+            self.genes = None
             self.pathg = None
         if self.use_external_sources:
             self.embeddings = HuggingFaceEmbeddings(
@@ -1563,7 +1571,13 @@ class AMG_RAG_System:
                 name="risk_genes",
                 description="List of gene or variant names implicated in this adverse reaction.",
                 type="array"
-            )
+            ),
+            ResponseSchema(
+                name="candidate_genes",
+                description=("Genes from the CANDIDATE ASSOCIATIONS block (literature only, not in "
+                             "the curated database). Empty list if that block is absent."),
+                type="array"
+            ),
         ]
         adr_answer_parser = StructuredOutputParser.from_response_schemas(adr_answer_schemas)
 
@@ -1593,6 +1607,11 @@ class AMG_RAG_System:
             with what. Then give (1) the likely biological mechanism and (2) the implications
             for drug discovery and patient safety. Be specific; never assert a link the ledger
             marks unsupported without saying it is unsupported.
+
+            If a CANDIDATE ASSOCIATIONS block is present, end with one separate paragraph that
+            names each candidate gene with its reference, states that it is NOT in the curated
+            database, and says it needs verification. Never present a candidate as established.
+            Put those genes in candidate_genes, not in risk_genes.
             {format_instructions}""",
             input_variables=["question", "reasoning", "evidence"],
             partial_variables={"format_instructions": adr_answer_parser.get_format_instructions()}
@@ -2452,6 +2471,7 @@ class AMG_RAG_System:
                     text=(d.get("summary") or "")[:200],
                     outcome=outcome, evidence_kind=d.get("evidence_kind", "unknown"),
                     drug_match=match, proposed_via=d.get("proposed_via", ""),
+                    symbol_status=(self.genes.status(gene) if self.genes is not None else ""),
                     population=d.get("population", ""), cancer_type=d.get("cancer_type", ""),
                     endpoint=d.get("endpoint", ""), dose_context=d.get("dose_context", "")))
         if self.off_drug_claims:
@@ -2765,6 +2785,7 @@ class AMG_RAG_System:
                 "drugs": answer_result.get("drugs", []) or [],
                 "tests": answer_result.get("tests", []) or [],
                 "risk_genes": answer_result.get("risk_genes", []) or [],
+                "candidate_genes": answer_result.get("candidate_genes", []) or [],
                 "reasoning": reasoning,
                 "graph_context": graph_context,
                 "search_context": search_context
