@@ -37,6 +37,252 @@
   ],
   "uid": "68058186"
  },
+ "acute ototoxicity measured by dpoaes": null,
+ "adverse events (mucositis)": null,
+ "amikacin": {
+  "entry_terms": [
+   "Amikacin",
+   "Amikacin Sulfate",
+   "Sulfate, Amikacin",
+   "BB-K8",
+   "BBK8",
+   "BB K8",
+   "BB-K 8",
+   "BB K 8",
+   "BBK 8",
+   "A.M.K",
+   "Amikacina Medical",
+   "Medical, Amikacina",
+   "Amikacina Normon",
+   "Normon, Amikacina",
+   "Amikafur",
+   "Amikalem",
+   "Amikason's",
+   "Amikayect",
+   "Amikin",
+   "Amiklin",
+   "Amukin",
+   "Biclin",
+   "Biklin",
+   "Gamikal",
+   "Kanbine",
+   "Oprad",
+   "Yectamid"
+  ],
+  "heading": "Amikacin",
+  "parents": [
+   "Kanamycin"
+  ],
+  "tree": [
+   "D09.408.051.476.060"
+  ],
+  "uid": "68000583"
+ },
+ "anemia": {
+  "entry_terms": [
+   "Anemia",
+   "Anemias"
+  ],
+  "heading": "Anemia",
+  "parents": [
+   "Hematologic Diseases"
+  ],
+  "tree": [
+   "C15.378.050"
+  ],
+  "uid": "68000740"
+ },
+ "anthracycline": {
+  "entry_terms": [
+   "Anthracyclines",
+   "Anthracycline"
+  ],
+  "heading": "Anthracyclines",
+  "parents": [
+   "Aminoglycosides",
+   "Naphthacenes"
+  ],
+  "tree": [
+   "D02.455.426.559.847.562.050",
+   "D04.615.562.050",
+   "D09.408.051.059"
+  ],
+  "uid": "68018943"
+ },
+ "anthracycline chemotherapy": null,
+ "anthracycline-induced cardiotoxicity (act)": null,
+ "anthracyclines and related substances": null,
+ "antipsychotics": {
+  "entry_terms": [
+   "Antipsychotic Agents",
+   "Tranquilizing Agents, Major",
+   "Major Tranquilizing Agents",
+   "Tranquillizing Agents, Major",
+   "Major Tranquillizing Agents",
+   "Major Tranquilizer",
+   "Tranquilizer, Major",
+   "Antipsychotic Drug",
+   "Drug, Antipsychotic",
+   "Antipsychotic Agent",
+   "Agent, Antipsychotic",
+   "Antipsychotic Medication",
+   "Medication, Antipsychotic",
+   "Neuroleptic Agent",
+   "Agent, Neuroleptic",
+   "Neuroleptic Drug",
+   "Drug, Neuroleptic",
+   "Neuroleptic",
+   "Antipsychotic",
+   "Antipsychotic Drugs",
+   "Antipsychotics",
+   "Major Tranquilizers",
+   "Neuroleptic Agents",
+   "Neuroleptic Drugs",
+   "Neuroleptics",
+   "Antipsychotic Effect",
+   "Effect, Antipsychotic",
+   "Antipsychotic Effects"
+  ],
+  "heading": "Antipsychotic Agents",
+  "parents": [
+   "Tranquilizing Agents"
+  ],
+  "tree": [
+   "D27.505.696.277.950.040",
+   "D27.505.954.427.210.950.040",
+   "D27.505.954.427.700.872.331"
+  ],
+  "uid": "68014150"
+ },
+ "antracycline-induced cardiotoxicity": null,
+ "antrhacycline-induced cardiotoxicity (act)": null,
+ "azathioprine": {
+  "entry_terms": [
+   "Azathioprine",
+   "Azothioprine",
+   "Imuran",
+   "Immuran",
+   "Imurel",
+   "Azathioprine Sulfate",
+   "Azathioprine Sodium",
+   "Sodium, Azathioprine",
+   "Azathioprine Sodium Salt"
+  ],
+  "heading": "Azathioprine",
+  "parents": [
+   "Thionucleosides",
+   "Mercaptopurine"
+  ],
+  "tree": [
+   "D02.886.759.111",
+   "D03.633.100.759.570.090",
+   "D13.570.900.111"
+  ],
+  "uid": "68001379"
+ },
+ "bleomycin": {
+  "entry_terms": [
+   "Bleomycin",
+   "Bleomycins",
+   "Bleomycin B2",
+   "Bleomycin B(2)",
+   "Bleomycin Sulfate",
+   "Sulfate, Bleomycin",
+   "Blenoxane",
+   "Blanoxan",
+   "Bleolem",
+   "Bleomicina",
+   "Bleomycinum Mack",
+   "Mack, Bleomycinum",
+   "BLEO-cell",
+   "BLEOcell",
+   "BLEO cell",
+   "Bleomycin A2",
+   "Bleomycin A(2)",
+   "Bl\u00e9omycine Bellon",
+   "Bellon, Bl\u00e9omycine"
+  ],
+  "heading": "Bleomycin",
+  "parents": [
+   "Glycopeptides"
+  ],
+  "tree": [
+   "D09.400.420.110",
+   "D12.644.233.110"
+  ],
+  "uid": "68001761"
+ },
+ "brain neoplasms": {
+  "entry_terms": [
+   "Brain Neoplasms",
+   "Brain Neoplasm",
+   "Neoplasm, Brain",
+   "Brain Tumors",
+   "Brain Tumor",
+   "Tumor, Brain",
+   "Neoplasms, Brain",
+   "Brain Cancer",
+   "Brain Cancers",
+   "Cancer, Brain",
+   "Neoplasms, Brain, Malignant",
+   "Brain Neoplasms, Malignant",
+   "Brain Neoplasm, Malignant",
+   "Malignant Brain Neoplasm",
+   "Malignant Brain Neoplasms",
+   "Cancer of Brain",
+   "Cancer of the Brain",
+   "Malignant Neoplasms, Brain",
+   "Brain Malignant Neoplasm",
+   "Brain Malignant Neoplasms",
+   "Malignant Neoplasm, Brain",
+   "Malignant Primary Brain Tumors",
+   "Brain Neoplasms, Malignant, Primary",
+   "Brain Neoplasms, Primary Malignant",
+   "Malignant Primary Brain Neoplasms",
+   "Primary Malignant Brain Neoplasms",
+   "Primary Malignant Brain Tumors",
+   "Neoplasms, Intracranial",
+   "Intracranial Neoplasm",
+   "Neoplasm, Intracranial",
+   "Intracranial Neoplasms",
+   "Benign Neoplasms, Brain",
+   "Benign Neoplasm, Brain",
+   "Brain Benign Neoplasm",
+   "Brain Benign Neoplasms",
+   "Brain Neoplasms, Benign",
+   "Benign Brain Neoplasm",
+   "Benign Brain Neoplasms",
+   "Brain Neoplasm, Benign",
+   "Neoplasms, Brain, Benign",
+   "Brain Tumor, Primary",
+   "Primary Brain Tumor",
+   "Primary Brain Tumors",
+   "Primary Brain Neoplasms",
+   "Brain Neoplasms, Primary",
+   "Primary Brain Neoplasm",
+   "Brain Neoplasm, Primary",
+   "Neoplasms, Brain, Primary",
+   "Brain Tumor, Recurrent",
+   "Brain Tumors, Recurrent",
+   "Recurrent Brain Tumor",
+   "Recurrent Brain Tumors",
+   "Brain Metastases",
+   "Brain Metastase"
+  ],
+  "heading": "Brain Neoplasms",
+  "parents": [
+   "Brain Diseases",
+   "Central Nervous System Neoplasms"
+  ],
+  "tree": [
+   "C04.588.614.250.195",
+   "C10.228.140.211",
+   "C10.551.240.250"
+  ],
+  "uid": "68001932"
+ },
+ "cardiac dysfunction": null,
+ "cardiac fibrosis, chronic cardiotoxicity": null,
  "cardiotoxicity": {
   "entry_terms": [
    "Cardiotoxicity",
@@ -61,6 +307,15 @@
   ],
   "uid": "68066126"
  },
+ "cardiotoxicity and chronic heart failure": null,
+ "cardiovascular toxicity": null,
+ "cardiovascular toxicity (reduction in left ventricular eject": null,
+ "cell proliferation and apoptosis": null,
+ "cell viability and ferroptosis in hair cells": null,
+ "cell viability and metabolic activity": null,
+ "cellular sensitivity to cisplatin": null,
+ "chemoresistance": null,
+ "chemotherapy-induced toxicities": null,
  "cisplatin": {
   "entry_terms": [
    "Cisplatin",
@@ -92,7 +347,134 @@
   ],
   "uid": "68002945"
  },
+ "cisplatin sensitivity": null,
+ "cisplatin-induced hair cell ferroptosis": null,
+ "cisplatin-induced hearing loss": null,
+ "cisplatin-induced hearing loss (cihl)": null,
+ "cisplatin-induced ototoxicity": null,
  "clinically significant hearing loss": null,
+ "cochlear cell viability and apoptosis": null,
+ "ctr-cardiomyopathy": null,
+ "ctrcd": null,
+ "cyclophosphamide": {
+  "entry_terms": [
+   "Cyclophosphamide",
+   "Cytoxan",
+   "Endoxan",
+   "Neosar",
+   "Procytox",
+   "Sendoxan",
+   "Cyclophosphamide, (S)-Isomer",
+   "Cyclophosphamide, (R)-Isomer",
+   "NSC-26271",
+   "NSC26271",
+   "NSC 26271",
+   "B-518",
+   "B518",
+   "B 518",
+   "Cytophosphan",
+   "Cyclophosphamide Anhydrous",
+   "Cyclophosphane",
+   "Cytophosphane",
+   "Cyclophosphamide Monohydrate",
+   "(+,-)-2-(bis(2-Chloroethyl)amino)tetrahydro-2H-1,3,2-oxazaphosphorine 2-Oxide Monohydrate"
+  ],
+  "heading": "Cyclophosphamide",
+  "parents": [
+   "Phosphoramide Mustards"
+  ],
+  "tree": [
+   "D02.455.526.728.650.730.243",
+   "D02.705.672.500.243"
+  ],
+  "uid": "68003520"
+ },
+ "daunorubicin": {
+  "entry_terms": [
+   "Daunorubicin",
+   "Dauno-Rubidomycine",
+   "Dauno Rubidomycine",
+   "Daunomycin",
+   "Rubidomycin",
+   "Rubomycin",
+   "Cerubidine",
+   "NSC-82151",
+   "NSC82151",
+   "NSC 82151",
+   "Daunorubicin Hydrochloride",
+   "Hydrochloride, Daunorubicin",
+   "Daunoblastin",
+   "Daunoblastine"
+  ],
+  "heading": "Daunorubicin",
+  "parents": [
+   "Anthracyclines"
+  ],
+  "tree": [
+   "D02.455.426.559.847.562.050.200",
+   "D04.615.562.050.200",
+   "D09.408.051.059.200"
+  ],
+  "uid": "68003630"
+ },
+ "deafness": {
+  "entry_terms": [
+   "Deafness",
+   "Hearing Loss, Extreme",
+   "Extreme Hearing Loss",
+   "Prelingual Deafness",
+   "Deafness, Prelingual",
+   "Hearing Loss, Complete",
+   "Complete Hearing Loss",
+   "Deaf Mutism",
+   "Deaf-Mutism",
+   "Deafness Permanent",
+   "Permanent, Deafness",
+   "Permanents, Deafness",
+   "Hearing Loss Permanent",
+   "Permanent, Hearing Loss",
+   "Deafness, Acquired",
+   "Acquired Deafness"
+  ],
+  "heading": "Deafness",
+  "parents": [
+   "Hearing Loss"
+  ],
+  "tree": [
+   "C09.218.458.341.186",
+   "C10.597.751.418.341.186",
+   "C23.888.592.763.393.341.186"
+  ],
+  "uid": "68003638"
+ },
+ "dexamethasone": {
+  "entry_terms": [
+   "Dexamethasone",
+   "Hexadecadrol",
+   "Methylfluorprednisolone",
+   "Oradexon",
+   "Millicorten",
+   "Hexadrol",
+   "Dexasone",
+   "Decaspray",
+   "Decameth",
+   "Decaject-L.A.",
+   "Decaject L.A.",
+   "Decaject",
+   "Dexpak",
+   "Maxidex"
+  ],
+  "heading": "Dexamethasone",
+  "parents": [
+   "Pregnadienetriols",
+   "Steroids, Fluorinated"
+  ],
+  "tree": [
+   "D04.210.500.745.432.769.344",
+   "D04.210.500.908.238"
+  ],
+  "uid": "68003907"
+ },
  "doxorubicin": {
   "entry_terms": [
    "Doxorubicin",
@@ -134,6 +516,148 @@
   ],
   "uid": "68004317"
  },
+ "doxorubicin-associated toxicity": null,
+ "doxorubicin-induced cardiotoxicity": null,
+ "doxorubicin-induced cardiotoxicity (dic)": null,
+ "drug toxicity": {
+  "entry_terms": [
+   "Drug-Related Side Effects and Adverse Reactions",
+   "Drug Related Side Effects and Adverse Reactions",
+   "Side Effects of Drugs",
+   "Drug-Related Side Effects and Adverse Reaction",
+   "Drug Related Side Effects and Adverse Reaction",
+   "Adverse Drug Reaction",
+   "Adverse Drug Reactions",
+   "Drug Reaction, Adverse",
+   "Drug Reactions, Adverse",
+   "Reactions, Adverse Drug",
+   "Adverse Drug Event",
+   "Adverse Drug Events",
+   "Drug Event, Adverse",
+   "Drug Events, Adverse",
+   "Drug Side Effects",
+   "Drug Side Effect",
+   "Effects, Drug Side",
+   "Side Effect, Drug",
+   "Side Effects, Drug",
+   "Drug Toxicity",
+   "Toxicity, Drug",
+   "Drug Toxicities",
+   "Toxicities, Drug"
+  ],
+  "heading": "Drug-Related Side Effects and Adverse Reactions",
+  "parents": [
+   "Chemically-Induced Disorders"
+  ],
+  "tree": [
+   "C25.100"
+  ],
+  "uid": "68064420"
+ },
+ "drug-induced hearing loss (ototoxicity)": null,
+ "early anthracycline cardiotoxicity": null,
+ "early ototoxicity presence or absence based on dpoae level s": null,
+ "epirubicin": {
+  "entry_terms": [
+   "Epirubicin",
+   "4'-Epiadriamycin",
+   "4' Epiadriamycin",
+   "4'-Epidoxorubicin",
+   "4' Epidoxorubicin",
+   "4'-Epi-DXR",
+   "4' Epi DXR",
+   "4'-Epi-Adriamycin",
+   "4' Epi Adriamycin",
+   "4'-Epi-Doxorubicin",
+   "4' Epi Doxorubicin",
+   "Ellence",
+   "Farmorubicin",
+   "Farmorubicine",
+   "Pharmorubicin",
+   "Epirubicin Hydrochloride",
+   "Hydrochloride, Epirubicin",
+   "IMI-28",
+   "IMI28",
+   "IMI 28",
+   "NSC-256942",
+   "NSC256942",
+   "NSC 256942",
+   "Epilem",
+   "EPI-cell",
+   "EPIcell",
+   "EPI cell",
+   "Farmorubicina"
+  ],
+  "heading": "Epirubicin",
+  "parents": [
+   "Doxorubicin"
+  ],
+  "tree": [
+   "D02.455.426.559.847.562.050.200.175.200",
+   "D04.615.562.050.200.175.200",
+   "D09.408.051.059.200.175.200"
+  ],
+  "uid": "68015251"
+ },
+ "everolimus": {
+  "entry_terms": [
+   "Everolimus",
+   "40-O-(2-hydroxyethyl)-rapamycin",
+   "SDZ RAD",
+   "RAD, SDZ",
+   "SDZ-RAD",
+   "RAD 001",
+   "001, RAD",
+   "RAD001",
+   "Certican",
+   "Afinitor",
+   "Zortress"
+  ],
+  "heading": "Everolimus",
+  "parents": [
+   "Sirolimus"
+  ],
+  "tree": [
+   "D02.540.505.760.500"
+  ],
+  "uid": "2009823"
+ },
+ "folfiri": null,
+ "gemcitabine": {
+  "entry_terms": [
+   "Gemcitabine",
+   "Gemicitabine",
+   "2'-Deoxy-2'-Difluorocytidine",
+   "2' Deoxy 2' Difluorocytidine",
+   "2',2'-Difluorodeoxycytidine",
+   "2',2'-Difluoro-2'-Deoxycytidine",
+   "2',2'-DFDC",
+   "dFdCyd",
+   "LY 188011",
+   "188011, LY",
+   "LY-188011",
+   "Gemcitabine, (beta-D-threo-pentafuranosyl)-Isomer",
+   "Gemcitabine, (alpha-D-threo-pentofuranosyl)-Isomer",
+   "Gemzar",
+   "2'-Deoxy-2',2''-Difluorocytidine-5'-O-Monophosphate",
+   "2' Deoxy 2',2'' Difluorocytidine 5' O Monophosphate",
+   "Gemcitabine Hydrochloride",
+   "Hydrochloride, Gemcitabine",
+   "Gemcitabine, (D-threo-pentafuranosyl)-Isomer"
+  ],
+  "heading": "Gemcitabine",
+  "parents": [
+   "Deoxycytidine",
+   "Heterocyclic Compounds"
+  ],
+  "tree": [
+   "D03.258",
+   "D03.383.742.680.245.500.775"
+  ],
+  "uid": "2103234"
+ },
+ "hair cell ferroptosis": null,
+ "hdl-c levels": null,
  "hearing impairment": {
   "entry_terms": [
    "Hearing Loss",
@@ -188,7 +712,161 @@
   ],
   "uid": "68034381"
  },
+ "hearing loss and tinnitus": null,
  "hearing threshold shift": null,
+ "heart failure": {
+  "entry_terms": [
+   "Heart Failure",
+   "Cardiac Failure",
+   "Heart Decompensation",
+   "Decompensation, Heart",
+   "Congestive Heart Failure",
+   "Heart Failure, Congestive",
+   "Heart Failure, Right-Sided",
+   "Heart Failure, Right Sided",
+   "Right-Sided Heart Failure",
+   "Right Sided Heart Failure",
+   "Heart Failure, Left-Sided",
+   "Heart Failure, Left Sided",
+   "Left-Sided Heart Failure",
+   "Left Sided Heart Failure",
+   "Myocardial Failure"
+  ],
+  "heading": "Heart Failure",
+  "parents": [
+   "Heart Diseases"
+  ],
+  "tree": [
+   "C14.280.434"
+  ],
+  "uid": "68006333"
+ },
+ "hepatotoxicity, myelosuppression, nephrotoxicity, neurotoxic": null,
+ "hydrocodone": {
+  "entry_terms": [
+   "Hydrocodone",
+   "Dihydrocodeinone",
+   "Hydrocodon",
+   "Hydrocon",
+   "Hydrocodone Bitartrate",
+   "Hydrocodeinonebitartrate",
+   "Hydrocodone Tartrate (1:1), Hydrate (2:5)",
+   "Codinovo",
+   "Dicodid",
+   "Hycodan",
+   "Hycon",
+   "Robidone"
+  ],
+  "heading": "Hydrocodone",
+  "parents": [
+   "Codeine"
+  ],
+  "tree": [
+   "D03.132.577.249.562.149.287",
+   "D03.605.497.607.204.540",
+   "D03.633.400.686.607.204.540",
+   "D04.615.723.795.576.149.287"
+  ],
+  "uid": "68006853"
+ },
+ "idarubicin": {
+  "entry_terms": [
+   "Idarubicin",
+   "4-Demethoxydaunorubicin",
+   "4 Demethoxydaunorubicin",
+   "4-Desmethoxydaunorubicin",
+   "4 Desmethoxydaunorubicin",
+   "IMI-30",
+   "IMI30",
+   "IMI 30",
+   "Idarubicin Hydrochloride",
+   "Hydrochloride, Idarubicin",
+   "NSC-256439",
+   "NSC256439",
+   "NSC 256439"
+  ],
+  "heading": "Idarubicin",
+  "parents": [
+   "Daunorubicin"
+  ],
+  "tree": [
+   "D02.455.426.559.847.562.050.200.300",
+   "D04.615.562.050.200.300",
+   "D09.408.051.059.200.300"
+  ],
+  "uid": "68015255"
+ },
+ "imatinib": {
+  "entry_terms": [
+   "Imatinib Mesylate",
+   "Mesylate, Imatinib",
+   "Imatinib Methanesulfonate",
+   "Methanesulfonate, Imatinib",
+   "CGP 57148",
+   "CGP-57148",
+   "CGP57148",
+   "CGP57148B",
+   "STI571",
+   "STI-571",
+   "STI 571",
+   "Gleevec",
+   "Glivec",
+   "ST 1571",
+   "ST1571",
+   "Imatinib",
+   "Alpha-(4-methyl-1-piperazinyl)-3'-((4-(3-pyridyl)-2-pyrimidinyl)amino)-p-tolu-p-toluidide"
+  ],
+  "heading": "Imatinib Mesylate",
+  "parents": [
+   "Benzamides",
+   "Piperazines",
+   "Pyrimidines"
+  ],
+  "tree": [
+   "D02.065.277.456",
+   "D02.241.223.100.100.435",
+   "D02.455.426.559.389.127.085.465",
+   "D03.383.606.405",
+   "D03.383.742.349"
+  ],
+  "uid": "2009892"
+ },
+ "intestinal toxicity": null,
+ "left ventricular ejection fraction and fractional shortening": null,
+ "left ventricular fractional shortening (lvfs)": null,
+ "lung neoplasms": {
+  "entry_terms": [
+   "Lung Neoplasms",
+   "Neoplasms, Pulmonary",
+   "Neoplasm, Pulmonary",
+   "Pulmonary Neoplasm",
+   "Pulmonary Neoplasms",
+   "Neoplasms, Lung",
+   "Lung Neoplasm",
+   "Neoplasm, Lung",
+   "Lung Cancer",
+   "Cancer, Lung",
+   "Cancers, Lung",
+   "Lung Cancers",
+   "Cancer of Lung",
+   "Pulmonary Cancer",
+   "Cancer, Pulmonary",
+   "Cancers, Pulmonary",
+   "Pulmonary Cancers",
+   "Cancer of the Lung"
+  ],
+  "heading": "Lung Neoplasms",
+  "parents": [
+   "Lung Diseases",
+   "Respiratory Tract Neoplasms"
+  ],
+  "tree": [
+   "C04.588.894.797.520",
+   "C08.381.540",
+   "C08.785.520"
+  ],
+  "uid": "68008175"
+ },
  "mercaptopurine": {
   "entry_terms": [
    "Mercaptopurine",
@@ -222,6 +900,150 @@
    "D03.633.100.759.570"
   ],
   "uid": "68015122"
+ },
+ "methotrexate": {
+  "entry_terms": [
+   "Methotrexate",
+   "Amethopterin",
+   "Mexate",
+   "Methotrexate Hydrate",
+   "Hydrate, Methotrexate",
+   "Methotrexate Sodium",
+   "Sodium, Methotrexate",
+   "Methotrexate, Sodium Salt",
+   "Methotrexate, Disodium Salt",
+   "Methotrexate, (D)-Isomer",
+   "Methotrexate, (DL)-Isomer",
+   "Methotrexate, Dicesium Salt",
+   "Dicesium Salt Methotrexate"
+  ],
+  "heading": "Methotrexate",
+  "parents": [
+   "Aminopterin"
+  ],
+  "tree": [
+   "D03.633.100.733.631.192.500"
+  ],
+  "uid": "68008727"
+ },
+ "mucositis": {
+  "entry_terms": [
+   "Mucositis",
+   "Mucositides"
+  ],
+  "heading": "Mucositis",
+  "parents": [
+   "Gastroenteritis",
+   "Mouth Diseases"
+  ],
+  "tree": [
+   "C06.405.205.798",
+   "C07.465.584"
+  ],
+  "uid": "68052016"
+ },
+ "neoplasms": {
+  "entry_terms": [
+   "Neoplasms",
+   "Tumors",
+   "Neoplasia",
+   "Neoplasias",
+   "Neoplasm",
+   "Tumor",
+   "Cancer",
+   "Cancers",
+   "Malignant Neoplasm",
+   "Malignancy",
+   "Malignancies",
+   "Malignant Neoplasms",
+   "Neoplasm, Malignant",
+   "Neoplasms, Malignant",
+   "Benign Neoplasms",
+   "Neoplasms, Benign",
+   "Neoplasm, Benign",
+   "Benign Neoplasm"
+  ],
+  "heading": "Neoplasms",
+  "parents": [
+   "Diseases Category"
+  ],
+  "tree": [
+   "C04"
+  ],
+  "uid": "68009369"
+ },
+ "neuropathy": null,
+ "ocular toxicity": {
+  "entry_terms": [
+   "Toxic Optic Neuropathy",
+   "Neuropathy, Toxic Optic",
+   "Optic Neuropathy, Toxic",
+   "Toxic Optic Neuropathies",
+   "Ocular Toxicity",
+   "Toxicity, Ocular"
+  ],
+  "heading": "Toxic Optic Neuropathy",
+  "parents": [
+   "Pathologic Processes",
+   "Radiation Injuries",
+   "Optic Nerve Injuries",
+   "Drug-Related Side Effects and Adverse Reactions"
+  ],
+  "tree": [
+   "C10.292.200.750.500",
+   "C10.292.700.475.500",
+   "C10.900.300.218.550.500",
+   "C11.640.530.500",
+   "C23.550.877",
+   "C25.100.937",
+   "C26.733.902",
+   "G01.750.748.500.902"
+  ],
+  "uid": "2031059"
+ },
+ "oral mucositis": {
+  "entry_terms": [
+   "Stomatitis",
+   "Stomatitides",
+   "Oral Mucositis",
+   "Mucositides, Oral",
+   "Oral Mucositides",
+   "Mucositis, Oral",
+   "Oromucositis",
+   "Oromucositides"
+  ],
+  "heading": "Stomatitis",
+  "parents": [
+   "Mouth Diseases"
+  ],
+  "tree": [
+   "C07.465.864"
+  ],
+  "uid": "68013280"
+ },
+ "osteosarcoma": {
+  "entry_terms": [
+   "Osteosarcoma",
+   "Osteosarcomas",
+   "Osteogenic Sarcoma",
+   "Osteosarcoma Tumor",
+   "Osteosarcoma Tumors",
+   "Tumor, Osteosarcoma",
+   "Tumors, Osteosarcoma",
+   "Sarcoma, Osteogenic",
+   "Osteogenic Sarcomas",
+   "Sarcomas, Osteogenic"
+  ],
+  "heading": "Osteosarcoma",
+  "parents": [
+   "Sarcoma",
+   "Neoplasms, Bone Tissue"
+  ],
+  "tree": [
+   "C04.557.450.565.575.650",
+   "C04.557.450.795.620"
+  ],
+  "uid": "68012516"
  },
  "ototoxicity": {
   "entry_terms": [
@@ -302,6 +1124,101 @@
   ],
   "uid": "2031054"
  },
+ "ovarian neoplasms": {
+  "entry_terms": [
+   "Ovarian Neoplasms",
+   "Neoplasm, Ovarian",
+   "Ovarian Neoplasm",
+   "Neoplasms, Ovarian",
+   "Ovary Neoplasms",
+   "Neoplasm, Ovary",
+   "Neoplasms, Ovary",
+   "Ovary Neoplasm",
+   "Ovary Cancer",
+   "Cancer, Ovary",
+   "Cancers, Ovary",
+   "Ovary Cancers",
+   "Cancer of Ovary",
+   "Cancer of the Ovary",
+   "Ovarian Cancer",
+   "Cancer, Ovarian",
+   "Cancers, Ovarian",
+   "Ovarian Cancers"
+  ],
+  "heading": "Ovarian Neoplasms",
+  "parents": [
+   "Endocrine Gland Neoplasms",
+   "Genital Neoplasms, Female",
+   "Ovarian Diseases"
+  ],
+  "tree": [
+   "C04.588.322.455",
+   "C12.050.351.500.056.630.705",
+   "C12.050.351.937.418.685",
+   "C12.100.250.056.630.705",
+   "C12.900.418.685",
+   "C19.344.410",
+   "C19.391.630.705"
+  ],
+  "uid": "68010051"
+ },
+ "overall survival": null,
+ "pathological complete response": null,
+ "pathological_complete_response": null,
+ "peginterferon alfa-2b": null,
+ "peripheral neuropathy": {
+  "entry_terms": [
+   "Peripheral Nervous System Diseases",
+   "Peripheral Nervous System Disorders",
+   "Peripheral Neuropathies",
+   "Neuropathy, Peripheral",
+   "Peripheral Neuropathy",
+   "Peripheral Nervous System Disease",
+   "PNS Diseases",
+   "PNS Disease",
+   "Peripheral Nerve Diseases",
+   "Nerve Disease, Peripheral",
+   "Nerve Diseases, Peripheral",
+   "Peripheral Nerve Disease",
+   "PNS (Peripheral Nervous System) Diseases"
+  ],
+  "heading": "Peripheral Nervous System Diseases",
+  "parents": [
+   "Neuromuscular Diseases"
+  ],
+  "tree": [
+   "C10.668.829"
+  ],
+  "uid": "68010523"
+ },
+ "phenytoin": {
+  "entry_terms": [
+   "Phenytoin",
+   "5,5-diphenylimidazolidine-2,4-dione",
+   "5,5-Diphenylhydantoin",
+   "Diphenylhydantoin",
+   "Fenitoin",
+   "Dihydan",
+   "Difenin",
+   "Dilantin",
+   "Epamin",
+   "Hydantol",
+   "Antisacer",
+   "Epanutin",
+   "Phenytoin Sodium",
+   "Sodium Diphenylhydantoinate",
+   "Diphenylhydantoinate, Sodium",
+   "Phenhydan"
+  ],
+  "heading": "Phenytoin",
+  "parents": [
+   "Hydantoins"
+  ],
+  "tree": [
+   "D03.383.129.308.432.555.730"
+  ],
+  "uid": "68010672"
+ },
  "platinol": {
   "entry_terms": [
    "Cisplatin",
@@ -332,6 +1249,224 @@
    "D01.710.100"
   ],
   "uid": "68002945"
+ },
+ "platinum": {
+  "entry_terms": [
+   "Platinum",
+   "Platinum Black"
+  ],
+  "heading": "Platinum",
+  "parents": [
+   "Metals, Heavy",
+   "Transition Elements"
+  ],
+  "tree": [
+   "D01.268.556.690",
+   "D01.268.956.734",
+   "D01.552.544.690"
+  ],
+  "uid": "68010984"
+ },
+ "platinum compounds": {
+  "entry_terms": [
+   "Platinum Compounds",
+   "Compounds, Platinum",
+   "Platinum-Containing Compounds",
+   "Compounds, Platinum-Containing",
+   "Platinum Containing Compounds",
+   "Platinum Compounds, Inorganic",
+   "Compounds, Inorganic Platinum",
+   "Inorganic Platinum Compounds",
+   "Platinum Compound",
+   "Compound, Platinum",
+   "Platinum-Containing Compound",
+   "Compound, Platinum-Containing",
+   "Platinum Containing Compound"
+  ],
+  "heading": "Platinum Compounds",
+  "parents": [
+   "Inorganic Chemicals"
+  ],
+  "tree": [
+   "D01.710"
+  ],
+  "uid": "68017671"
+ },
+ "r-chop": null,
+ "renal function decline (egfr)": null,
+ "risperidone": {
+  "entry_terms": [
+   "Risperidone",
+   "R-64,766",
+   "R 64,766",
+   "R64,766",
+   "R-64766",
+   "R64766",
+   "R 64766",
+   "Risperidal",
+   "Risperdal Consta",
+   "Consta, Risperdal"
+  ],
+  "heading": "Risperidone",
+  "parents": [
+   "Pyrimidinones"
+  ],
+  "tree": [
+   "D03.383.742.698.685"
+  ],
+  "uid": "68018967"
+ },
+ "sensorineural hearing loss": {
+  "entry_terms": [
+   "Hearing Loss, Sensorineural",
+   "Neurosensory Deafness",
+   "Deafnesses, Neurosensory",
+   "Neurosensory Deafnesses",
+   "Sensoryneural Deafness",
+   "Deafnesses, Sensoryneural",
+   "Sensoryneural Deafnesses",
+   "Deafness, Sensoryneural",
+   "Sensoryneural Deafness",
+   "Deafness, Neurosensory",
+   "Deafness Neurosensory",
+   "Sensorineural Hearing Loss",
+   "Hearing Loss, Cochlear",
+   "Cochlear Hearing Loss"
+  ],
+  "heading": "Hearing Loss, Sensorineural",
+  "parents": [
+   "Hearing Loss"
+  ],
+  "tree": [
+   "C09.218.458.341.887",
+   "C10.597.751.418.341.887",
+   "C23.888.592.763.393.341.887"
+  ],
+  "uid": "68006319"
+ },
+ "sensorineural hearing loss (snhl)": null,
+ "sensorineural_hearing_loss": {
+  "entry_terms": [
+   "Hearing Loss, Sensorineural",
+   "Neurosensory Deafness",
+   "Deafnesses, Neurosensory",
+   "Neurosensory Deafnesses",
+   "Sensoryneural Deafness",
+   "Deafnesses, Sensoryneural",
+   "Sensoryneural Deafnesses",
+   "Deafness, Sensoryneural",
+   "Sensoryneural Deafness",
+   "Deafness, Neurosensory",
+   "Deafness Neurosensory",
+   "Sensorineural Hearing Loss",
+   "Hearing Loss, Cochlear",
+   "Cochlear Hearing Loss"
+  ],
+  "heading": "Hearing Loss, Sensorineural",
+  "parents": [
+   "Hearing Loss"
+  ],
+  "tree": [
+   "C09.218.458.341.887",
+   "C10.597.751.418.341.887",
+   "C23.888.592.763.393.341.887"
+  ],
+  "uid": "68006319"
+ },
+ "simvastatin": {
+  "entry_terms": [
+   "Simvastatin",
+   "Zocor",
+   "MK-733",
+   "MK733",
+   "MK 733",
+   "Synvinolin"
+  ],
+  "heading": "Simvastatin",
+  "parents": [
+   "Lovastatin"
+  ],
+  "tree": [
+   "D02.455.426.559.847.638.400.900",
+   "D04.615.638.400.900"
+  ],
+  "uid": "68019821"
+ },
+ "subclinical cardiotoxicity": null,
+ "tenofovir": {
+  "entry_terms": [
+   "Tenofovir",
+   "9-PMPA (tenofovir)",
+   "9-(2-Phosphonomethoxypropyl)adenine",
+   "9-(2-Phosphonylmethoxypropyl)adenine",
+   "9-(2-Phosphonylmethoxypropyl)adenine, (+-)-isomer",
+   "9-(2-Phosphonylmethoxypropyl)adenine, (S)-isomer",
+   "9-(2-Phosphonylmethoxypropyl)adenine, (R)-isomer - T357098",
+   "(R)-9-(2-phosphonylmethoxypropyl)adenine",
+   "Tenofovir Disoproxil Fumarate",
+   "Disoproxil Fumarate, Tenofovir",
+   "Fumarate, Tenofovir Disoproxil",
+   "Viread",
+   "Tenofovir Disoproxil",
+   "Disoproxil, Tenofovir"
+  ],
+  "heading": "Tenofovir",
+  "parents": [
+   "Adenine",
+   "Organophosphonates"
+  ],
+  "tree": [
+   "D02.705.429.906",
+   "D03.633.100.759.138.881"
+  ],
+  "uid": "2009864"
+ },
+ "thalidomide": {
+  "entry_terms": [
+   "Thalidomide",
+   "Sedoval",
+   "Thalomid"
+  ],
+  "heading": "Thalidomide",
+  "parents": [
+   "Phthalimides",
+   "Piperidones"
+  ],
+  "tree": [
+   "D02.241.223.805.810.800",
+   "D03.383.621.808.800",
+   "D03.633.100.513.750.750"
+  ],
+  "uid": "68013792"
+ },
+ "thioguanine": {
+  "entry_terms": [
+   "Thioguanine",
+   "6-Thioguanine",
+   "6 Thioguanine",
+   "Tioguanine",
+   "2-Amino-6-Purinethiol",
+   "2 Amino 6 Purinethiol",
+   "Thioguanine Hemihydrate",
+   "Thioguanine Monosodium Salt",
+   "Lanvis",
+   "Tioguanina Wellcome",
+   "Tabloid",
+   "Thioguanin-GSK",
+   "ThioguaninGSK",
+   "Thioguanin GSK",
+   "Thioguanine Tabloid",
+   "Thioguanine Anhydrous",
+   "Anhydrous, Thioguanine"
+  ],
+  "heading": "Thioguanine",
+  "parents": [
+   "Purines"
+  ],
+  "tree": [
+   "D03.633.100.759.854"
+  ],
+  "uid": "68013866"
  },
  "tinnitus": {
   "entry_terms": [
@@ -376,5 +1511,200 @@
    "C23.888.592.763.393.670"
   ],
   "uid": "68014012"
+ },
+ "tobramycin": {
+  "entry_terms": [
+   "Tobramycin",
+   "Nebramycin Factor 6",
+   "Brulamycin",
+   "Tobramycin Sulfate",
+   "Sulfate, Tobramycin",
+   "Tobracin",
+   "Obracin",
+   "Nebcin",
+   "Nebicin"
+  ],
+  "heading": "Tobramycin",
+  "parents": [
+   "Nebramycin"
+  ],
+  "tree": [
+   "D09.408.051.476.600.800"
+  ],
+  "uid": "68014031"
+ },
+ "toxicity events": null,
+ "tramadol": {
+  "entry_terms": [
+   "Tramadol",
+   "Tramal",
+   "K-315",
+   "K315",
+   "K 315",
+   "Zamudol",
+   "Adolonta",
+   "Contramal",
+   "Amadol",
+   "Tramadol Asta Medica",
+   "Biodalgic",
+   "Jutadol",
+   "MTW-Tramadol",
+   "MTWTramadol",
+   "MTW Tramadol",
+   "Nobligan",
+   "Prontofort",
+   "Theradol",
+   "Takadol",
+   "Tiral",
+   "Tramadol Lindo",
+   "Topalgic",
+   "Tradol",
+   "Tradol-Puren",
+   "TradolPuren",
+   "Tradol Puren",
+   "Tradonal",
+   "Tralgiol",
+   "Trama AbZ",
+   "Trama KD",
+   "Trama-Dorsch",
+   "TramaDorsch",
+   "Trama Dorsch",
+   "Biokanol",
+   "Tramabeta",
+   "Tramadoc",
+   "Tramadol PB",
+   "Tramadol 1A",
+   "Ranitidin 1A Pharma",
+   "Trama 1A Pharma",
+   "Tramadol acis",
+   "Tramadol AL",
+   "Tramadol Basics",
+   "Zydol",
+   "Ultram",
+   "Tramagetic",
+   "Tramadura",
+   "Tramex",
+   "Tramagit",
+   "Tramake",
+   "Tramadolor",
+   "Tramundin",
+   "Trasedal",
+   "Xymel 50",
+   "Zumalgic",
+   "Zytram",
+   "Tramadol Bayvit",
+   "Tramadol Bexal",
+   "Tramadol Cinfa",
+   "Tramadol Edigen",
+   "Tramadol Heumann",
+   "Tramadol Kern",
+   "Tramadol Lichtenstein",
+   "Tramadol Mabo",
+   "Tramadol Normon",
+   "Tramadin",
+   "Tramadol Ratiopharm",
+   "Tramadol-ratiopharm",
+   "Tramadolratiopharm",
+   "Tramadol Stada",
+   "Tramadol-Dolgit",
+   "TramadolDolgit",
+   "Tramadol Dolgit",
+   "Tramadol-Hameln",
+   "TramadolHameln",
+   "Tramadol Hameln",
+   "Tramadol Hydrochloride"
+  ],
+  "heading": "Tramadol",
+  "parents": [
+   "Cyclohexanols",
+   "Dimethylamines"
+  ],
+  "tree": [
+   "D02.033.415.510.500.802",
+   "D02.092.668.387.750",
+   "D10.289.510.500.802"
+  ],
+  "uid": "68014147"
+ },
+ "tropisetron": {
+  "entry_terms": [
+   "Tropisetron",
+   "ICS 205-930",
+   "ICS 205930",
+   "ICS 205 930",
+   "ICS-205930",
+   "ICS-205-930",
+   "Navoban",
+   "Tropisetron Hydrochloride",
+   "(3 alpha-Tropanyl)-1H-indole-3-carboxylic Acid Ester",
+   "Indole-3-carboxylic Acid Tropine Ester",
+   "Indole 3 carboxylic Acid Tropine Ester"
+  ],
+  "heading": "Tropisetron",
+  "parents": [
+   "Indoles"
+  ],
+  "tree": [
+   "D03.633.100.473.896"
+  ],
+  "uid": "2028055"
+ },
+ "vascular injury": {
+  "entry_terms": [
+   "Vascular System Injuries",
+   "Injuries, Vascular System",
+   "Injury, Vascular System",
+   "System Injuries, Vascular",
+   "System Injury, Vascular",
+   "Vascular System Injury",
+   "Vascular Injuries",
+   "Injuries, Vascular",
+   "Injury, Vascular",
+   "Vascular Injury"
+  ],
+  "heading": "Vascular System Injuries",
+  "parents": [
+   "Vascular Diseases",
+   "Wounds and Injuries"
+  ],
+  "tree": [
+   "C14.907.937",
+   "C26.940"
+  ],
+  "uid": "68057772"
+ },
+ "venlafaxine": {
+  "entry_terms": [
+   "Venlafaxine Hydrochloride",
+   "Hydrochloride, Venlafaxine",
+   "1-(2-(dimethylamino)-1-(4-methoxyphenyl)ethyl)cyclohexanol HCl",
+   "Cyclohexanol, 1-(2-(dimethylamino)-1-(4-methoxyphenyl)ethyl)-, hydrochloride",
+   "Effexor",
+   "Efexor",
+   "Trevilor",
+   "Vandral",
+   "Wy 45030",
+   "Wy-45,030",
+   "Wy 45,030",
+   "Wy45,030",
+   "Wy-45030",
+   "Wy45030",
+   "Venlafaxine",
+   "Dobupal",
+   "Sila-Venlafaxine",
+   "Sila Venlafaxine"
+  ],
+  "heading": "Venlafaxine Hydrochloride",
+  "parents": [
+   "Cyclohexanols",
+   "Phenethylamines"
+  ],
+  "tree": [
+   "D02.033.415.510.500.901",
+   "D02.092.471.683.948",
+   "D02.455.426.392.368.367.318.750",
+   "D10.289.510.500.901"
+  ],
+  "uid": "2010007"
  }
 }
