@@ -1,0 +1,208 @@
+[
+ {
+  "question": "I am a child receiving cisplatin for cancer and developed hearing loss and tinnitus. What genetic variants make me susce",
+  "paths": "HNF1B(B/C), MDM2(B/C), NOS3(B/C), ABCG2(C), APLF(C), ATP7A(C), AXIN2(C), CCN4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 9,
+    "new_papers": 6,
+    "strong": 1,
+    "edges_written": 22
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 12,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 7
+   }
+  ],
+  "off_drug_excluded": 0
+ },
+ {
+  "question": "What genes or variants have been linked to cisplatin ototoxicity risk in pediatric cancer patients?",
+  "paths": "HNF1B(B/C), MDM2(B/C), NOS3(B/C), ABCG2(C), APLF(C), ATP7A(C), AXIN2(C), CCN4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 9,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 17
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 11,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 3
+   }
+  ],
+  "off_drug_excluded": 0
+ },
+ {
+  "question": "My daughter carries a TPMT variant and is on cisplatin for her Neuroblastoma. Her audiologist says she's high risk for h",
+  "paths": "HNF1B(B/C), MDM2(B/C), NOS3(B/C), ABCG2(C), APLF(C), ATP7A(C), AXIN2(C), CCN4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 9,
+    "new_papers": 6,
+    "strong": 0,
+    "edges_written": 16
+   }
+  ],
+  "off_drug_excluded": 0
+ },
+ {
+  "question": "After several cycles of Platinol, my child has permanent inner ear damage, and we're wondering if her GSTT1 status playe",
+  "paths": "HNF1B(B/C), MDM2(B/C), NOS3(B/C), ABCG2(C), APLF(C), ATP7A(C), AXIN2(C), CCN4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 11,
+    "new_papers": 6,
+    "strong": 0,
+    "edges_written": 5
+   }
+  ],
+  "off_drug_excluded": 0
+ },
+ {
+  "question": "Can cisplatin cause a genetic predisposition to peripheral neuropathy?",
+  "paths": "HNF1B(B/C), MDM2(B/C), NOS3(B/C), ABCG2(C), APLF(C), ATP7A(C), AXIN2(C), CCN4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 11,
+    "new_papers": 6,
+    "strong": 0,
+    "edges_written": 5
+   }
+  ],
+  "off_drug_excluded": 0
+ },
+ {
+  "question": "After receiving doxorubicin for pediatric lymphoma, my child developed severe shortness of breath and heart muscle damag",
+  "paths": "ADCY2(A/C), CELF4(A/C), CYP3A5(A/C), HCG22(A/C), HPR(A/C), CYP2D6(A/C), AKR1A1(C), AKR1C4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 9,
+    "new_papers": 6,
+    "strong": 1,
+    "edges_written": 9
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 8,
+    "new_papers": 6,
+    "strong": 3,
+    "edges_written": 9
+   }
+  ],
+  "off_drug_excluded": 8
+ },
+ {
+  "question": "Which pharmacogenomic biomarkers predict anthracycline-induced cardiotoxicity in childhood cancer survivors?",
+  "paths": "ABCA1(A), ABCB11(A), ABCC10(A), ABCC4(A), ABCC9(A), ADCY2(A), ADRA2C(A), ADRB1(A)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 11,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 26
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 7,
+    "new_papers": 6,
+    "strong": 4,
+    "edges_written": 11
+   }
+  ],
+  "off_drug_excluded": 4
+ },
+ {
+  "question": "My son carries CYP2D6*4 and was on doxorubicin for his Neoplasm \u2014 his cardiologist is concerned about early heart failur",
+  "paths": "ADCY2(A/C), CELF4(A/C), CYP3A5(A/C), HCG22(A/C), HPR(A/C), AKR1A1(C), AKR1C4(C), ATF5(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 8,
+    "new_papers": 6,
+    "strong": 3,
+    "edges_written": 13
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 9,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 6
+   }
+  ],
+  "off_drug_excluded": 0
+ },
+ {
+  "question": "My daughter took Adriamycin and now has cardiac strain and heart muscle damage \u2014 could her GSTM1 result from an earlier ",
+  "paths": "ADCY2(A/C), CELF4(A/C), CYP3A5(A/C), HCG22(A/C), HPR(A/C), CYP2D6(A/C), AKR1A1(C), AKR1C4(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 8,
+    "new_papers": 6,
+    "strong": 3,
+    "edges_written": 16
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 9,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 8
+   }
+  ],
+  "off_drug_excluded": 1
+ },
+ {
+  "question": "Could doxorubicin cause a genetic predisposition to mucositis?",
+  "paths": "CYP3A5(A/C), MIR4268(A/C), UGT1A9(A/C), ADCY2(C), AKR1A1(C), AKR1C4(C), ATF5(C), ATP7B(C)",
+  "rounds": [
+   {
+    "round": 1,
+    "queries": 6,
+    "hits": 8,
+    "new_papers": 6,
+    "strong": 2,
+    "edges_written": 12
+   },
+   {
+    "round": 2,
+    "queries": 6,
+    "hits": 7,
+    "new_papers": 6,
+    "strong": 3,
+    "edges_written": 1
+   }
+  ],
+  "off_drug_excluded": 0
+ }
+]
