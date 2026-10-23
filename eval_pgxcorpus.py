@@ -85,7 +85,8 @@ def score(rows):
             gold_g = [g for g in r["gold_genes"] if view == "all" or _SYM.match(g.upper())]
             if not gold_g:
                 continue
-            pred_g = sorted({_n(g).upper() for g in r["pred_genes"] if _n(g)})
+            # a star allele or a variant suffix names the gene ("HLA-B*57:01" -> HLA-B)
+            pred_g = sorted({re.sub(r"\s*[\*(].*$", "", _n(g)).strip().upper() for g in r["pred_genes"] if _n(g)})
             hit_gold = {gene_match(p, gold_g, r["gene_groups"]) for p in pred_g} - {None}
             tp = len(hit_gold); fp = sum(1 for p in pred_g if gene_match(p, gold_g, r["gene_groups"]) is None)
             fn = len(gold_g) - tp
