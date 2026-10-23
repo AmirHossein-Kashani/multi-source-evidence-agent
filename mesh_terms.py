@@ -13,6 +13,7 @@ import json
 import os
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from typing import Dict, List, Optional, Set
@@ -29,14 +30,19 @@ def _norm(s) -> str:
 class MeshVocab:
     """lookup(term) -> {uid, heading, entry_terms, parents, tree} | None (not a MeSH concept)."""
 
-    _MIN_INTERVAL = 0.34   # NCBI allows ~3 req/s without an API key
+    # NCBI allows ~3 req/s per IP without an API key, and the PubMed client in the pipeline
+    # shares that allowance, so this client stays well under it on its own.
+    _MIN_INTERVAL = 0.6
 
     def __init__(self, cache_path: str = DEFAULT_CACHE, online: Optional[bool] = None,
                  api_key: str = ""):
         self.cache_path = cache_path
         self.online = (os.environ.get("AMG_MESH_ONLINE", "1") != "0") if online is None else online
         self.api_key = api_key or os.environ.get("pubmed_api", "") or os.environ.get("PUBMED_API_KEY", "")
+        if self.api_key:
+            self._MIN_INTERVAL = 0.2
         self._last_call = 0.0
+        self._failed: set = set()        # terms whose lookup failed in this process: no retry storm
         self.cache: Dict[str, Optional[dict]] = {}
         try:
             with open(cache_path, encoding="utf-8") as f:
@@ -54,9 +60,17 @@ class MeshVocab:
             params["api_key"] = self.api_key
         url = f"{EUTILS}/{endpoint}.fcgi?" + urllib.parse.urlencode(params)
         req = urllib.request.Request(url, headers={"User-Agent": "amg-rag-mesh/1.0"})
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-        self._last_call = time.monotonic()
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            if e.code != 429:
+                raise
+            time.sleep(2.0)                      # rate-limited: back off once, then retry
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+        finally:
+            self._last_call = time.monotonic()
         return data
 
     def _summaries(self, uids: List[str]) -> Dict[str, dict]:
@@ -82,8 +96,8 @@ class MeshVocab:
             return None
         if key in self.cache:
             return self.cache[key]
-        if not self.online:
-            return None                       # offline and unknown: do not cache
+        if not self.online or key in self._failed:
+            return None                       # offline or failed earlier: do not cache, do not retry
         try:
             ids = self._get_json("esearch", {"db": "mesh", "term": f'"{key}"[MeSH Terms]',
                                              "retmax": 5})["esearchresult"].get("idlist", [])
@@ -105,8 +119,9 @@ class MeshVocab:
                 rec = {"uid": uid, "heading": terms[0] if terms else key,
                        "entry_terms": terms, "parents": parents,
                        "tree": [l.get("treenum") for l in (s.get("ds_idxlinks") or [])]}
-        except Exception as e:                # network error: report, do not cache
+        except Exception as e:                # network error: report once, do not cache
             print(f"[mesh] lookup failed for {key!r}: {e}")
+            self._failed.add(key)
             return None
         self.cache[key] = rec                 # None = looked up, not a MeSH concept
         self.save()
