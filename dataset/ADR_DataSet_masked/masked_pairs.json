@@ -1,0 +1,96 @@
+[
+ {
+  "gene": "ACYP2",
+  "drug": "cisplatin",
+  "outcome": "ototoxicity",
+  "tokens": [
+   "cisplatin",
+   "platinum compounds"
+  ]
+ },
+ {
+  "gene": "TPMT",
+  "drug": "cisplatin",
+  "outcome": "ototoxicity",
+  "tokens": [
+   "cisplatin",
+   "platinum compounds"
+  ]
+ },
+ {
+  "gene": "COMT",
+  "drug": "cisplatin",
+  "outcome": "ototoxicity",
+  "tokens": [
+   "cisplatin",
+   "platinum compounds"
+  ]
+ },
+ {
+  "gene": "GSTP1",
+  "drug": "cisplatin",
+  "outcome": "ototoxicity",
+  "tokens": [
+   "cisplatin",
+   "platinum compounds"
+  ]
+ },
+ {
+  "gene": "ABCC3",
+  "drug": "cisplatin",
+  "outcome": "ototoxicity",
+  "tokens": [
+   "cisplatin",
+   "platinum compounds"
+  ]
+ },
+ {
+  "gene": "SLC16A5",
+  "drug": "cisplatin",
+  "outcome": "ototoxicity",
+  "tokens": [
+   "cisplatin",
+   "platinum compounds"
+  ]
+ },
+ {
+  "gene": "SLC28A3",
+  "drug": "doxorubicin",
+  "outcome": "cardiotoxicity",
+  "tokens": [
+   "anthracyclines and related substances",
+   "daunorubicin",
+   "doxorubicin"
+  ]
+ },
+ {
+  "gene": "RARG",
+  "drug": "doxorubicin",
+  "outcome": "cardiotoxicity",
+  "tokens": [
+   "anthracyclines and related substances",
+   "daunorubicin",
+   "doxorubicin"
+  ]
+ },
+ {
+  "gene": "UGT1A6",
+  "drug": "doxorubicin",
+  "outcome": "cardiotoxicity",
+  "tokens": [
+   "anthracyclines and related substances",
+   "daunorubicin",
+   "doxorubicin"
+  ]
+ },
+ {
+  "gene": "CBR3",
+  "drug": "doxorubicin",
+  "outcome": "cardiotoxicity",
+  "tokens": [
+   "anthracyclines and related substances",
+   "daunorubicin",
+   "doxorubicin"
+  ]
+ }
+]
