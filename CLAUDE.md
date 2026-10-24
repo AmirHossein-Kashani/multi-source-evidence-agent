@@ -94,6 +94,12 @@ Everything is behind env vars read in `__init__`; with none set, phase 13 reprod
 - Result JSONL gains `path_candidates`, `edge_queue`, `search_rounds`, `off_drug_claims`.
 - Tests: `tests/` — `test_phase15_modules.py`, `test_phase15_ledger.py` (stdlib + tables; MeSH test needs network or the cache) and `test_phase15_system.py` (full loop with fake PubMed/digest; run under `module load StdEnv/2023 python/3.11.5 arrow/17.0.0` + `.venv`).
 
+### Benchmarks (`run_bench_alliance.bash`, results in `results/benchmarks.md`)
+
+- `dataset/PGxCorpus/` and `dataset/PGxQA/` are shallow clones, git-ignored except the derived `pgxqa_eval.jsonl`; fetch commands are in `.gitignore`. `convert_pgxqa.py` builds the 76-item subset; `make_masked_recovery.py` writes class-aware masked ClinPGx tables + questions to `dataset/ADR_DataSet_masked/` (TSVs ignored, task files tracked).
+- One GPU job per stage: `sbatch --export=ALL,BENCH_STAGE=pgxcorpus|masked|pgxqa15|pgxqa_base run_bench_alliance.bash`; the `masked` stage runs LLM-only, phase 13 and phase 15 on the masked tables. Scoring: `eval_pgxcorpus.py --score`, `eval_masked_recovery.py`, `eval_pgxqa.py` (BERTScore needs the CPU job `run_bench_score_alliance.bash`).
+- The PGxQA refusal metric has two rules: PGxQA's own ("unknown"/"unable") and an extended one; "insufficient" was deliberately excluded from the extended rule because phase-15 answers use it about other genes. PGxQA's drug→genes gold is CPIC-actionable, narrower than ClinPGx associations.
+
 ### Self-hosted LLM (replaces the ngrok tunnel)
 
 The PharmGKB job runs its own **Ollama server locally on the allocated GPU** — no ngrok, no remote host. `LLM_BASE_URL=http://127.0.0.1:11434/v1` points the existing `ChatOpenAI` path at it, so no change to `AMG-with-KG.py`'s routing.

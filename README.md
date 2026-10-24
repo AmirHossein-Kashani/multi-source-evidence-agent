@@ -58,6 +58,18 @@ These come from **ten development questions without gold-standard answers**. The
 | Disagreement cards (final configuration, 145 pairs) | 120 `INSUFFICIENT`, 22 `CONFLICTING`, 3 `CONTEXT-DEPENDENT` (TPMT–cisplatin by outcome, SLC28A3–anthracyclines by age group, GSTM1–doxorubicin by cancer type); 29 mechanistic-only notes |
 | Candidate-association audit | Found errors in outcome matching, drug-class matching (literal `cisplatin` misses `Platinum compounds` rows), genetic vs. protein-biomarker evidence, and drug assignment, plus repeated use of the same evidence across sources |
 
+## Benchmarks and baselines
+
+Three tests, one per claim, all with the same local qwen2.5:14b ([results/benchmarks.md](results/benchmarks.md)):
+
+| Test | Baseline | Result |
+|---|---|---|
+| [PGxCorpus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6940385/) extraction (874 annotated sentences) | dictionary matcher | drug F1 **0.82** vs 0.49; gene F1 **0.69** vs 0.51 |
+| Masked-association recovery (10 curated pairs hidden from ClinPGx, class rows included) | phase 13, LLM-only | **9/10** back as ledger candidates vs 3/10 and 0/10; 4/10 named in the answer vs 0 |
+| [PGxQA](https://psb.stanford.edu/psb-online/proceedings/psb25/keat.pdf) subsets (drug→genes, gene→drugs, refusal, consult; 76 items) | LLM-only, original AMG-RAG | drug→genes F1 **0.70** vs 0.37 / 0.33; false refusal on legitimate questions **5%** vs 28–38%; an invented drug name still fools all three systems |
+
+Reproduce: `bash` the fetch commands in `.gitignore`, then `python convert_pgxqa.py`, `python make_masked_recovery.py`, and `sbatch --export=ALL,BENCH_STAGE=<pgxcorpus|masked|pgxqa15|pgxqa_base> run_bench_alliance.bash`; score with `run_bench_score_alliance.bash`.
+
 ## Development phases
 
 All phases use the same code, model, and questions, and differ **only in environment variables**. Each has its own Slurm script `run_adr_phase*_alliance.bash`. Phase 13 is the final configuration.

@@ -135,6 +135,19 @@ Details fixed while implementing, beyond the design above:
 The 10 questions stay a development set. The 72-pair benchmark is the held-out set, with its
 label-leakage caveat stated.
 
+### Results so far (2026-10-23; details in `results/benchmarks.md`)
+
+| Test | Result |
+|---|---|
+| E1 masked recovery (10 pairs) | phase 15: 9/10 back as ledger candidates, 4/10 named in the answer; phase 13: 3/10, 0; LLM-only: 0. Routes: 3 via path-driven queries, 5 via follow-up queries, 1 via base retrieval |
+| E4 resolution (dev run, job 24773342) | INSUFFICIENT 83% → 86% (more single-source groups); 17/120 original pairs resolved; 2 CONSISTENT cards. Needs E2 for a fair per-pair comparison |
+| E5 candidate reporting | dev run: 0/26 named (prompt fixed afterwards); masked run (fixed prompt): 4/9 recovered candidates named |
+| External: PGxCorpus extraction | drug F1 0.82 vs 0.49 (dictionary); gene F1 0.69 vs 0.51 |
+| External: PGxQA subsets | drug→genes F1 0.70 vs 0.37 (LLM) / 0.33 (AMG-RAG); gene→drugs 0.58 vs 0.11 / 0.16; false refusal 5% vs 28–38%; invented-drug trap fools all three systems |
+
+Still pending: E2 fixed-retrieval ablation; E3 per-metapath precision on a larger question
+set; a drug-existence premise check (the vitanolix case).
+
 ## 7. Parked
 
 Idea 4 (snapshot-drift detector), idea 6 (citation-graph hop), idea 7 (refutation-seeking
