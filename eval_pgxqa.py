@@ -34,7 +34,7 @@ REFUSAL_EXT = REFUSAL_PGXQA + ("not curated", "no curated", "not a recognized", 
                                "no evidence", "unsupported", "no association", "not a known",
                                "could not find", "does not appear", "not found", "no pharmacogen",
                                "not an established", "no established", "no actionable",
-                               "not have actionable", "no direct evidence", "insufficient",
+                               "not have actionable", "no direct evidence",
                                "misspelling", "not a real", "no known", "not an approved")
 
 
