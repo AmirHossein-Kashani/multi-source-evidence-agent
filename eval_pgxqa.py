@@ -33,7 +33,9 @@ REFUSAL_PGXQA = ("unknown", "unable")
 REFUSAL_EXT = REFUSAL_PGXQA + ("not curated", "no curated", "not a recognized", "not recognized",
                                "no evidence", "unsupported", "no association", "not a known",
                                "could not find", "does not appear", "not found", "no pharmacogen",
-                               "not an established", "no established")
+                               "not an established", "no established", "no actionable",
+                               "not have actionable", "no direct evidence", "insufficient",
+                               "misspelling", "not a real", "no known", "not an approved")
 
 
 def load(p):
