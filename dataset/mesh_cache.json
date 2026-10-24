@@ -1,4 +1,190 @@
 {
+ "%ttr up to day 28 and inr therapeutic range": null,
+ "5-fluorouracil-induced toxicity": null,
+ "5-fu": {
+  "entry_terms": [
+   "Fluorouracil",
+   "5-Fluorouracil",
+   "5 Fluorouracil",
+   "Fluoruracil",
+   "5-FU",
+   "5FU",
+   "Efudix",
+   "Efudex",
+   "Fluoro-Uracile ICN",
+   "Fluoro Uracile ICN",
+   "Adrucil",
+   "Fluoroplex",
+   "Flurodex",
+   "Fluorouracil Monosodium Salt",
+   "Fluorouracil Potassium Salt",
+   "Fluorouracil Mononitrate",
+   "Fluorouracil Monopotassium Salt",
+   "Carac",
+   "5-Fluorouracil-Biosyn",
+   "5 Fluorouracil Biosyn",
+   "5-HU Hexal",
+   "5 HU Hexal",
+   "5-FU Lederle",
+   "5 FU Lederle",
+   "5-FU Medac",
+   "5 FU Medac",
+   "Fluorouracil-GRY",
+   "Fluorouracil GRY",
+   "Fluorouracilo Ferrer Far",
+   "Fluorouracile Dakota",
+   "Dakota, Fluorouracile",
+   "Haemato-FU",
+   "Haemato FU",
+   "Neofluor",
+   "Onkofluor",
+   "Ribofluor",
+   "Fluracedyl"
+  ],
+  "heading": "Fluorouracil",
+  "parents": [
+   "Uracil"
+  ],
+  "tree": [
+   "D03.383.742.698.875.404"
+  ],
+  "uid": "68005472"
+ },
+ "abacavir": {
+  "entry_terms": [
+   "Abacavir",
+   "(-)-cis-4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-2-cyclopentene-1-methanol",
+   "(1S,4R)-4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-2-cyclopentene-1-methanol",
+   "Avacavir",
+   "Ziagen",
+   "Abacavir Sulfate",
+   "Abacavir Sulphate",
+   "Abacavir Succinate",
+   "(1S,4R)-4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-2-cyclopentene-1-methanol succinate (1:1) (salt)",
+   "Abacavir Hydrochloride Monohydrate",
+   "2-cyclopentene-1-methanol, 4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-, hydrochloride, hydrate (1:1:1), (1S,4R)-",
+   "Abacavir Sulfate, (+)-",
+   "(+)-Abacavir Sulfate",
+   "(1R,4S)-Abacavir Sulfate",
+   "2-cyclopentene-1-methanol, 4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-, (1R,4S)-, sulfate (2:1)",
+   "Abacavir Sulfate, (1R,4S)-",
+   "1592U89",
+   "Abamune",
+   "trans-Abacavir",
+   "((1R,4R)-4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-cyclopent-2-enyl)methanol",
+   "Abacavir, trans-",
+   "Abacavir, Trans-, (+-)-",
+   "(+-)-Abacavir Sulfate",
+   "2-cyclopentene-1-methanol, 4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)-, (1S,4R)-, rel-, sulfate (2:1)",
+   "Abacavir Sulfate Racemic",
+   "Abacavir Sulfate, (+-)-",
+   "(+)-Abacavir",
+   "((1R,4S)-4-(2-amino-6-(cyclopropylamino)-9H-purin-9-yl)cyclopent-2-enyl)methanol",
+   "Abacavir enantiomer",
+   "abacavir, (+)-",
+   "Abacavir, (1R,4S)-",
+   "(1R,4R)-Abacavir",
+   "trans-Abacavir R,R-",
+   "DRG-0257",
+   "DRG 0257",
+   "DRG0257"
+  ],
+  "heading": "Abacavir",
+  "parents": [
+   "Cyclopropanes",
+   "Deoxyadenosines"
+  ],
+  "tree": [
+   "D02.455.426.392.368.533.001",
+   "D03.633.100.759.590.138.325.001",
+   "D13.570.230.229.001",
+   "D13.570.583.138.325.001"
+  ],
+  "uid": "2109007"
+ },
+ "abacavir hypersensitivity reaction": null,
+ "abacavir hypersensitivity reaction (abc-hsr)": null,
+ "abc-hsr (abacavir hypersensitivity reaction)": null,
+ "abiraterone": null,
+ "acceptance of pharmacist recommendations": null,
+ "acenocoumarol": {
+  "entry_terms": [
+   "Acenocoumarol",
+   "Acenocoumarin",
+   "Nicoumalone",
+   "Sinthrome",
+   "Sinkumar",
+   "Sintrom",
+   "Mini-Sintrom",
+   "MiniSintrom",
+   "Mini Sintrom",
+   "Syncoumar",
+   "Syncumar",
+   "Synthrom"
+  ],
+  "heading": "Acenocoumarol",
+  "parents": [
+   "4-Hydroxycoumarins"
+  ],
+  "tree": [
+   "D03.383.663.283.446.520.079",
+   "D03.633.100.150.446.520.079"
+  ],
+  "uid": "68000074"
+ },
+ "acetaminophen": {
+  "entry_terms": [
+   "Acetaminophen",
+   "N-Acetyl-p-aminophenol",
+   "Acetamidophenol",
+   "Acetominophen",
+   "APAP",
+   "p-Acetamidophenol",
+   "p-Hydroxyacetanilide",
+   "Paracetamol",
+   "Hydroxyacetanilide",
+   "N-(4-Hydroxyphenyl)acetanilide",
+   "Algotropyl",
+   "Acamol",
+   "Anacin-3",
+   "Anacin3",
+   "Anacin 3",
+   "Datril",
+   "Panadol",
+   "Tylenol",
+   "Acetaco",
+   "Acephen"
+  ],
+  "heading": "Acetaminophen",
+  "parents": [
+   "Acetanilides"
+  ],
+  "tree": [
+   "D02.065.199.092.040",
+   "D02.092.146.113.092.040"
+  ],
+  "uid": "68000082"
+ },
+ "acute coronary syndrome": {
+  "entry_terms": [
+   "Acute Coronary Syndrome",
+   "Acute Coronary Syndromes",
+   "Coronary Syndrome, Acute",
+   "Coronary Syndromes, Acute",
+   "Syndrome, Acute Coronary",
+   "Syndromes, Acute Coronary"
+  ],
+  "heading": "Acute Coronary Syndrome",
+  "parents": [
+   "Myocardial Ischemia"
+  ],
+  "tree": [
+   "C14.280.647.124",
+   "C14.907.585.124"
+  ],
+  "uid": "68054058"
+ },
+ "acute immunoallergic hepatitis and dress": null,
  "acute kidney injury": {
   "entry_terms": [
    "Acute Kidney Injury",
@@ -37,8 +223,202 @@
   ],
   "uid": "68058186"
  },
+ "acute kidney injury (aki)": null,
+ "acute lymphoblastic leukemia": {
+  "entry_terms": [
+   "Precursor Cell Lymphoblastic Leukemia-Lymphoma",
+   "Precursor Cell Lymphoblastic Leukemia Lymphoma",
+   "Leukemia, Lymphoid, Acute",
+   "Lymphoblastic Leukemia",
+   "Lymphoblastic Leukemia, Acute",
+   "Lymphoblastic Lymphoma",
+   "Lymphocytic Leukemia, Acute",
+   "Acute Lymphocytic Leukemia",
+   "Leukemia, Acute Lymphocytic",
+   "Lymphoma, Lymphoblastic",
+   "Acute Lymphoblastic Leukemia",
+   "Acute Lymphoid Leukemia",
+   "Leukemia, Acute Lymphoid",
+   "Lymphoid Leukemia, Acute",
+   "Leukemia, Acute Lymphoblastic",
+   "Acute Lymphoblastic Leukemia",
+   "Leukemia, Lymphoblastic",
+   "Leukemia, Lymphocytic, Acute",
+   "Leukemia, Lymphoblastic, Acute",
+   "Leukemia, Lymphocytic, Acute, L1",
+   "ALL, Childhood",
+   "Childhood ALL",
+   "Leukemia, Lymphoblastic, Acute, L1",
+   "Lymphoblastic Leukemia, Acute, Childhood",
+   "Lymphoblastic Leukemia, Acute, L1",
+   "Lymphocytic Leukemia, L1",
+   "L1 Lymphocytic Leukemia",
+   "Leukemia, L1 Lymphocytic",
+   "Leukemia, Lymphocytic, Acute, L2",
+   "Leukemia, Lymphoblastic, Acute, L2",
+   "Leukemia, Lymphoblastic, Acute, Philadelphia-Positive",
+   "Lymphoblastic Leukemia, Acute, Adult",
+   "Lymphoblastic Leukemia, Acute, L2",
+   "Lymphocytic Leukemia, L2",
+   "L2 Lymphocytic Leukemia",
+   "Leukemia, L2 Lymphocytic"
+  ],
+  "heading": "Precursor Cell Lymphoblastic Leukemia-Lymphoma",
+  "parents": [
+   "Leukemia, Lymphoid"
+  ],
+  "tree": [
+   "C04.557.337.428.600",
+   "C15.378.508.428.600",
+   "C15.604.515.560.600",
+   "C20.683.515.528.600"
+  ],
+  "uid": "68054198"
+ },
  "acute ototoxicity measured by dpoaes": null,
+ "adverse drug reactions": {
+  "entry_terms": [
+   "Drug-Related Side Effects and Adverse Reactions",
+   "Drug Related Side Effects and Adverse Reactions",
+   "Side Effects of Drugs",
+   "Drug-Related Side Effects and Adverse Reaction",
+   "Drug Related Side Effects and Adverse Reaction",
+   "Adverse Drug Reaction",
+   "Adverse Drug Reactions",
+   "Drug Reaction, Adverse",
+   "Drug Reactions, Adverse",
+   "Reactions, Adverse Drug",
+   "Adverse Drug Event",
+   "Adverse Drug Events",
+   "Drug Event, Adverse",
+   "Drug Events, Adverse",
+   "Drug Side Effects",
+   "Drug Side Effect",
+   "Effects, Drug Side",
+   "Side Effect, Drug",
+   "Side Effects, Drug",
+   "Drug Toxicity",
+   "Toxicity, Drug",
+   "Drug Toxicities",
+   "Toxicities, Drug"
+  ],
+  "heading": "Drug-Related Side Effects and Adverse Reactions",
+  "parents": [
+   "Chemically-Induced Disorders"
+  ],
+  "tree": [
+   "C25.100"
+  ],
+  "uid": "68064420"
+ },
+ "adverse events": null,
  "adverse events (mucositis)": null,
+ "allopurinol": {
+  "entry_terms": [
+   "Allopurinol",
+   "Milurit",
+   "Milurite",
+   "Lopurin",
+   "Cellidrin",
+   "Zyloprim",
+   "Zyloric",
+   "Zygout",
+   "Xanturic",
+   "Xanthomax",
+   "Embarin",
+   "Suspendol",
+   "Urtias",
+   "Urosin",
+   "Purinol",
+   "Progout",
+   "Uripurinol",
+   "Uridocid",
+   "Uribenz",
+   "Tipuric",
+   "Roucol",
+   "Rimapurinol",
+   "Remid",
+   "Pureduct",
+   "Novopurol",
+   "Lysuron",
+   "Jenapurinol",
+   "Hamarin",
+   "Foligan",
+   "Allohexal",
+   "Allohexan",
+   "Alloprin",
+   "Allopurin",
+   "Allorin",
+   "Allpargin",
+   "Allural",
+   "Pan Quimica",
+   "Apulonga",
+   "Apurin",
+   "Atisuril",
+   "Bleminol",
+   "Caplenal",
+   "Capurate"
+  ],
+  "heading": "Allopurinol",
+  "parents": [
+   "Purines"
+  ],
+  "tree": [
+   "D03.633.100.759.160"
+  ],
+  "uid": "68000493"
+ },
+ "alzheimer disease": {
+  "entry_terms": [
+   "Alzheimer Disease",
+   "Alzheimer Syndrome",
+   "Alzheimer-Type Dementia (ATD)",
+   "Alzheimer Type Dementia (ATD)",
+   "Dementia, Alzheimer-Type (ATD)",
+   "Dementia, Alzheimer Type",
+   "Alzheimer Type Dementia",
+   "Senile Dementia, Alzheimer Type",
+   "Alzheimer Type Senile Dementia",
+   "Primary Senile Degenerative Dementia",
+   "Dementia, Primary Senile Degenerative",
+   "Alzheimer's Diseases",
+   "Alzheimer Diseases",
+   "Alzheimers Diseases",
+   "Alzheimer Dementia",
+   "Alzheimer Dementias",
+   "Dementia, Alzheimer",
+   "Alzheimer's Disease",
+   "Alzheimer Sclerosis",
+   "Sclerosis, Alzheimer",
+   "Dementia, Senile",
+   "Senile Dementia",
+   "Dementia, Presenile",
+   "Presenile Dementia",
+   "Acute Confusional Senile Dementia",
+   "Senile Dementia, Acute Confusional",
+   "Alzheimer Disease, Early Onset",
+   "Early Onset Alzheimer Disease",
+   "Presenile Alzheimer Dementia",
+   "Alzheimer Disease, Late Onset",
+   "Late Onset Alzheimer Disease",
+   "Alzheimer's Disease, Focal Onset",
+   "Focal Onset Alzheimer's Disease",
+   "Familial Alzheimer Disease (FAD)",
+   "Alzheimer Disease, Familial (FAD)",
+   "Familial Alzheimer Diseases (FAD)"
+  ],
+  "heading": "Alzheimer Disease",
+  "parents": [
+   "Dementia",
+   "Tauopathies"
+  ],
+  "tree": [
+   "C10.228.140.380.100",
+   "C10.574.945.249",
+   "F03.615.400.100"
+  ],
+  "uid": "68000544"
+ },
  "amikacin": {
   "entry_terms": [
    "Amikacin",
@@ -78,6 +458,100 @@
   ],
   "uid": "68000583"
  },
+ "aminoglycoside antibacterials": null,
+ "aminoglycoside-induced hearing loss risk": null,
+ "aminoglycoside\u2010induced hearing loss": null,
+ "amiodarone": {
+  "entry_terms": [
+   "Amiodarone",
+   "SKF 33134-A",
+   "SKF 33134A",
+   "SKF 33134 A",
+   "L-3428",
+   "L3428",
+   "L 3428",
+   "Amiobeta",
+   "Cordarone",
+   "Kordaron",
+   "Amiodarex",
+   "Cordarex",
+   "Trangorex",
+   "Amiodarona",
+   "Amiohexal",
+   "Aratac",
+   "Braxan",
+   "Corbionax",
+   "Ortacrone",
+   "Rytmarone",
+   "Tachydaron",
+   "Amiodarone Hydrochloride",
+   "Hydrochloride, Amiodarone"
+  ],
+  "heading": "Amiodarone",
+  "parents": [
+   "Benzofurans"
+  ],
+  "tree": [
+   "D03.633.100.127.075"
+  ],
+  "uid": "68000638"
+ },
+ "amodiaquine": {
+  "entry_terms": [
+   "Amodiaquine",
+   "Amodiachin",
+   "Amodiaquin",
+   "Camoquine",
+   "Camoquin",
+   "Flavoquine",
+   "Amodiaquine Hydrochloride",
+   "Hydrochloride, Amodiaquine"
+  ],
+  "heading": "Amodiaquine",
+  "parents": [
+   "Aminoquinolines"
+  ],
+  "tree": [
+   "D03.633.100.810.050.060"
+  ],
+  "uid": "68000655"
+ },
+ "amoxicillin": {
+  "entry_terms": [
+   "Amoxicillin",
+   "Amoxycillin",
+   "Amoxicilline",
+   "Amoxil",
+   "Amoxicillin, (R*)-Isomer",
+   "Amoxicillin Sodium",
+   "Amoxicillin Monosodium Salt",
+   "Amoxicillin Monopotassium Salt",
+   "Clamoxyl",
+   "Clamoxyl G.A.",
+   "Penamox",
+   "Clamoxyl Parenteral",
+   "BRL-2333",
+   "BRL2333",
+   "BRL 2333",
+   "Wymox",
+   "Trimox",
+   "Polymox",
+   "Actimoxi",
+   "Amoxicillin Anhydrous",
+   "Amoxicillin Trihydrate",
+   "Hydroxyampicillin"
+  ],
+  "heading": "Amoxicillin",
+  "parents": [
+   "Ampicillin"
+  ],
+  "tree": [
+   "D02.065.589.099.750.750.050.050",
+   "D02.886.108.750.750.050.050",
+   "D03.633.100.300.750.750.050.050"
+  ],
+  "uid": "68000658"
+ },
  "anemia": {
   "entry_terms": [
    "Anemia",
@@ -112,6 +586,36 @@
  "anthracycline chemotherapy": null,
  "anthracycline-induced cardiotoxicity (act)": null,
  "anthracyclines and related substances": null,
+ "antidepressants": {
+  "entry_terms": [
+   "Antidepressive Agents",
+   "Antidepressant Drug",
+   "Drug, Antidepressant",
+   "Antidepressant Medication",
+   "Medication, Antidepressant",
+   "Antidepressant",
+   "Antidepressant Drugs",
+   "Antidepressants",
+   "Antidepressive Agent",
+   "Agent, Antidepressive",
+   "Thymoanaleptics",
+   "Thymoanaleptic",
+   "Thymoleptics",
+   "Thymoleptic"
+  ],
+  "heading": "Antidepressive Agents",
+  "parents": [
+   "Psychotropic Drugs"
+  ],
+  "tree": [
+   "D27.505.954.427.700.122"
+  ],
+  "uid": "68000928"
+ },
+ "antiplatelet response and prevalence of hemorrhagic or ische": null,
+ "antiplatelet response and the prevalence of hemorrhagic or i": null,
+ "antiplatelet response, hemorrhagic or ischemic events": null,
+ "antiplatelet therapy for secondary prevention of ischemic st": null,
  "antipsychotics": {
   "entry_terms": [
    "Antipsychotic Agents",
@@ -154,8 +658,162 @@
   ],
   "uid": "68014150"
  },
+ "antivirals for treatment of hiv infections": null,
  "antracycline-induced cardiotoxicity": null,
  "antrhacycline-induced cardiotoxicity (act)": null,
+ "aspirin": {
+  "entry_terms": [
+   "Aspirin",
+   "2-(Acetyloxy)benzoic Acid",
+   "Acetylsalicylic Acid",
+   "Acid, Acetylsalicylic",
+   "Solprin",
+   "Polopirin",
+   "Solupsan",
+   "Easprin",
+   "Zorprin",
+   "Acetysal",
+   "Acylpyrin",
+   "Colfarit",
+   "Ecotrin",
+   "Endosprin",
+   "Magnecyl",
+   "Micristin",
+   "Polopiryna",
+   "Aloxiprimum",
+   "Dispril"
+  ],
+  "heading": "Aspirin",
+  "parents": [
+   "Salicylates"
+  ],
+  "tree": [
+   "D02.455.426.559.389.657.410.595.176"
+  ],
+  "uid": "68001241"
+ },
+ "atazanavir": {
+  "entry_terms": [
+   "Atazanavir Sulfate",
+   "Reyataz",
+   "CGP 75355",
+   "CGP-75355",
+   "CGP75355",
+   "CGP 75176",
+   "CGP-75176",
+   "CGP75176",
+   "CGP 75136",
+   "CGP-75136",
+   "CGP75136",
+   "CGP 73547",
+   "CGP-73547",
+   "CGP73547",
+   "BMS-232632-05",
+   "BMS23263205",
+   "BMS 232632 05",
+   "BMS 232632",
+   "232632, BMS",
+   "BMS232632",
+   "BMS-232632",
+   "Atazanavir",
+   "3,12-bis(1,1-dimethylethyl)-8-hydroxy-4,11-dioxo-9-(phenylmethyl)-6-((4-(2-pyridinyl)phenyl)methyl)-2,5,6,10,13-pentaazatetradecanedioic acid dimethyl ester"
+  ],
+  "heading": "Atazanavir Sulfate",
+  "parents": [
+   "Oligopeptides",
+   "Pyridines"
+  ],
+  "tree": [
+   "D03.383.725.068",
+   "D12.644.456.157"
+  ],
+  "uid": "2009983"
+ },
+ "atenolol": {
+  "entry_terms": [
+   "Atenolol",
+   "Tenormine",
+   "Tenormin",
+   "ICI-66082",
+   "ICI66082",
+   "ICI 66082"
+  ],
+  "heading": "Atenolol",
+  "parents": [
+   "Phenoxypropanolamines"
+  ],
+  "tree": [
+   "D02.033.100.624.698.070",
+   "D02.033.755.624.698.070",
+   "D02.092.063.624.698.070"
+  ],
+  "uid": "68001262"
+ },
+ "atorvastatin": {
+  "entry_terms": [
+   "Atorvastatin",
+   "(3R,5R)-7-(2-(4-Fluorophenyl)-5-isopropyl-3-phenyl-4-(phenylcarbamoyl)-1H-pyrrol-1-yl)-3,5-dihydroxyheptanoic acid",
+   "Lipitor",
+   "Atorvastatin Calcium",
+   "Atorvastatin, Calcium Salt",
+   "Atorvastatin Calcium Anhydrous",
+   "Liptonorm",
+   "Atorvastatin Calcium Hydrate",
+   "CI 981",
+   "CI-981",
+   "CI981",
+   "Atorvastatin Calcium Trihydrate"
+  ],
+  "heading": "Atorvastatin",
+  "parents": [
+   "Heptanoic Acids",
+   "Pyrroles"
+  ],
+  "tree": [
+   "D03.383.129.578.075",
+   "D10.251.450.200"
+  ],
+  "uid": "2009919"
+ },
+ "atrial fibrillation": {
+  "entry_terms": [
+   "Atrial Fibrillation",
+   "Atrial Fibrillations",
+   "Fibrillation, Atrial",
+   "Fibrillations, Atrial",
+   "Auricular Fibrillation",
+   "Auricular Fibrillations",
+   "Fibrillation, Auricular",
+   "Fibrillations, Auricular",
+   "Persistent Atrial Fibrillation",
+   "Atrial Fibrillation, Persistent",
+   "Atrial Fibrillations, Persistent",
+   "Fibrillation, Persistent Atrial",
+   "Fibrillations, Persistent Atrial",
+   "Persistent Atrial Fibrillations",
+   "Familial Atrial Fibrillation",
+   "Atrial Fibrillation, Familial",
+   "Atrial Fibrillations, Familial",
+   "Familial Atrial Fibrillations",
+   "Fibrillation, Familial Atrial",
+   "Fibrillations, Familial Atrial",
+   "Paroxysmal Atrial Fibrillation",
+   "Atrial Fibrillation, Paroxysmal",
+   "Atrial Fibrillations, Paroxysmal",
+   "Fibrillation, Paroxysmal Atrial",
+   "Fibrillations, Paroxysmal Atrial",
+   "Paroxysmal Atrial Fibrillations"
+  ],
+  "heading": "Atrial Fibrillation",
+  "parents": [
+   "Arrhythmias, Cardiac"
+  ],
+  "tree": [
+   "C14.280.067.198",
+   "C23.550.073.198"
+  ],
+  "uid": "68001281"
+ },
  "azathioprine": {
   "entry_terms": [
    "Azathioprine",
@@ -180,6 +838,7 @@
   ],
   "uid": "68001379"
  },
+ "azathioprine toxicity": null,
  "bleomycin": {
   "entry_terms": [
    "Bleomycin",
@@ -211,6 +870,36 @@
    "D12.644.233.110"
   ],
   "uid": "68001761"
+ },
+ "bone": {
+  "entry_terms": [
+   "Bone and Bones",
+   "Bone and Bone",
+   "Bones and Bone",
+   "Bones and Bone Tissue",
+   "Bones",
+   "Bone",
+   "Bone Tissue",
+   "Bone Tissues",
+   "Tissue, Bone",
+   "Tissues, Bone",
+   "Bony Apophyses",
+   "Apophyses, Bony",
+   "Bony Apophysis",
+   "Apophysis, Bony",
+   "Condyle",
+   "Condyles"
+  ],
+  "heading": "Bone and Bones",
+  "parents": [
+   "Connective Tissue",
+   "Skeleton"
+  ],
+  "tree": [
+   "A02.835.232",
+   "A10.165.265"
+  ],
+  "uid": "68001842"
  },
  "brain neoplasms": {
   "entry_terms": [
@@ -281,8 +970,99 @@
   ],
   "uid": "68001932"
  },
+ "bupropion": {
+  "entry_terms": [
+   "Bupropion",
+   "(+-)-1-(3-Chlorophenyl)-2-((1,1-dimethylethyl)amino)-1-propanone",
+   "Amfebutamone",
+   "Bupropion Hydrochloride",
+   "Zyban (Anti-Smoking)",
+   "Zyban (Bupropion)",
+   "Bupropion Hydrochloride, (+-)-Isomer",
+   "Bupropion, (+-)-Isomer",
+   "Wellbutrin",
+   "Quomen",
+   "Zyntabac"
+  ],
+  "heading": "Bupropion",
+  "parents": [
+   "Propiophenones"
+  ],
+  "tree": [
+   "D02.522.818.110"
+  ],
+  "uid": "68016642"
+ },
+ "calcium": {
+  "entry_terms": [
+   "Calcium",
+   "Calcium-40",
+   "Calcium 40",
+   "Factor IV",
+   "Coagulation Factor IV",
+   "Factor IV, Coagulation",
+   "Blood Coagulation Factor IV"
+  ],
+  "heading": "Calcium",
+  "parents": [
+   "Blood Coagulation Factors",
+   "Metals, Alkaline Earth"
+  ],
+  "tree": [
+   "D01.268.552.100",
+   "D01.552.539.288",
+   "D23.119.100"
+  ],
+  "uid": "68002118"
+ },
+ "capecitabine": {
+  "entry_terms": [
+   "Capecitabine",
+   "N(4)-pentyloxycarbonyl-5'-deoxy-5-fluorocytidine",
+   "Xeloda"
+  ],
+  "heading": "Capecitabine",
+  "parents": [
+   "Deoxycytidine",
+   "Fluorouracil"
+  ],
+  "tree": [
+   "D03.383.742.680.245.500.425",
+   "D03.383.742.698.875.404.425",
+   "D13.570.230.329.313",
+   "D13.570.685.245.500.425"
+  ],
+  "uid": "2009945"
+ },
+ "carbamazepine": {
+  "entry_terms": [
+   "Carbamazepine",
+   "Tegretol",
+   "Carbamazepine Sulfate (2:1)",
+   "Carbamazepine Phosphate",
+   "Carbamazepine Hydrochloride",
+   "Carbamazepine L-Tartrate (4:1)",
+   "Carbamazepine Acetate",
+   "Carbamazepine Dihydrate",
+   "Amizepine",
+   "Carbazepin",
+   "Epitol",
+   "Finlepsin",
+   "Neurotol",
+   "Carbamazepine Anhydrous"
+  ],
+  "heading": "Carbamazepine",
+  "parents": [
+   "Dibenzazepines"
+  ],
+  "tree": [
+   "D03.633.300.240.127"
+  ],
+  "uid": "68002220"
+ },
  "cardiac dysfunction": null,
  "cardiac fibrosis, chronic cardiotoxicity": null,
+ "cardiac safety": null,
  "cardiotoxicity": {
   "entry_terms": [
    "Cardiotoxicity",
@@ -308,14 +1088,110 @@
   "uid": "68066126"
  },
  "cardiotoxicity and chronic heart failure": null,
+ "cardiovascular disease": {
+  "entry_terms": [
+   "Cardiovascular Diseases",
+   "Cardiovascular Disease",
+   "Disease, Cardiovascular",
+   "Cardiac Events",
+   "Cardiac Event",
+   "Event, Cardiac",
+   "Adverse Cardiac Event",
+   "Adverse Cardiac Events",
+   "Cardiac Event, Adverse",
+   "Cardiac Events, Adverse",
+   "Major Adverse Cardiac Events"
+  ],
+  "heading": "Cardiovascular Diseases",
+  "parents": [
+   "Diseases Category"
+  ],
+  "tree": [
+   "C14"
+  ],
+  "uid": "68002318"
+ },
  "cardiovascular toxicity": null,
  "cardiovascular toxicity (reduction in left ventricular eject": null,
+ "celecoxib": {
+  "entry_terms": [
+   "Celecoxib",
+   "4-(5-(4-methylphenyl)-3-(trifluoromethyl)-1H-pyrazol-1-yl)benzenesulfonamide",
+   "Celebrex",
+   "SC 58635",
+   "SC-58635",
+   "SC58635"
+  ],
+  "heading": "Celecoxib",
+  "parents": [
+   "Benzenesulfonamides",
+   "Pyrazoles",
+   "Sulfonamides"
+  ],
+  "tree": [
+   "D02.065.884.060.020",
+   "D02.455.426.559.389.085.020",
+   "D02.886.590.700.090.020",
+   "D02.886.590.700.247",
+   "D03.383.129.539.160"
+  ],
+  "uid": "2009845"
+ },
  "cell proliferation and apoptosis": null,
+ "cell viability": {
+  "entry_terms": [
+   "Cell Survival",
+   "Survival, Cell",
+   "Cell Viability",
+   "Cell Viabilities",
+   "Viabilities, Cell",
+   "Viability, Cell"
+  ],
+  "heading": "Cell Survival",
+  "parents": [
+   "Cell Physiological Phenomena"
+  ],
+  "tree": [
+   "G04.346"
+  ],
+  "uid": "68002470"
+ },
  "cell viability and ferroptosis in hair cells": null,
  "cell viability and metabolic activity": null,
  "cellular sensitivity to cisplatin": null,
+ "cerebral distribution of gabapentin": null,
+ "cftr-mediated chloride transport": null,
+ "changes in dna methylation levels": null,
  "chemoresistance": null,
  "chemotherapy-induced toxicities": null,
+ "chloramphenicol": {
+  "entry_terms": [
+   "Chloramphenicol",
+   "Cloranfenicol",
+   "Kloramfenikol",
+   "Chloromycetin",
+   "Chlornitromycin",
+   "Chlorocid",
+   "Detreomycin",
+   "Ophthochlor",
+   "Syntomycin",
+   "Levomycetin",
+   "Amphenicol",
+   "Amphenicols"
+  ],
+  "heading": "Chloramphenicol",
+  "parents": [
+   "Nitrobenzenes",
+   "Propylene Glycols"
+  ],
+  "tree": [
+   "D02.033.455.706.300",
+   "D02.455.426.559.389.565.175",
+   "D02.640.529.175"
+  ],
+  "uid": "68002701"
+ },
+ "chronic hepatitis c virus infection": null,
  "cisplatin": {
   "entry_terms": [
    "Cisplatin",
@@ -352,10 +1228,180 @@
  "cisplatin-induced hearing loss": null,
  "cisplatin-induced hearing loss (cihl)": null,
  "cisplatin-induced ototoxicity": null,
+ "clinical remission": null,
+ "clinical response and tolerability": null,
+ "clinically relevant dgis": null,
+ "clinically relevant drug-gene interactions": null,
  "clinically significant hearing loss": null,
+ "clodronate": {
+  "entry_terms": [
+   "Clodronic Acid",
+   "Acid, Clodronic",
+   "Cl2MDP",
+   "Dichloromethane Diphosphonate",
+   "Diphosphonate, Dichloromethane",
+   "Dichloromethanediphosphonate",
+   "Dichloromethanediphosphonic Acid",
+   "Acid, Dichloromethanediphosphonic",
+   "Dichloromethylene Biphosphonate",
+   "Biphosphonate, Dichloromethylene",
+   "Dichloromethylene Diphosphonate",
+   "Diphosphonate, Dichloromethylene",
+   "Dichloromethylenebisphosphonate",
+   "Clodronate",
+   "Bonefos",
+   "Clodronate Disodium",
+   "Disodium, Clodronate",
+   "Clodronate Sodium",
+   "Sodium, Clodronate"
+  ],
+  "heading": "Clodronic Acid",
+  "parents": [
+   "Diphosphonates"
+  ],
+  "tree": [
+   "D02.705.429.500.200"
+  ],
+  "uid": "68004002"
+ },
+ "clomipramine": {
+  "entry_terms": [
+   "Clomipramine",
+   "Chlorimipramine",
+   "Chlomipramine",
+   "Anafranil",
+   "Hydiphen",
+   "Clomipramine Hydrochloride",
+   "Hydrochloride, Clomipramine",
+   "Clomipramine Maleate (1:1)",
+   "Clomipramine Monohydrochloride",
+   "Monohydrochloride, Clomipramine"
+  ],
+  "heading": "Clomipramine",
+  "parents": [
+   "Dibenzazepines"
+  ],
+  "tree": [
+   "D03.633.300.240.194"
+  ],
+  "uid": "68002997"
+ },
+ "clopidogrel": {
+  "entry_terms": [
+   "Clopidogrel",
+   "Plavix",
+   "SC 25989C",
+   "SC 25990C",
+   "SR 25989",
+   "Clopidogrel, (+)(S)-isomer",
+   "Clopidogrel Bisulfate",
+   "Iscover",
+   "Clopidogrel Napadisilate",
+   "Clopidogrel Besylate",
+   "Clopidogrel Besilate",
+   "Clopidogrel Hydrochloride",
+   "Clopidogrel Sandoz",
+   "PCR 4099",
+   "PCR-4099",
+   "Clopidogrel-Mepha",
+   "Clopidogrel Mepha"
+  ],
+  "heading": "Clopidogrel",
+  "parents": [
+   "Ticlopidine"
+  ],
+  "tree": [
+   "D02.886.778.823.500.500",
+   "D03.383.725.849.500.500",
+   "D03.383.903.830.500.500",
+   "D03.633.100.928.500.500"
+  ],
+  "uid": "2027905"
+ },
+ "clopidogrel resistance": null,
+ "clopidogrel responsiveness": null,
  "cochlear cell viability and apoptosis": null,
+ "codeine": {
+  "entry_terms": [
+   "Codeine",
+   "N-Methylmorphine",
+   "N Methylmorphine",
+   "Morphinan-6-ol, 7,8-didehydro-4,5-epoxy-3-methoxy-17-methyl-, (5alpha,6alpha)-",
+   "Isocodeine",
+   "Codeine Phosphate",
+   "Ardinex"
+  ],
+  "heading": "Codeine",
+  "parents": [
+   "Morphine Derivatives"
+  ],
+  "tree": [
+   "D03.132.577.249.562.149",
+   "D03.605.497.607.204",
+   "D03.633.400.686.607.204",
+   "D04.615.723.795.576.149"
+  ],
+  "uid": "68003061"
+ },
+ "coronary artery disease": {
+  "entry_terms": [
+   "Coronary Artery Disease",
+   "Artery Disease, Coronary",
+   "Artery Diseases, Coronary",
+   "Coronary Artery Diseases",
+   "Coronary Arteriosclerosis",
+   "Arterioscleroses, Coronary",
+   "Coronary Arterioscleroses",
+   "Arteriosclerosis, Coronary",
+   "Atherosclerosis, Coronary",
+   "Atheroscleroses, Coronary",
+   "Coronary Atheroscleroses",
+   "Coronary Atherosclerosis",
+   "Left Main Coronary Artery Disease",
+   "Left Main Coronary Disease",
+   "Left Main Disease",
+   "Left Main Diseases"
+  ],
+  "heading": "Coronary Artery Disease",
+  "parents": [
+   "Arteriosclerosis",
+   "Coronary Disease"
+  ],
+  "tree": [
+   "C14.280.647.250.260",
+   "C14.907.137.126.339",
+   "C14.907.585.250.260"
+  ],
+  "uid": "68003324"
+ },
+ "coronary disease": {
+  "entry_terms": [
+   "Coronary Disease",
+   "Coronary Diseases",
+   "Disease, Coronary",
+   "Diseases, Coronary",
+   "Coronary Heart Disease",
+   "Coronary Heart Diseases",
+   "Disease, Coronary Heart",
+   "Diseases, Coronary Heart",
+   "Heart Disease, Coronary",
+   "Heart Diseases, Coronary"
+  ],
+  "heading": "Coronary Disease",
+  "parents": [
+   "Myocardial Ischemia"
+  ],
+  "tree": [
+   "C14.280.647.250",
+   "C14.907.585.250"
+  ],
+  "uid": "68003327"
+ },
+ "cost-effectiveness and quality-adjusted life year gain": null,
+ "cross-hypersensitivity to nsaids": null,
  "ctr-cardiomyopathy": null,
  "ctrcd": null,
+ "cure rate of hcv infection": null,
  "cyclophosphamide": {
   "entry_terms": [
    "Cyclophosphamide",
@@ -389,6 +1435,116 @@
   ],
   "uid": "68003520"
  },
+ "cystic fibrosis": {
+  "entry_terms": [
+   "Cystic Fibrosis",
+   "Fibrosis, Cystic",
+   "Mucoviscidosis",
+   "Pancreatic Cystic Fibrosis",
+   "Cystic Fibrosis, Pancreatic",
+   "Cystic Fibrosis of Pancreas",
+   "Fibrocystic Disease of Pancreas",
+   "Pancreas Fibrocystic Disease",
+   "Pancreas Fibrocystic Diseases",
+   "Pulmonary Cystic Fibrosis",
+   "Cystic Fibrosis, Pulmonary"
+  ],
+  "heading": "Cystic Fibrosis",
+  "parents": [
+   "Infant, Newborn, Diseases",
+   "Lung Diseases",
+   "Pancreatic Diseases",
+   "Genetic Diseases, Inborn"
+  ],
+  "tree": [
+   "C06.689.202",
+   "C08.381.187",
+   "C16.320.190",
+   "C16.614.213"
+  ],
+  "uid": "68003550"
+ },
+ "cytarabine": {
+  "entry_terms": [
+   "Cytarabine",
+   "Arabinofuranosylcytosine",
+   "Arabinosylcytosine",
+   "Aracytidine",
+   "Cytosine Arabinoside",
+   "Arabinoside, Cytosine",
+   "Cytarabine Hydrochloride",
+   "Cytosar",
+   "Cytosar-U",
+   "Cytosar U",
+   "beta-Ara C",
+   "beta Ara C",
+   "Aracytine",
+   "Ara-C",
+   "Ara C",
+   "Cytonal"
+  ],
+  "heading": "Cytarabine",
+  "parents": [
+   "Arabinonucleosides",
+   "Cytidine"
+  ],
+  "tree": [
+   "D03.383.742.680.245.453",
+   "D13.570.065.300",
+   "D13.570.685.245.453"
+  ],
+  "uid": "68003561"
+ },
+ "dabigatran": {
+  "entry_terms": [
+   "Dabigatran",
+   "N-((2-(((4-(aminoiminomethyl)phenyl)amino)methyl)-1-methyl-1H-benzimidazol-5-yl)carbonyl)-N-2-pyridinyl-beta-alanine",
+   "Dabigatran Etexilate",
+   "Etexilate, Dabigatran",
+   "BIBR 1048",
+   "Pradaxa",
+   "Dabigatran Etexilate Mesylate",
+   "Etexilate Mesylate, Dabigatran",
+   "Mesylate, Dabigatran Etexilate"
+  ],
+  "heading": "Dabigatran",
+  "parents": [
+   "Benzimidazoles",
+   "Pyridines"
+  ],
+  "tree": [
+   "D03.383.725.192",
+   "D03.633.100.103.280"
+  ],
+  "uid": "2010058"
+ },
+ "dapsone": {
+  "entry_terms": [
+   "Dapsone",
+   "4,4'-Diaminophenyl Sulfone",
+   "4,4' Diaminophenyl Sulfone",
+   "Sulfone, 4,4'-Diaminophenyl",
+   "DADPS",
+   "Diaminodiphenylsulfone",
+   "Diaphenylsulfone",
+   "Sulfonyldianiline",
+   "Disulone",
+   "Avlosulfone",
+   "Sulfona",
+   "Dapson-Fatol",
+   "Dapsoderm-X"
+  ],
+  "heading": "Dapsone",
+  "parents": [
+   "Sulfones"
+  ],
+  "tree": [
+   "D02.886.590.263"
+  ],
+  "uid": "68003622"
+ },
+ "dapsone hypersensitivity syndrome (dhs)": null,
+ "dapsone methemoglobinemia": null,
  "daunorubicin": {
   "entry_terms": [
    "Daunorubicin",
@@ -447,6 +1603,107 @@
   ],
   "uid": "68003638"
  },
+ "deferasirox": {
+  "entry_terms": [
+   "Deferasirox",
+   "4-(3,5-Bis-(2-hydroxyphenyl)-(1,2,4)-triazol-1-yl)benzoic acid",
+   "ICL670A",
+   "ICL 670",
+   "ICL-670",
+   "ICL670",
+   "Exjade",
+   "ICL 670A",
+   "ICL-670A"
+  ],
+  "heading": "Deferasirox",
+  "parents": [
+   "Benzoates",
+   "Triazoles"
+  ],
+  "tree": [
+   "D02.241.223.100.250",
+   "D02.455.426.559.389.127.266",
+   "D03.383.129.799.363"
+  ],
+  "uid": "2028084"
+ },
+ "depression": {
+  "entry_terms": [
+   "Depression",
+   "Depressive Symptoms",
+   "Depressive Symptom",
+   "Symptom, Depressive",
+   "Emotional Depression",
+   "Depression, Emotional"
+  ],
+  "heading": "Depression",
+  "parents": [
+   "Behavioral Symptoms",
+   "Emotions"
+  ],
+  "tree": [
+   "F01.145.126.350",
+   "F01.470.282"
+  ],
+  "uid": "68003863"
+ },
+ "depressive disorder": {
+  "entry_terms": [
+   "Depressive Disorder",
+   "Depressive Disorders",
+   "Disorder, Depressive",
+   "Disorders, Depressive",
+   "Depression Disorder",
+   "Disorders, Depression",
+   "Neurosis, Depressive",
+   "Depressive Neuroses",
+   "Neuroses, Depressive",
+   "Depression, Endogenous",
+   "Depressions, Endogenous",
+   "Endogenous Depression",
+   "Melancholia",
+   "Unipolar Depression",
+   "Depression, Unipolar",
+   "Depressive Syndrome",
+   "Syndrome, Depressive",
+   "Syndromes, Depressive",
+   "Depression, Neurotic",
+   "Depressions, Neurotic",
+   "Neurotic Depression"
+  ],
+  "heading": "Depressive Disorder",
+  "parents": [
+   "Mood Disorders"
+  ],
+  "tree": [
+   "F03.600.300"
+  ],
+  "uid": "68003866"
+ },
+ "desflurane": {
+  "entry_terms": [
+   "Desflurane",
+   "I 653",
+   "I-653",
+   "I653",
+   "Suprane",
+   "1,2,2,2-Tetrafluoroethyl difluoromethyl ether"
+  ],
+  "heading": "Desflurane",
+  "parents": [
+   "Ethyl Ethers",
+   "Hydrocarbons, Fluorinated",
+   "Methyl Ethers"
+  ],
+  "tree": [
+   "D02.355.417.166",
+   "D02.355.601.325",
+   "D02.455.526.510.213"
+  ],
+  "uid": "2028008"
+ },
+ "development of hyperkinetic movement disorder": null,
+ "development of scars (severe cutaneous adverse reactions)": null,
  "dexamethasone": {
   "entry_terms": [
    "Dexamethasone",
@@ -475,6 +1732,226 @@
   ],
   "uid": "68003907"
  },
+ "dexlansoprazole": {
+  "entry_terms": [
+   "Dexlansoprazole",
+   "R-Lansoprazole",
+   "R Lansoprazole",
+   "Lansoprazole, R-Isomer",
+   "Lansoprazole, R Isomer",
+   "R-Isomer Lansoprazole",
+   "2-((R)-((3-Methyl-4-(2,2,2-trifluoroethoxy)-2-pyridinyl)methyl)sulfinyl)-1H-benzimidazole",
+   "TAK 390MR",
+   "TAK-390MR",
+   "TAK390MR",
+   "Dexilant",
+   "TAK-390",
+   "TAK390",
+   "TAK 390",
+   "T-168390",
+   "T168390",
+   "T 168390",
+   "Dexlansoprazole Sesquihydrate"
+  ],
+  "heading": "Dexlansoprazole",
+  "parents": [
+   "Lansoprazole"
+  ],
+  "tree": [
+   "D02.886.640.074.249.500",
+   "D03.383.725.024.249.500",
+   "D03.633.100.103.034.249.500"
+  ],
+  "uid": "68064748"
+ },
+ "diabetes mellitus": {
+  "entry_terms": [
+   "Diabetes Mellitus"
+  ],
+  "heading": "Diabetes Mellitus",
+  "parents": [
+   "Endocrine System Diseases",
+   "Glucose Metabolism Disorders"
+  ],
+  "tree": [
+   "C18.452.394.750",
+   "C19.246"
+  ],
+  "uid": "68003920"
+ },
+ "diarrhea": {
+  "entry_terms": [
+   "Diarrhea",
+   "Diarrheas"
+  ],
+  "heading": "Diarrhea",
+  "parents": [
+   "Signs and Symptoms, Digestive"
+  ],
+  "tree": [
+   "C23.888.821.214"
+  ],
+  "uid": "68003967"
+ },
+ "diltiazem": {
+  "entry_terms": [
+   "Diltiazem",
+   "Diltiazem Malate",
+   "Dilacor XR",
+   "Dilzem",
+   "Aldizem",
+   "Cardil",
+   "Cardizem",
+   "Dilren",
+   "Diltiazem Hydrochloride",
+   "Tiazac",
+   "CRD-401",
+   "CRD401",
+   "CRD 401",
+   "Dilacor"
+  ],
+  "heading": "Diltiazem",
+  "parents": [
+   "Benzazepines"
+  ],
+  "tree": [
+   "D03.633.100.079.150"
+  ],
+  "uid": "68004110"
+ },
+ "dimercaprol": {
+  "entry_terms": [
+   "Dimercaprol",
+   "2,3-Dimercaptopropanol",
+   "2,3 Dimercaptopropanol",
+   "2,3-Dithiopropan-1-o1",
+   "2,3 Dithiopropan 1 o1",
+   "British Anti-Lewisite",
+   "Anti-Lewisite, British",
+   "British Anti Lewisite",
+   "British Anti-Lewisite Agent",
+   "Anti-Lewisite Agent, British",
+   "British Anti Lewisite Agent",
+   "Cadmium 2,3-Dimercaptopropanol",
+   "2,3-Dimercaptopropanol, Cadmium",
+   "Cadmium 2,3 Dimercaptopropanol",
+   "Dicaptol",
+   "BAL in Oil",
+   "in Oil, BAL",
+   "Oil, BAL in",
+   "B.A.L."
+  ],
+  "heading": "Dimercaprol",
+  "parents": [
+   "Sulfhydryl Compounds"
+  ],
+  "tree": [
+   "D02.886.489.180"
+  ],
+  "uid": "68004112"
+ },
+ "direct acting antivirals": null,
+ "discontinuation": null,
+ "dobutamine": {
+  "entry_terms": [
+   "Dobutamine",
+   "Dobutrex",
+   "Dobutamine Tartrate",
+   "Tartrate, Dobutamine",
+   "Dobutamine Tartrate (1:1), (S-(R*,R*))-Isomer",
+   "Dobutamine Lactobionate",
+   "Lactobionate, Dobutamine",
+   "Dobutamine Tartrate (1:1), (R-(R*,R*))-Isomer",
+   "Dobutamine Phosphate (1:1) Salt, (-)-Isomer",
+   "Dobutamine, Phosphate (1:1) Salt (+)-Isomer",
+   "Dobutamine Hydrochloride",
+   "Hydrochloride, Dobutamine",
+   "Dobutamine (+)-Isomer",
+   "Dobutamine, (-)-Isomer",
+   "Dobutamine Hydrobromide",
+   "Hydrobromide, Dobutamine",
+   "Lilly 81929",
+   "Dobutamin Solvay",
+   "Dobutamin Hexal",
+   "Dobutamin Fresenius",
+   "Dobuject",
+   "Dobucor",
+   "Posiject",
+   "Oxiken",
+   "Dobutamina Rovi",
+   "Dobutamina Inibsa",
+   "Dobutamin-ratiopharm",
+   "Dobutamin ratiopharm"
+  ],
+  "heading": "Dobutamine",
+  "parents": [
+   "Catecholamines",
+   "Phenethylamines"
+  ],
+  "tree": [
+   "D02.092.311.220",
+   "D02.092.471.683.410",
+   "D02.455.426.559.389.657.166.175.220"
+  ],
+  "uid": "68004280"
+ },
+ "dolutegravir": {
+  "entry_terms": [
+   "Dolutegravir",
+   "(4R,12aS)-N-((2,4-difluorophenyl)methyl)-3,4,6,8,12,12a-hexahydro-7-hydroxy-4-methyl-6,8-dioxo-2H-Pyrido(1',2':4,5)pyrazino(2,1-b)(1,3)oxazine-9-carboxamide",
+   "(4R,9aS)-5-hydroxy-4-methyl-6,10-dioxo-3,4,6,9,9a,10-hexahydro-2H-1-oxa-4a,8a-diaza-anthracene-7-carboxylic acid- 2,4 difluorobenzylamide",
+   "Tivicay",
+   "Tivicay PD",
+   "Dolutegravir Sodium",
+   "GSK 1349572A",
+   "GSK-1349572A",
+   "GSK1349572A",
+   "S-GSK1349572",
+   "GSK-1349572",
+   "Dolutegravir S,R Isomer",
+   "(4S,12aR)-N-((2,4-difluorophenyl)methyl)-3,4,6,8,12,12a-hexahydro-7-hydroxy-4-methyl-6,8-dioxo-2H-pyrido(1',2':4,5)pyrazino(2,1-b)(1,3)oxazine-9-carboxamide",
+   "Dolutegravir S,S-Isomer",
+   "(4S,12aS)-N-((2,4-difluorophenyl)methyl)-3,4,6,8,12,12a-hexahydro-7-hydroxy-4-methyl-6,8-dioxo-2H-pyrido(1',2':4,5)pyrazino(2,1-b)(1,3)oxazine-9-carboxamide",
+   "Dolutegravir Sodium Monohydrate"
+  ],
+  "heading": "Dolutegravir",
+  "parents": [
+   "Heterocyclic Compounds, 3-Ring",
+   "Oxazines",
+   "Piperazines",
+   "Pyridones"
+  ],
+  "tree": [
+   "D03.383.533.312",
+   "D03.383.606.394",
+   "D03.383.725.791.397",
+   "D03.633.300.445"
+  ],
+  "uid": "2109006"
+ },
+ "dose reduction": {
+  "entry_terms": [
+   "Drug Tapering",
+   "Tapering, Drug",
+   "Dose Tapering",
+   "Dose Taperings",
+   "Tapering, Dose",
+   "Taperings, Dose",
+   "Dose Reduction",
+   "Dose Reductions",
+   "Reduction, Dose",
+   "Reductions, Dose"
+  ],
+  "heading": "Drug Tapering",
+  "parents": [
+   "Drug Therapy"
+  ],
+  "tree": [
+   "E02.319.309"
+  ],
+  "uid": "2052111"
+ },
+ "dose-normalized sertraline concentrations and antidepressant": null,
  "doxorubicin": {
   "entry_terms": [
    "Doxorubicin",
@@ -519,6 +1996,57 @@
  "doxorubicin-associated toxicity": null,
  "doxorubicin-induced cardiotoxicity": null,
  "doxorubicin-induced cardiotoxicity (dic)": null,
+ "dress": null,
+ "drug dosage recommendation": null,
+ "drug efficacy and adverse reactions": null,
+ "drug efficacy and toxicity": null,
+ "drug hypersensitivity": {
+  "entry_terms": [
+   "Drug Hypersensitivity",
+   "Drug Hypersensitivities",
+   "Hypersensitivities, Drug",
+   "Allergy, Drug",
+   "Drug Allergy",
+   "Allergies, Drug",
+   "Drug Allergies",
+   "Hypersensitivity, Drug"
+  ],
+  "heading": "Drug Hypersensitivity",
+  "parents": [
+   "Drug-Related Side Effects and Adverse Reactions"
+  ],
+  "tree": [
+   "C25.100.468"
+  ],
+  "uid": "68004342"
+ },
+ "drug interaction effect": null,
+ "drug reaction with eosinophilia and systemic symptoms": {
+  "entry_terms": [
+   "Drug Hypersensitivity Syndrome",
+   "Drug Hypersensitivity Syndromes",
+   "Hypersensitivity Syndrome, Drug",
+   "Hypersensitivity Syndromes, Drug",
+   "Syndrome, Drug Hypersensitivity",
+   "Syndromes, Drug Hypersensitivity",
+   "Drug Reaction With Eosinophilia And Systemic Symptom",
+   "Drug Reaction with Eosinophilia and Systemic Symptoms Syndrome",
+   "Drug Reaction with Eosinophilia and Systemic Symptoms",
+   "DRESS Syndrome",
+   "DRESS Syndromes"
+  ],
+  "heading": "Drug Hypersensitivity Syndrome",
+  "parents": [
+   "Drug Eruptions",
+   "Hypersensitivity, Delayed"
+  ],
+  "tree": [
+   "C17.800.174.600.262",
+   "C20.543.418.310",
+   "C25.100.468.380.262"
+  ],
+  "uid": "68063926"
+ },
  "drug toxicity": {
   "entry_terms": [
    "Drug-Related Side Effects and Adverse Reactions",
@@ -555,8 +2083,107 @@
   "uid": "68064420"
  },
  "drug-induced hearing loss (ototoxicity)": null,
+ "drug-induced liver injury": {
+  "entry_terms": [
+   "Chemical and Drug Induced Liver Injury",
+   "Hepatitis, Toxic",
+   "Toxic Hepatitis",
+   "Hepatitides, Toxic",
+   "Toxic Hepatitides",
+   "Hepatitis, Drug-Induced",
+   "Drug-Induced Hepatitides",
+   "Drug-Induced Hepatitis",
+   "Hepatitides, Drug-Induced",
+   "Hepatitis, Drug Induced",
+   "Drug-Induced Acute Liver Injury",
+   "Drug Induced Acute Liver Injury",
+   "Acute Liver Injury, Drug-Induced",
+   "Acute Liver Injury, Drug Induced",
+   "Liver Injury, Drug-Induced, Acute",
+   "Drug-Induced Liver Disease",
+   "Disease, Drug-Induced Liver",
+   "Diseases, Drug-Induced Liver",
+   "Drug Induced Liver Disease",
+   "Drug-Induced Liver Diseases",
+   "Liver Disease, Drug-Induced",
+   "Liver Diseases, Drug-Induced",
+   "Drug-Induced Liver Injury",
+   "Drug-Induced Liver Injuries",
+   "Drug Induced Liver Injury",
+   "Injuries, Drug-Induced Liver",
+   "Injury, Drug-Induced Liver",
+   "Liver Injuries, Drug-Induced",
+   "Liver Injury, Drug-Induced",
+   "Liver Injury, Drug Induced",
+   "Chemically-Induced Liver Toxicity",
+   "Chemically-Induced Liver Toxicities",
+   "Chemically Induced Liver Toxicity",
+   "Liver Toxicities, Chemically-Induced",
+   "Liver Toxicity, Chemically-Induced",
+   "Toxicities, Chemically-Induced Liver",
+   "Toxicity, Chemically-Induced Liver"
+  ],
+  "heading": "Chemical and Drug Induced Liver Injury",
+  "parents": [
+   "Liver Diseases",
+   "Poisoning",
+   "Drug-Related Side Effects and Adverse Reactions"
+  ],
+  "tree": [
+   "C06.552.100",
+   "C25.100.562",
+   "C25.723.260"
+  ],
+  "uid": "68056486"
+ },
+ "drug-induced liver injury (dili)": null,
  "early anthracycline cardiotoxicity": null,
  "early ototoxicity presence or absence based on dpoae level s": null,
+ "early treatment discontinuation": null,
+ "efavirenz": null,
+ "elexacaftor / tezacaftor / ivacaftor": null,
+ "enflurane": {
+  "entry_terms": [
+   "Enflurane",
+   "Etran",
+   "Ethrane",
+   "Enlirane",
+   "Enfran",
+   "Alyrane"
+  ],
+  "heading": "Enflurane",
+  "parents": [
+   "Methyl Ethers"
+  ],
+  "tree": [
+   "D02.355.601.400"
+  ],
+  "uid": "68004737"
+ },
+ "epilepsy": {
+  "entry_terms": [
+   "Epilepsy",
+   "Epilepsies",
+   "Seizure Disorder",
+   "Seizure Disorders",
+   "Epilepsy, Cryptogenic",
+   "Cryptogenic Epilepsies",
+   "Cryptogenic Epilepsy",
+   "Epilepsies, Cryptogenic",
+   "Aura",
+   "Auras",
+   "Awakening Epilepsy",
+   "Epilepsy, Awakening"
+  ],
+  "heading": "Epilepsy",
+  "parents": [
+   "Brain Diseases"
+  ],
+  "tree": [
+   "C10.228.140.490"
+  ],
+  "uid": "68004827"
+ },
  "epirubicin": {
   "entry_terms": [
    "Epirubicin",
@@ -599,6 +2226,117 @@
   ],
   "uid": "68015251"
  },
+ "erlotinib": {
+  "entry_terms": [
+   "Erlotinib Hydrochloride",
+   "Hydrochloride, Erlotinib",
+   "Erlotinib HCl",
+   "HCl, Erlotinib",
+   "Erlotinib",
+   "N-(3-ethynylphenyl)-6,7-bis(2-methoxyethoxy)quinazolin-4-amine",
+   "OSI-774",
+   "OSI774",
+   "OSI 774",
+   "Tarceva",
+   "CP 358774",
+   "358774, CP",
+   "CP-358774",
+   "CP358774",
+   "CP 358,774",
+   "358,774, CP",
+   "CP-358,774",
+   "CP358,774",
+   "11C-erlotinib",
+   "11C erlotinib"
+  ],
+  "heading": "Erlotinib Hydrochloride",
+  "parents": [
+   "Quinazolines"
+  ],
+  "tree": [
+   "D03.633.100.786.375"
+  ],
+  "uid": "2009966"
+ },
+ "esc": null,
+ "escitalopram": {
+  "entry_terms": [
+   "Escitalopram",
+   "Lexapro",
+   "Escitalopram Oxalate"
+  ],
+  "heading": "Escitalopram",
+  "parents": [
+   "Benzofurans",
+   "Nitriles",
+   "Propylamines"
+  ],
+  "tree": [
+   "D02.092.831.230",
+   "D02.626.295",
+   "D03.633.100.127.203"
+  ],
+  "uid": "2101158"
+ },
+ "esomeprazole": {
+  "entry_terms": [
+   "Esomeprazole",
+   "Nexium",
+   "Esomeprazole Sodium",
+   "Esomeprazole Magnesium",
+   "Esomeprazole Potassium",
+   "Esomeprazole Strontium",
+   "Strontium, Esomeprazole",
+   "Esomeprazole Strontium Anhydrous"
+  ],
+  "heading": "Esomeprazole",
+  "parents": [
+   "Omeprazole"
+  ],
+  "tree": [
+   "D02.886.640.074.500.500",
+   "D03.383.725.024.500.500",
+   "D03.633.100.103.034.500.500"
+  ],
+  "uid": "68064098"
+ },
+ "estimated glomerular filtration rate (egfr)": null,
+ "etanercept": {
+  "entry_terms": [
+   "Etanercept",
+   "TNF Receptor Type II-IgG Fusion Protein",
+   "TNF Receptor Type II IgG Fusion Protein",
+   "Enbrel",
+   "TNFR-Fc Fusion Protein",
+   "Fusion Protein, TNFR-Fc",
+   "TNFR Fc Fusion Protein",
+   "TNTR-Fc",
+   "TNR 001",
+   "TNR-001",
+   "TNR001",
+   "TNT Receptor Fusion Protein",
+   "Erelzi",
+   "Etanercept-szzs",
+   "Recombinant Human Dimeric TNF Receptor Type II-IgG Fusion Protein",
+   "Recombinant Human Dimeric TNF Receptor Type II IgG Fusion Protein"
+  ],
+  "heading": "Etanercept",
+  "parents": [
+   "Immunoglobulin Fc Fragments",
+   "Receptors, Tumor Necrosis Factor"
+  ],
+  "tree": [
+   "D12.644.541.500.697.624",
+   "D12.776.124.486.485.538.500.624",
+   "D12.776.124.486.485.680.697.624",
+   "D12.776.124.790.651.538.500.624",
+   "D12.776.124.790.651.680.660.624",
+   "D12.776.377.715.548.538.500.624",
+   "D12.776.377.715.548.680.660.624",
+   "D12.776.543.750.705.852.760.232"
+  ],
+  "uid": "2009879"
+ },
  "everolimus": {
   "entry_terms": [
    "Everolimus",
@@ -622,7 +2360,375 @@
   ],
   "uid": "2009823"
  },
+ "falciparum": null,
+ "fatal malignant hyperthermia": null,
+ "febuxostat": {
+  "entry_terms": [
+   "Febuxostat",
+   "2-(3-cyano-4-isobutoxyphenyl)-4-methyl-5-thiazolecarboxylic acid",
+   "TEI 6720",
+   "6720, TEI",
+   "TEI-6720",
+   "TEI6720",
+   "Uloric"
+  ],
+  "heading": "Febuxostat",
+  "parents": [
+   "Thiazoles"
+  ],
+  "tree": [
+   "D02.886.675.274",
+   "D03.383.129.708.274"
+  ],
+  "uid": "2010002"
+ },
+ "fenofibrate": {
+  "entry_terms": [
+   "Fenofibrate",
+   "Procetofen",
+   "Phenofibrate",
+   "Procetofene",
+   "Lipanthyl",
+   "F\u00e9nofibrate Debat",
+   "Debat, F\u00e9nofibrate",
+   "Lipantil",
+   "Lipidil-Ter",
+   "Lipidil Ter",
+   "Lipidil",
+   "Secalip",
+   "Supralip",
+   "Fenofibrat FPh",
+   "LF-178",
+   "LF178",
+   "LF 178",
+   "Apo-Feno-Micro",
+   "Apo Feno Micro",
+   "Apo-Fenofibrate",
+   "Apo Fenofibrate",
+   "CiL",
+   "Controlip",
+   "durafenat",
+   "Lofibra",
+   "F\u00e9nofibrate MSD",
+   "Gen-Fenofibrate",
+   "Gen Fenofibrate",
+   "Liparison",
+   "Livesan",
+   "MTW-Fenofibrat",
+   "MTW Fenofibrat",
+   "Tricor",
+   "Normalip",
+   "Novo-Fenofibrate",
+   "Novo Fenofibrate",
+   "Nu-Fenofibrate",
+   "Nu Fenofibrate",
+   "PMS-Fenofibrate Micro",
+   "PMS Fenofibrate Micro",
+   "Fenobeta",
+   "Fenofanton",
+   "Fenofibrat AbZ",
+   "Fenofibrat AL",
+   "Fenofibrat AZU",
+   "AZU, Fenofibrat",
+   "Fenofibrat Heumann",
+   "Heumann, Fenofibrat",
+   "Fenofibrat Hexal",
+   "Hexal, Fenofibrat",
+   "Fenofibrat Stada",
+   "Stada, Fenofibrat",
+   "fenofibrat von ct",
+   "Fenofibrat-ratiopharm",
+   "Fenofibrat ratiopharm",
+   "Antara Micronized Procetofen",
+   "Micronized Procetofen, Antara",
+   "Procetofen, Antara Micronized"
+  ],
+  "heading": "Fenofibrate",
+  "parents": [
+   "Benzophenones",
+   "Fibric Acids"
+  ],
+  "tree": [
+   "D02.241.081.114.968.500.625",
+   "D02.355.726.305.625",
+   "D02.455.426.559.389.134.750",
+   "D02.455.426.559.389.657.654.305.625",
+   "D02.522.223.750"
+  ],
+  "uid": "68011345"
+ },
+ "flucloxacillin": {
+  "entry_terms": [
+   "Floxacillin",
+   "Flucloxacillin",
+   "Fluorochloroxacillin"
+  ],
+  "heading": "Floxacillin",
+  "parents": [
+   "Cloxacillin"
+  ],
+  "tree": [
+   "D02.065.589.099.750.625.150.250",
+   "D02.886.108.750.625.150.250",
+   "D03.633.100.300.750.625.150.250"
+  ],
+  "uid": "68005436"
+ },
+ "fluoropyrimidine": null,
+ "fluoropyrimidine toxicity": null,
+ "fluoropyrimidine-related adverse events": null,
+ "fluoropyrimidines": null,
+ "fluorouracil": {
+  "entry_terms": [
+   "Fluorouracil",
+   "5-Fluorouracil",
+   "5 Fluorouracil",
+   "Fluoruracil",
+   "5-FU",
+   "5FU",
+   "Efudix",
+   "Efudex",
+   "Fluoro-Uracile ICN",
+   "Fluoro Uracile ICN",
+   "Adrucil",
+   "Fluoroplex",
+   "Flurodex",
+   "Fluorouracil Monosodium Salt",
+   "Fluorouracil Potassium Salt",
+   "Fluorouracil Mononitrate",
+   "Fluorouracil Monopotassium Salt",
+   "Carac",
+   "5-Fluorouracil-Biosyn",
+   "5 Fluorouracil Biosyn",
+   "5-HU Hexal",
+   "5 HU Hexal",
+   "5-FU Lederle",
+   "5 FU Lederle",
+   "5-FU Medac",
+   "5 FU Medac",
+   "Fluorouracil-GRY",
+   "Fluorouracil GRY",
+   "Fluorouracilo Ferrer Far",
+   "Fluorouracile Dakota",
+   "Dakota, Fluorouracile",
+   "Haemato-FU",
+   "Haemato FU",
+   "Neofluor",
+   "Onkofluor",
+   "Ribofluor",
+   "Fluracedyl"
+  ],
+  "heading": "Fluorouracil",
+  "parents": [
+   "Uracil"
+  ],
+  "tree": [
+   "D03.383.742.698.875.404"
+  ],
+  "uid": "68005472"
+ },
+ "fluorouracil toxicity or efficacy": null,
+ "fluoxetine": {
+  "entry_terms": [
+   "Fluoxetine",
+   "N-Methyl-gamma-(4-(trifluoromethyl)phenoxy)benzenepropanamine",
+   "Fluoxetin",
+   "Prozac",
+   "Lilly-110140",
+   "Lilly110140",
+   "Lilly 110140",
+   "Fluoxetine Hydrochloride",
+   "Sarafem"
+  ],
+  "heading": "Fluoxetine",
+  "parents": [
+   "Propylamines"
+  ],
+  "tree": [
+   "D02.092.831.280"
+  ],
+  "uid": "68005473"
+ },
+ "flurbiprofen": {
+  "entry_terms": [
+   "Flurbiprofen",
+   "Flubiprofen",
+   "Fluriproben",
+   "2-Fluoro-alpha-methyl-(1,1'-biphenyl)-4-acetic Acid",
+   "Flugalin",
+   "BTS-18322",
+   "BTS18322",
+   "BTS 18322",
+   "Ansaid",
+   "Apo-Flurbiprofen",
+   "Apo Flurbiprofen",
+   "Cebutid",
+   "Dobrofen",
+   "Froben",
+   "Neo Artrol",
+   "Novo-Flurprofen",
+   "Novo Flurprofen",
+   "Nu-Flurbiprofen",
+   "Nu Flurbiprofen",
+   "ratio-Flurbiprofen",
+   "ratio Flurbiprofen",
+   "Strefen",
+   "Flurbiprofen Sodium",
+   "Ocufen",
+   "E-7869",
+   "E7869",
+   "E 7869",
+   "Froben SR",
+   "Ocuflur"
+  ],
+  "heading": "Flurbiprofen",
+  "parents": [
+   "Biphenyl Compounds",
+   "Propionates"
+  ],
+  "tree": [
+   "D02.241.081.751.161",
+   "D02.455.426.559.389.185.350"
+  ],
+  "uid": "68005480"
+ },
+ "fluvastatin": {
+  "entry_terms": [
+   "Fluvastatin",
+   "Lescol",
+   "XU 62-320",
+   "XU 62 320",
+   "XU 62320",
+   "XU-62320",
+   "XU62320",
+   "Fluvastatin Sodium",
+   "Fluindostatin",
+   "Fluvastatin Sodium Salt",
+   "7-(3-(4-Fluorophenyl)-1-(1-methylethyl)-1H-indol-2-yl)-3,5-dihydroxy-6-heptenoate"
+  ],
+  "heading": "Fluvastatin",
+  "parents": [
+   "Heptanoic Acids",
+   "Indoles"
+  ],
+  "tree": [
+   "D03.633.100.473.305",
+   "D10.251.450.300"
+  ],
+  "uid": "2028013"
+ },
+ "fluvoxamine": {
+  "entry_terms": [
+   "Fluvoxamine",
+   "DU-23000",
+   "DU23000",
+   "DU 23000",
+   "Fluvoxamine, (Z)-Isomer",
+   "Luvox",
+   "Dumirox",
+   "Faverin",
+   "Fevarin",
+   "Floxyfral",
+   "Fluvoxamine Maleate",
+   "Fluvoxamine Maleate, (E)-Isomer",
+   "Desiflu",
+   "Fluvoxadura",
+   "Fluvoxamin AL",
+   "Fluvoxamin beta",
+   "Fluvoxamin Stada",
+   "Fluvoxamin-neuraxpharm",
+   "Fluvoxamin neuraxpharm",
+   "Fluvoxamin-ratiopharm",
+   "Fluvoxamin ratiopharm",
+   "ratio-Fluvoxamine",
+   "ratio Fluvoxamine",
+   "Fluvoxamina Geminis",
+   "Geminis, Fluvoxamina",
+   "Novo-Fluvoxamine",
+   "Novo Fluvoxamine",
+   "Nu-Fluvoxamine",
+   "Nu Fluvoxamine",
+   "PMS-Fluvoxamine",
+   "PMS Fluvoxamine"
+  ],
+  "heading": "Fluvoxamine",
+  "parents": [
+   "Oximes"
+  ],
+  "tree": [
+   "D02.092.570.665.250"
+  ],
+  "uid": "68016666"
+ },
  "folfiri": null,
+ "fractures": null,
+ "fungal infectious disease": null,
+ "gabapentin": {
+  "entry_terms": [
+   "Gabapentin",
+   "1-(Aminomethyl)cyclohexaneacetic Acid",
+   "Apo-Gabapentin",
+   "ApoGabapentin",
+   "Apo Gabapentin",
+   "Gabapentin Hexal",
+   "Gabapentin Stada",
+   "Gabapentin-Ratiopharm",
+   "Gabapentin Ratiopharm",
+   "Novo-Gabapentin",
+   "NovoGabapentin",
+   "Novo Gabapentin",
+   "PMS-Gabapentin",
+   "Neurontin",
+   "Convalis"
+  ],
+  "heading": "Gabapentin",
+  "parents": [
+   "Amines",
+   "Cyclohexanecarboxylic Acids",
+   "gamma-Aminobutyric Acid"
+  ],
+  "tree": [
+   "D02.092.521",
+   "D02.241.081.114.500.350.300",
+   "D02.241.223.268.469",
+   "D02.455.426.392.368.367.218.500",
+   "D12.125.190.350.225"
+  ],
+  "uid": "2027930"
+ },
+ "gastroesophageal reflux": {
+  "entry_terms": [
+   "Gastroesophageal Reflux",
+   "Esophageal Reflux",
+   "Gastric Acid Reflux",
+   "Acid Reflux, Gastric",
+   "Reflux, Gastric Acid",
+   "Gastric Acid Reflux Disease",
+   "Gastro-Esophageal Reflux",
+   "Gastro Esophageal Reflux",
+   "Reflux, Gastro-Esophageal",
+   "Gastro-oesophageal Reflux",
+   "Gastro oesophageal Reflux",
+   "Reflux, Gastro-oesophageal",
+   "Gastroesophageal Reflux Disease",
+   "GERD",
+   "Reflux, Gastroesophageal",
+   "Gastro-Esophageal Reflux Disease",
+   "Gastro Esophageal Reflux Disease",
+   "Gastro-Esophageal Reflux Diseases",
+   "Reflux Disease, Gastro-Esophageal"
+  ],
+  "heading": "Gastroesophageal Reflux",
+  "parents": [
+   "Esophageal Motility Disorders"
+  ],
+  "tree": [
+   "C06.405.117.119.500.484"
+  ],
+  "uid": "68005764"
+ },
+ "gastrointestinal bleeding": null,
+ "gastrointestinal bleeding risk": null,
  "gemcitabine": {
   "entry_terms": [
    "Gemcitabine",
@@ -656,7 +2762,107 @@
   ],
   "uid": "2103234"
  },
+ "gentamicin": {
+  "entry_terms": [
+   "Gentamicins",
+   "Gentamycins",
+   "Gentacycol",
+   "Gentamicin Sulfate",
+   "Sulfate, Gentamicin",
+   "Gentamicin Sulfate (USP)",
+   "Garamycin",
+   "G-Myticin",
+   "GMyticin",
+   "G Myticin",
+   "Gentavet",
+   "Genticin",
+   "Gentamicin",
+   "Gentamycin"
+  ],
+  "heading": "Gentamicins",
+  "parents": [
+   "Aminoglycosides"
+  ],
+  "tree": [
+   "D09.408.051.374"
+  ],
+  "uid": "68005839"
+ },
+ "gi bleeding or cardiovascular events": null,
+ "glyburide": {
+  "entry_terms": [
+   "Glyburide",
+   "Glybenclamide",
+   "Glibenclamide",
+   "Neogluconin",
+   "Micronase",
+   "Maninil",
+   "HB-420",
+   "HB420",
+   "HB 420",
+   "HB-419",
+   "HB419",
+   "HB 419",
+   "Euglucon N",
+   "Euglucon 5",
+   "Diabeta",
+   "Daonil"
+  ],
+  "heading": "Glyburide",
+  "parents": [
+   "Sulfonylurea Compounds"
+  ],
+  "tree": [
+   "D02.065.950.828.575",
+   "D02.886.590.795.575"
+  ],
+  "uid": "68005905"
+ },
+ "gout": {
+  "entry_terms": [
+   "Gout",
+   "Gouts"
+  ],
+  "heading": "Gout",
+  "parents": [
+   "Crystal Arthropathies",
+   "Arthritis",
+   "Purine-Pyrimidine Metabolism, Inborn Errors",
+   "Rheumatic Diseases"
+  ],
+  "tree": [
+   "C05.550.114.423",
+   "C05.550.354.500",
+   "C05.799.414",
+   "C16.320.565.798.368",
+   "C18.452.648.798.368"
+  ],
+  "uid": "68006073"
+ },
+ "grade 3\u20134 overall toxicity": null,
+ "grade 4-5 fluoropyrimidine-related hematological and digesti": null,
+ "h. pylori eradication rate": null,
+ "haemolysis risk": null,
  "hair cell ferroptosis": null,
+ "halothane": {
+  "entry_terms": [
+   "Halothane",
+   "1,1,1-Trifluoro-2-Chloro-2-Bromoethane",
+   "Narcotan",
+   "Ftorotan",
+   "Fluothane"
+  ],
+  "heading": "Halothane",
+  "parents": [
+   "Hydrocarbons, Halogenated"
+  ],
+  "tree": [
+   "D02.455.526.340"
+  ],
+  "uid": "68006221"
+ },
+ "hamd-17 scale score reduction by >or=50% at week 6 of treatm": null,
+ "hbsag seroclearance": null,
  "hdl-c levels": null,
  "hearing impairment": {
   "entry_terms": [
@@ -741,7 +2947,251 @@
   ],
   "uid": "68006333"
  },
+ "heart transplantation": {
+  "entry_terms": [
+   "Heart Transplantation",
+   "Grafting, Heart",
+   "Graftings, Heart",
+   "Heart Grafting",
+   "Heart Graftings",
+   "Transplantation, Cardiac",
+   "Transplantation, Heart",
+   "Heart Transplantations",
+   "Transplantations, Heart",
+   "Cardiac Transplantation",
+   "Cardiac Transplantations",
+   "Transplantations, Cardiac"
+  ],
+  "heading": "Heart Transplantation",
+  "parents": [
+   "Cardiac Surgical Procedures",
+   "Organ Transplantation"
+  ],
+  "tree": [
+   "E04.100.376.475",
+   "E04.928.220.390",
+   "E04.936.450.475"
+  ],
+  "uid": "68016027"
+ },
+ "helicobacter infections": {
+  "entry_terms": [
+   "Helicobacter Infections",
+   "Infections, Helicobacter",
+   "Helicobacter Infection",
+   "Infection, Helicobacter"
+  ],
+  "heading": "Helicobacter Infections",
+  "parents": [
+   "Gram-Negative Bacterial Infections"
+  ],
+  "tree": [
+   "C01.150.252.400.466"
+  ],
+  "uid": "68016481"
+ },
+ "helicobacter pylori eradication rate": null,
+ "hematopoietic stem cell transplantation": {
+  "entry_terms": [
+   "Hematopoietic Stem Cell Transplantation",
+   "Stem Cell Transplantation, Hematopoietic",
+   "Transplantation, Hematopoietic Stem Cell"
+  ],
+  "heading": "Hematopoietic Stem Cell Transplantation",
+  "parents": [
+   "Stem Cell Transplantation"
+  ],
+  "tree": [
+   "E02.095.147.500.500.500",
+   "E04.936.225.687.500"
+  ],
+  "uid": "68018380"
+ },
+ "hemoglobin levels": null,
+ "hemolysis": {
+  "entry_terms": [
+   "Hemolysis",
+   "Haemolysis",
+   "Haemolyses",
+   "Intravascular Hemolysis",
+   "Hemolyses, Intravascular",
+   "Hemolysis, Intravascular",
+   "Intravascular Hemolyses",
+   "Extravascular Hemolysis",
+   "Extravascular Hemolyses",
+   "Hemolyses, Extravascular",
+   "Hemolysis, Extravascular"
+  ],
+  "heading": "Hemolysis",
+  "parents": [
+   "Antigen-Antibody Reactions",
+   "Pathologic Processes"
+  ],
+  "tree": [
+   "C23.550.403",
+   "G12.122.545"
+  ],
+  "uid": "68006461"
+ },
+ "hemolytic anemia": {
+  "entry_terms": [
+   "Anemia, Hemolytic",
+   "Haemolytic Anaemia",
+   "Anaemia, Haemolytic",
+   "Haemolytic Anaemias",
+   "Hemolytic Anemia",
+   "Anemia, Hemolytic, Acquired",
+   "Hemolytic Anemia, Acquired",
+   "Acquired Hemolytic Anemia",
+   "Anemia, Acquired Hemolytic",
+   "Anemia, Microangiopathic",
+   "Microangiopathic Anemia",
+   "Microangiopathic Hemolytic Anemia",
+   "Anemia, Microangiopathic Hemolytic",
+   "Hemolytic Anemia, Microangiopathic",
+   "Microangiopathic Hemolytic Anemias"
+  ],
+  "heading": "Anemia, Hemolytic",
+  "parents": [
+   "Anemia"
+  ],
+  "tree": [
+   "C15.378.050.141"
+  ],
+  "uid": "68000743"
+ },
+ "hemorrhage": {
+  "entry_terms": [
+   "Hemorrhage",
+   "Hemorrhages",
+   "Bleeding"
+  ],
+  "heading": "Hemorrhage",
+  "parents": [
+   "Pathologic Processes"
+  ],
+  "tree": [
+   "C23.550.414"
+  ],
+  "uid": "68006470"
+ },
+ "hepatitis c virus infection": null,
  "hepatotoxicity, myelosuppression, nephrotoxicity, neurotoxic": null,
+ "heroin": {
+  "entry_terms": [
+   "Heroin",
+   "Diacetylmorphine",
+   "Diamorphine",
+   "Heroin Hydrochloride",
+   "Hydrochloride, Heroin",
+   "Diacetylmorphine Hydrochloride",
+   "Hydrochloride, Diacetylmorphine",
+   "Diagesil",
+   "Diamorf",
+   "Min-I-Jet Morphine Sulphate",
+   "Min I Jet Morphine Sulphate"
+  ],
+  "heading": "Heroin",
+  "parents": [
+   "Morphine Derivatives"
+  ],
+  "tree": [
+   "D03.132.577.249.562.445",
+   "D03.605.497.607.490",
+   "D03.633.400.686.607.490",
+   "D04.615.723.795.576.445"
+  ],
+  "uid": "68003932"
+ },
+ "heroin dependence": {
+  "entry_terms": [
+   "Heroin Dependence",
+   "Dependence, Heroin",
+   "Heroin Addiction",
+   "Addiction, Heroin",
+   "Heroin Smoking",
+   "Heroin Smokings",
+   "Smoking, Heroin",
+   "Heroin Abuse",
+   "Abuse, Heroin"
+  ],
+  "heading": "Heroin Dependence",
+  "parents": [
+   "Opioid-Related Disorders"
+  ],
+  "tree": [
+   "C25.775.643.500.400",
+   "F03.900.647.500.300"
+  ],
+  "uid": "68006556"
+ },
+ "histopathological injury and pulmonary mrna expression": null,
+ "hiv infectious disease": null,
+ "hmg-coa reductase inhibitors": {
+  "entry_terms": [
+   "Hydroxymethylglutaryl-CoA Reductase Inhibitors",
+   "Hydroxymethylglutaryl CoA Reductase Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl-CoA Reductase",
+   "Reductase Inhibitors, Hydroxymethylglutaryl-CoA",
+   "HMG-CoA Reductase Inhibitor",
+   "HMG CoA Reductase Inhibitor",
+   "Statin",
+   "Statins",
+   "Inhibitors, HMG-CoA Reductase",
+   "Inhibitors, HMG CoA Reductase",
+   "Reductase Inhibitors, HMG-CoA",
+   "HMG-CoA Reductase Inhibitors",
+   "HMG CoA Reductase Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl-Coenzyme A",
+   "Hydroxymethylglutaryl-Coenzyme A Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl Coenzyme A",
+   "Inhibitors, Hydroxymethylglutaryl-CoA",
+   "Hydroxymethylglutaryl-CoA Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl CoA",
+   "Hydroxymethylglutaryl-CoA Reductase Inhibitor",
+   "Hydroxymethylglutaryl CoA Reductase Inhibitor",
+   "Reductase Inhibitor, Hydroxymethylglutaryl-CoA",
+   "Statins, HMG-CoA",
+   "HMG-CoA Statins",
+   "Statins, HMG CoA"
+  ],
+  "heading": "Hydroxymethylglutaryl-CoA Reductase Inhibitors",
+  "parents": [
+   "Anticholesteremic Agents",
+   "Enzyme Inhibitors"
+  ],
+  "tree": [
+   "D27.505.519.186.071.202.370",
+   "D27.505.519.389.370",
+   "D27.505.954.557.500.202.370"
+  ],
+  "uid": "68019161"
+ },
+ "hormonal contraceptives for systemic use": null,
+ "hydralazine": {
+  "entry_terms": [
+   "Hydralazine",
+   "Apressin",
+   "Hydrazinophthalazine",
+   "Hydrallazin",
+   "Nepresol",
+   "Hydralazine Hydrochloride",
+   "Hydrochloride, Hydralazine",
+   "Apressoline",
+   "Apresoline",
+   "Hydralazine mono-Hydrochloride",
+   "Hydralazine mono Hydrochloride",
+   "mono-Hydrochloride, Hydralazine"
+  ],
+  "heading": "Hydralazine",
+  "parents": [
+   "Phthalazines"
+  ],
+  "tree": [
+   "D03.383.710.605.500"
+  ],
+  "uid": "68006830"
+ },
  "hydrocodone": {
   "entry_terms": [
    "Hydrocodone",
@@ -768,6 +3218,138 @@
    "D04.615.723.795.576.149.287"
   ],
   "uid": "68006853"
+ },
+ "hyperbilirubinemia": {
+  "entry_terms": [
+   "Hyperbilirubinemia",
+   "Hyperbilirubinemias",
+   "Bilirubinemia",
+   "Bilirubinemias"
+  ],
+  "heading": "Hyperbilirubinemia",
+  "parents": [
+   "Pathologic Processes"
+  ],
+  "tree": [
+   "C23.550.429"
+  ],
+  "uid": "68006932"
+ },
+ "hypercholesterolemia": {
+  "entry_terms": [
+   "Hypercholesterolemia",
+   "Hypercholesterolemias",
+   "Hypercholesteremia",
+   "Hypercholesteremias",
+   "Elevated Cholesterol",
+   "Cholesterol, Elevated",
+   "Cholesterols, Elevated",
+   "Elevated Cholesterols",
+   "High Cholesterol Levels",
+   "Cholesterol Level, High",
+   "Cholesterol Levels, High",
+   "High Cholesterol Level",
+   "Level, High Cholesterol",
+   "Levels, High Cholesterol"
+  ],
+  "heading": "Hypercholesterolemia",
+  "parents": [
+   "Hyperlipidemias"
+  ],
+  "tree": [
+   "C18.452.584.500.500.396"
+  ],
+  "uid": "68006937"
+ },
+ "hyperlipidemias": {
+  "entry_terms": [
+   "Hyperlipidemias",
+   "Hyperlipidemia",
+   "Hyperlipemia",
+   "Hyperlipemias",
+   "Lipidemia",
+   "Lipidemias",
+   "Lipemia",
+   "Lipemias"
+  ],
+  "heading": "Hyperlipidemias",
+  "parents": [
+   "Dyslipidemias"
+  ],
+  "tree": [
+   "C18.452.584.500.500"
+  ],
+  "uid": "68006949"
+ },
+ "hypersensitivity reaction": null,
+ "hypersensitivity reactions": null,
+ "hypersensitivity reactions to abacavir": null,
+ "hypertension": {
+  "entry_terms": [
+   "Hypertension",
+   "Blood Pressure, High",
+   "Blood Pressures, High",
+   "High Blood Pressure",
+   "High Blood Pressures"
+  ],
+  "heading": "Hypertension",
+  "parents": [
+   "Vascular Diseases"
+  ],
+  "tree": [
+   "C14.907.489"
+  ],
+  "uid": "68006973"
+ },
+ "hypertriglyceridemia": {
+  "entry_terms": [
+   "Hypertriglyceridemia",
+   "Hypertriglyceridemias"
+  ],
+  "heading": "Hypertriglyceridemia",
+  "parents": [
+   "Hyperlipidemias"
+  ],
+  "tree": [
+   "C18.452.584.500.500.851"
+  ],
+  "uid": "68015228"
+ },
+ "ibuprofen": {
+  "entry_terms": [
+   "Ibuprofen",
+   "alpha-Methyl-4-(2-methylpropyl)benzeneacetic Acid",
+   "Benzeneacetic Acid, alpha-methyl-4-(2-methylpropyl)- trimethylsilyl ester",
+   "Ibuprofen-Zinc",
+   "Ibuprofen Zinc",
+   "Salprofen",
+   "Brufen",
+   "Motrin",
+   "Ibumetin",
+   "Nuprin",
+   "Rufen",
+   "Trauma-Dolgit Gel",
+   "Trauma Dolgit Gel",
+   "Ibuprofen, Sodium Salt",
+   "Ibuprofen, (S)-Isomer",
+   "Ibuprofen, (R)-Isomer",
+   "Ibuprofen, (+-)-Isomer",
+   "Ibuprofen, Calcium Salt",
+   "Ibuprofen, Magnesium Salt",
+   "Ibuprofen, Aluminum Salt",
+   "Ibuprofen, Copper (2+) Salt",
+   "Ibuprofen, Zinc Salt",
+   "Ibuprofen, Potassium Salt",
+   "Advil"
+  ],
+  "heading": "Ibuprofen",
+  "parents": [
+   "Phenylpropionates"
+  ],
+  "tree": [
+   "D02.241.223.701.430"
+  ],
+  "uid": "68007052"
  },
  "idarubicin": {
   "entry_terms": [
@@ -796,6 +3378,9 @@
   ],
   "uid": "68015255"
  },
+ "idiosyncratic drug toxicity": null,
+ "ifn": null,
+ "il-2 production in cd8+ t cells": null,
  "imatinib": {
   "entry_terms": [
    "Imatinib Mesylate",
@@ -831,9 +3416,405 @@
   ],
   "uid": "2009892"
  },
+ "inflammatory bowel diseases": {
+  "entry_terms": [
+   "Inflammatory Bowel Diseases",
+   "Inflammatory Bowel Disease",
+   "Bowel Diseases, Inflammatory"
+  ],
+  "heading": "Inflammatory Bowel Diseases",
+  "parents": [
+   "Gastroenteritis",
+   "Intestinal Diseases"
+  ],
+  "tree": [
+   "C06.405.205.731",
+   "C06.405.469.432"
+  ],
+  "uid": "68015212"
+ },
+ "influenza vaccines": {
+  "entry_terms": [
+   "Influenza Vaccines",
+   "Influenza Virus Vaccines",
+   "Flu Vaccines",
+   "Influenza Virus Vaccine",
+   "Vaccine, Influenza Virus",
+   "Virus Vaccine, Influenza",
+   "Influenza Vaccine",
+   "Vaccine, Influenza",
+   "Influenzavirus Vaccines",
+   "Influenzavirus Vaccine",
+   "Vaccine, Influenzavirus",
+   "Flu Vaccine",
+   "Vaccine, Flu",
+   "Trivalent Live Attenuated Influenza Vaccine",
+   "LAIV Vaccine",
+   "Vaccine, LAIV",
+   "Universal Flu Vaccines",
+   "Universal Influenza Vaccines",
+   "Universal Influenza Vaccine",
+   "Influenza Vaccine, Universal",
+   "Universal Flu Vaccine",
+   "Flu Vaccine, Universal",
+   "High-Dose Trivalent Influenza Vaccine",
+   "High Dose Trivalent Influenza Vaccine",
+   "Quadrivalent Influenza Vaccine",
+   "Influenza Vaccine, Quadrivalent",
+   "Vaccine, Quadrivalent Influenza",
+   "Trivalent Influenza Vaccine",
+   "Influenza Vaccine, Trivalent",
+   "Vaccine, Trivalent Influenza",
+   "Intranasal Live-Attenuated Influenza Vaccine",
+   "Intranasal Live Attenuated Influenza Vaccine",
+   "Monovalent Influenza Vaccines",
+   "Monovalent Influenza Vaccine",
+   "Influenza Vaccine, Monovalent",
+   "Vaccine, Monovalent Influenza"
+  ],
+  "heading": "Influenza Vaccines",
+  "parents": [
+   "Viral Vaccines"
+  ],
+  "tree": [
+   "D20.215.894.899.302"
+  ],
+  "uid": "68007252"
+ },
+ "inr levels and clinical events (myocardial infarction, strok": null,
+ "interferon beta-1a": {
+  "entry_terms": [
+   "Interferon beta-1a",
+   "beta-1a, Interferon",
+   "Interferon beta 1a",
+   "beta 1a, Interferon",
+   "Rebif",
+   "Avonex",
+   "Avonex Pen"
+  ],
+  "heading": "Interferon beta-1a",
+  "parents": [
+   "Interferon-beta"
+  ],
+  "tree": [
+   "D12.644.276.374.440.890.275.500",
+   "D12.776.467.374.440.890.275.500",
+   "D23.529.374.440.890.275.500"
+  ],
+  "uid": "2009840"
+ },
+ "interferons": {
+  "entry_terms": [
+   "Interferons",
+   "Interferon"
+  ],
+  "heading": "Interferons",
+  "parents": [
+   "Cytokines"
+  ],
+  "tree": [
+   "D12.644.276.374.440",
+   "D12.776.467.374.440",
+   "D23.529.374.440"
+  ],
+  "uid": "68007372"
+ },
  "intestinal toxicity": null,
+ "intra-cytoplasmic il-2 production by cd8+ t lymphocytes": null,
+ "irinotecan": {
+  "entry_terms": [
+   "Irinotecan",
+   "Camptothecin-11",
+   "Camptothecin 11",
+   "Irrinotecan",
+   "SN 38 11",
+   "SN-38-11",
+   "SN3811",
+   "7-Ethyl-10-hydroxycamptothecin",
+   "7 Ethyl 10 hydroxycamptothecin",
+   "SN 38",
+   "SN-38",
+   "Irinotecan Hydrochloride",
+   "NK012 Compound",
+   "Camptosar",
+   "CPT-11",
+   "CPT11",
+   "CPT 11"
+  ],
+  "heading": "Irinotecan",
+  "parents": [
+   "Camptothecin"
+  ],
+  "tree": [
+   "D03.132.151.425"
+  ],
+  "uid": "2027907"
+ },
+ "isoflurane": {
+  "entry_terms": [
+   "Isoflurane"
+  ],
+  "heading": "Isoflurane",
+  "parents": [
+   "Methyl Ethers"
+  ],
+  "tree": [
+   "D02.355.601.570"
+  ],
+  "uid": "68007530"
+ },
+ "ivacaftor": null,
+ "ivacaftor / lumacaftor": null,
+ "ivacaftor / tezacaftor": null,
+ "kanamycin": {
+  "entry_terms": [
+   "Kanamycin",
+   "Kanamycin A",
+   "Kanamycin Sulfate",
+   "Kantrex"
+  ],
+  "heading": "Kanamycin",
+  "parents": [
+   "Aminoglycosides"
+  ],
+  "tree": [
+   "D09.408.051.476"
+  ],
+  "uid": "68007612"
+ },
+ "kidney stone disease susceptibility": null,
+ "kidney transplantation": {
+  "entry_terms": [
+   "Kidney Transplantation",
+   "Renal Transplantation",
+   "Renal Transplantations",
+   "Transplantations, Renal",
+   "Transplantation, Kidney",
+   "Kidney Transplantations",
+   "Transplantations, Kidney",
+   "Transplantation, Renal",
+   "Grafting, Kidney",
+   "Kidney Grafting"
+  ],
+  "heading": "Kidney Transplantation",
+  "parents": [
+   "Urologic Surgical Procedures",
+   "Organ Transplantation",
+   "Renal Replacement Therapy"
+  ],
+  "tree": [
+   "E02.870.500",
+   "E04.936.450.485",
+   "E04.950.774.400"
+  ],
+  "uid": "68016030"
+ },
+ "lamotrigine": {
+  "entry_terms": [
+   "Lamotrigine",
+   "3,5-Diamino-6-(2,3-dichlorophenyl)-1,2,4-triazine",
+   "3,5-Diamino-6-(2,3-dichlorophenyl)-as-triazine",
+   "BW-430C",
+   "BW430C",
+   "BW 430C",
+   "Lamictal",
+   "Labileno",
+   "Crisomet",
+   "Lamiktal"
+  ],
+  "heading": "Lamotrigine",
+  "parents": [
+   "Triazines"
+  ],
+  "tree": [
+   "D03.383.931.480"
+  ],
+  "uid": "2027937"
+ },
+ "lansoprazole": {
+  "entry_terms": [
+   "Lansoprazole",
+   "Lansoprazoles",
+   "2-(((3-Methyl-4-(2,2,2-trifluoroethoxy)-2-pyridyl)methyl)sulfinyl)benzimidazole",
+   "Lansoprazol",
+   "Prevacid",
+   "Takepron",
+   "Agopton",
+   "Bamalite",
+   "Promeco",
+   "Lanzor",
+   "Monolitum",
+   "Opiren",
+   "Pro Ulco",
+   "Ulpax",
+   "Zoton",
+   "Lansol",
+   "Lansoprazole Sodium",
+   "Sodium, Lansoprazole",
+   "Ogast",
+   "Prezal",
+   "AG 1749",
+   "AG-1749",
+   "AG1749",
+   "Ogastro"
+  ],
+  "heading": "Lansoprazole",
+  "parents": [
+   "2-Pyridinylmethylsulfinylbenzimidazoles"
+  ],
+  "tree": [
+   "D02.886.640.074.249",
+   "D03.383.725.024.249",
+   "D03.633.100.103.034.249"
+  ],
+  "uid": "68064747"
+ },
+ "laparoscopic sleeve gastrectomy": null,
+ "ldl-c levels": null,
+ "lead poisoning": {
+  "entry_terms": [
+   "Lead Poisoning",
+   "Poisoning, Lead",
+   "Lead Poisonings",
+   "Poisonings, Lead"
+  ],
+  "heading": "Lead Poisoning",
+  "parents": [
+   "Heavy Metal Poisoning"
+  ],
+  "tree": [
+   "C25.723.522.750"
+  ],
+  "uid": "68007855"
+ },
  "left ventricular ejection fraction and fractional shortening": null,
  "left ventricular fractional shortening (lvfs)": null,
+ "leprosy": {
+  "entry_terms": [
+   "Leprosy",
+   "Hansen Disease",
+   "Hansen's Disease"
+  ],
+  "heading": "Leprosy",
+  "parents": [
+   "Mycobacterium Infections, Nontuberculous"
+  ],
+  "tree": [
+   "C01.150.252.410.040.552.475.371"
+  ],
+  "uid": "68007918"
+ },
+ "leukopenia": {
+  "entry_terms": [
+   "Leukopenia",
+   "Leukopenias",
+   "Leukocytopenia",
+   "Leukocytopenias"
+  ],
+  "heading": "Leukopenia",
+  "parents": [
+   "Cytopenia",
+   "Leukocyte Disorders"
+  ],
+  "tree": [
+   "C15.378.243.750",
+   "C15.378.553.546"
+  ],
+  "uid": "68007970"
+ },
+ "levetiracetam": {
+  "entry_terms": [
+   "Levetiracetam",
+   "Etiracetam, S-isomer",
+   "Etiracetam, S isomer",
+   "S-isomer Etiracetam",
+   "Ucb L059",
+   "Ucb-L059",
+   "Ucb L060",
+   "Ucb-L060",
+   "UcbL060",
+   "UCB 6474",
+   "UCB-6474",
+   "UCB6474",
+   "Etiracetam, R-isomer",
+   "Etiracetam, R isomer",
+   "R-isomer Etiracetam",
+   "Etiracetam, (R)-",
+   "Keppra",
+   "Etiracetam",
+   "alpha-ethyl-2-oxo-1-Pyrrolidineacetamide",
+   "alpha ethyl 2 oxo 1 Pyrrolidineacetamide"
+  ],
+  "heading": "Levetiracetam",
+  "parents": [
+   "Acetamides",
+   "Pyrrolidinones"
+  ],
+  "tree": [
+   "D02.065.064.432",
+   "D02.241.081.018.110.463",
+   "D03.383.773.812.362"
+  ],
+  "uid": "2027977"
+ },
+ "liver injury": null,
+ "liver transplantation": {
+  "entry_terms": [
+   "Liver Transplantation",
+   "Hepatic Transplantation",
+   "Hepatic Transplantations",
+   "Transplantation, Hepatic",
+   "Transplantation, Liver",
+   "Liver Transplantations",
+   "Liver Transplant",
+   "Liver Transplants",
+   "Transplant, Liver",
+   "Grafting, Liver",
+   "Liver Grafting"
+  ],
+  "heading": "Liver Transplantation",
+  "parents": [
+   "Digestive System Surgical Procedures",
+   "Organ Transplantation",
+   "Tissue Transplantation"
+  ],
+  "tree": [
+   "E02.095.147.725.490",
+   "E04.210.650",
+   "E04.936.450.490",
+   "E04.936.580.490"
+  ],
+  "uid": "68016031"
+ },
+ "lornoxicam": null,
+ "lovastatin": {
+  "entry_terms": [
+   "Lovastatin",
+   "6-Methylcompactin",
+   "6 Methylcompactin",
+   "Mevinolin",
+   "Monacolin K",
+   "Lovastatin, 1 alpha-Isomer",
+   "1 alpha-Isomer Lovastatin",
+   "alpha-Isomer Lovastatin, 1",
+   "Lovastatin, 1 alpha Isomer",
+   "Lovastatin, (1 alpha(S*))-Isomer",
+   "MK-803",
+   "MK803",
+   "MK 803",
+   "Mevacor"
+  ],
+  "heading": "Lovastatin",
+  "parents": [
+   "Naphthalenes"
+  ],
+  "tree": [
+   "D02.455.426.559.847.638.400",
+   "D04.615.638.400"
+  ],
+  "uid": "68008148"
+ },
+ "lumacaftor": null,
  "lung neoplasms": {
   "entry_terms": [
    "Lung Neoplasms",
@@ -866,6 +3847,172 @@
    "C08.785.520"
   ],
   "uid": "68008175"
+ },
+ "maculopapular exanthema": null,
+ "major adverse cardiovascular events (mace)": null,
+ "major depressive disorder": {
+  "entry_terms": [
+   "Major Depressive Disorder",
+   "Depressive Disorders, Major",
+   "Disorder, Major Depressive",
+   "Disorders, Major Depressive",
+   "Major Depressive Disorders",
+   "Clinical Depression",
+   "Depressions, Clinical",
+   "Major Depression Disorder",
+   "Depression Disorders, Major",
+   "Disorders, Major Depression",
+   "Depressive Disorder, Major",
+   "Depression, Involutional",
+   "Depressions, Involutional",
+   "Melancholia, Involutional",
+   "Melancholias, Involutional",
+   "Psychosis, Involutional",
+   "Psychoses, Involutional",
+   "Paraphrenia, Involutional",
+   "Paraphrenias, Involutional"
+  ],
+  "heading": "Major Depressive Disorder",
+  "parents": [
+   "Depressive Disorder"
+  ],
+  "tree": [
+   "F03.600.300.375"
+  ],
+  "uid": "68003865"
+ },
+ "malaria": {
+  "entry_terms": [
+   "Malaria",
+   "Infections, Plasmodium",
+   "Infection, Plasmodium",
+   "Plasmodium Infection",
+   "Plasmodium Infections",
+   "Paludism",
+   "Remittent Fever",
+   "Fever, Remittent",
+   "Marsh Fever",
+   "Fever, Marsh"
+  ],
+  "heading": "Malaria",
+  "parents": [
+   "Mosquito-Borne Diseases",
+   "Protozoan Infections"
+  ],
+  "tree": [
+   "C01.610.752.530",
+   "C01.920.852.750"
+  ],
+  "uid": "68008288"
+ },
+ "malignant hyperthermia": {
+  "entry_terms": [
+   "Malignant Hyperthermia",
+   "Anesthesia Related Hyperthermia",
+   "Hyperthermia, Anesthesia Related",
+   "Hyperpyrexia, Malignant",
+   "Malignant Hyperpyrexias",
+   "Hyperthermia of Anesthesia",
+   "Anesthesia Hyperthermia",
+   "Hyperthermia, Malignant",
+   "Malignant Hyperpyrexia"
+  ],
+  "heading": "Malignant Hyperthermia",
+  "parents": [
+   "Hyperthermia",
+   "Intraoperative Complications",
+   "Postoperative Complications"
+  ],
+  "tree": [
+   "C23.550.505.700",
+   "C23.550.767.600",
+   "C23.888.119.455.500"
+  ],
+  "uid": "68008305"
+ },
+ "malignant hyperthermia onset": null,
+ "malignant hyperthermia risk": null,
+ "malignant hyperthermia syndrome": null,
+ "meloxicam": {
+  "entry_terms": [
+   "Meloxicam",
+   "Miloxicam",
+   "Movalis",
+   "Mobic",
+   "Masflex",
+   "Movicox",
+   "Mobec",
+   "Mobicox",
+   "Parocin",
+   "Uticox",
+   "Reumoxicam"
+  ],
+  "heading": "Meloxicam",
+  "parents": [
+   "Thiazines",
+   "Thiazoles"
+  ],
+  "tree": [
+   "D02.886.665.275",
+   "D02.886.675.448",
+   "D03.383.129.708.448",
+   "D03.383.855.275"
+  ],
+  "uid": "2027949"
+ },
+ "melphalan": {
+  "entry_terms": [
+   "Melphalan",
+   "4-(Bis(2-chloroethyl)amino)phenylalanine",
+   "L-PAM",
+   "Phenylalanine Mustard",
+   "Mustard, Phenylalanine",
+   "Medphalan",
+   "Sarkolysin",
+   "Merphalan",
+   "Sarcolysine",
+   "Alkeran"
+  ],
+  "heading": "Melphalan",
+  "parents": [
+   "Nitrogen Mustard Compounds",
+   "Phenylalanine"
+  ],
+  "tree": [
+   "D02.455.526.728.650.594",
+   "D12.125.072.050.685.500"
+  ],
+  "uid": "68008558"
+ },
+ "mental disorders": {
+  "entry_terms": [
+   "Mental Disorders",
+   "Mental Disorder",
+   "Psychiatric Disorders",
+   "Psychiatric Disorder",
+   "Psychiatric Diseases",
+   "Psychiatric Disease",
+   "Psychiatric Illness",
+   "Psychiatric Illnesses",
+   "Mental Illness",
+   "Illness, Mental",
+   "Mental Illnesses",
+   "Behavior Disorders",
+   "Diagnosis, Psychiatric",
+   "Psychiatric Diagnosis",
+   "Mental Disorders, Severe",
+   "Mental Disorder, Severe",
+   "Severe Mental Disorder",
+   "Severe Mental Disorders"
+  ],
+  "heading": "Mental Disorders",
+  "parents": [
+   "Psychiatry and Psychology Category"
+  ],
+  "tree": [
+   "F03"
+  ],
+  "uid": "68001523"
  },
  "mercaptopurine": {
   "entry_terms": [
@@ -901,6 +4048,89 @@
   ],
   "uid": "68015122"
  },
+ "metamizole": {
+  "entry_terms": [
+   "Dipyrone",
+   "Dipyronium",
+   "Metamizole",
+   "Metamizol",
+   "Methamizole",
+   "Normelubrine",
+   "Noramidopyrine Methanesulfonate",
+   "Sulpyrine",
+   "Sulpyrin",
+   "Pyralgin",
+   "Optalgin",
+   "Novalgin",
+   "Novalgetol",
+   "Narone",
+   "Biopyrin",
+   "Algopyrin",
+   "Analgin",
+   "Novaminsulfone",
+   "Noramidopyrine Methanesulfonate Sodium",
+   "Metamizole Sodium",
+   "Methampyrone",
+   "Novamidazophen"
+  ],
+  "heading": "Dipyrone",
+  "parents": [
+   "Aminopyrine"
+  ],
+  "tree": [
+   "D03.383.129.539.850.077.150"
+  ],
+  "uid": "68004177"
+ },
+ "methadone": {
+  "entry_terms": [
+   "Methadone",
+   "Phenadone",
+   "Physeptone",
+   "Phymet",
+   "Dolophine",
+   "Amidone",
+   "Methadone Hydrochloride",
+   "Hydrochloride, Methadone",
+   "Biodone",
+   "Metadol",
+   "Metasedin",
+   "Methaddict",
+   "Methadose",
+   "Methex",
+   "Pinadone",
+   "Symoron"
+  ],
+  "heading": "Methadone",
+  "parents": [
+   "Ketones"
+  ],
+  "tree": [
+   "D02.522.675"
+  ],
+  "uid": "68008691"
+ },
+ "methadone concentration": null,
+ "methadone concentration-to-dose ratio (cdr)": null,
+ "methadone maintenance dose requirement": null,
+ "methadone metabolism and therapeutic effects": null,
+ "methadone plasma concentrations and clearance": null,
+ "methadone response": null,
+ "methemoglobinemia": {
+  "entry_terms": [
+   "Methemoglobinemia",
+   "Methemoglobinemias"
+  ],
+  "heading": "Methemoglobinemia",
+  "parents": [
+   "Hematologic Diseases"
+  ],
+  "tree": [
+   "C15.378.619"
+  ],
+  "uid": "68008708"
+ },
+ "methemoglobinemia and hemolytic anemia": null,
  "methotrexate": {
   "entry_terms": [
    "Methotrexate",
@@ -926,6 +4156,90 @@
   ],
   "uid": "68008727"
  },
+ "methoxyflurane": {
+  "entry_terms": [
+   "Methoxyflurane",
+   "Methofluranum",
+   "Penthrane",
+   "Pentrane",
+   "Anecotan"
+  ],
+  "heading": "Methoxyflurane",
+  "parents": [
+   "Ethyl Ethers",
+   "Methyl Ethers"
+  ],
+  "tree": [
+   "D02.355.417.600",
+   "D02.355.601.620"
+  ],
+  "uid": "68008733"
+ },
+ "metoprolol": {
+  "entry_terms": [
+   "Metoprolol",
+   "Betaloc",
+   "Betaloc-Astra",
+   "Betaloc Astra",
+   "Spesicor",
+   "Spesikor",
+   "H 93-26",
+   "H 9326",
+   "H 93 26",
+   "CGP-2175",
+   "CGP2175",
+   "CGP 2175",
+   "Metoprolol Tartrate",
+   "Lopressor",
+   "Betalok",
+   "Beloc-Duriles",
+   "Beloc Duriles",
+   "Metoprolol Succinate",
+   "Metoprolol CR-XL",
+   "Metoprolol CR XL",
+   "Toprol-XL",
+   "Toprol XL",
+   "Seloken",
+   "Toprol"
+  ],
+  "heading": "Metoprolol",
+  "parents": [
+   "Phenoxypropanolamines"
+  ],
+  "tree": [
+   "D02.033.100.624.698.573",
+   "D02.033.755.624.698.573",
+   "D02.092.063.624.698.573"
+  ],
+  "uid": "68008790"
+ },
+ "mirtazapine": {
+  "entry_terms": [
+   "Mirtazapine",
+   "6-Azamianserin",
+   "6 Azamianserin",
+   "Remeron",
+   "Zispin",
+   "Norset",
+   "Remergil",
+   "ORG 3770",
+   "ORG-3770",
+   "ORG3770",
+   "Rexer",
+   "Esmirtazapine",
+   "(S)-Mirtazapine",
+   "Org 50081",
+   "(N-Methyl-11C)mirtazapine"
+  ],
+  "heading": "Mirtazapine",
+  "parents": [
+   "Dibenzazepines"
+  ],
+  "tree": [
+   "D03.633.300.240.588"
+  ],
+  "uid": "2028243"
+ },
  "mucositis": {
   "entry_terms": [
    "Mucositis",
@@ -941,6 +4255,178 @@
    "C07.465.584"
   ],
   "uid": "68052016"
+ },
+ "multiple sclerosis": {
+  "entry_terms": [
+   "Multiple Sclerosis",
+   "Sclerosis, Multiple",
+   "MS (Multiple Sclerosis)",
+   "Sclerosis, Disseminated",
+   "Disseminated Sclerosis",
+   "Multiple Sclerosis, Acute Fulminating"
+  ],
+  "heading": "Multiple Sclerosis",
+  "parents": [
+   "Demyelinating Autoimmune Diseases, CNS"
+  ],
+  "tree": [
+   "C10.114.375.500",
+   "C10.314.350.500",
+   "C20.111.258.250.500"
+  ],
+  "uid": "68009103"
+ },
+ "muraglitazar": null,
+ "muscle symptoms; transaminase elevation": null,
+ "muscular diseases": {
+  "entry_terms": [
+   "Muscular Diseases",
+   "Muscular Disease",
+   "Muscle Disorders",
+   "Muscle Disorder",
+   "Myopathic Conditions",
+   "Myopathic Condition",
+   "Myopathies",
+   "Myopathy"
+  ],
+  "heading": "Muscular Diseases",
+  "parents": [
+   "Musculoskeletal Diseases",
+   "Neuromuscular Diseases"
+  ],
+  "tree": [
+   "C05.651",
+   "C10.668.491"
+  ],
+  "uid": "68009135"
+ },
+ "musculoskeletal symptoms/toxicity": null,
+ "myalgia": {
+  "entry_terms": [
+   "Myalgia",
+   "Muscle Pain",
+   "Pain, Muscle",
+   "Pains, Muscle",
+   "Muscle Soreness",
+   "Muscle Sorenesses",
+   "Soreness, Muscle",
+   "Muscle Tenderness",
+   "Tenderness, Muscle"
+  ],
+  "heading": "Myalgia",
+  "parents": [
+   "Muscular Diseases",
+   "Musculoskeletal Pain"
+  ],
+  "tree": [
+   "C05.651.542",
+   "C10.668.491.525",
+   "C23.888.592.612.547.249",
+   "F02.830.816.444.482.001",
+   "G11.561.790.444.509.001"
+  ],
+  "uid": "68063806"
+ },
+ "mycophenolate mofetil": {
+  "entry_terms": [
+   "Mycophenolic Acid",
+   "Cellcept",
+   "Mycophenolate Mofetil",
+   "Mofetil, Mycophenolate",
+   "Mycophenolic Acid Morpholinoethyl Ester",
+   "RS 61443",
+   "RS-61443",
+   "RS61443",
+   "Mycophenolate Mofetil Hydrochloride",
+   "Mofetil Hydrochloride, Mycophenolate",
+   "Myfortic",
+   "Mycophenolate Sodium",
+   "Sodium Mycophenolate",
+   "Mycophenolate, Sodium"
+  ],
+  "heading": "Mycophenolic Acid",
+  "parents": [
+   "Caproates",
+   "Fatty Acids"
+  ],
+  "tree": [
+   "D02.241.081.193.678",
+   "D10.251.618"
+  ],
+  "uid": "68009173"
+ },
+ "myelosuppression": null,
+ "myocardial infarction": {
+  "entry_terms": [
+   "Myocardial Infarction",
+   "Infarction, Myocardial",
+   "Infarctions, Myocardial",
+   "Myocardial Infarctions",
+   "Heart Attack",
+   "Heart Attacks",
+   "Myocardial Infarct",
+   "Infarct, Myocardial",
+   "Infarcts, Myocardial",
+   "Myocardial Infarcts",
+   "Cardiovascular Stroke",
+   "Cardiovascular Strokes",
+   "Stroke, Cardiovascular",
+   "Strokes, Cardiovascular"
+  ],
+  "heading": "Myocardial Infarction",
+  "parents": [
+   "Infarction",
+   "Myocardial Ischemia"
+  ],
+  "tree": [
+   "C14.280.647.500",
+   "C14.907.585.500",
+   "C23.550.513.355.750",
+   "C23.550.717.489.750"
+  ],
+  "uid": "68009203"
+ },
+ "naloxone requirement": null,
+ "naproxen": {
+  "entry_terms": [
+   "Naproxen",
+   "Methoxypropiocin",
+   "Anaprox",
+   "Synflex",
+   "Proxen",
+   "Aleve",
+   "Naproxen Sodium",
+   "Sodium, Naproxen",
+   "Sodium Naproxenate",
+   "Naproxenate, Sodium",
+   "Naprosin",
+   "Naprosyn"
+  ],
+  "heading": "Naproxen",
+  "parents": [
+   "Naphthaleneacetic Acids"
+  ],
+  "tree": [
+   "D02.455.426.559.847.638.472.500",
+   "D04.615.638.472.450"
+  ],
+  "uid": "68009288"
+ },
+ "neomycin": {
+  "entry_terms": [
+   "Neomycin",
+   "Neomycin Sulfate",
+   "Fradiomycin Sulfate",
+   "Neomycin Palmitate"
+  ],
+  "heading": "Neomycin",
+  "parents": [
+   "Aminoglycosides"
+  ],
+  "tree": [
+   "D09.408.051.623"
+  ],
+  "uid": "68009355"
  },
  "neoplasms": {
   "entry_terms": [
@@ -972,7 +4458,210 @@
   ],
   "uid": "68009369"
  },
+ "nephrolithiasis": {
+  "entry_terms": [
+   "Nephrolithiasis"
+  ],
+  "heading": "Nephrolithiasis",
+  "parents": [
+   "Kidney Diseases",
+   "Urolithiasis"
+  ],
+  "tree": [
+   "C12.050.351.968.419.600",
+   "C12.050.351.968.967.249",
+   "C12.200.777.419.600",
+   "C12.200.777.967.249",
+   "C12.950.419.600",
+   "C12.950.967.249"
+  ],
+  "uid": "68053040"
+ },
+ "neuropathic pain": {
+  "entry_terms": [
+   "Neuralgia",
+   "Neuralgias",
+   "Neurodynia",
+   "Neurodynias",
+   "Neuropathic Pain",
+   "Neuropathic Pains",
+   "Pain, Neuropathic",
+   "Pains, Neuropathic",
+   "Nerve Pain",
+   "Nerve Pains",
+   "Pain, Nerve",
+   "Pains, Nerve",
+   "Paroxysmal Nerve Pain",
+   "Nerve Pain, Paroxysmal",
+   "Nerve Pains, Paroxysmal",
+   "Pain, Paroxysmal Nerve",
+   "Pains, Paroxysmal Nerve",
+   "Paroxysmal Nerve Pains",
+   "Neuralgia, Atypical",
+   "Atypical Neuralgia",
+   "Atypical Neuralgias",
+   "Neuralgias, Atypical",
+   "Neuralgia, Iliohypogastric Nerve",
+   "Iliohypogastric Nerve Neuralgia",
+   "Iliohypogastric Nerve Neuralgias",
+   "Nerve Neuralgia, Iliohypogastric",
+   "Nerve Neuralgias, Iliohypogastric",
+   "Neuralgias, Iliohypogastric Nerve",
+   "Neuralgia, Ilioinguinal",
+   "Ilioinguinal Neuralgia",
+   "Ilioinguinal Neuralgias",
+   "Neuralgias, Ilioinguinal",
+   "Neuralgia, Perineal",
+   "Neuralgias, Perineal",
+   "Perineal Neuralgia",
+   "Perineal Neuralgias",
+   "Neuralgia, Stump",
+   "Neuralgias, Stump",
+   "Stump Neuralgia",
+   "Stump Neuralgias",
+   "Neuralgia, Supraorbital",
+   "Neuralgias, Supraorbital",
+   "Supraorbital Neuralgia",
+   "Supraorbital Neuralgias",
+   "Neuralgia, Vidian",
+   "Neuralgias, Vidian",
+   "Vidian Neuralgia",
+   "Vidian Neuralgias"
+  ],
+  "heading": "Neuralgia",
+  "parents": [
+   "Pain",
+   "Peripheral Nervous System Diseases"
+  ],
+  "tree": [
+   "C10.668.829.600",
+   "C23.888.592.612.664",
+   "F02.830.816.444.515",
+   "G11.561.790.444.538"
+  ],
+  "uid": "68009437"
+ },
  "neuropathy": null,
+ "neurotoxic effects": null,
+ "neutropenia": {
+  "entry_terms": [
+   "Neutropenia",
+   "Neutropenias"
+  ],
+  "heading": "Neutropenia",
+  "parents": [
+   "Agranulocytosis"
+  ],
+  "tree": [
+   "C15.378.243.750.184.564",
+   "C15.378.553.546.184.564"
+  ],
+  "uid": "68009503"
+ },
+ "neutropenia, overall severe toxicity, asthenia": null,
+ "nevirapine": {
+  "entry_terms": [
+   "Nevirapine",
+   "Viramune",
+   "BI-RG-587",
+   "BIRG587",
+   "BI RG 587",
+   "Nevirapine Hemihydrate",
+   "Hemihydrate, Nevirapine"
+  ],
+  "heading": "Nevirapine",
+  "parents": [
+   "Pyridines"
+  ],
+  "tree": [
+   "D03.383.725.506"
+  ],
+  "uid": "68019829"
+ },
+ "nifedipine": {
+  "entry_terms": [
+   "Nifedipine",
+   "Procardia XL",
+   "Nifedipine-GTIS",
+   "Nifedipine GTIS",
+   "Adalat",
+   "Nifedipine Monohydrochloride",
+   "Monohydrochloride, Nifedipine",
+   "Procardia",
+   "Nifangin",
+   "Fenigidin",
+   "Corinfar",
+   "Korinfar",
+   "Cordipin",
+   "Cordipine",
+   "BAY-a-1040",
+   "BAYa1040",
+   "BAY a 1040",
+   "Bay-1040",
+   "Bay1040",
+   "Bay 1040",
+   "Vascard"
+  ],
+  "heading": "Nifedipine",
+  "parents": [
+   "Dihydropyridines"
+  ],
+  "tree": [
+   "D03.383.725.203.540"
+  ],
+  "uid": "68009543"
+ },
+ "nitrofurantoin": {
+  "entry_terms": [
+   "Nitrofurantoin",
+   "Furadantin",
+   "Furadantine",
+   "Macrodantin",
+   "Nitrofurantoin, Monohydrate",
+   "Nitrofurantoin Sodium Salt",
+   "Furantoin",
+   "Furadonine",
+   "Furadoine"
+  ],
+  "heading": "Nitrofurantoin",
+  "parents": [
+   "Nitrofurans"
+  ],
+  "tree": [
+   "D02.640.600.566",
+   "D03.383.312.649.566"
+  ],
+  "uid": "68009582"
+ },
+ "non-responder status in treatment with pegifn/rbv": null,
+ "non-small cell lung carcinoma": {
+  "entry_terms": [
+   "Carcinoma, Non-Small-Cell Lung",
+   "Carcinoma, Non Small Cell Lung",
+   "Carcinomas, Non-Small-Cell Lung",
+   "Lung Carcinoma, Non-Small-Cell",
+   "Lung Carcinomas, Non-Small-Cell",
+   "Non-Small-Cell Lung Carcinomas",
+   "Carcinoma, Non-Small Cell Lung",
+   "Non-Small Cell Lung Cancer",
+   "Non-Small-Cell Lung Carcinoma",
+   "Non Small Cell Lung Carcinoma",
+   "Nonsmall Cell Lung Cancer",
+   "Non-Small Cell Lung Carcinoma"
+  ],
+  "heading": "Carcinoma, Non-Small-Cell Lung",
+  "parents": [
+   "Carcinoma, Bronchogenic"
+  ],
+  "tree": [
+   "C04.588.894.797.520.109.220.249",
+   "C08.381.540.140.500",
+   "C08.785.520.100.220.500"
+  ],
+  "uid": "68002289"
+ },
+ "nsaid-induced sjs/ten": null,
+ "ocular adverse events": null,
  "ocular toxicity": {
   "entry_terms": [
    "Toxic Optic Neuropathy",
@@ -1001,6 +4690,75 @@
   ],
   "uid": "2031059"
  },
+ "omeprazole": {
+  "entry_terms": [
+   "Omeprazole",
+   "Prilosec",
+   "H 168-68",
+   "H 16868",
+   "H 168 68",
+   "Omeprazole Sodium",
+   "Sodium, Omeprazole",
+   "Omeprazole Magnesium",
+   "Magnesium, Omeprazole"
+  ],
+  "heading": "Omeprazole",
+  "parents": [
+   "2-Pyridinylmethylsulfinylbenzimidazoles"
+  ],
+  "tree": [
+   "D02.886.640.074.500",
+   "D03.383.725.024.500",
+   "D03.633.100.103.034.500"
+  ],
+  "uid": "68009853"
+ },
+ "opioid-related disorders": {
+  "entry_terms": [
+   "Opioid-Related Disorders",
+   "Opioid-Related Disorder",
+   "Opioid Related Disorders",
+   "Addiction, Opioid",
+   "Dependence, Opioid",
+   "Opiate Addiction",
+   "Addiction, Opiate",
+   "Opiate Dependence",
+   "Dependence, Opiate",
+   "Opioid Addiction",
+   "Opioid Addictions",
+   "Opioid Dependence",
+   "Opioid Dependences",
+   "Opioid Abuse",
+   "Abuse, Opioid",
+   "Opioid Abuses",
+   "Opiate Abuse",
+   "Abuse, Opiate",
+   "Opiate Abuses",
+   "Opioid Misuse",
+   "Misuse, Opioid",
+   "Opioid Misuses",
+   "Opioid Use Disorder",
+   "Disorder, Opioid Use",
+   "Opioid Use Disorders",
+   "Prescription Opioid Abuse",
+   "Abuse, Prescription Opioid",
+   "Opioid Abuse, Prescription",
+   "Prescription Opioid Abuses",
+   "Prescription Opioid Misuse",
+   "Misuse, Prescription Opioid",
+   "Prescription Opioid Misuses"
+  ],
+  "heading": "Opioid-Related Disorders",
+  "parents": [
+   "Narcotic-Related Disorders"
+  ],
+  "tree": [
+   "C25.775.643.500",
+   "F03.900.647.500"
+  ],
+  "uid": "68009293"
+ },
+ "optic nerve sheath diameter": null,
  "oral mucositis": {
   "entry_terms": [
    "Stomatitis",
@@ -1020,6 +4778,26 @@
    "C07.465.864"
   ],
   "uid": "68013280"
+ },
+ "organ transplantation": {
+  "entry_terms": [
+   "Organ Transplantation",
+   "Grafting, Organ",
+   "Graftings, Organ",
+   "Organ Grafting",
+   "Organ Graftings",
+   "Transplantation, Organ",
+   "Organ Transplantations",
+   "Transplantations, Organ"
+  ],
+  "heading": "Organ Transplantation",
+  "parents": [
+   "Transplantation"
+  ],
+  "tree": [
+   "E04.936.450"
+  ],
+  "uid": "68016377"
  },
  "osteosarcoma": {
   "entry_terms": [
@@ -1124,6 +4902,7 @@
   ],
   "uid": "2031054"
  },
+ "ototoxicity risk": null,
  "ovarian neoplasms": {
   "entry_terms": [
    "Ovarian Neoplasms",
@@ -1162,10 +4941,174 @@
   ],
   "uid": "68010051"
  },
+ "over-anticoagulation": null,
+ "over-anticoagulation and overt bleeding": null,
  "overall survival": null,
+ "overall_survival": null,
+ "oxcarbazepine": {
+  "entry_terms": [
+   "Oxcarbazepine",
+   "10,11-Dihydro-10-oxo-5H-dibenz(b,f)azepine-5-carboxamide",
+   "GP 47680",
+   "Trileptal",
+   "Timox"
+  ],
+  "heading": "Oxcarbazepine",
+  "parents": [
+   "Carbamazepine"
+  ],
+  "tree": [
+   "D03.633.300.240.127.500"
+  ],
+  "uid": "2028194"
+ },
+ "oxcarbazepine-induced cutaneous adverse reactions, including": null,
+ "oxidative stress markers": null,
+ "pain": {
+  "entry_terms": [
+   "Pain",
+   "Suffering, Physical",
+   "Physical Suffering",
+   "Physical Sufferings",
+   "Sufferings, Physical",
+   "Ache",
+   "Aches",
+   "Pain, Burning",
+   "Burning Pain",
+   "Burning Pains",
+   "Pains, Burning",
+   "Pain, Crushing",
+   "Crushing Pain",
+   "Crushing Pains",
+   "Pains, Crushing",
+   "Pain, Migratory",
+   "Migratory Pain",
+   "Migratory Pains",
+   "Pains, Migratory",
+   "Pain, Radiating",
+   "Pains, Radiating",
+   "Radiating Pain",
+   "Radiating Pains",
+   "Pain, Splitting",
+   "Pains, Splitting",
+   "Splitting Pain",
+   "Splitting Pains"
+  ],
+  "heading": "Pain",
+  "parents": [
+   "Neurologic Manifestations",
+   "Sensation"
+  ],
+  "tree": [
+   "C23.888.592.612",
+   "F02.830.816.444",
+   "G11.561.790.444"
+  ],
+  "uid": "68010146"
+ },
+ "pain control": null,
+ "pain level and medication consumption": null,
+ "pain management": {
+  "entry_terms": [
+   "Pain Management",
+   "Management, Pain",
+   "Managements, Pain",
+   "Pain Managements"
+  ],
+  "heading": "Pain Management",
+  "parents": [
+   "Therapeutics",
+   "Disease Management"
+  ],
+  "tree": [
+   "E02.745",
+   "N04.590.607.500"
+  ],
+  "uid": "68059408"
+ },
+ "pain relief and tolerability of adverse events": null,
+ "pancytopenia": {
+  "entry_terms": [
+   "Pancytopenia",
+   "Pancytopenias"
+  ],
+  "heading": "Pancytopenia",
+  "parents": [
+   "Cytopenia"
+  ],
+  "tree": [
+   "C15.378.243.875"
+  ],
+  "uid": "68010198"
+ },
+ "pantoprazole": {
+  "entry_terms": [
+   "Pantoprazole",
+   "BY 1023",
+   "BY-1023",
+   "BY1023",
+   "SK and F 96022",
+   "SK and F-96022",
+   "SK and F96022",
+   "SKF-96022",
+   "SKF96022",
+   "SKF 96022",
+   "Protonix",
+   "Pantoprazole Sodium"
+  ],
+  "heading": "Pantoprazole",
+  "parents": [
+   "2-Pyridinylmethylsulfinylbenzimidazoles"
+  ],
+  "tree": [
+   "D02.886.640.074.625",
+   "D03.383.725.024.625",
+   "D03.633.100.103.034.625"
+  ],
+  "uid": "2028019"
+ },
+ "par": null,
+ "paroxetine": {
+  "entry_terms": [
+   "Paroxetine",
+   "Paxil",
+   "Seroxat",
+   "Paroxetine, cis-(+)-Isomer",
+   "Paroxetine, cis-(-)-Isomer",
+   "Paroxetine, trans-(+)-Isomer",
+   "Paroxetine Maleate",
+   "Paroxetine Acetate",
+   "Paroxetine Hydrochloride",
+   "BRL-29060",
+   "BRL29060",
+   "BRL 29060",
+   "Aropax",
+   "FG-7051",
+   "FG7051",
+   "FG 7051",
+   "Paroxetine Hydrochloride Anhydrous",
+   "Paroxetine Hydrochloride Hemihydrate",
+   "Paroxetine Hydrochloride, Hemihydrate"
+  ],
+  "heading": "Paroxetine",
+  "parents": [
+   "Piperidines"
+  ],
+  "tree": [
+   "D03.383.621.600"
+  ],
+  "uid": "68017374"
+ },
  "pathological complete response": null,
  "pathological_complete_response": null,
+ "peg-ifn-\u03b1": null,
+ "peg-interferon": null,
+ "peg-interferon-\u03b1": null,
+ "pegifn": null,
+ "pegifn/rbv": null,
+ "peginterferon alfa-2a": null,
  "peginterferon alfa-2b": null,
+ "pegylated interferon-\u03b1": null,
  "peripheral neuropathy": {
   "entry_terms": [
    "Peripheral Nervous System Diseases",
@@ -1190,6 +5133,91 @@
    "C10.668.829"
   ],
   "uid": "68010523"
+ },
+ "pgx-aligned prescribing": null,
+ "pharmacokinetic-pharmacodynamic profiles": null,
+ "pharmacokinetics": {
+  "entry_terms": [
+   "pharmacokinetics",
+   "tissue distribution",
+   "toxicokinetics"
+  ],
+  "heading": "pharmacokinetics",
+  "parents": [
+   "metabolism",
+   "pharmacology"
+  ],
+  "tree": [
+   "Y07.070",
+   "Y08.040.060"
+  ],
+  "uid": "81000493"
+ },
+ "pharmacokinetics and clinical outcomes": null,
+ "pharmacokinetics and pharmacogenomics of voriconazole": null,
+ "pharmacokinetics and safety of dabigatran": null,
+ "pharmacokinetics and therapeutic response": null,
+ "pharmacokinetics of capecitabine and 5-fu exposure": null,
+ "phenazopyridine": {
+  "entry_terms": [
+   "Phenazopyridine",
+   "Pyridium",
+   "Azo-Dine",
+   "AzoDine",
+   "Azo Dine",
+   "Azo-Gesic",
+   "AzoGesic",
+   "Azo Gesic",
+   "Azo-Natural",
+   "AzoNatural",
+   "Azo Natural",
+   "Azo-Standard",
+   "AzoStandard",
+   "Azo Standard",
+   "Baridium",
+   "Geridium",
+   "Pyridiate",
+   "Phenazo",
+   "Prodium",
+   "Re-Azo",
+   "ReAzo",
+   "Re Azo",
+   "Urogesic",
+   "UTI Relief",
+   "Phenazopyridine Hydrochloride",
+   "Hydrochloride, Phenazopyridine"
+  ],
+  "heading": "Phenazopyridine",
+  "parents": [
+   "Aminopyridines"
+  ],
+  "tree": [
+   "D03.383.725.050.610"
+  ],
+  "uid": "68010621"
+ },
+ "phenoconversion of escitalopram metabolism": null,
+ "phenprocoumon": {
+  "entry_terms": [
+   "Phenprocoumon",
+   "Phenprocoumalol",
+   "Phenprocoumarol",
+   "Phenylpropylhydroxycumarinum",
+   "Marcoumar",
+   "Marcumar",
+   "Liquamar",
+   "Falithrom",
+   "Phenprogramma"
+  ],
+  "heading": "Phenprocoumon",
+  "parents": [
+   "4-Hydroxycoumarins"
+  ],
+  "tree": [
+   "D03.383.663.283.446.520.750",
+   "D03.633.100.150.446.520.750"
+  ],
+  "uid": "68010644"
  },
  "phenytoin": {
   "entry_terms": [
@@ -1219,6 +5247,29 @@
   ],
   "uid": "68010672"
  },
+ "piroxicam": {
+  "entry_terms": [
+   "Piroxicam",
+   "Feldene",
+   "CP-16171",
+   "CP16171",
+   "CP 16171"
+  ],
+  "heading": "Piroxicam",
+  "parents": [
+   "Thiazines"
+  ],
+  "tree": [
+   "D02.886.665.500",
+   "D03.383.855.500"
+  ],
+  "uid": "68010894"
+ },
+ "plasma exposure to lornoxicam": null,
+ "plasma voriconazole concentration": null,
+ "platelet inhibition": null,
+ "platelet reactivity index (pri)": null,
+ "platelet reactivity response to clopidogrel": null,
  "platinol": {
   "entry_terms": [
    "Cisplatin",
@@ -1292,8 +5343,345 @@
   ],
   "uid": "68017671"
  },
+ "pravastatin": {
+  "entry_terms": [
+   "Pravastatin",
+   "Eptastatin",
+   "SQ-31000",
+   "SQ31000",
+   "SQ 31000",
+   "SQ-31,000",
+   "SQ 31,000",
+   "SQ31,000",
+   "Pravastatin tert-Octylamine Salt",
+   "Pravastatin tert Octylamine Salt",
+   "Pravastatin Sodium",
+   "Pravastatin Sodium Salt",
+   "Sodium Salt, Pravastatin",
+   "Pravastatin, (6 beta)-Isomer",
+   "Pravastatin Monosodium Salt, (6 beta)-Isomer",
+   "CS-514",
+   "CS514",
+   "CS 514",
+   "Pravachol",
+   "Pravacol",
+   "Pravasin",
+   "Selektine",
+   "Lipostat",
+   "Elisor",
+   "RMS-431",
+   "RMS431",
+   "RMS 431",
+   "Apo-Pravastatin",
+   "Apo Pravastatin",
+   "Bristacol",
+   "Prareduct",
+   "Mevalotin",
+   "Lin-Pravastatin",
+   "Lin Pravastatin",
+   "Lipemol",
+   "Liplat",
+   "Vasten",
+   "Nu-Pravastatin",
+   "Nu Pravastatin"
+  ],
+  "heading": "Pravastatin",
+  "parents": [
+   "Naphthalenes"
+  ],
+  "tree": [
+   "D02.455.426.559.847.638.930",
+   "D04.615.638.930"
+  ],
+  "uid": "68017035"
+ },
+ "prednisolone": {
+  "entry_terms": [
+   "Prednisolone",
+   "Di-Adreson-F",
+   "DiAdresonF",
+   "Di Adreson F",
+   "Predate",
+   "Predonine"
+  ],
+  "heading": "Prednisolone",
+  "parents": [
+   "Pregnadienetriols"
+  ],
+  "tree": [
+   "D04.210.500.745.432.769.795"
+  ],
+  "uid": "68011239"
+ },
+ "pregabalin": {
+  "entry_terms": [
+   "Pregabalin",
+   "(R-)-3-isobutyl GABA",
+   "(S+)-3-isobutyl GABA",
+   "3-isobutyl GABA",
+   "3 isobutyl GABA",
+   "GABA, 3-isobutyl",
+   "3-(aminomethyl)-5-methylhexanoic acid",
+   "(S)-3-(aminomethyl)-5-methylhexanoic acid",
+   "CI 1008",
+   "1008, CI",
+   "CI-1008",
+   "CI1008",
+   "Lyrica"
+  ],
+  "heading": "Pregabalin",
+  "parents": [
+   "gamma-Aminobutyric Acid"
+  ],
+  "tree": [
+   "D02.241.081.114.500.350.500",
+   "D12.125.190.350.450"
+  ],
+  "uid": "2010044"
+ },
+ "pregnancy": {
+  "entry_terms": [
+   "Pregnancy",
+   "Pregnancies",
+   "Gestation"
+  ],
+  "heading": "Pregnancy",
+  "parents": [
+   "Reproduction"
+  ],
+  "tree": [
+   "G08.686.784.769"
+  ],
+  "uid": "68011247"
+ },
+ "preventing treatment failure or toxicity": null,
+ "propofol": {
+  "entry_terms": [
+   "Propofol",
+   "Disoprofol",
+   "2,6-Bis(1-methylethyl)phenol",
+   "2,6-Diisopropylphenol",
+   "2,6 Diisopropylphenol",
+   "Diprivan",
+   "Disoprivan",
+   "ICI-35,868",
+   "ICI 35,868",
+   "ICI35,868",
+   "ICI-35868",
+   "ICI35868",
+   "ICI 35868",
+   "Aquafol",
+   "Fresofol",
+   "Ivofol",
+   "Recofol",
+   "Propofol Fresenius",
+   "Propofol MCT",
+   "Propofol-Lipuro",
+   "Propofol Abbott",
+   "Propofol Rovi"
+  ],
+  "heading": "Propofol",
+  "parents": [
+   "Phenols"
+  ],
+  "tree": [
+   "D02.455.426.559.389.657.773"
+  ],
+  "uid": "68015742"
+ },
+ "proteinuria": {
+  "entry_terms": [
+   "Proteinuria",
+   "Proteinurias"
+  ],
+  "heading": "Proteinuria",
+  "parents": [
+   "Urination Disorders",
+   "Urological Manifestations"
+  ],
+  "tree": [
+   "C12.050.351.968.934.734",
+   "C12.200.777.934.734",
+   "C12.950.934.734",
+   "C23.888.942.750"
+  ],
+  "uid": "68011507"
+ },
+ "psoriasis": {
+  "entry_terms": [
+   "Psoriasis",
+   "Psoriases",
+   "Pustulosis of Palms and Soles",
+   "Pustulosis Palmaris et Plantaris",
+   "Palmoplantaris Pustulosis",
+   "Pustular Psoriasis of Palms and Soles"
+  ],
+  "heading": "Psoriasis",
+  "parents": [
+   "Skin Diseases, Papulosquamous"
+  ],
+  "tree": [
+   "C17.800.859.675"
+  ],
+  "uid": "68011565"
+ },
+ "quetiapine": {
+  "entry_terms": [
+   "Quetiapine Fumarate",
+   "Ethanol, 2-(2-(4-dibenzo(b,f)(1,4)thiazepin-11-yl-1-piperazinyl)ethoxy)-, (E)-2-butenedioate (2:1) (salt)",
+   "ICI 204,636",
+   "ICI 204636",
+   "ICI-204636",
+   "ICI204636",
+   "Seroquel",
+   "Quetiapine",
+   "2-(2-(4-dibenzo(b,f)(1,4)thiazepine-11-yl-1-piperazinyl)ethoxy)ethanol"
+  ],
+  "heading": "Quetiapine Fumarate",
+  "parents": [
+   "Dibenzothiazepines"
+  ],
+  "tree": [
+   "D02.886.680.702.500.500",
+   "D03.633.300.276.500"
+  ],
+  "uid": "2009967"
+ },
  "r-chop": null,
+ "rabeprazole": {
+  "entry_terms": [
+   "Rabeprazole",
+   "2-((4-(3-methoxypropoxy)-3-methylpyridin-2-yl)methylsulfinyl)-1H-benzimidazole",
+   "E 3810",
+   "E3810",
+   "Rabeprazole Sodium",
+   "Sodium, Rabeprazole",
+   "1H-Benzimidazole, 2-(((4-(3-methoxypropoxy)-3-methyl-2-pyridinyl)methyl)sulfinyl)-, Sodium Salt",
+   "LY-307640",
+   "LY 307640",
+   "LY307640",
+   "Pariet",
+   "Dexrabeprazole",
+   "Aciphex"
+  ],
+  "heading": "Rabeprazole",
+  "parents": [
+   "2-Pyridinylmethylsulfinylbenzimidazoles"
+  ],
+  "tree": [
+   "D02.886.640.074.750",
+   "D03.383.725.024.750",
+   "D03.633.100.103.034.750"
+  ],
+  "uid": "68064750"
+ },
+ "rasburicase": null,
+ "rbv": null,
+ "recurrence rate of plasmodium vivax": null,
+ "recurrence-free efficacy at 4 months": null,
+ "recurrent thromboembolic events": null,
+ "reduced clopidogrel efficacy": null,
+ "renal cell carcinoma": {
+  "entry_terms": [
+   "Carcinoma, Renal Cell",
+   "Carcinomas, Renal Cell",
+   "Renal Cell Carcinomas",
+   "Renal Carcinoma",
+   "Carcinoma, Renal",
+   "Renal Carcinomas",
+   "Nephroid Carcinoma",
+   "Carcinoma, Nephroid",
+   "Nephroid Carcinomas",
+   "Adenocarcinoma, Renal Cell",
+   "Adenocarcinomas, Renal Cell",
+   "Renal Cell Adenocarcinoma",
+   "Renal Cell Adenocarcinomas",
+   "Renal Cell Carcinoma",
+   "Renal Cell Cancer",
+   "Cancer, Renal Cell",
+   "Renal Cell Cancers",
+   "Adenocarcinoma, Renal",
+   "Renal Adenocarcinoma",
+   "Renal Adenocarcinomas",
+   "Adenocarcinoma Of Kidney",
+   "Adenocarcinoma Of Kidneys",
+   "Kidney, Adenocarcinoma Of",
+   "Clear Cell Renal Cell Carcinoma",
+   "Carcinoma, Hypernephroid",
+   "Hypernephroid Carcinoma",
+   "Hypernephroid Carcinomas",
+   "Grawitz Tumor",
+   "Tumor, Grawitz",
+   "Hypernephroma",
+   "Hypernephromas",
+   "Clear Cell Renal Carcinoma",
+   "Papillary Renal Cell Carcinoma",
+   "Chromophil Renal Cell Carcinoma",
+   "Renal Cell Carcinoma, Papillary",
+   "Chromophobe Renal Cell Carcinoma",
+   "Collecting Duct Carcinoma (Kidney)",
+   "Carcinoma, Collecting Duct (Kidney)",
+   "Carcinomas, Collecting Duct (Kidney)",
+   "Collecting Duct Carcinomas (Kidney)",
+   "Collecting Duct Carcinoma",
+   "Carcinoma, Collecting Duct",
+   "Carcinomas, Collecting Duct",
+   "Collecting Duct Carcinomas",
+   "Collecting Duct Carcinoma of the Kidney",
+   "Renal Collecting Duct Carcinoma",
+   "Sarcomatoid Renal Cell Carcinoma"
+  ],
+  "heading": "Carcinoma, Renal Cell",
+  "parents": [
+   "Adenocarcinoma",
+   "Kidney Neoplasms"
+  ],
+  "tree": [
+   "C04.557.470.200.025.390",
+   "C04.588.945.947.535.160",
+   "C12.050.351.937.820.535.160",
+   "C12.050.351.968.419.473.160",
+   "C12.200.758.820.750.160",
+   "C12.200.777.419.473.160",
+   "C12.900.820.535.160",
+   "C12.950.419.473.160",
+   "C12.950.983.535.160"
+  ],
+  "uid": "68002292"
+ },
+ "renal function and transplant outcomes": null,
  "renal function decline (egfr)": null,
+ "response to peginterferon alfa-2a treatment": null,
+ "response to treatment with sofosbuvir and daclatasvir": null,
+ "rhabdomyolysis and associated acute kidney injury": null,
+ "ribavirin": {
+  "entry_terms": [
+   "Ribavirin",
+   "Tribavirin",
+   "Ribovirin",
+   "Viramide",
+   "Ribamide",
+   "Ribamidyl",
+   "Ribamidil",
+   "ICN-1229",
+   "ICN1229",
+   "ICN 1229",
+   "Virazole",
+   "Vilona",
+   "Rebetol",
+   "Virazide",
+   "Ribasphere"
+  ],
+  "heading": "Ribavirin",
+  "parents": [
+   "Ribonucleosides"
+  ],
+  "tree": [
+   "D13.570.800.790"
+  ],
+  "uid": "68012254"
+ },
+ "risk of toxicity": null,
  "risperidone": {
   "entry_terms": [
    "Risperidone",
@@ -1316,6 +5704,57 @@
   ],
   "uid": "68018967"
  },
+ "rivastigmine": {
+  "entry_terms": [
+   "Rivastigmine",
+   "(S)-N-Ethyl-3-((1-dimethyl-amino)ethyl)-N-methylphenylcarbamate",
+   "Exelon",
+   "RivastigmineTartrate",
+   "Rivastigmine Hydrogen Tartrate",
+   "Hydrogen Tartrate, Rivastigmine",
+   "Tartrate, Rivastigmine Hydrogen",
+   "ENA 713",
+   "713, ENA",
+   "ENA-713",
+   "ENA713",
+   "SDZ ENA 713",
+   "713, SDZ ENA",
+   "ENA 713, SDZ"
+  ],
+  "heading": "Rivastigmine",
+  "parents": [
+   "Phenylcarbamates"
+  ],
+  "tree": [
+   "D02.241.081.251.583.899"
+  ],
+  "uid": "2009885"
+ },
+ "rosuvastatin": {
+  "entry_terms": [
+   "Rosuvastatin Calcium",
+   "Calcium, Rosuvastatin",
+   "Rosuvastatin",
+   "ZD4522",
+   "ZD 4522",
+   "Crestor"
+  ],
+  "heading": "Rosuvastatin Calcium",
+  "parents": [
+   "Fluorobenzenes",
+   "Pyrimidines",
+   "Sulfonamides"
+  ],
+  "tree": [
+   "D02.065.884.650",
+   "D02.455.526.510.432.500",
+   "D02.886.590.700.650",
+   "D03.383.742.775"
+  ],
+  "uid": "2009866"
+ },
+ "sacituzumab govitecan": null,
+ "selective": null,
  "sensorineural hearing loss": {
   "entry_terms": [
    "Hearing Loss, Sensorineural",
@@ -1373,6 +5812,72 @@
   ],
   "uid": "68006319"
  },
+ "serious preventable toxicity or treatment failure": null,
+ "serotonin clearance": null,
+ "sertraline": {
+  "entry_terms": [
+   "Sertraline",
+   "Zoloft",
+   "Altruline",
+   "Lustral",
+   "Sertraline Hydrochloride",
+   "Hydrochloride, Sertraline",
+   "Sertraline Hydrochloride (1S-cis)-Isomer",
+   "Apo-Sertraline",
+   "Apo Sertraline",
+   "Aremis",
+   "Besitran",
+   "Gen-Sertraline",
+   "Gen Sertraline",
+   "Gladem",
+   "Novo-Sertraline",
+   "Novo Sertraline",
+   "ratio-Sertraline",
+   "ratio Sertraline",
+   "Rhoxal-sertraline",
+   "Rhoxal sertraline",
+   "Sealdin"
+  ],
+  "heading": "Sertraline",
+  "parents": [
+   "1-Naphthylamine"
+  ],
+  "tree": [
+   "D02.092.705.800",
+   "D02.455.426.559.847.638.845.800",
+   "D04.615.638.845.800"
+  ],
+  "uid": "68020280"
+ },
+ "sertraline pharmacokinetics": null,
+ "severe adverse reactions, including life-threatening neutrop": null,
+ "severe capecitabine-related toxicity": null,
+ "severe cutaneous adverse reactions": null,
+ "severe cutaneous adverse reactions (scars)": null,
+ "severe drug hypersensitivity reaction (dhs)": null,
+ "severe fluoropyrimidine toxicity": null,
+ "severe toxicities": null,
+ "severe treatment-related adverse events": null,
+ "sevoflurane": {
+  "entry_terms": [
+   "Sevoflurane",
+   "Fluoromethyl Hexafluoroisopropyl Ether",
+   "Fluoromethyl-2,2,2-trifluoro-1-(trifluoromethyl)ethyl Ether",
+   "BAX 3084",
+   "Ultane",
+   "Sevorane"
+  ],
+  "heading": "Sevoflurane",
+  "parents": [
+   "Hydrocarbons, Fluorinated",
+   "Methyl Ethers"
+  ],
+  "tree": [
+   "D02.355.601.810",
+   "D02.455.526.510.788"
+  ],
+  "uid": "2027909"
+ },
  "simvastatin": {
   "entry_terms": [
    "Simvastatin",
@@ -1392,7 +5897,342 @@
   ],
   "uid": "68019821"
  },
+ "simvastatin-induced myotoxicity (sim)": null,
+ "siponimod": null,
+ "siponimod response and metabolism": null,
+ "sjs/ten": null,
+ "skin inflammation": null,
+ "sn-38": {
+  "entry_terms": [
+   "Irinotecan",
+   "Camptothecin-11",
+   "Camptothecin 11",
+   "Irrinotecan",
+   "SN 38 11",
+   "SN-38-11",
+   "SN3811",
+   "7-Ethyl-10-hydroxycamptothecin",
+   "7 Ethyl 10 hydroxycamptothecin",
+   "SN 38",
+   "SN-38",
+   "Irinotecan Hydrochloride",
+   "NK012 Compound",
+   "Camptosar",
+   "CPT-11",
+   "CPT11",
+   "CPT 11"
+  ],
+  "heading": "Irinotecan",
+  "parents": [
+   "Camptothecin"
+  ],
+  "tree": [
+   "D03.132.151.425"
+  ],
+  "uid": "2027907"
+ },
+ "sofosbuvir": {
+  "entry_terms": [
+   "Sofosbuvir",
+   "2-((5-(2,4-dioxo-3,4-dihydro-2H-pyrimidin-1-yl)-4-fluoro-3-hydroxy-4-methyltetrahydrofuran-2-ylmethoxy)phenoxyphosphorylamino)propionic acid isopropyl ester",
+   "PSI 7977",
+   "7977, PSI",
+   "PSI-7977",
+   "PSI7977",
+   "GS-7977",
+   "GS7977",
+   "GS 7977",
+   "Sovaldi"
+  ],
+  "heading": "Sofosbuvir",
+  "parents": [
+   "Uridine Monophosphate"
+  ],
+  "tree": [
+   "D03.383.742.686.850.877.500",
+   "D13.695.740.850.877.500",
+   "D13.695.827.919.877.500"
+  ],
+  "uid": "2010011"
+ },
+ "ssris": {
+  "entry_terms": [
+   "Selective Serotonin Reuptake Inhibitors",
+   "SSRIs",
+   "Selective Serotonin Reuptake Inhibitor",
+   "Serotonin Uptake Inhibitors",
+   "Uptake Inhibitors, 5-HT",
+   "Uptake Inhibitors, 5-Hydroxytryptamine",
+   "Uptake Inhibitors, Serotonin",
+   "Serotonin Reuptake Inhibitor",
+   "Inhibitor, Serotonin Reuptake",
+   "Reuptake Inhibitor, Serotonin",
+   "Serotonin Uptake Inhibitor",
+   "Inhibitor, Serotonin Uptake",
+   "Uptake Inhibitor, Serotonin",
+   "5-HT Uptake Inhibitor",
+   "Inhibitor, 5-HT Uptake",
+   "Uptake Inhibitor, 5-HT",
+   "5-Hydroxytryptamine Uptake Inhibitor",
+   "Inhibitor, 5-Hydroxytryptamine Uptake",
+   "Uptake Inhibitor, 5-Hydroxytryptamine",
+   "5-HT Uptake Inhibitors",
+   "5-Hydroxytryptamine Uptake Inhibitors",
+   "Inhibitors, 5-HT Uptake",
+   "Inhibitors, 5-Hydroxytryptamine Uptake",
+   "Inhibitors, Serotonin Reuptake",
+   "Inhibitors, Serotonin Uptake",
+   "Serotonin Reuptake Inhibitors",
+   "Reuptake Inhibitors, Serotonin"
+  ],
+  "heading": "Selective Serotonin Reuptake Inhibitors",
+  "parents": [
+   "Neurotransmitter Uptake Inhibitors",
+   "Serotonin Agents"
+  ],
+  "tree": [
+   "D27.505.519.562.437.850",
+   "D27.505.519.625.600.850",
+   "D27.505.519.625.850.900",
+   "D27.505.696.577.600.850",
+   "D27.505.696.577.850.900"
+  ],
+  "uid": "68017367"
+ },
+ "statin intolerance and adverse outcomes": null,
+ "statin-induced myotoxicity": null,
+ "statin-related adverse events, including myopathy": null,
+ "statin-related myopathy": null,
+ "stevens-johnson syndrome": {
+  "entry_terms": [
+   "Stevens-Johnson Syndrome",
+   "Stevens Johnson Syndrome",
+   "Epidermal Necrolysis, Toxic",
+   "Epidermal Necrolyses, Toxic",
+   "Necrolyses, Toxic Epidermal",
+   "Necrolysis, Toxic Epidermal",
+   "Toxic Epidermal Necrolyses",
+   "Toxic Epidermal Necrolysis",
+   "Lyell's Syndrome",
+   "Lyell's Syndromes",
+   "Lyell Syndrome",
+   "Syndrome, Lyell's",
+   "Syndromes, Lyell's",
+   "Nonstaphylococcal Scalded Skin Syndrome",
+   "Scalded Skin Syndrome, Nonstaphylococcal",
+   "Drug-Induced Stevens Johnson Syndrome",
+   "Drug Induced Stevens Johnson Syndrome",
+   "Drug-Induced Stevens-Johnson Syndrome",
+   "Drug-Induced Stevens-Johnson Syndromes",
+   "Stevens-Johnson Syndrome, Drug-Induced",
+   "Stevens-Johnson Syndromes, Drug-Induced",
+   "Mycoplasma-Induced Stevens-Johnson Syndrome",
+   "Mycoplasma Induced Stevens Johnson Syndrome",
+   "Stevens-Johnson Syndrome, Mycoplasma-Induced",
+   "Syndrome, Mycoplasma-Induced Stevens-Johnson",
+   "Mycoplasma-Induced Stevens Johnson Syndrome",
+   "Stevens-Johnson Syndrome Toxic Epidermal Necrolysis Spectrum",
+   "Stevens Johnson Syndrome Toxic Epidermal Necrolysis",
+   "Stevens Johnson Syndrome Toxic Epidermal Necrolysis Spectrum",
+   "Stevens-Johnson Syndrome Toxic Epidermal Necrolysis",
+   "Toxic Epidermal Necrolysis Stevens Johnson Syndrome",
+   "Toxic Epidermal Necrolysis Stevens Johnson Syndrome Spectrum",
+   "Toxic Epidermal Necrolysis Stevens-Johnson Syndrome",
+   "Toxic Epidermal Necrolysis Stevens-Johnson Syndrome Spectrum"
+  ],
+  "heading": "Stevens-Johnson Syndrome",
+  "parents": [
+   "Drug Eruptions",
+   "Erythema Multiforme",
+   "Hypersensitivity, Delayed",
+   "Stomatitis"
+  ],
+  "tree": [
+   "C07.465.864.500",
+   "C17.800.174.600.900",
+   "C17.800.229.400.683",
+   "C17.800.865.475.683",
+   "C20.543.418.787",
+   "C25.100.468.380.900"
+  ],
+  "uid": "68013262"
+ },
+ "stevens-johnson syndrome/toxic epidermal necrolysis": null,
+ "streptomycin": {
+  "entry_terms": [
+   "Streptomycin",
+   "Streptomycin Sulfate",
+   "Streptomycin Sulphate",
+   "Streptomycin Sulfate (2:3) Salt",
+   "Estreptomicina CEPA",
+   "Estreptomicina Clariana",
+   "Estreptomicina Normon",
+   "Strepto-Fatol",
+   "Strepto Fatol",
+   "Strepto-Hefa",
+   "Strepto Hefa",
+   "Streptomycine Panpharma",
+   "Streptomycin Gr\u00fcnenthal"
+  ],
+  "heading": "Streptomycin",
+  "parents": [
+   "Aminoglycosides"
+  ],
+  "tree": [
+   "D09.408.051.885"
+  ],
+  "uid": "68013307"
+ },
+ "stroke": {
+  "entry_terms": [
+   "Stroke",
+   "Strokes",
+   "Cerebrovascular Accident",
+   "Cerebrovascular Accidents",
+   "Cerebral Stroke",
+   "Cerebral Strokes",
+   "Stroke, Cerebral",
+   "Strokes, Cerebral",
+   "Cerebrovascular Apoplexy",
+   "Apoplexy, Cerebrovascular",
+   "Vascular Accident, Brain",
+   "Brain Vascular Accident",
+   "Brain Vascular Accidents",
+   "Vascular Accidents, Brain",
+   "Cerebrovascular Stroke",
+   "Cerebrovascular Strokes",
+   "Stroke, Cerebrovascular",
+   "Strokes, Cerebrovascular",
+   "Apoplexy",
+   "CVA (Cerebrovascular Accident)",
+   "CVAs (Cerebrovascular Accident)",
+   "Stroke, Acute",
+   "Acute Stroke",
+   "Acute Strokes",
+   "Strokes, Acute",
+   "Cerebrovascular Accident, Acute",
+   "Acute Cerebrovascular Accident",
+   "Acute Cerebrovascular Accidents",
+   "Cerebrovascular Accidents, Acute"
+  ],
+  "heading": "Stroke",
+  "parents": [
+   "Cerebrovascular Disorders"
+  ],
+  "tree": [
+   "C10.228.140.300.775",
+   "C14.907.253.855"
+  ],
+  "uid": "68020521"
+ },
+ "stroke and combined vascular events risk": null,
  "subclinical cardiotoxicity": null,
+ "succinylcholine": {
+  "entry_terms": [
+   "Succinylcholine",
+   "Dicholine Succinate",
+   "Succinate, Dicholine",
+   "Succinyldicholine",
+   "Suxamethonium",
+   "Succinylcholine Iodide",
+   "Myorelaxin",
+   "Suxamethonium Bromide",
+   "Bromide, Suxamethonium",
+   "Succinylcholine Dichloride, Di-H2O",
+   "Succinylcholine Dichloride, Di H2O",
+   "Succinylcholine Dichloride",
+   "Dichloride, Succinylcholine",
+   "Succinylcholine Dibromide",
+   "Dibromide, Succinylcholine",
+   "Succinylcholine Diperchlorate",
+   "Diperchlorate, Succinylcholine",
+   "Succinylcholine Diiodide",
+   "Diiodide, Succinylcholine",
+   "Ditilin",
+   "Celocurine",
+   "Succicuran",
+   "Quelicin",
+   "Lysthenon",
+   "Suxamethonium Chloride",
+   "Succinylcholine Chloride",
+   "Listenon",
+   "Anectine"
+  ],
+  "heading": "Succinylcholine",
+  "parents": [
+   "Choline",
+   "Succinates"
+  ],
+  "tree": [
+   "D02.092.877.883.333.780",
+   "D02.241.081.337.759.875",
+   "D02.675.276.232.780"
+  ],
+  "uid": "68013390"
+ },
+ "sunitinib": {
+  "entry_terms": [
+   "Sunitinib",
+   "5-(5-Fluoro-2-oxo-1,2-dihydroindolylidenemethyl)-2,4-dimethyl-1H-pyrrole-3-carboxylic acid (2-diethylaminoethyl)amide",
+   "SU 11248",
+   "SU11248",
+   "SU-11248",
+   "SU 011248",
+   "SU-011248",
+   "SU011248",
+   "Sunitinib Malate",
+   "Sutent"
+  ],
+  "heading": "Sunitinib",
+  "parents": [
+   "Indoles",
+   "Pyrroles"
+  ],
+  "tree": [
+   "D03.383.129.578.823",
+   "D03.633.100.473.877"
+  ],
+  "uid": "2027934"
+ },
+ "susceptibility to malignant hyperthermia": null,
+ "sustained virologic response (svr)": null,
+ "sustained virological response": null,
+ "sustained virological response (svr)": null,
+ "svr (sustained virologic response)": null,
+ "switching from fluoxetine to another antidepressant": null,
+ "tacrolimus": {
+  "entry_terms": [
+   "Tacrolimus",
+   "Prograf",
+   "Prograft",
+   "Anhydrous Tacrolimus",
+   "Tacrolimus, Anhydrous",
+   "Tacrolimus Anhydrous",
+   "Anhydrous, Tacrolimus",
+   "FK-506",
+   "FK 506",
+   "FK506",
+   "FR-900506",
+   "FR900506",
+   "FR 900506"
+  ],
+  "heading": "Tacrolimus",
+  "parents": [
+   "Macrolides"
+  ],
+  "tree": [
+   "D02.540.505.810"
+  ],
+  "uid": "68016559"
+ },
+ "tacrolimus clearance": null,
+ "tacrolimus dose and c0/d ratio": null,
+ "tacrolimus pharmacokinetic-related outcomes (time and dosage": null,
+ "tacrolimus pharmacokinetics": null,
+ "tacrolimus variability (cv)": null,
+ "tacrolimus-associated focal pancreatitis": null,
+ "tafenoquine": null,
+ "tcr activation": null,
  "tenofovir": {
   "entry_terms": [
    "Tenofovir",
@@ -1421,6 +6261,8 @@
   ],
   "uid": "2009864"
  },
+ "tenoxicam": null,
+ "tezacaftor": null,
  "thalidomide": {
   "entry_terms": [
    "Thalidomide",
@@ -1439,6 +6281,9 @@
   ],
   "uid": "68013792"
  },
+ "therapeutic concentrations": null,
+ "therapeutic failure/toxicity": null,
+ "therapeutic response": null,
  "thioguanine": {
   "entry_terms": [
    "Thioguanine",
@@ -1468,6 +6313,49 @@
   ],
   "uid": "68013866"
  },
+ "thiopurine drugs": null,
+ "thiopurine-related toxicity risk": null,
+ "thrombocytopenia": {
+  "entry_terms": [
+   "Thrombocytopenia",
+   "Thrombocytopenias",
+   "Thrombopenia",
+   "Thrombopenias"
+  ],
+  "heading": "Thrombocytopenia",
+  "parents": [
+   "Cytopenia",
+   "Blood Platelet Disorders"
+  ],
+  "tree": [
+   "C15.378.140.855",
+   "C15.378.243.937"
+  ],
+  "uid": "68013921"
+ },
+ "ticagrelor": {
+  "entry_terms": [
+   "Ticagrelor",
+   "AZD 6140",
+   "AZD-6140",
+   "AZD6140",
+   "Brilique",
+   "3-(7-((2-(3,4-Difluorophenyl)cyclopropyl)amino)-5-(propylthio)-3H-(1-3)-triazolo(4,5-d)pyrimidin-3-yl)-5-(2-hydroxyethoxy)cyclopentane-1,2-diol",
+   "Brilinta"
+  ],
+  "heading": "Ticagrelor",
+  "parents": [
+   "Adenosine"
+  ],
+  "tree": [
+   "D03.633.100.759.590.138.806",
+   "D13.570.583.138.806",
+   "D13.570.800.096.815"
+  ],
+  "uid": "2028048"
+ },
+ "til risk (thiopurine-induced leukopenia)": null,
+ "time to therapeutic tacrolimus trough concentration (\u22658 ng/m": null,
  "tinnitus": {
   "entry_terms": [
    "Tinnitus",
@@ -1533,7 +6421,64 @@
   ],
   "uid": "68014031"
  },
+ "toxic epidermal necrolysis": {
+  "entry_terms": [
+   "Stevens-Johnson Syndrome",
+   "Stevens Johnson Syndrome",
+   "Epidermal Necrolysis, Toxic",
+   "Epidermal Necrolyses, Toxic",
+   "Necrolyses, Toxic Epidermal",
+   "Necrolysis, Toxic Epidermal",
+   "Toxic Epidermal Necrolyses",
+   "Toxic Epidermal Necrolysis",
+   "Lyell's Syndrome",
+   "Lyell's Syndromes",
+   "Lyell Syndrome",
+   "Syndrome, Lyell's",
+   "Syndromes, Lyell's",
+   "Nonstaphylococcal Scalded Skin Syndrome",
+   "Scalded Skin Syndrome, Nonstaphylococcal",
+   "Drug-Induced Stevens Johnson Syndrome",
+   "Drug Induced Stevens Johnson Syndrome",
+   "Drug-Induced Stevens-Johnson Syndrome",
+   "Drug-Induced Stevens-Johnson Syndromes",
+   "Stevens-Johnson Syndrome, Drug-Induced",
+   "Stevens-Johnson Syndromes, Drug-Induced",
+   "Mycoplasma-Induced Stevens-Johnson Syndrome",
+   "Mycoplasma Induced Stevens Johnson Syndrome",
+   "Stevens-Johnson Syndrome, Mycoplasma-Induced",
+   "Syndrome, Mycoplasma-Induced Stevens-Johnson",
+   "Mycoplasma-Induced Stevens Johnson Syndrome",
+   "Stevens-Johnson Syndrome Toxic Epidermal Necrolysis Spectrum",
+   "Stevens Johnson Syndrome Toxic Epidermal Necrolysis",
+   "Stevens Johnson Syndrome Toxic Epidermal Necrolysis Spectrum",
+   "Stevens-Johnson Syndrome Toxic Epidermal Necrolysis",
+   "Toxic Epidermal Necrolysis Stevens Johnson Syndrome",
+   "Toxic Epidermal Necrolysis Stevens Johnson Syndrome Spectrum",
+   "Toxic Epidermal Necrolysis Stevens-Johnson Syndrome",
+   "Toxic Epidermal Necrolysis Stevens-Johnson Syndrome Spectrum"
+  ],
+  "heading": "Stevens-Johnson Syndrome",
+  "parents": [
+   "Drug Eruptions",
+   "Erythema Multiforme",
+   "Hypersensitivity, Delayed",
+   "Stomatitis"
+  ],
+  "tree": [
+   "C07.465.864.500",
+   "C17.800.174.600.900",
+   "C17.800.229.400.683",
+   "C17.800.865.475.683",
+   "C20.543.418.787",
+   "C25.100.468.380.900"
+  ],
+  "uid": "68013262"
+ },
+ "toxicity attributable to treatment": null,
  "toxicity events": null,
+ "toxicity rates": null,
+ "tpmt enzymatic activity": null,
  "tramadol": {
   "entry_terms": [
    "Tramadol",
@@ -1626,6 +6571,90 @@
   ],
   "uid": "68014147"
  },
+ "transplantation": {
+  "entry_terms": [
+   "transplantation",
+   "grafting",
+   "grafts"
+  ],
+  "heading": "transplantation",
+  "parents": [
+   "surgery"
+  ],
+  "tree": [
+   "Y11.070.010"
+  ],
+  "uid": "81000637"
+ },
+ "treatment failure": {
+  "entry_terms": [
+   "Treatment Failure",
+   "Failures, Treatment",
+   "Failure, Treatment",
+   "Treatment Failures"
+  ],
+  "heading": "Treatment Failure",
+  "parents": [
+   "Treatment Outcome"
+  ],
+  "tree": [
+   "E01.789.800.760",
+   "N04.761.559.590.800.760",
+   "N05.715.360.575.575.800.760"
+  ],
+  "uid": "68017211"
+ },
+ "treatment response": null,
+ "treatment-induced anemia (hb < 10 g/dl)": null,
+ "trimipramine": {
+  "entry_terms": [
+   "Trimipramine",
+   "10,11 Dihydro-N,N,beta-trimethyl-5H-dibenz(b,f)azepine-5-propanamine",
+   "Trimeprimine",
+   "Trimipramine Maleate (1:1), (+-)-Isomer",
+   "Trimipramine Maleate (1:1), (-)-Isomer",
+   "Trimipramine Maleate (1:1), (+)-Isomer",
+   "Trimipramine, (+-)-Isomer",
+   "Trimipramine Maleate",
+   "Trimipramine Maleate (1:1)",
+   "Trimipramine Mesylate",
+   "Trimipramine, (-)-Isomer",
+   "Trimipramine Monohydrochloride",
+   "Stangyl",
+   "Surmontil",
+   "Surmontil Maleate",
+   "Apo-Trimip",
+   "ApoTrimip",
+   "Apo Trimip",
+   "Eldoral",
+   "Herphonal",
+   "Novo-Tripramine",
+   "NovoTripramine",
+   "Novo Tripramine",
+   "Nu-Trimipramine",
+   "NuTrimipramine",
+   "Nu Trimipramine",
+   "Rhotrimine",
+   "Trimidura",
+   "Trimipramin AZU",
+   "Trimipramin Beta",
+   "Beta, Trimipramin",
+   "Trimipramin Stada",
+   "Trimipramin-Neurazpharm",
+   "TrimipraminNeurazpharm",
+   "Trimipramin Neurazpharm",
+   "Trimineurin Maleate",
+   "Trimineurin"
+  ],
+  "heading": "Trimipramine",
+  "parents": [
+   "Dibenzazepines"
+  ],
+  "tree": [
+   "D03.633.300.240.918"
+  ],
+  "uid": "68014299"
+ },
  "tropisetron": {
   "entry_terms": [
    "Tropisetron",
@@ -1648,6 +6677,50 @@
    "D03.633.100.473.896"
   ],
   "uid": "2028055"
+ },
+ "type 2": null,
+ "ulcer": {
+  "entry_terms": [
+   "Ulcer",
+   "Ulcers"
+  ],
+  "heading": "Ulcer",
+  "parents": [
+   "Pathologic Processes"
+  ],
+  "tree": [
+   "C23.550.891"
+  ],
+  "uid": "68014456"
+ },
+ "urb": null,
+ "use of antidepressants not recommended based on cyp2c19 and": null,
+ "vardenafil": {
+  "entry_terms": [
+   "Vardenafil Dihydrochloride",
+   "Dihydrochloride, Vardenafil",
+   "Vardenafil",
+   "1-(((3-(3,4-dihydro-5-methyl)-4-oxo-7-propylimidazo(5,1-f)-as-triazin-2-yl)-4-ethoxyphenyl)sulfonyl)-4-ethylpiperazine",
+   "Levitra",
+   "Vardenafil Hydrochloride Trihydrate",
+   "Hydrochloride Trihydrate, Vardenafil",
+   "Trihydrate, Vardenafil Hydrochloride",
+   "Vardenafil Hydrochloride",
+   "Hydrochloride, Vardenafil",
+   "Vardenafil Hydrochloride Anhydrous",
+   "Anhydrous, Vardenafil Hydrochloride",
+   "Hydrochloride Anhydrous, Vardenafil"
+  ],
+  "heading": "Vardenafil Dihydrochloride",
+  "parents": [
+   "Imidazoles",
+   "Piperazines"
+  ],
+  "tree": [
+   "D03.383.129.308.980",
+   "D03.383.606.960"
+  ],
+  "uid": "2009918"
  },
  "vascular injury": {
   "entry_terms": [
@@ -1706,5 +6779,150 @@
    "D10.289.510.500.901"
   ],
   "uid": "2010007"
+ },
+ "venous thromboembolism": {
+  "entry_terms": [
+   "Venous Thromboembolism",
+   "Thromboembolism, Venous"
+  ],
+  "heading": "Venous Thromboembolism",
+  "parents": [
+   "Thromboembolism"
+  ],
+  "tree": [
+   "C14.907.355.590.700"
+  ],
+  "uid": "68054556"
+ },
+ "virological response": null,
+ "vitamin d deficiency (vdd)": null,
+ "vitamin e": {
+  "entry_terms": [
+   "Vitamin E"
+  ],
+  "heading": "Vitamin E",
+  "parents": [
+   "Benzopyrans"
+  ],
+  "tree": [
+   "D03.383.663.283.909",
+   "D03.633.100.150.909"
+  ],
+  "uid": "68014810"
+ },
+ "vitamin k and analogues": null,
+ "vno/vrcz ratio": null,
+ "voriconazole": {
+  "entry_terms": [
+   "Voriconazole",
+   "UK 109,496",
+   "UK-109496",
+   "UK109496",
+   "UK 109496",
+   "UK-109,496",
+   "UK109,496",
+   "Vfend"
+  ],
+  "heading": "Voriconazole",
+  "parents": [
+   "Triazoles"
+  ],
+  "tree": [
+   "D03.383.129.799.950"
+  ],
+  "uid": "68065819"
+ },
+ "voriconazole clearance and trough concentrations": null,
+ "voriconazole trough concentration (cmin)": null,
+ "voriconazole trough concentrations": null,
+ "warfarin": {
+  "entry_terms": [
+   "Warfarin",
+   "4-Hydroxy-3-(3-oxo-1-phenylbutyl)-2H-1-benzopyran-2-one",
+   "Warfarin Potassium",
+   "Potassium, Warfarin",
+   "Warfarin Sodium",
+   "Sodium, Warfarin",
+   "Coumadin",
+   "Marevan",
+   "Gen-Warfarin",
+   "Aldocumar",
+   "Coumadine",
+   "Apo-Warfarin",
+   "Tedicumar",
+   "Warfant"
+  ],
+  "heading": "Warfarin",
+  "parents": [
+   "4-Hydroxycoumarins"
+  ],
+  "tree": [
+   "D03.383.663.283.446.520.914",
+   "D03.633.100.150.446.520.914"
+  ],
+  "uid": "68014859"
+ },
+ "warfarin clearance": null,
+ "warfarin dosing requirements": null,
+ "warfarin maintenance dose, time to therapeutic inr, risk of": null,
+ "warfarin sensitivity index (wsi)": null,
+ "warfarin therapy outcomes (dose requirements, inr stabilizat": null,
+ "wbc < 9.5 \u00d7 109/l": null,
+ "zidovudine": {
+  "entry_terms": [
+   "Zidovudine",
+   "Azidothymidine",
+   "AZT Antiviral",
+   "3'-Azido-2',3'-Dideoxythymidine",
+   "3' Azido 2',3' Dideoxythymidine",
+   "AZT (Antiviral)",
+   "3'-Azido-3'-deoxythymidine",
+   "3' Azido 3' deoxythymidine",
+   "AZT, Antiviral",
+   "Antiviral AZT",
+   "Retrovir",
+   "BW A509U",
+   "BWA-509U",
+   "BWA509U",
+   "BWA 509U"
+  ],
+  "heading": "Zidovudine",
+  "parents": [
+   "Thymidine",
+   "Dideoxynucleosides"
+  ],
+  "tree": [
+   "D03.383.742.680.705.950",
+   "D13.570.230.500.950",
+   "D13.570.230.855.950",
+   "D13.570.685.705.950"
+  ],
+  "uid": "68015215"
+ },
+ "zonisamide": {
+  "entry_terms": [
+   "Zonisamide",
+   "AD 810",
+   "AD-810",
+   "AD810",
+   "CI 912",
+   "CI-912",
+   "CI912",
+   "Zonisamide Monosodium",
+   "Zonegran",
+   "3-Sulfamoylmethyl-1,2-benzisoxazole",
+   "3 Sulfamoylmethyl 1,2 benzisoxazole"
+  ],
+  "heading": "Zonisamide",
+  "parents": [
+   "Isoxazoles",
+   "Sulfonamides"
+  ],
+  "tree": [
+   "D02.065.884.987",
+   "D02.886.590.700.987",
+   "D03.383.129.385.825"
+  ],
+  "uid": "2028185"
  }
 }
