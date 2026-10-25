@@ -26,7 +26,6 @@ import time
 
 MEDRAG_DIR = os.environ.get("MEDRAG_DIR", "/scratch/kashi77/ext_baselines/MedRAG")
 sys.path.insert(0, os.path.join(MEDRAG_DIR, "src"))
-os.chdir(MEDRAG_DIR)                       # the toolkit resolves corpus/ and templates relative to its root
 
 OPEN_COT_SYSTEM = ("You are a helpful medical expert, and your task is to answer a medical question. "
                    "Please first think step-by-step and then give a definite answer. Organize your output "
@@ -70,6 +69,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
     inp, out = os.path.abspath(args.input), os.path.abspath(args.out)
+    os.chdir(MEDRAG_DIR)                   # the toolkit resolves corpus/ and templates relative to its root
 
     from liquid import Template
     from medrag import MedRAG
@@ -82,6 +82,8 @@ def main():
     # construct_index() are used unchanged.
     if rag:
         db = os.path.join(MEDRAG_DIR, "corpus")
+        if args.corpus not in medrag_utils.corpus_names:      # e.g. a small test corpus
+            medrag_utils.corpus_names[args.corpus] = [args.corpus]
         for cname in medrag_utils.corpus_names[args.corpus]:
             idx = os.path.join(db, cname, "index", "ncbi/MedCPT-Article-Encoder")
             if not os.path.exists(os.path.join(idx, "faiss.index")):
@@ -93,6 +95,15 @@ def main():
     m = MedRAG(llm_name=f"OpenAI/{args.model}", rag=rag, follow_up=(args.mode == "imedrag"),
                retriever_name="MedCPT", corpus_name=args.corpus,
                db_dir=os.path.join(MEDRAG_DIR, "corpus"), corpus_cache=False)
+    # The OpenAI branch sizes its context by model name (gpt-3.5 / gpt-4); for any other name
+    # through the OpenAI-compatible endpoint, set the toolkit's own gpt-3.5 budget explicitly.
+    import tiktoken
+    if not hasattr(m, "context_length"):
+        m.context_length = 15000
+    if not hasattr(m, "max_length"):
+        m.max_length = 16384
+    if not hasattr(m, "tokenizer"):
+        m.tokenizer = tiktoken.get_encoding("cl100k_base")
     # open-ended prompts (see module docstring)
     m.templates["cot_system"] = OPEN_COT_SYSTEM
     m.templates["cot_prompt"] = Template(OPEN_COT_PROMPT)
