@@ -28,6 +28,7 @@ def build_rag(workdir: str):
         llm_model_name=model,
         llm_model_max_async=2,
         llm_model_kwargs={"host": host, "options": {"num_ctx": 16384, "temperature": 0}},
+        tiktoken_model_name="gpt-3.5-turbo",      # cl100k_base is pre-cached; the default (gpt-4o-mini) would need a download
         embedding_func=EmbeddingFunc(
             embedding_dim=768, max_token_size=8192,
             func=lambda texts: ollama_embed(texts, embed_model="nomic-embed-text", host=host)),
@@ -92,7 +93,9 @@ def main():
                 rec = {"id": it["id"], "question": it["question"], "reference": it.get("reference", ""),
                        "system": "lightrag", **{k: v for k, v in it.items() if k.startswith("bench_")}}
                 try:
-                    ans = rag.query(it["question"], param=QueryParam(mode=args.mode))
+                    # context budget below the server's num_ctx; no rerank model is configured
+                    ans = rag.query(it["question"], param=QueryParam(mode=args.mode, max_total_tokens=14000,
+                                                                     enable_rerank=False))
                     rec["generated_answer"] = str(ans)
                 except Exception as e:
                     rec.update({"generated_answer": "", "error": f"{type(e).__name__}: {e}"})
