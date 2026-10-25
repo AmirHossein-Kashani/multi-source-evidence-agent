@@ -26,7 +26,7 @@
 #SBATCH --output=amg_extbase_%j.out
 
 set -u
-STAGE="${EXT_STAGE:?set EXT_STAGE to medrag | paperqa | lightrag}"
+STAGE="${EXT_STAGE:?set EXT_STAGE to medrag | imedrag | paperqa | lightrag}"
 EXT=/scratch/kashi77/ext_baselines
 module load StdEnv/2023
 module load python/3.11.5
@@ -49,6 +49,8 @@ export OLLAMA_KEEP_ALIVE=-1
 export OLLAMA_CONTEXT_LENGTH="${OLLAMA_CONTEXT_LENGTH:-24576}"
 export TIKTOKEN_CACHE_DIR="$AMG_MODELS_DIR/tiktoken_cache"      # pre-cached cl100k_base (no internet needed)
 export OLLAMA_NOPRUNE=1
+# LightRAG indexes with 4 concurrent extraction calls at an 8k context (see the runner).
+[ "$STAGE" = "lightrag" ] && export OLLAMA_NUM_PARALLEL=4 OLLAMA_CONTEXT_LENGTH=8192
 export PATH="$SLURM_SUBMIT_DIR/bin:$PATH"
 export LD_LIBRARY_PATH="$SLURM_SUBMIT_DIR/lib/ollama:${LD_LIBRARY_PATH:-}"
 export LLM_MODEL="${LLM_MODEL:-qwen2.5:14b}"
@@ -68,13 +70,14 @@ CORPUS=$EXT/corpus_pubmed
 
 date
 case "$STAGE" in
-  medrag)
-    source $EXT/venv-medrag/bin/activate
+  medrag|imedrag)
+    # medrag: builds the MedCPT index on first use (~500k chunks), then one call per question.
+    # imedrag: 3 follow-up rounds per question; submit it with --dependency=afterok:<medrag job>
+    # so it finds the cached index.
+    source .venv/bin/activate          # the project venv already has torch/transformers/sentence-transformers/openai; python-liquid was added
     cp extbase/medrag_faiss_shim.py $EXT/MedRAG/src/faiss.py     # exact flat index in numpy (no faiss wheel here)
-    for mode in medrag imedrag; do
-      python -u extbase/run_medrag_baseline.py --mode $mode --input $PGXQA  --out results/pgxqa_${mode}.jsonl
-      python -u extbase/run_medrag_baseline.py --mode $mode --input $MASKED --out results/maskrec_${mode}.jsonl
-    done
+    python -u extbase/run_medrag_baseline.py --mode $STAGE --input $PGXQA  --out results/pgxqa_${STAGE}.jsonl
+    python -u extbase/run_medrag_baseline.py --mode $STAGE --input $MASKED --out results/maskrec_${STAGE}.jsonl
     ;;
   paperqa)
     source $EXT/venv-paperqa/bin/activate

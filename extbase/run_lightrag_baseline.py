@@ -26,8 +26,11 @@ def build_rag(workdir: str):
         working_dir=workdir,
         llm_model_func=ollama_model_complete,
         llm_model_name=model,
-        llm_model_max_async=2,
-        llm_model_kwargs={"host": host, "options": {"num_ctx": 16384, "temperature": 0}},
+        # Indexing cost: one extraction call per chunk. 4 concurrent requests (the job sets
+        # OLLAMA_NUM_PARALLEL=4) at an 8k context fit the 20 GB slice; no gleaning pass.
+        llm_model_max_async=4,
+        llm_model_kwargs={"host": host, "options": {"num_ctx": 8192, "temperature": 0}},
+        entity_extract_max_gleaning=0,
         tiktoken_model_name="gpt-3.5-turbo",      # cl100k_base is pre-cached; the default (gpt-4o-mini) would need a download
         embedding_func=EmbeddingFunc(
             embedding_dim=768, max_token_size=8192,
@@ -94,7 +97,7 @@ def main():
                        "system": "lightrag", **{k: v for k, v in it.items() if k.startswith("bench_")}}
                 try:
                     # context budget below the server's num_ctx; no rerank model is configured
-                    ans = rag.query(it["question"], param=QueryParam(mode=args.mode, max_total_tokens=14000,
+                    ans = rag.query(it["question"], param=QueryParam(mode=args.mode, max_total_tokens=6000,
                                                                      enable_rerank=False))
                     rec["generated_answer"] = str(ans)
                 except Exception as e:
