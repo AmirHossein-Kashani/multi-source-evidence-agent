@@ -91,6 +91,28 @@ symbols named in the text), identically for all systems.
 | refusal on "misspecified" items (PGxQA rule / extended) | 0.29 / 0.57 | 0.29 / 0.57 | 0.14 / 0.43 | 7 |
 | consult: BERTScore F1 (rescaled) vs expert answer | 0.165 | 0.128 | 0.171 | 9 |
 
+The PGxQA repository ships every answer its paper's models gave; matched to the same items
+by question text (`convert_pgxqa_reference.py`, 67/67 list and refusal items per model) and
+scored with the same extraction and refusal rules, they give a same-item reference. Those
+models answered from parametric knowledge with no retrieval, through the paper's prompts
+(the refusal items carry the "answer UNKNOWN if unknown" wording in the question itself,
+for them and for us).
+
+| | GPT-4o | GPT-4-turbo | Llama-3-70B | GPT-3.5 | Gemini Pro | **phase 15 (qwen2.5-14b, local)** | n |
+|---|---|---|---|---|---|---|---|
+| drug→genes F1 (P / R) | 0.73 (0.73 / 0.78) | 0.61 (0.59 / 0.70) | 0.66 (0.62 / 0.80) | 0.42 (0.34 / 0.70) | 0.37 (0.32 / 0.50) | **0.70 (0.69 / 0.85)** | 20 |
+| drug→genes F1, refusal-set drugs | 0.76 | 0.47 | 0.64 | 0.35 | 0.25 | 0.59 | 18 |
+| gene→drugs F1 (P / R) | 0.57 (0.60 / 0.61) | 0.44 (0.45 / 0.56) | 0.54 (0.56 / 0.62) | 0.19 (0.17 / 0.26) | 0.08 (0.08 / 0.08) | **0.58 (0.71 / 0.60)** | 20 |
+| false refusal on well-specified items (PGxQA rule / extended) | 0.20 / 0.20 | 0.33 / 0.33 | 0.05 / 0.05 | 0.58 / 0.58 | 0.15 / 0.15 | **0.05 / 0.13** | 40 |
+| refusal on "misspecified" items (PGxQA rule / extended) | 1.00 / 1.00 | 1.00 / 1.00 | 0.43 / 0.43 | 0.86 / 0.86 | 0.29 / 0.29 | 0.14 / 0.43 | 7 |
+
+A 14B model with the graph and the loop lands where GPT-4o does on both list tasks
+(0.70 vs 0.73 and 0.58 vs 0.57) and refuses legitimate questions as rarely as Llama-3-70B;
+the same model without them (column A above) is below GPT-3.5. The misspecified items are
+where GPT-4o and GPT-4-turbo are clearly better (7/7 refused): see the per-item breakdown
+below, where four of the seven are real entities without a CPIC guideline that phase 15
+answers from ClinPGx-level evidence.
+
 Reading.
 
 - **Lists.** Phase 15 roughly doubles F1 on both list tasks. The gain is in recall *and*
@@ -125,8 +147,9 @@ Reading.
   (0.13–0.17, rescaled) and the differences are within noise on 9 items: the expert answers
   are CPIC-guideline prose ("level C, no clinical recommendation"), ours are evidence-ledger
   prose. A human or LLM-judge rating would be needed here; BERTScore is not informative.
-- **Scope.** Researcher-mode subsample; not comparable to the PGxQA paper's full-benchmark
-  scores (GPT-4o 68.4% over 110k items of mostly allele-level lookups).
+- **Scope.** Researcher-mode subsample. The paper's headline numbers (GPT-4o 68.4% over
+  110k items of mostly allele-level lookups) are not comparable; the same-item rows above
+  are.
 
 ## 4. What this adds up to
 
@@ -134,7 +157,7 @@ Reading.
 |---|---|---|
 | Reading step extracts drug and genes correctly | PGxCorpus: +0.33 drug F1, +0.18 gene F1 over a dictionary | solid, external gold |
 | Loop recovers associations missing from the graph | 9/10 masked pairs recovered vs 3/10 and 0/10; routes attributed | solid, controlled; 10 pairs only |
-| Answers name the right genes | PGxQA lists: F1 0.70 / 0.58 vs ≤0.37 / ≤0.16 | solid on a subsample; CPIC-vs-ClinPGx gold mismatch stated |
+| Answers name the right genes | PGxQA lists: F1 0.70 / 0.58 vs ≤0.37 / ≤0.16 for the same model; GPT-4o on the same items 0.73 / 0.57 | solid on a subsample; CPIC-vs-ClinPGx gold mismatch stated |
 | Answers do not hedge on legitimate questions | false refusal 5% vs 28–38% | solid |
 | Answers reject invented premises | 2/3 invented items, same as baselines; the panel trap fools all | **not supported**; next fix identified |
 | Disagreement cards reduce INSUFFICIENT | phase 15 dev run: rate 83→86% | **not supported** (see phase15_vs_phase13.md) |
