@@ -67,10 +67,27 @@ def make_settings(corpus: str, index_name: str, manifest: str | None = None):
     )
 
 
+def patch_manifest_empties():
+    """On Python < 3.12 paper-qa reads the manifest CSV with empty cells as '' and feeds them to
+    DocDetails, whose `year` is an int: one file without a journal/year line aborted the whole
+    build. Drop empty cells from a manifest entry before it is validated."""
+    import paperqa.agents.search as pqs
+    orig = pqs.fetch_kwargs_from_manifest
+
+    def fetch(file_location, manifest, manifest_fallback_location):
+        for key in (file_location, manifest_fallback_location):
+            entry = manifest.get(key)
+            if entry:
+                manifest[key] = {k: v for k, v in entry.items() if v not in ("", None)}
+        return orig(file_location, manifest, manifest_fallback_location)
+    pqs.fetch_kwargs_from_manifest = fetch
+
+
 async def build_index(settings):
     """Build / sync the index explicitly (ask() would do it implicitly on the first question)
     and report how many files it holds."""
     from paperqa.agents.search import get_directory_index
+    patch_manifest_empties()
     idx = await get_directory_index(settings=settings)
     files = await idx.index_files
     failed = sum(1 for v in files.values() if v == "ERROR")
