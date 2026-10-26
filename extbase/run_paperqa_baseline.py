@@ -58,11 +58,19 @@ def make_settings(corpus: str, index_name: str, manifest: str | None = None):
         agent=AgentSettings(agent_llm=model, agent_llm_config=llm_cfg,
                             index=IndexSettings(name=index_name, paper_directory=corpus,
                                                 index_directory=os.path.join(os.path.dirname(corpus.rstrip("/")), "paperqa_index"),
-                                                use_absolute_paper_directory=True,
+                                                # Keys must stay RELATIVE: paper-qa 2026.8's directory sync compares the
+                                                # index keys with relative paths, so absolute keys look like files that
+                                                # vanished and every build wipes and re-indexes the whole corpus (33 min
+                                                # on a full H100; one job lost its hour to that). The manifest's absolute
+                                                # file_location column is still found through the fallback lookup.
+                                                use_absolute_paper_directory=False,
                                                 manifest_file=manifest,      # title/journal/year per file: no LLM call at index time
                                                 # defaults (5 readers, commit after every file) index ~36 files/min
                                                 # on this filesystem; the commit is the cost, not the embedding
                                                 concurrency=10, batch_size=50),
+                            # The index is built once per job by build_index(); ask() must not re-sync it
+                            # for every question (rebuild_index defaults to True).
+                            rebuild_index=False,
                             search_count=12),
     )
 

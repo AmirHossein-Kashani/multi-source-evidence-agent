@@ -8,7 +8,9 @@
 #   sbatch --export=ALL,EXT_STAGE=paperqa,OLLAMA_NUM_PARALLEL=4 --gres=gpu:h100:1 --mem=64G --time=04:00:00 run_extbase_alliance.bash
 #       PaperQA2 (FutureHouse) agent over the shared PubMed abstract corpus. Its evidence
 #       summaries run concurrently (hence the parallel slots); a full GPU because the MIG
-#       queue was not moving (8 h pending with no start estimate).
+#       queue was not moving (8 h pending with no start estimate). The runner resumes, so
+#       the stage can also be run as a chain of 1-hour jobs, which backfill sooner:
+#       sbatch ... --time=01:00:00 --dependency=afterany:<previous job> run_extbase_alliance.bash
 #   sbatch --export=ALL,EXT_STAGE=lightrag --time=08:00:00 run_extbase_alliance.bash
 #       LightRAG (document-built graph, no curated KG) over the same corpus: index, then query.
 #
