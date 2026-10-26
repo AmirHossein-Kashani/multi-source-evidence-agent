@@ -43,6 +43,20 @@ def make_settings(corpus: str, index_name: str):
     )
 
 
+def load_done(out_path: str):
+    """Ids already answered. Rows without an answer (errors) are dropped from the file so a
+    re-run retries them, matching run_genmedgpt.py's 'failed items are never kept' contract."""
+    if not os.path.exists(out_path):
+        return set()
+    rows = [json.loads(l) for l in open(out_path, encoding="utf-8") if l.strip()]
+    good = [r for r in rows if r.get("generated_answer")]
+    if len(good) != len(rows):
+        with open(out_path, "w", encoding="utf-8") as f:
+            for r in good:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    return {r["id"] for r in good}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--corpus", required=True)
@@ -54,26 +68,37 @@ def main():
     settings = make_settings(os.path.abspath(args.corpus), "pubmed_pgx")
 
     items = [json.loads(l) for l in open(args.input, encoding="utf-8")]
-    done = set()
-    if os.path.exists(args.out):
-        done = {json.loads(l)["id"] for l in open(args.out, encoding="utf-8") if l.strip()}
+    done = load_done(args.out)
     todo = [it for it in items if it["id"] not in done][: (args.limit or None)]
     print(f"[paperqa] {len(done)} answered, {len(todo)} to answer")
+
+    def run(question, agent_type):
+        settings.agent.agent_type = agent_type
+        resp = ask(question, settings=settings)
+        sess = getattr(resp, "session", resp)
+        answer = getattr(sess, "answer", "") or getattr(sess, "formatted_answer", "") or str(sess)
+        ctxs = getattr(sess, "contexts", []) or []
+        refs = [{"ref": getattr(getattr(c, "text", None), "name", ""), "score": getattr(c, "score", None)}
+                for c in ctxs[:10]]
+        return answer, refs
+
     with open(args.out, "a", encoding="utf-8") as f:
         for n, it in enumerate(todo, 1):
             t0 = time.time()
             rec = {"id": it["id"], "question": it["question"], "reference": it.get("reference", ""),
                    "system": "paperqa2", **{k: v for k, v in it.items() if k.startswith("bench_")}}
-            try:
-                resp = ask(it["question"], settings=settings)
-                sess = getattr(resp, "session", resp)
-                rec["generated_answer"] = getattr(sess, "answer", "") or getattr(sess, "formatted_answer", "") or str(sess)
-                ctxs = getattr(sess, "contexts", []) or []
-                rec["references"] = [{"ref": getattr(getattr(c, "text", None), "name", ""),
-                                      "score": getattr(c, "score", None)} for c in ctxs[:10]]
-            except Exception as e:
-                rec.update({"generated_answer": "", "error": f"{type(e).__name__}: {e}"})
-                print(f"[paperqa] id={it['id']} failed: {e}")
+            # Default agent (LLM tool selection); if that path errors with this model, fall back to
+            # PaperQA2's fixed "fake" agent (paper_search -> gather_evidence -> gen_answer), the
+            # same tools in their canonical order. The agent used is recorded per row.
+            for agent_type in ("ToolSelector", "fake"):
+                try:
+                    rec["generated_answer"], rec["references"] = run(it["question"], agent_type)
+                    rec["agent_type"] = agent_type
+                    rec.pop("error", None)
+                    break
+                except Exception as e:
+                    rec.update({"generated_answer": "", "error": f"{agent_type}: {type(e).__name__}: {e}"})
+                    print(f"[paperqa] id={it['id']} {agent_type} failed: {e}")
             rec.update({"risk_genes": [], "drugs": [], "seconds": round(time.time() - t0, 1)})
             f.write(json.dumps(rec, ensure_ascii=False) + "\n"); f.flush()
             print(f"[paperqa] {n}/{len(todo)} id={it['id']} {rec['seconds']}s len={len(rec['generated_answer'])}")

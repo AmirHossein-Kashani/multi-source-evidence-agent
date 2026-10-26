@@ -22,6 +22,15 @@ def build_rag(workdir: str):
     from lightrag.utils import EmbeddingFunc
     host = os.environ.get("OLLAMA_API_BASE", "http://127.0.0.1:11434")
     model = os.environ.get("LLM_MODEL", "qwen2.5:14b")
+
+    # ollama_embed is itself an EmbeddingFunc declared for bge-m3 (1024-d); calling it through
+    # another EmbeddingFunc runs the inner 1024-d check on nomic's 768-d vectors and every
+    # embedding fails ("vector count mismatch"). The library's documented pattern is to wrap
+    # the raw function, ollama_embed.func. nomic-embed-text v1.5 expects task prefixes.
+    async def embed(texts, context="document"):
+        return await ollama_embed.func(texts, embed_model="nomic-embed-text", host=host, context=context,
+                                       query_prefix="search_query: ", document_prefix="search_document: ")
+
     rag = LightRAG(
         working_dir=workdir,
         llm_model_func=ollama_model_complete,
@@ -32,9 +41,8 @@ def build_rag(workdir: str):
         llm_model_kwargs={"host": host, "options": {"num_ctx": 8192, "temperature": 0}},
         entity_extract_max_gleaning=0,
         tiktoken_model_name="gpt-3.5-turbo",      # cl100k_base is pre-cached; the default (gpt-4o-mini) would need a download
-        embedding_func=EmbeddingFunc(
-            embedding_dim=768, max_token_size=8192,
-            func=lambda texts: ollama_embed(texts, embed_model="nomic-embed-text", host=host)),
+        embedding_func=EmbeddingFunc(embedding_dim=768, max_token_size=8192, model_name="nomic-embed-text",
+                                     supports_asymmetric=True, func=embed),
     )
     return rag
 
@@ -46,6 +54,60 @@ async def init(rag):
         await initialize_pipeline_status()
     except Exception:
         pass
+
+
+async def doc_status_counts(rag):
+    """{status: n} over LightRAG's document-status store (what actually made it into the index)."""
+    from collections import Counter
+    from lightrag.base import DocStatus
+    counts = Counter()
+    for st in DocStatus:
+        try:
+            docs = await rag.doc_status.get_docs_by_status(st)
+        except Exception:
+            try:
+                docs = await rag.doc_status.get_docs_by_statuses([st])
+            except Exception:
+                continue
+        if docs:
+            counts[st.value] = len(docs)
+    return dict(counts)
+
+
+async def retry_failed(rag, corpus: str):
+    """This LightRAG version does not re-queue FAILED documents on insert (only an explicit
+    server-side scan does), so failed ones are deleted and inserted again once."""
+    from lightrag.base import DocStatus
+    try:
+        failed = await rag.doc_status.get_docs_by_status(DocStatus.FAILED)
+    except Exception:
+        failed = await rag.doc_status.get_docs_by_statuses([DocStatus.FAILED])
+    ids = sorted(failed or {})
+    print(f"[lightrag] retrying {len(ids)} failed documents")
+    for doc_id in ids:
+        name = f"PMID_{doc_id}.txt"
+        path = os.path.join(corpus, name)
+        if not os.path.exists(path):
+            print(f"[lightrag]   no source file for failed doc {doc_id}, skipped"); continue
+        try:
+            await rag.adelete_by_doc_id(doc_id)
+            await rag.ainsert([open(path, encoding="utf-8").read()], ids=[doc_id], file_paths=[name])
+        except Exception as e:
+            print(f"[lightrag]   retry of {doc_id} failed: {type(e).__name__}: {e}")
+
+
+def load_done(out_path: str):
+    """Ids already answered. Rows without an answer (errors) are dropped from the file so a
+    re-run retries them, matching run_genmedgpt.py's 'failed items are never kept' contract."""
+    if not os.path.exists(out_path):
+        return set()
+    rows = [json.loads(l) for l in open(out_path, encoding="utf-8") if l.strip()]
+    good = [r for r in rows if r.get("generated_answer")]
+    if len(good) != len(rows):
+        with open(out_path, "w", encoding="utf-8") as f:
+            for r in good:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    return {r["id"] for r in good}
 
 
 def main():
@@ -81,13 +143,15 @@ def main():
             done |= set(names)
             json.dump(sorted(done), open(done_path, "w"))
             print(f"[lightrag] indexed {len(done)}/{len(files)} ({time.time() - t0:.0f}s for {len(names)})")
+        print(f"[lightrag] document status after indexing: {asyncio.run(doc_status_counts(rag))}")
+        asyncio.run(retry_failed(rag, args.corpus))
+        print(f"[lightrag] document status after retry: {asyncio.run(doc_status_counts(rag))}")
 
     if args.input:
         from lightrag import QueryParam
+        print(f"[lightrag] document status: {asyncio.run(doc_status_counts(rag))}")
         items = [json.loads(l) for l in open(args.input, encoding="utf-8")]
-        done = set()
-        if os.path.exists(args.out):
-            done = {json.loads(l)["id"] for l in open(args.out, encoding="utf-8") if l.strip()}
+        done = load_done(args.out)
         todo = [it for it in items if it["id"] not in done][: (args.limit or None)]
         print(f"[lightrag] {len(done)} answered, {len(todo)} to answer (mode={args.mode})")
         with open(args.out, "a", encoding="utf-8") as f:

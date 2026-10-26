@@ -56,6 +56,20 @@ def parse_answer(raw: str) -> str:
     return raw.strip()
 
 
+def load_done(out_path: str):
+    """Ids already answered. Rows without an answer (errors) are dropped from the file so a
+    re-run retries them, matching run_genmedgpt.py's 'failed items are never kept' contract."""
+    if not os.path.exists(out_path):
+        return set()
+    rows = [json.loads(l) for l in open(out_path, encoding="utf-8") if l.strip()]
+    good = [r for r in rows if r.get("generated_answer")]
+    if len(good) != len(rows):
+        with open(out_path, "w", encoding="utf-8") as f:
+            for r in good:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    return {r["id"] for r in good}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["medrag", "imedrag", "cot"], required=True)
@@ -113,9 +127,7 @@ def main():
         m.templates["follow_up_answer"] = m.templates["follow_up_answer"].replace("answer choice", "answer")
 
     items = [json.loads(l) for l in open(inp, encoding="utf-8")]
-    done = set()
-    if os.path.exists(out):
-        done = {json.loads(l)["id"] for l in open(out, encoding="utf-8") if l.strip()}
+    done = load_done(out)
     todo = [it for it in items if it["id"] not in done][: (args.limit or None)]
     print(f"[{args.mode}] {len(done)} done, {len(todo)} to run; corpus={args.corpus} k={args.k}")
     with open(out, "a", encoding="utf-8") as f:
