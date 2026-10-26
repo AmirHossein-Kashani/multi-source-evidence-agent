@@ -35,9 +35,11 @@ def build_rag(workdir: str):
         working_dir=workdir,
         llm_model_func=ollama_model_complete,
         llm_model_name=model,
-        # Indexing cost: one extraction call per chunk. 4 concurrent requests (the job sets
-        # OLLAMA_NUM_PARALLEL=4) at an 8k context fit the 20 GB slice; no gleaning pass.
-        llm_model_max_async=4,
+        # Indexing cost: one extraction call per chunk (~1k generated tokens). LIGHTRAG_ASYNC
+        # concurrent requests at an 8k context (the job sets OLLAMA_NUM_PARALLEL to match):
+        # 4 on a 20 GB MIG slice (~40 s/abstract, too slow for 3.7k abstracts), 8 on a full
+        # H100. No gleaning pass.
+        llm_model_max_async=int(os.environ.get("LIGHTRAG_ASYNC", "4")),
         llm_model_kwargs={"host": host, "options": {"num_ctx": 8192, "temperature": 0}},
         entity_extract_max_gleaning=0,
         tiktoken_model_name="gpt-3.5-turbo",      # cl100k_base is pre-cached; the default (gpt-4o-mini) would need a download

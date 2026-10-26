@@ -16,11 +16,31 @@ import os
 import time
 
 
-def make_settings(corpus: str, index_name: str):
+def patch_get_router():
+    """paper-qa 2026.8 builds its tool-selecting agent from `LLMModel.get_router()`, which the
+    installed lmi (fhlmi 1.0.7) no longer has. Rebuild the litellm Router from the model's own
+    config (the same `model_list` the removed method wrapped)."""
+    from lmi.llms import LiteLLMModel
+    if hasattr(LiteLLMModel, "get_router"):
+        return
+    import litellm
+    cache = {}
+
+    def get_router(self):
+        key = id(self)
+        if key not in cache:
+            cache[key] = litellm.Router(model_list=self.config["model_list"])
+        return cache[key]
+    LiteLLMModel.get_router = get_router
+
+
+def make_settings(corpus: str, index_name: str, manifest: str | None = None):
     from paperqa import Settings
     from paperqa.settings import AgentSettings, AnswerSettings, IndexSettings, ParsingSettings
     host = os.environ.get("OLLAMA_API_BASE", "http://127.0.0.1:11434")
-    model = "ollama/" + os.environ.get("LLM_MODEL", "qwen2.5:14b")
+    # ollama_chat/ = Ollama's chat endpoint, which carries the model's native tool calling
+    # (needed by the agent); ollama/ would emulate tools through prompting.
+    model = "ollama_chat/" + os.environ.get("LLM_MODEL", "qwen2.5:14b")
     llm_cfg = {"model_list": [{"model_name": model,
                                "litellm_params": {"model": model, "api_base": host,
                                                   "temperature": 0, "num_ctx": 16384}}]}
@@ -38,9 +58,20 @@ def make_settings(corpus: str, index_name: str):
         agent=AgentSettings(agent_llm=model, agent_llm_config=llm_cfg,
                             index=IndexSettings(name=index_name, paper_directory=corpus,
                                                 index_directory=os.path.join(os.path.dirname(corpus.rstrip("/")), "paperqa_index"),
-                                                use_absolute_paper_directory=True),
+                                                use_absolute_paper_directory=True,
+                                                manifest_file=manifest),     # title/journal/year per file: no LLM call at index time
                             search_count=12),
     )
+
+
+async def build_index(settings):
+    """Build / sync the index explicitly (ask() would do it implicitly on the first question)
+    and report how many files it holds."""
+    from paperqa.agents.search import get_directory_index
+    idx = await get_directory_index(settings=settings)
+    files = await idx.index_files
+    failed = sum(1 for v in files.values() if v == "ERROR")
+    return len(files), failed
 
 
 def load_done(out_path: str):
@@ -63,9 +94,20 @@ def main():
     ap.add_argument("--input", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--manifest", help="default: <corpus parent>/paperqa_manifest.csv (extbase/build_paperqa_manifest.py)")
     args = ap.parse_args()
+    import asyncio
     from paperqa import ask
-    settings = make_settings(os.path.abspath(args.corpus), "pubmed_pgx")
+    patch_get_router()
+    corpus = os.path.abspath(args.corpus)
+    manifest = args.manifest or os.path.join(os.path.dirname(corpus), "paperqa_manifest.csv")
+    if not os.path.exists(manifest):
+        print(f"[paperqa] no manifest at {manifest}; indexing will call the LLM once per file")
+        manifest = None
+    settings = make_settings(corpus, "pubmed_pgx", manifest)
+    t0 = time.time()
+    n_files, n_failed = asyncio.run(build_index(settings))
+    print(f"[paperqa] index ready: {n_files} files ({n_failed} failed) in {time.time() - t0:.0f}s")
 
     items = [json.loads(l) for l in open(args.input, encoding="utf-8")]
     done = load_done(args.out)

@@ -49,8 +49,11 @@ export OLLAMA_KEEP_ALIVE=-1
 export OLLAMA_CONTEXT_LENGTH="${OLLAMA_CONTEXT_LENGTH:-24576}"
 export TIKTOKEN_CACHE_DIR="$AMG_MODELS_DIR/tiktoken_cache"      # pre-cached cl100k_base (no internet needed)
 export OLLAMA_NOPRUNE=1
-# LightRAG indexes with 4 concurrent extraction calls at an 8k context (see the runner).
-[ "$STAGE" = "lightrag" ] && export OLLAMA_NUM_PARALLEL=4 OLLAMA_CONTEXT_LENGTH=8192
+# LightRAG indexes with LIGHTRAG_ASYNC concurrent extraction calls at an 8k context (see the
+# runner). Extraction is ~40 s/abstract on a 2g.20gb slice, so this stage runs on a full H100:
+#   sbatch --export=ALL,EXT_STAGE=lightrag,LIGHTRAG_ASYNC=8 --gres=gpu:h100:1 --mem=64G --time=10:00:00 run_extbase_alliance.bash
+# LLM_TIMEOUT: LightRAG's per-call timeout (default 240 s) is too short for a busy server.
+[ "$STAGE" = "lightrag" ] && export OLLAMA_NUM_PARALLEL="${LIGHTRAG_ASYNC:-4}" OLLAMA_CONTEXT_LENGTH=8192 LLM_TIMEOUT="${LLM_TIMEOUT:-900}"
 export PATH="$SLURM_SUBMIT_DIR/bin:$PATH"
 export LD_LIBRARY_PATH="$SLURM_SUBMIT_DIR/lib/ollama:${LD_LIBRARY_PATH:-}"
 export LLM_MODEL="${LLM_MODEL:-qwen2.5:14b}"
