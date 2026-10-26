@@ -11,6 +11,8 @@
 #       queue was not moving (8 h pending with no start estimate). The runner resumes, so
 #       the stage can also be run as a chain of 1-hour jobs, which backfill sooner:
 #       sbatch ... --time=01:00:00 --dependency=afterany:<previous job> run_extbase_alliance.bash
+#       Add PAPERQA_AGENT=fake for PaperQA2's fixed pipeline (search -> gather -> answer) in
+#       place of its LLM tool-selecting agent; results go to results/*_paperqa_fake.jsonl.
 #   sbatch --export=ALL,EXT_STAGE=lightrag --time=08:00:00 run_extbase_alliance.bash
 #       LightRAG (document-built graph, no curated KG) over the same corpus: index, then query.
 #
@@ -88,8 +90,9 @@ case "$STAGE" in
     ;;
   paperqa)
     source $EXT/venv-paperqa/bin/activate
-    python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --input $PGXQA  --out results/pgxqa_paperqa.jsonl
-    python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --input $MASKED --out results/maskrec_paperqa.jsonl
+    SUF=${PAPERQA_AGENT:+_$PAPERQA_AGENT}        # PAPERQA_AGENT=fake -> results/*_paperqa_fake.jsonl
+    python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --input $PGXQA  --out results/pgxqa_paperqa${SUF}.jsonl
+    python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --input $MASKED --out results/maskrec_paperqa${SUF}.jsonl
     ;;
   lightrag)
     source $EXT/venv-lightrag/bin/activate

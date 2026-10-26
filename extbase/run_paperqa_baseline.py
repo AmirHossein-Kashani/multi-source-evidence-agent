@@ -141,6 +141,12 @@ def main():
     done = load_done(args.out)
     todo = [it for it in items if it["id"] not in done][: (args.limit or None)]
     print(f"[paperqa] {len(done)} answered, {len(todo)} to answer")
+    # PAPERQA_AGENT=fake runs PaperQA2's fixed pipeline (paper_search -> gather_evidence ->
+    # gen_answer, the same tools in their canonical order) as a second configuration: with a
+    # 14B model the tool-selecting agent sometimes answers before it has searched.
+    forced = os.environ.get("PAPERQA_AGENT")
+    agent_order = (forced,) if forced else ("ToolSelector", "fake")
+    system = f"paperqa2:{forced}" if forced else "paperqa2"
 
     def run(question, agent_type):
         settings.agent.agent_type = agent_type
@@ -156,11 +162,10 @@ def main():
         for n, it in enumerate(todo, 1):
             t0 = time.time()
             rec = {"id": it["id"], "question": it["question"], "reference": it.get("reference", ""),
-                   "system": "paperqa2", **{k: v for k, v in it.items() if k.startswith("bench_")}}
+                   "system": system, **{k: v for k, v in it.items() if k.startswith("bench_")}}
             # Default agent (LLM tool selection); if that path errors with this model, fall back to
-            # PaperQA2's fixed "fake" agent (paper_search -> gather_evidence -> gen_answer), the
-            # same tools in their canonical order. The agent used is recorded per row.
-            for agent_type in ("ToolSelector", "fake"):
+            # the fixed "fake" agent. The agent used is recorded per row.
+            for agent_type in agent_order:
                 try:
                     rec["generated_answer"], rec["references"] = run(it["question"], agent_type)
                     rec["agent_type"] = agent_type

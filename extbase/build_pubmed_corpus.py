@@ -10,7 +10,7 @@ is used, as in our pipeline; no ClinPGx information enters the corpus.
         --per-term 80
 
 Writes one UTF-8 text file per article (PMID_<id>.txt: title, journal/year, abstract) and
-corpus_manifest.json (term -> PMIDs). Resume-safe.
+corpus_manifest.json (term -> PMIDs), written next to the corpus directory. Resume-safe.
 """
 import argparse
 import json
@@ -105,7 +105,7 @@ def main():
     ap.add_argument("--per-term", type=int, default=80)
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
-    mpath = os.path.join(args.out, "corpus_manifest.json")
+    mpath = os.path.join(os.path.dirname(os.path.abspath(args.out.rstrip("/"))), "corpus_manifest.json")   # next to, not inside, the corpus: the indexers take every file in the directory
     manifest = json.load(open(mpath)) if os.path.exists(mpath) else {}
     terms = terms_from_benchmarks()
     print(f"[corpus] {len(terms)} search terms")

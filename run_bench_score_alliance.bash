@@ -35,12 +35,12 @@ existing() { local pre=$1; shift; for spec in "$@"; do f="results/${pre}_${spec#
   echo
   # our systems, the external published systems (section 4), then the PGxQA paper's own
   # models on the same items (convert_pgxqa_reference.py); files that do not exist are skipped
-  python eval_pgxqa.py $(existing pgxqa llm_only=llmonly amg_rag=amgrag phase15=phase15 medrag=medrag imedrag=imedrag paperqa2=paperqa lightrag=lightrag \
+  python eval_pgxqa.py $(existing pgxqa llm_only=llmonly amg_rag=amgrag phase15=phase15 medrag=medrag imedrag=imedrag paperqa2=paperqa paperqa2_fixed=paperqa_fake lightrag=lightrag \
                          gpt4o=ref_gpt-4o gpt4turbo=ref_gpt-4-turbo llama3_70b=ref_llama3-70b gpt35=ref_gpt-3.5-turbo gemini=ref_gemini-pro) --bertscore 2>/dev/null | grep -E '^\|'
   echo
   echo "## Masked-association recovery (E1)"
   echo
-  python eval_masked_recovery.py $(existing maskrec phase15=phase15 phase13=phase13 llm_only=llmonly medrag=medrag imedrag=imedrag paperqa2=paperqa lightrag=lightrag) 2>/dev/null
+  python eval_masked_recovery.py $(existing maskrec phase15=phase15 phase13=phase13 llm_only=llmonly medrag=medrag imedrag=imedrag paperqa2=paperqa paperqa2_fixed=paperqa_fake lightrag=lightrag) 2>/dev/null
   echo
   echo "## PGxCorpus extraction"
   echo
