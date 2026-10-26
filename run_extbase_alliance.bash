@@ -1,12 +1,14 @@
 #!/bin/bash
-# External published baselines, one GPU job per stage (results/benchmarks.md, section 5).
+# External published baselines, one GPU job per stage (results/benchmarks.md, section 4).
 #
 #   sbatch --export=ALL,EXT_STAGE=medrag   --time=06:00:00 run_extbase_alliance.bash
 #       MedRAG and i-MedRAG (Xiong et al., 2024) with MedCPT over Textbooks + StatPearls, on
 #       the PGxQA items and the masked-recovery questions. First use builds the MedCPT
 #       index (~425k chunks) on the GPU and caches it under ext_baselines/medrag_corpus.
-#   sbatch --export=ALL,EXT_STAGE=paperqa  --time=05:00:00 run_extbase_alliance.bash
-#       PaperQA2 (FutureHouse) agent over the shared PubMed abstract corpus.
+#   sbatch --export=ALL,EXT_STAGE=paperqa,OLLAMA_NUM_PARALLEL=4 --gres=gpu:h100:1 --mem=64G --time=04:00:00 run_extbase_alliance.bash
+#       PaperQA2 (FutureHouse) agent over the shared PubMed abstract corpus. Its evidence
+#       summaries run concurrently (hence the parallel slots); a full GPU because the MIG
+#       queue was not moving (8 h pending with no start estimate).
 #   sbatch --export=ALL,EXT_STAGE=lightrag --time=08:00:00 run_extbase_alliance.bash
 #       LightRAG (document-built graph, no curated KG) over the same corpus: index, then query.
 #

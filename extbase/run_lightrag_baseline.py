@@ -55,6 +55,15 @@ def build_rag(workdir: str):
     return rag
 
 
+def run_on_rag_loop(coro):
+    """Run a coroutine on the event loop LightRAG's synchronous API (insert/query) uses.
+    run_on_rag_loop() would open a second loop, and the pipeline's single-process ingress objects
+    refuse to be shared across live loops (the first full run's retry step died on exactly
+    that, leaving 22 failed abstracts out of the index)."""
+    from lightrag.utils import always_get_an_event_loop
+    return always_get_an_event_loop().run_until_complete(coro)
+
+
 async def init(rag):
     await rag.initialize_storages()
     try:
@@ -130,7 +139,7 @@ def main():
     args = ap.parse_args()
     os.makedirs(args.workdir, exist_ok=True)
     rag = build_rag(args.workdir)
-    asyncio.run(init(rag))
+    run_on_rag_loop(init(rag))
 
     if args.index:
         files = sorted(f for f in os.listdir(args.corpus) if f.startswith("PMID_") and f.endswith(".txt"))
@@ -151,13 +160,13 @@ def main():
             done |= set(names)
             json.dump(sorted(done), open(done_path, "w"))
             print(f"[lightrag] indexed {len(done)}/{len(files)} ({time.time() - t0:.0f}s for {len(names)})")
-        print(f"[lightrag] document status after indexing: {asyncio.run(doc_status_counts(rag))}")
-        asyncio.run(retry_failed(rag, args.corpus))
-        print(f"[lightrag] document status after retry: {asyncio.run(doc_status_counts(rag))}")
+        print(f"[lightrag] document status after indexing: {run_on_rag_loop(doc_status_counts(rag))}")
+        run_on_rag_loop(retry_failed(rag, args.corpus))
+        print(f"[lightrag] document status after retry: {run_on_rag_loop(doc_status_counts(rag))}")
 
     if args.input:
         from lightrag import QueryParam
-        print(f"[lightrag] document status: {asyncio.run(doc_status_counts(rag))}")
+        print(f"[lightrag] document status: {run_on_rag_loop(doc_status_counts(rag))}")
         items = [json.loads(l) for l in open(args.input, encoding="utf-8")]
         done = load_done(args.out)
         todo = [it for it in items if it["id"] not in done][: (args.limit or None)]
