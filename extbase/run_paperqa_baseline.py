@@ -59,7 +59,10 @@ def make_settings(corpus: str, index_name: str, manifest: str | None = None):
                             index=IndexSettings(name=index_name, paper_directory=corpus,
                                                 index_directory=os.path.join(os.path.dirname(corpus.rstrip("/")), "paperqa_index"),
                                                 use_absolute_paper_directory=True,
-                                                manifest_file=manifest),     # title/journal/year per file: no LLM call at index time
+                                                manifest_file=manifest,      # title/journal/year per file: no LLM call at index time
+                                                # defaults (5 readers, commit after every file) index ~36 files/min
+                                                # on this filesystem; the commit is the cost, not the embedding
+                                                concurrency=10, batch_size=50),
                             search_count=12),
     )
 

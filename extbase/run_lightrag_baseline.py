@@ -40,7 +40,13 @@ def build_rag(workdir: str):
         # 4 on a 20 GB MIG slice (~40 s/abstract, too slow for 3.7k abstracts), 8 on a full
         # H100. No gleaning pass.
         llm_model_max_async=int(os.environ.get("LIGHTRAG_ASYNC", "4")),
-        llm_model_kwargs={"host": host, "options": {"num_ctx": 8192, "temperature": 0}},
+        # Abstracts are one chunk each, so the LLM concurrency actually reached is the number
+        # of documents processed at once (default 3), not llm_model_max_async.
+        max_parallel_insert=int(os.environ.get("LIGHTRAG_ASYNC", "4")),
+        # num_predict: an extraction answer for one abstract is well under 3k tokens; without
+        # a cap the model occasionally loops (18k-token outputs were observed) and holds a
+        # slot for minutes.
+        llm_model_kwargs={"host": host, "options": {"num_ctx": 8192, "temperature": 0, "num_predict": 3072}},
         entity_extract_max_gleaning=0,
         tiktoken_model_name="gpt-3.5-turbo",      # cl100k_base is pre-cached; the default (gpt-4o-mini) would need a download
         embedding_func=EmbeddingFunc(embedding_dim=768, max_token_size=8192, model_name="nomic-embed-text",
