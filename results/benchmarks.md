@@ -114,12 +114,85 @@ where GPT-4o and GPT-4-turbo are clearly better (7/7 refused): see the per-item 
 below, where four of the seven are real entities without a CPIC guideline that phase 15
 answers from ClinPGx-level evidence.
 
+### Ablation ladder: what each layer adds on PGxQA (jobs 25095263–25095266, 25117310; 2026-10-27)
+
+Same model, same 76 items, the layers switched on one at a time (`BENCH_STAGE=pgxqa_ablate`
+in `run_bench_alliance.bash`). *Tables only* is the phase-3 setup: the ClinPGx rows through
+the graph, no PubMed. *Plain RAG* adds the phase-13 PubMed retrieval with the raw article
+text in the prompt and no digest, ledger or cards. *Phase 13* adds digest, ledger and cards,
+at the same search budget as phase 15 lite (8 queries, 8 papers). *Phase 15 lite* adds the
+loop: typed-path proposals, the edge queue, one targeted round, follow-up queries.
+
+| | LLM-only (A) | AMG-RAG (B) | tables only | plain RAG | phase 13, equal budget | **phase 15 lite** | n |
+|---|---|---|---|---|---|---|---|
+| drug→genes F1 (P / R) | 0.37 (0.35 / 0.40) | 0.33 (0.30 / 0.40) | **0.80** (0.81 / 0.85) | 0.79 (0.79 / 0.85) | 0.75 (0.74 / 0.85) | 0.70 (0.69 / 0.85) | 20 |
+| drug→genes F1, refusal-set drugs | 0.47 | 0.34 | 0.67 | **0.67** | 0.65 | 0.59 | 18 |
+| gene→drugs F1 (P / R) | 0.11 (0.15 / 0.10) | 0.16 (0.25 / 0.14) | 0.59 (0.78 / 0.58) | **0.60** (0.78 / 0.61) | 0.54 (0.66 / 0.60) | 0.58 (0.71 / 0.60) | 20 |
+| false refusal on well-specified items (PGxQA rule / extended) | 0.28 / 0.33 | 0.38 / 0.48 | 0.08 / 0.10 | **0.03** / 0.10 | **0.03** / 0.13 | 0.05 / 0.13 | 40 |
+| refusal on "misspecified" items (PGxQA rule / extended) | 0.29 / 0.57 | 0.29 / 0.57 | 0.14 / 0.29 | 0.00 / 0.00 | 0.14 / 0.29 | 0.14 / 0.43 | 7 |
+| consult: BERTScore F1 (rescaled) vs expert answer | 0.165 | 0.128 | 0.147 | 0.163 | 0.174 | 0.171 | 9 |
+
+Phase 15 lite minus rung, paired on the same items (2,000 bootstrap resamples; the full
+tables are in `results/benchmarks_tables.md`):
+
+| | tables only | plain RAG | phase 13, equal budget |
+|---|---|---|---|
+| drug→genes F1 (n=20) | −0.10 [−0.24, +0.03] p=0.13 | −0.09 [−0.21, +0.03] p=0.14 | −0.04 [−0.18, +0.09] p=0.54 |
+| drug→genes F1, refusal-set drugs (n=18) | −0.07 [−0.19, +0.04] p=0.20 | −0.08 [−0.17, +0.03] p=0.16 | −0.05 [−0.13, +0.01] p=0.08 |
+| gene→drugs F1 (n=20) | −0.02 [−0.13, +0.09] p=0.77 | −0.02 [−0.13, +0.09] p=0.71 | +0.04 [−0.04, +0.13] p=0.38 |
+| false refusal, PGxQA rule (n=40) | −0.03 [−0.10, +0.05] p=0.78 | +0.03 [+0.00, +0.07] p=0.73 | +0.03 [+0.00, +0.07] p=0.70 |
+
+Where the extra drug→genes answers come from. For every gene a system names beyond the
+CPIC gold, whether ClinPGx holds a row for that gene and drug (any level, or an ambiguous or
+negative call) or no row at all:
+
+| system | extra genes (d2g + refusal-set) | with a ClinPGx row for the drug | no row |
+|---|---|---|---|
+| tables only | 20 | 16 | 4 |
+| plain RAG | 23 | 18 | 5 |
+| phase 13, equal budget | 36 | 22 | 14 |
+| phase 15 lite | 45 | 27 | 18 |
+| LLM-only (A) | 42 | 16 | 26 |
+| PaperQA2 fixed | 44 | 31 | 13 |
+| GPT-4o | 9 | 9 | 0 |
+
+Of phase 15's 18 extra genes with no ClinPGx row, 9 are in the answer's *candidate
+associations* block (literature-only pairs the ledger reports as candidates, outside the
+curated set by construction); the rest were named as risk genes from literature claims.
+
+Reading the ladder.
+
+- **The whole PGxQA gain is the curated tables through the graph.** Tables alone take the
+  same model from 0.37 / 0.11 to 0.80 / 0.59 on the two list tasks and from 28% to 8% false
+  refusal. Drug→genes *recall* is 0.85 on every rung from tables only upward: no literature
+  layer ever recovers a CPIC gene the tables did not already hold, because PGxQA's gold is the
+  CPIC-actionable set and that is table content.
+- **Each literature layer costs precision on these items, within noise.** From tables only
+  to phase 15 lite drug→genes precision goes 0.81 → 0.69 and F1 0.80 → 0.70 (−0.10,
+  p = 0.13); gene→drugs and the refusal rate do not move. The extra genes are not noise in
+  the usual sense: 27 of phase 15's 45 have a ClinPGx row for the drug at a lower level or
+  with an ambiguous call, and 9 more are the candidates block. They are what an evidence
+  auditor is built to surface and what a CPIC-gold benchmark is built to penalise. The
+  paper must not claim that the loop improves answers on PGxQA; it keeps them within noise
+  of a table lookup.
+- **Plain RAG never refuses**, including on the three invented items (0/7): with raw
+  abstracts in the prompt the model answers whatever is asked. The digest, ledger and cards
+  are what let phase 13 and 15 decline the invented entities at the same rate as the tables
+  alone, while refusing legitimate questions no more often.
+- **Where the loop's case rests.** Section 2 (masked recovery): with the same tables and
+  model, the loop takes the hidden pairs from 3/10 to 9/10 as ledger candidates and from
+  0/10 to 4/10 named, and section 4 shows that the literature systems, with or without the
+  tables in their corpus, do not reproduce that. PGxQA shows the system reads the tables
+  correctly and does not hedge; it is not the benchmark on which the loop is tested.
+
 Reading.
 
-- **Lists.** Phase 15 roughly doubles F1 on both list tasks. The gain is in recall *and*
-  precision: the ledger-backed answers name the CPIC genes (recall 0.85) without the padding
-  the baselines produce. Because PGxQA's gold is CPIC-actionable genes and the ledger reports
-  ClinPGx-level associations, the remaining precision gap is partly by construction.
+- **Lists.** Phase 15 roughly doubles F1 on both list tasks over the same model without the
+  system. The ablation ladder above attributes that gain to the curated tables through the
+  graph (recall 0.85 on every rung from tables only upward); the literature layers add
+  nothing on these items and cost some precision. Because PGxQA's gold is CPIC-actionable
+  genes and the ledger reports ClinPGx-level associations and literature candidates, the
+  precision gap is partly by construction.
 - **Hedging.** The baselines say "unknown"/"unable" in 28–38% of answers to *legitimate*
   questions; phase 15 in 5%. Grounding removes most of the false uncertainty.
 - **Invented and unsupported premises.** PGxQA's 7 "misspecified" items mix two things:
@@ -180,7 +253,7 @@ PGxQA (same metrics as section 3):
 | gene→drugs F1 (P / R) | **0.58 (0.71 / 0.60)** | 0.07 (0.10 / 0.06) | 0.32 (0.43 / 0.32) | 0.34 (0.37 / 0.35) | 0.23 (0.33 / 0.21) | 0.54 (0.67 / 0.52) | 0.26 (0.39 / 0.21) | 20 |
 | false refusal on well-specified items (PGxQA rule / extended) | **0.05 / 0.13** | 0.85 / 0.85 | 0.50 / 0.50 | 0.58 / 0.58 | 0.30 / 0.55 | 0.23 / 0.25 | 0.35 / 0.38 | 40 |
 | refusal on "misspecified" items (PGxQA rule / extended) | 0.14 / 0.43 | 0.86 / 0.86 | 0.71 / 0.71 | 0.86 / 0.86 | 0.29 / 0.86 | 0.29 / 0.71 | 0.71 / 0.71 | 7 |
-| consult: BERTScore F1 (rescaled) vs expert answer | 0.171 | 0.105 | 0.179 | 0.074 | 0.139 | 0.167 | (next scoring job) | 9 |
+| consult: BERTScore F1 (rescaled) vs expert answer | 0.171 | 0.105 | 0.179 | 0.074 | 0.139 | 0.167 | 0.144 | 9 |
 
 Masked recovery (section 2): masked gene named in the answer, out of 10. The ledger
 columns of section 2 (candidate, confidence, route) have no counterpart in these systems.
@@ -310,7 +383,8 @@ Reading.
 |---|---|---|
 | Reading step extracts drug and genes correctly | PGxCorpus: +0.33 drug F1, +0.18 gene F1 over a dictionary | solid, external gold |
 | Loop recovers associations missing from the graph | 9/10 masked pairs recovered vs 3/10 and 0/10; routes attributed | solid, controlled; 10 pairs only |
-| Answers name the right genes | PGxQA lists: F1 0.70 / 0.58 vs ≤0.37 / ≤0.16 for the same model; GPT-4o on the same items 0.73 / 0.57 | solid on a subsample: the gaps over A and B clear the bootstrap interval (p ≤ 0.01, section 5); CPIC-vs-ClinPGx gold mismatch stated |
+| Answers name the right genes | PGxQA lists: F1 0.70 / 0.58 vs ≤0.37 / ≤0.16 for the same model; GPT-4o on the same items 0.73 / 0.57 | solid on a subsample: the gaps over A and B clear the bootstrap interval (p ≤ 0.01, section 5); CPIC-vs-ClinPGx gold mismatch stated. The ablation ladder (section 3) attributes the gain to the curated tables through the graph |
+| Literature loop improves answers to curated questions | ablation ladder: tables only 0.80 / 0.59, plain RAG 0.79 / 0.60, phase 13 0.75 / 0.54, phase 15 0.70 / 0.58; recall 0.85 on every rung | **not supported**: flat within noise (p ≥ 0.13), trending down as literature is added; the loop is justified by masked recovery and the audit outputs, not by PGxQA |
 | Answers do not hedge on legitimate questions | false refusal 5% vs 28–38% | solid |
 | Beats published retrieval systems with the same model | MedRAG / i-MedRAG / LightRAG / PaperQA2 agent / PaperQA2 fixed: drug→genes F1 0.48 / 0.54 / 0.39 / 0.53 / 0.59 vs 0.70; false refusal 85 / 50 / 58 / 30 / 23% vs 5%; masked genes named 0 / 0 / 4 / 4 / 5 vs 4 (9 as candidates) | solid on refusals (p ≤ 0.02 against every system) and on gene→drugs against all but PaperQA2 fixed; the drug→genes gaps over PaperQA2 fixed and i-MedRAG are within the 20-item interval (section 5), and PaperQA2 fixed is ahead on refusal-set drugs (0.68 vs 0.59, also within noise) |
 | Answers reject invented premises | 2/3 invented items, same as baselines; the panel trap fools all | **not supported**; next fix identified |
