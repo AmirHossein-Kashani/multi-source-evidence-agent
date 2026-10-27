@@ -13,6 +13,7 @@ temperature 0, and the evidence/answer-source counts, which are stated in the ou
 import argparse
 import json
 import os
+import re
 import time
 
 
@@ -102,6 +103,22 @@ async def build_index(settings):
     return len(files), failed
 
 
+# a parenthesised group, allowing one level of nested parentheses (citation keys are built
+# from titles and can contain "(baf312)" and the like)
+PAREN = re.compile(r"\s*\((?:[^()]|\([^()]*\))*\)")
+CITE_KEY = re.compile(r"\b(?:chunk|pages) [\w\-]+\s*$|unknownauthors|\bpqac-")
+
+
+def strip_citations(text: str) -> str:
+    """Remove PaperQA2's inline citation groups, e.g. "(unknownauthors2016clinicalpharmacogenetics
+    chunk 1, ...)": the sources are kept in `references`, and the keys (built from the
+    manifest, which has no authors) contain the word "unknown", which the PGxQA refusal rule
+    would count as a refusal."""
+    def drop(m):
+        return "" if CITE_KEY.search(m.group(0)) else m.group(0)
+    return PAREN.sub(drop, text or "").strip()
+
+
 def load_done(out_path: str):
     """Ids already answered. Rows without an answer (errors) are dropped from the file so a
     re-run retries them, matching run_genmedgpt.py's 'failed items are never kept' contract."""
@@ -167,7 +184,8 @@ def main():
             # the fixed "fake" agent. The agent used is recorded per row.
             for agent_type in agent_order:
                 try:
-                    rec["generated_answer"], rec["references"] = run(it["question"], agent_type)
+                    cited, rec["references"] = run(it["question"], agent_type)
+                    rec["generated_answer"], rec["generated_answer_cited"] = strip_citations(cited), cited
                     rec["agent_type"] = agent_type
                     rec.pop("error", None)
                     break

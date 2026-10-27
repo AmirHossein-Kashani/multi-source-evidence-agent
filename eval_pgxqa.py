@@ -35,7 +35,8 @@ REFUSAL_EXT = REFUSAL_PGXQA + ("not curated", "no curated", "not a recognized", 
                                "could not find", "does not appear", "not found", "no pharmacogen",
                                "not an established", "no established", "no actionable",
                                "not have actionable", "no direct evidence",
-                               "misspelling", "not a real", "no known", "not an approved")
+                               "misspelling", "not a real", "no known", "not an approved",
+                               "cannot answer")      # PaperQA2's fixed refusal sentence; no other system uses the phrase
 
 
 def load(p):
