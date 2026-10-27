@@ -12,6 +12,13 @@
 #   sbatch --export=ALL,BENCH_STAGE=pgxqa_base --time=04:00:00 run_bench_alliance.bash
 #       PGxQA subsets with baseline A (no retrieval) and baseline B (original AMG-RAG:
 #       PubMed + Wikipedia through the graph)
+#   sbatch --export=ALL,BENCH_STAGE=pgxqa_ablate --gres=gpu:h100:1 --time=01:00:00 run_bench_alliance.bash
+#       the ablation ladder below phase 15 on the same items: the ClinPGx tables alone
+#       (phase-3 setup), the tables plus the base PubMed retrieval with raw article text
+#       (no digest, ledger or cards), and phase 13 (digest + ledger + cards, no discovery
+#       loop) at the phase-15 run's total budget (8 queries, 8 papers). ~5 h on a MIG slice;
+#       run as a chain of 1-hour full-GPU jobs (--dependency=afterany:<previous>), every
+#       condition resumes.
 #
 # Every stage serves qwen2.5:14b locally on the MIG slice exactly as the phase scripts do.
 # run_genmedgpt.py is resume-safe, so a stage that hits the time limit can be resubmitted.
@@ -29,7 +36,7 @@
 #SBATCH --output=amg_bench_%j.out
 
 set -u
-STAGE="${BENCH_STAGE:?set BENCH_STAGE to pgxcorpus | masked | pgxqa15 | pgxqa_base}"
+STAGE="${BENCH_STAGE:?set BENCH_STAGE to pgxcorpus | masked | pgxqa15 | pgxqa_base | pgxqa_ablate}"
 
 module load StdEnv/2023
 module load python/3.11.5
@@ -96,6 +103,14 @@ baselineB_env() {   # the original AMG-RAG retrieval: PubMed + Wikipedia through
   baselineA_env
   export AMG_USE_EXTERNAL=1
 }
+clinpgx_only_env() {   # the curated tables alone through the graph (phase-3 setup): no PubMed, no ledger
+  baselineA_env
+  export AMG_KB_SOURCE=pharmgkb
+}
+plain_rag_env() {      # tables + the phase-13 PubMed retrieval, raw article text in the prompt: no digest, ledger or cards
+  phase13_env
+  export AMG_PAPER_DIGEST=0 AMG_EVIDENCE_LEDGER=0 AMG_CONTRADICTION_LAYER=0
+}
 run_set() {   # run_set <input.jsonl> <output.jsonl>
   export GENMED_INPUT="$1" GENMED_OUTPUT="$2" GENMED_OFFSET=0
   export GENMED_N="$(wc -l < "$1")"
@@ -127,6 +142,13 @@ case "$STAGE" in
   pgxqa_base)
     baselineA_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_llmonly.jsonl
     baselineB_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_amgrag.jsonl
+    ;;
+  pgxqa_ablate)
+    clinpgx_only_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_clinpgx_only.jsonl
+    phase13_env; export AMG_COMBO_MAX_QUERIES=8 AMG_DIGEST_MAX_PAPERS=8     # = phase 15 lite's 4 base + 4 round
+                 run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_phase13.jsonl
+    plain_rag_env; export AMG_COMBO_MAX_QUERIES=8
+                 run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_plainrag.jsonl
     ;;
   *) echo "unknown BENCH_STAGE=$STAGE"; exit 1 ;;
 esac
