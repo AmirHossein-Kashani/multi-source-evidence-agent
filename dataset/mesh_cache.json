@@ -1,5 +1,7 @@
 {
  "%ttr up to day 28 and inr therapeutic range": null,
+ "(r)-warfarin": null,
+ "(s)-warfarin": null,
  "5-fluorouracil-induced toxicity": null,
  "5-fu": {
   "entry_terms": [
@@ -104,6 +106,7 @@
  },
  "abacavir hypersensitivity reaction": null,
  "abacavir hypersensitivity reaction (abc-hsr)": null,
+ "abacavir hypersensitivity reactions (hsr)": null,
  "abc-hsr (abacavir hypersensitivity reaction)": null,
  "abiraterone": null,
  "acceptance of pharmacist recommendations": null,
@@ -566,6 +569,7 @@
   ],
   "uid": "68000740"
  },
+ "anesthetic management": null,
  "anthracycline": {
   "entry_terms": [
    "Anthracyclines",
@@ -586,6 +590,8 @@
  "anthracycline chemotherapy": null,
  "anthracycline-induced cardiotoxicity (act)": null,
  "anthracyclines and related substances": null,
+ "anticoagulant effect": null,
+ "antidepressant switching incidence and dose-normalized sertr": null,
  "antidepressants": {
   "entry_terms": [
    "Antidepressive Agents",
@@ -612,10 +618,13 @@
   ],
   "uid": "68000928"
  },
+ "antiplatelet prescription changes": null,
+ "antiplatelet regimen change": null,
  "antiplatelet response and prevalence of hemorrhagic or ische": null,
  "antiplatelet response and the prevalence of hemorrhagic or i": null,
  "antiplatelet response, hemorrhagic or ischemic events": null,
  "antiplatelet therapy for secondary prevention of ischemic st": null,
+ "antiplatelet therapy prescription change": null,
  "antipsychotics": {
   "entry_terms": [
    "Antipsychotic Agents",
@@ -691,6 +700,19 @@
    "D02.455.426.559.389.657.410.595.176"
   ],
   "uid": "68001241"
+ },
+ "asthenia": {
+  "entry_terms": [
+   "Asthenia"
+  ],
+  "heading": "Asthenia",
+  "parents": [
+   "Signs and Symptoms"
+  ],
+  "tree": [
+   "C23.888.089"
+  ],
+  "uid": "68001247"
  },
  "atazanavir": {
   "entry_terms": [
@@ -839,6 +861,8 @@
   "uid": "68001379"
  },
  "azathioprine toxicity": null,
+ "a\u03b2(1-42) transport across bbb endothelial cells into blood": null,
+ "beta blocking agents": null,
  "bleomycin": {
   "entry_terms": [
    "Bleomycin",
@@ -1111,6 +1135,40 @@
   ],
   "uid": "68002318"
  },
+ "cardiovascular risk": {
+  "entry_terms": [
+   "Heart Disease Risk Factors",
+   "Risk Factors for Cardiovascular Disease",
+   "Cardiovascular Risk Factors",
+   "Cardiovascular Risk Factor",
+   "Factor, Cardiovascular Risk",
+   "Risk Factor, Cardiovascular",
+   "Risk Factors for Heart Disease",
+   "Cardiovascular Risk",
+   "Cardiovascular Risks",
+   "Risk, Cardiovascular",
+   "Residual Cardiovascular Risk",
+   "Cardiovascular Risk, Residual",
+   "Residual Cardiovascular Risks",
+   "Risk, Residual Cardiovascular",
+   "Cardiovascular Risk Score",
+   "Cardiovascular Risk Scores",
+   "Risk Score, Cardiovascular",
+   "Score, Cardiovascular Risk"
+  ],
+  "heading": "Heart Disease Risk Factors",
+  "parents": [
+   "Risk Factors"
+  ],
+  "tree": [
+   "E05.318.740.600.800.725.500",
+   "N05.715.350.200.700.500",
+   "N05.715.360.750.625.700.700.500",
+   "N06.850.490.625.750.500",
+   "N06.850.520.830.600.800.725.500"
+  ],
+  "uid": "2051996"
+ },
  "cardiovascular toxicity": null,
  "cardiovascular toxicity (reduction in left ventricular eject": null,
  "celecoxib": {
@@ -1160,6 +1218,7 @@
  "cell viability and metabolic activity": null,
  "cellular sensitivity to cisplatin": null,
  "cerebral distribution of gabapentin": null,
+ "cerivastatin": null,
  "cftr-mediated chloride transport": null,
  "changes in dna methylation levels": null,
  "chemoresistance": null,
@@ -1228,11 +1287,56 @@
  "cisplatin-induced hearing loss": null,
  "cisplatin-induced hearing loss (cihl)": null,
  "cisplatin-induced ototoxicity": null,
+ "citalopram": {
+  "entry_terms": [
+   "Citalopram",
+   "Cytalopram",
+   "Lu-10-171",
+   "Lu10171",
+   "Citalopram Hydrobromide",
+   "Seropram",
+   "Celexa"
+  ],
+  "heading": "Citalopram",
+  "parents": [
+   "Benzofurans",
+   "Nitriles",
+   "Propylamines"
+  ],
+  "tree": [
+   "D02.092.831.170",
+   "D02.626.320",
+   "D03.633.100.127.187"
+  ],
+  "uid": "68015283"
+ },
+ "clinical jaundice": null,
  "clinical remission": null,
  "clinical response and tolerability": null,
  "clinically relevant dgis": null,
  "clinically relevant drug-gene interactions": null,
  "clinically significant hearing loss": null,
+ "clobazam": {
+  "entry_terms": [
+   "Clobazam",
+   "HR 376",
+   "Urbanyl",
+   "Frisium",
+   "Onfi",
+   "LM-2717",
+   "LM2717",
+   "LM 2717",
+   "1-Phenyl-5-methyl-8-chloro-1,2,4,5- tetrahydro-2,4-diketo-3H-1,5-benzodiazepine"
+  ],
+  "heading": "Clobazam",
+  "parents": [
+   "Benzodiazepines"
+  ],
+  "tree": [
+   "D03.633.100.079.080.165"
+  ],
+  "uid": "2028186"
+ },
  "clodronate": {
   "entry_terms": [
    "Clodronic Acid",
@@ -1343,6 +1447,8 @@
   ],
   "uid": "68003061"
  },
+ "colistin-induced aki": null,
+ "composite endpoint of nonfatal myocardial infarction or no h": null,
  "coronary artery disease": {
   "entry_terms": [
    "Coronary Artery Disease",
@@ -1435,6 +1541,7 @@
   ],
   "uid": "68003520"
  },
+ "cyp2c19 activity measures": null,
  "cystic fibrosis": {
   "entry_terms": [
    "Cystic Fibrosis",
@@ -1627,6 +1734,7 @@
   ],
   "uid": "2028084"
  },
+ "dementia and mild cognitive impairment": null,
  "depression": {
   "entry_terms": [
    "Depression",
@@ -1704,6 +1812,7 @@
  },
  "development of hyperkinetic movement disorder": null,
  "development of scars (severe cutaneous adverse reactions)": null,
+ "development of t-cell-mediated scars": null,
  "dexamethasone": {
   "entry_terms": [
    "Dexamethasone",
@@ -1763,6 +1872,31 @@
    "D03.633.100.103.034.249.500"
   ],
   "uid": "68064748"
+ },
+ "dexmedetomidine": {
+  "entry_terms": [
+   "Dexmedetomidine",
+   "Dexmedetomidine Hydrochloride",
+   "Hydrochloride, Dexmedetomidine",
+   "MPV-1440",
+   "MPV1440",
+   "MPV 1440",
+   "Precedex",
+   "Igalmi",
+   "Sedadex",
+   "Sileo",
+   "Cepedex",
+   "Dexdor",
+   "Dexdomitor"
+  ],
+  "heading": "Dexmedetomidine",
+  "parents": [
+   "Imidazoles"
+  ],
+  "tree": [
+   "D03.383.129.308.245"
+  ],
+  "uid": "68020927"
  },
  "diabetes mellitus": {
   "entry_terms": [
@@ -2000,6 +2134,7 @@
  "drug dosage recommendation": null,
  "drug efficacy and adverse reactions": null,
  "drug efficacy and toxicity": null,
+ "drug exposure and toxicity management": null,
  "drug hypersensitivity": {
   "entry_terms": [
    "Drug Hypersensitivity",
@@ -2082,7 +2217,10 @@
   ],
   "uid": "68064420"
  },
+ "drug-drug interaction likelihood": null,
+ "drug-drug interaction risk": null,
  "drug-induced hearing loss (ototoxicity)": null,
+ "drug-induced hypersensitivity syndrome (dress)": null,
  "drug-induced liver injury": {
   "entry_terms": [
    "Chemical and Drug Induced Liver Injury",
@@ -2278,6 +2416,7 @@
   ],
   "uid": "2101158"
  },
+ "escitalopram n-demethylation": null,
  "esomeprazole": {
   "entry_terms": [
    "Esomeprazole",
@@ -2456,6 +2595,30 @@
    "D02.522.223.750"
   ],
   "uid": "68011345"
+ },
+ "fentanyl": {
+  "entry_terms": [
+   "Fentanyl",
+   "Phentanyl",
+   "Fentanest",
+   "Fentanyl Citrate",
+   "R-4263",
+   "R4263",
+   "R 4263",
+   "Fentora",
+   "Duragesic",
+   "Durogesic",
+   "Sublimaze",
+   "Transmucosal Oral Fentanyl Citrate"
+  ],
+  "heading": "Fentanyl",
+  "parents": [
+   "Piperidines"
+  ],
+  "tree": [
+   "D03.383.621.265"
+  ],
+  "uid": "68005283"
  },
  "flucloxacillin": {
   "entry_terms": [
@@ -2789,6 +2952,7 @@
   "uid": "68005839"
  },
  "gi bleeding or cardiovascular events": null,
+ "glimepiride": null,
  "glyburide": {
   "entry_terms": [
    "Glyburide",
@@ -2862,6 +3026,8 @@
   "uid": "68006221"
  },
  "hamd-17 scale score reduction by >or=50% at week 6 of treatm": null,
+ "hbeag seroconversion, hbsag clearance, hbv dna level <2000 i": null,
+ "hbsag clearance": null,
  "hbsag seroclearance": null,
  "hdl-c levels": null,
  "hearing impairment": {
@@ -3127,6 +3293,46 @@
  },
  "histopathological injury and pulmonary mrna expression": null,
  "hiv infectious disease": null,
+ "hmg coa reductase inhibitors": {
+  "entry_terms": [
+   "Hydroxymethylglutaryl-CoA Reductase Inhibitors",
+   "Hydroxymethylglutaryl CoA Reductase Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl-CoA Reductase",
+   "Reductase Inhibitors, Hydroxymethylglutaryl-CoA",
+   "HMG-CoA Reductase Inhibitor",
+   "HMG CoA Reductase Inhibitor",
+   "Statin",
+   "Statins",
+   "Inhibitors, HMG-CoA Reductase",
+   "Inhibitors, HMG CoA Reductase",
+   "Reductase Inhibitors, HMG-CoA",
+   "HMG-CoA Reductase Inhibitors",
+   "HMG CoA Reductase Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl-Coenzyme A",
+   "Hydroxymethylglutaryl-Coenzyme A Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl Coenzyme A",
+   "Inhibitors, Hydroxymethylglutaryl-CoA",
+   "Hydroxymethylglutaryl-CoA Inhibitors",
+   "Inhibitors, Hydroxymethylglutaryl CoA",
+   "Hydroxymethylglutaryl-CoA Reductase Inhibitor",
+   "Hydroxymethylglutaryl CoA Reductase Inhibitor",
+   "Reductase Inhibitor, Hydroxymethylglutaryl-CoA",
+   "Statins, HMG-CoA",
+   "HMG-CoA Statins",
+   "Statins, HMG CoA"
+  ],
+  "heading": "Hydroxymethylglutaryl-CoA Reductase Inhibitors",
+  "parents": [
+   "Anticholesteremic Agents",
+   "Enzyme Inhibitors"
+  ],
+  "tree": [
+   "D27.505.519.186.071.202.370",
+   "D27.505.519.389.370",
+   "D27.505.954.557.500.202.370"
+  ],
+  "uid": "68019161"
+ },
  "hmg-coa reductase inhibitors": {
   "entry_terms": [
    "Hydroxymethylglutaryl-CoA Reductase Inhibitors",
@@ -3482,6 +3688,7 @@
   "uid": "68007252"
  },
  "inr levels and clinical events (myocardial infarction, strok": null,
+ "inr within therapeutic range": null,
  "interferon beta-1a": {
   "entry_terms": [
    "Interferon beta-1a",
@@ -3582,6 +3789,30 @@
   ],
   "uid": "68007612"
  },
+ "ketamine": {
+  "entry_terms": [
+   "Ketamine",
+   "2-(2-Chlorophenyl)-2-(methylamino)cyclohexanone",
+   "Ketalar",
+   "CI-581",
+   "CI581",
+   "CI 581",
+   "Ketanest",
+   "Ketamine Hydrochloride",
+   "Calipsol",
+   "Calypsol",
+   "Kalipsol",
+   "Ketaset"
+  ],
+  "heading": "Ketamine",
+  "parents": [
+   "Cyclohexanes"
+  ],
+  "tree": [
+   "D02.455.426.392.368.367.652"
+  ],
+  "uid": "68007649"
+ },
  "kidney stone disease susceptibility": null,
  "kidney transplantation": {
   "entry_terms": [
@@ -3671,6 +3902,7 @@
  },
  "laparoscopic sleeve gastrectomy": null,
  "ldl-c levels": null,
+ "ldl-c reduction": null,
  "lead poisoning": {
   "entry_terms": [
    "Lead Poisoning",
@@ -3756,6 +3988,25 @@
    "D03.383.773.812.362"
   ],
   "uid": "2027977"
+ },
+ "lithium": {
+  "entry_terms": [
+   "Lithium",
+   "Lithium-7",
+   "Lithium 7"
+  ],
+  "heading": "Lithium",
+  "parents": [
+   "Metals, Alkali",
+   "Metals, Light"
+  ],
+  "tree": [
+   "D01.268.549.450",
+   "D01.268.557.290",
+   "D01.552.528.480",
+   "D01.552.547.290"
+  ],
+  "uid": "68008094"
  },
  "liver injury": null,
  "liver transplantation": {
@@ -3930,9 +4181,11 @@
   ],
   "uid": "68008305"
  },
+ "malignant hyperthermia detection": null,
  "malignant hyperthermia onset": null,
  "malignant hyperthermia risk": null,
  "malignant hyperthermia syndrome": null,
+ "mdhs (multiple drug hypersensitivity)": null,
  "meloxicam": {
   "entry_terms": [
    "Meloxicam",
@@ -4277,6 +4530,26 @@
   "uid": "68009103"
  },
  "muraglitazar": null,
+ "muscle strength": {
+  "entry_terms": [
+   "Muscle Strength",
+   "Strength, Muscle",
+   "Arthrogenic Muscle Inhibition",
+   "Arthrogenic Muscle Inhibitions",
+   "Inhibition, Arthrogenic Muscle",
+   "Muscle Inhibition, Arthrogenic"
+  ],
+  "heading": "Muscle Strength",
+  "parents": [
+   "Musculoskeletal Physiological Phenomena",
+   "Physical Examination"
+  ],
+  "tree": [
+   "E01.370.600.425",
+   "G11.427.560"
+  ],
+  "uid": "68053580"
+ },
  "muscle symptoms; transaminase elevation": null,
  "muscular diseases": {
   "entry_terms": [
@@ -4412,6 +4685,7 @@
   ],
   "uid": "68009288"
  },
+ "necrotizing renal vasculitis": null,
  "neomycin": {
   "entry_terms": [
    "Neomycin",
@@ -4661,6 +4935,7 @@
   "uid": "68002289"
  },
  "nsaid-induced sjs/ten": null,
+ "oatp1b1 activity": null,
  "ocular adverse events": null,
  "ocular toxicity": {
   "entry_terms": [
@@ -4689,6 +4964,27 @@
    "G01.750.748.500.902"
   ],
   "uid": "2031059"
+ },
+ "olanzapine": {
+  "entry_terms": [
+   "Olanzapine",
+   "2-Methyl-4-(4-methyl-1-piperazinyl)-10H-thieno(2,3-b)(1,5)benzodiazepine",
+   "LY 170053",
+   "LY-170052",
+   "LY170052",
+   "LY 170052",
+   "Zyprexa",
+   "Olanzapine Pamoate",
+   "Zolafren"
+  ],
+  "heading": "Olanzapine",
+  "parents": [
+   "Benzodiazepines"
+  ],
+  "tree": [
+   "D03.633.100.079.080.738"
+  ],
+  "uid": "2027911"
  },
  "omeprazole": {
   "entry_terms": [
@@ -5026,7 +5322,9 @@
   ],
   "uid": "68059408"
  },
+ "pain management efficacy and adverse drug reactions": null,
  "pain relief and tolerability of adverse events": null,
+ "pain score, fentanyl dose requirements": null,
  "pancytopenia": {
   "entry_terms": [
    "Pancytopenia",
@@ -5108,6 +5406,7 @@
  "pegifn/rbv": null,
  "peginterferon alfa-2a": null,
  "peginterferon alfa-2b": null,
+ "pegylated interferon (peg-ifn)": null,
  "pegylated interferon-\u03b1": null,
  "peripheral neuropathy": {
   "entry_terms": [
@@ -5134,7 +5433,9 @@
   ],
   "uid": "68010523"
  },
+ "pfs and os": null,
  "pgx-aligned prescribing": null,
+ "pharmacokinetic parameters of rosuvastatin": null,
  "pharmacokinetic-pharmacodynamic profiles": null,
  "pharmacokinetics": {
   "entry_terms": [
@@ -5158,6 +5459,7 @@
  "pharmacokinetics and safety of dabigatran": null,
  "pharmacokinetics and therapeutic response": null,
  "pharmacokinetics of capecitabine and 5-fu exposure": null,
+ "pharmacokinetics of fluvastatin": null,
  "phenazopyridine": {
   "entry_terms": [
    "Phenazopyridine",
@@ -5265,6 +5567,7 @@
   ],
   "uid": "68010894"
  },
+ "plasma exposure": null,
  "plasma exposure to lornoxicam": null,
  "plasma voriconazole concentration": null,
  "platelet inhibition": null,
@@ -5525,6 +5828,8 @@
   ],
   "uid": "68011565"
  },
+ "psychiatric comorbidity and psychotropic prescriptions": null,
+ "psychological well-being and competitive longevity": null,
  "quetiapine": {
   "entry_terms": [
    "Quetiapine Fumarate",
@@ -5579,8 +5884,33 @@
  "rbv": null,
  "recurrence rate of plasmodium vivax": null,
  "recurrence-free efficacy at 4 months": null,
+ "recurrent stroke risk": null,
  "recurrent thromboembolic events": null,
+ "redox and mitochondrial toxicity": null,
  "reduced clopidogrel efficacy": null,
+ "remifentanil": {
+  "entry_terms": [
+   "Remifentanil",
+   "3-(4-Methoxycarbonyl-4-((1-oxopropyl)phenylamino)-1-piperidine)propanoic Acid Methyl Ester",
+   "GI 87084B",
+   "GI-87084B",
+   "GI87084B",
+   "Ultiva",
+   "Remifentanil Hydrochloride",
+   "Remifentanil Monohydrochloride"
+  ],
+  "heading": "Remifentanil",
+  "parents": [
+   "Piperidines",
+   "Propionates"
+  ],
+  "tree": [
+   "D02.241.081.751.756",
+   "D03.383.621.828"
+  ],
+  "uid": "2027932"
+ },
+ "remimazolam": null,
  "renal cell carcinoma": {
   "entry_terms": [
    "Carcinoma, Renal Cell",
@@ -5651,8 +5981,24 @@
  },
  "renal function and transplant outcomes": null,
  "renal function decline (egfr)": null,
+ "residual ischemic events, bleeding risk": null,
+ "response to peginterferon alfa-2a": null,
  "response to peginterferon alfa-2a treatment": null,
  "response to treatment with sofosbuvir and daclatasvir": null,
+ "rhabdomyolysis": {
+  "entry_terms": [
+   "Rhabdomyolysis",
+   "Rhabdomyolyses"
+  ],
+  "heading": "Rhabdomyolysis",
+  "parents": [
+   "Muscular Diseases"
+  ],
+  "tree": [
+   "C05.651.807"
+  ],
+  "uid": "68012206"
+ },
  "rhabdomyolysis and associated acute kidney injury": null,
  "ribavirin": {
   "entry_terms": [
@@ -5680,6 +6026,26 @@
    "D13.570.800.790"
   ],
   "uid": "68012254"
+ },
+ "rifampin": {
+  "entry_terms": [
+   "Rifampin",
+   "Benemycin",
+   "Rifampicin",
+   "Rifadin",
+   "Rimactane",
+   "Tubocin",
+   "Rimactan"
+  ],
+  "heading": "Rifampin",
+  "parents": [
+   "Rifamycins"
+  ],
+  "tree": [
+   "D03.633.400.811.700",
+   "D04.345.295.750.700"
+  ],
+  "uid": "68012293"
  },
  "risk of toxicity": null,
  "risperidone": {
@@ -5753,7 +6119,10 @@
   ],
   "uid": "2009866"
  },
+ "rosuvastatin uptake": null,
  "sacituzumab govitecan": null,
+ "safety of remimazolam in mh": null,
+ "selected serotonin reuptake inhibitors": null,
  "selective": null,
  "sensorineural hearing loss": {
   "entry_terms": [
@@ -5814,6 +6183,7 @@
  },
  "serious preventable toxicity or treatment failure": null,
  "serotonin clearance": null,
+ "serotonin clearance mechanism": null,
  "sertraline": {
   "entry_terms": [
    "Sertraline",
@@ -5850,12 +6220,14 @@
   "uid": "68020280"
  },
  "sertraline pharmacokinetics": null,
+ "serum concentration of voriconazole": null,
  "severe adverse reactions, including life-threatening neutrop": null,
  "severe capecitabine-related toxicity": null,
  "severe cutaneous adverse reactions": null,
  "severe cutaneous adverse reactions (scars)": null,
  "severe drug hypersensitivity reaction (dhs)": null,
  "severe fluoropyrimidine toxicity": null,
+ "severe fluoropyrimidine-related toxicity": null,
  "severe toxicities": null,
  "severe treatment-related adverse events": null,
  "sevoflurane": {
@@ -5897,9 +6269,31 @@
   ],
   "uid": "68019821"
  },
+ "simvastatin-induced myopathy (sim)": null,
  "simvastatin-induced myotoxicity (sim)": null,
  "siponimod": null,
  "siponimod response and metabolism": null,
+ "sirolimus": {
+  "entry_terms": [
+   "Sirolimus",
+   "Rapamycin",
+   "Rapamune",
+   "AY 22-989",
+   "AY 22989",
+   "AY 22 989",
+   "I-2190A",
+   "I2190A",
+   "I 2190A"
+  ],
+  "heading": "Sirolimus",
+  "parents": [
+   "Macrolides"
+  ],
+  "tree": [
+   "D02.540.505.760"
+  ],
+  "uid": "68020123"
+ },
  "sjs/ten": null,
  "skin inflammation": null,
  "sn-38": {
@@ -5955,6 +6349,39 @@
   ],
   "uid": "2010011"
  },
+ "sorafenib": {
+  "entry_terms": [
+   "Sorafenib",
+   "BAY 43-9006",
+   "BAY 439006",
+   "BAY 43 9006",
+   "Sorafenib Tosylate",
+   "4-(4-(3-(4-Chloro-3-trifluoromethylphenyl)ureido)phenoxy)pyridine-2-carboxylic acid methyamide-4-methylbenzenesulfonate",
+   "Nexavar",
+   "BAY 545-9085",
+   "BAY 5459085",
+   "BAY 545 9085",
+   "BAY-545-9085",
+   "BAY5459085",
+   "Sorafenib N-Oxide",
+   "Sorafenib N Oxide",
+   "BAY-673472",
+   "BAY 673472"
+  ],
+  "heading": "Sorafenib",
+  "parents": [
+   "Niacinamide",
+   "Phenylurea Compounds"
+  ],
+  "tree": [
+   "D02.065.950.681.757",
+   "D02.455.426.559.389.703.757",
+   "D03.066.515.530.750",
+   "D03.383.725.547.530.750"
+  ],
+  "uid": "2027916"
+ },
+ "spermatogenesis and sperm maturation": null,
  "ssris": {
   "entry_terms": [
    "Selective Serotonin Reuptake Inhibitors",
@@ -6227,12 +6654,16 @@
  },
  "tacrolimus clearance": null,
  "tacrolimus dose and c0/d ratio": null,
+ "tacrolimus dose requirements and trough concentrations": null,
+ "tacrolimus metabolism": null,
  "tacrolimus pharmacokinetic-related outcomes (time and dosage": null,
  "tacrolimus pharmacokinetics": null,
+ "tacrolimus pharmacokinetics and pharmacodynamics": null,
  "tacrolimus variability (cv)": null,
  "tacrolimus-associated focal pancreatitis": null,
  "tafenoquine": null,
  "tcr activation": null,
+ "telaprevir": null,
  "tenofovir": {
   "entry_terms": [
    "Tenofovir",
@@ -6283,6 +6714,7 @@
  },
  "therapeutic concentrations": null,
  "therapeutic failure/toxicity": null,
+ "therapeutic inr targets": null,
  "therapeutic response": null,
  "thioguanine": {
   "entry_terms": [
@@ -6314,6 +6746,8 @@
   "uid": "68013866"
  },
  "thiopurine drugs": null,
+ "thiopurine-induced myelosuppression (tim)": null,
+ "thiopurine-related toxicity": null,
  "thiopurine-related toxicity risk": null,
  "thrombocytopenia": {
   "entry_terms": [
@@ -6355,7 +6789,9 @@
   "uid": "2028048"
  },
  "til risk (thiopurine-induced leukopenia)": null,
+ "time in therapeutic range (ttr)": null,
  "time to therapeutic tacrolimus trough concentration (\u22658 ng/m": null,
+ "time to therapeutic trough concentration (\u22658 ng/ml)": null,
  "tinnitus": {
   "entry_terms": [
    "Tinnitus",
@@ -6420,6 +6856,33 @@
    "D09.408.051.476.600.800"
   ],
   "uid": "68014031"
+ },
+ "tolbutamide": {
+  "entry_terms": [
+   "Tolbutamide",
+   "Orinase",
+   "Diabetol",
+   "Apo-Tolbutamide",
+   "Artosin",
+   "Diaval",
+   "Dolipol",
+   "Rastinon",
+   "Orabet",
+   "Tolbutamid R.A.N."
+  ],
+  "heading": "Tolbutamide",
+  "parents": [
+   "Benzenesulfonamides",
+   "Sulfonylurea Compounds"
+  ],
+  "tree": [
+   "D02.065.884.060.745",
+   "D02.065.950.828.896",
+   "D02.455.426.559.389.085.745",
+   "D02.886.590.700.090.745",
+   "D02.886.590.795.896"
+  ],
+  "uid": "68014044"
  },
  "toxic epidermal necrolysis": {
   "entry_terms": [
@@ -6679,6 +7142,51 @@
   "uid": "2028055"
  },
  "type 2": null,
+ "type 2 diabetes mellitus": {
+  "entry_terms": [
+   "Diabetes Mellitus, Type 2",
+   "Diabetes Mellitus, Adult-Onset",
+   "Adult-Onset Diabetes Mellitus",
+   "Diabetes Mellitus, Adult Onset",
+   "Diabetes Mellitus, Ketosis-Resistant",
+   "Diabetes Mellitus, Ketosis Resistant",
+   "Ketosis-Resistant Diabetes Mellitus",
+   "NIDDM",
+   "Diabetes Mellitus, Maturity-Onset",
+   "Diabetes Mellitus, Maturity Onset",
+   "Diabetes Mellitus, Non Insulin Dependent",
+   "Diabetes Mellitus, Non-Insulin-Dependent",
+   "Non-Insulin-Dependent Diabetes Mellitus",
+   "Diabetes Mellitus, Noninsulin Dependent",
+   "Diabetes Mellitus, Noninsulin-Dependent",
+   "Diabetes Mellitus, Slow-Onset",
+   "Diabetes Mellitus, Slow Onset",
+   "Slow-Onset Diabetes Mellitus",
+   "Diabetes Mellitus, Stable",
+   "Stable Diabetes Mellitus",
+   "Diabetes Mellitus, Type II",
+   "Maturity-Onset Diabetes",
+   "Diabetes, Maturity-Onset",
+   "Maturity Onset Diabetes",
+   "Maturity-Onset Diabetes Mellitus",
+   "Maturity Onset Diabetes Mellitus",
+   "MODY (Maturity-onset diabetes of the young)",
+   "Noninsulin-Dependent Diabetes Mellitus",
+   "Noninsulin Dependent Diabetes Mellitus",
+   "Type 2 Diabetes",
+   "Diabetes, Type 2",
+   "Type 2 Diabetes Mellitus"
+  ],
+  "heading": "Diabetes Mellitus, Type 2",
+  "parents": [
+   "Diabetes Mellitus"
+  ],
+  "tree": [
+   "C18.452.394.750.149",
+   "C19.246.300"
+  ],
+  "uid": "68003924"
+ },
  "ulcer": {
   "entry_terms": [
    "Ulcer",
@@ -6694,6 +7202,7 @@
   "uid": "68014456"
  },
  "urb": null,
+ "usage patterns of antidepressants with cyp2d6- and cyp2c19-b": null,
  "use of antidepressants not recommended based on cyp2c19 and": null,
  "vardenafil": {
   "entry_terms": [
@@ -6794,8 +7303,11 @@
   ],
   "uid": "68054556"
  },
+ "viral clearance": null,
  "virological response": null,
+ "virological response to peg-ifn therapy": null,
  "vitamin d deficiency (vdd)": null,
+ "vitamin d hydroxylation deficiency rickets type 1b": null,
  "vitamin e": {
   "entry_terms": [
    "Vitamin E"
@@ -6811,6 +7323,7 @@
   "uid": "68014810"
  },
  "vitamin k and analogues": null,
+ "vka resistance": null,
  "vno/vrcz ratio": null,
  "voriconazole": {
   "entry_terms": [
@@ -6832,6 +7345,7 @@
   ],
   "uid": "68065819"
  },
+ "voriconazole clearance": null,
  "voriconazole clearance and trough concentrations": null,
  "voriconazole trough concentration (cmin)": null,
  "voriconazole trough concentrations": null,
@@ -6863,9 +7377,14 @@
   "uid": "68014859"
  },
  "warfarin clearance": null,
+ "warfarin dose prediction accuracy": null,
+ "warfarin dosing": null,
  "warfarin dosing requirements": null,
+ "warfarin maintenance dose and time to therapeutic inr": null,
+ "warfarin maintenance dose, time to therapeutic inr": null,
  "warfarin maintenance dose, time to therapeutic inr, risk of": null,
  "warfarin sensitivity index (wsi)": null,
+ "warfarin therapy outcomes (dose requirements, inr stabilisat": null,
  "warfarin therapy outcomes (dose requirements, inr stabilizat": null,
  "wbc < 9.5 \u00d7 109/l": null,
  "zidovudine": {
