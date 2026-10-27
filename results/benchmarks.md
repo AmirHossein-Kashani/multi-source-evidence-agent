@@ -152,11 +152,13 @@ Reading.
   110k items of mostly allele-level lookups) are not comparable; the same-item rows above
   are.
 
-## 4. Published external systems (jobs 24996039, 24996040, 25025246, 25056033, 25056034, 25074448; 2026-10-25/26)
+## 4. Published external systems (jobs 24996039, 24996040, 25025246, 25056033, 25056034, 25074448, 25095259–25095262; 2026-10-25/27)
 
 Four published retrieval systems answer the same PGxQA items and the same ten
 masked-recovery questions with the same local qwen2.5:14b, each through its authors' code
-(`extbase/`, `run_extbase_alliance.bash`). None of them sees ClinPGx. The comparison asks two
+(`extbase/`, `run_extbase_alliance.bash`). None of them sees ClinPGx, except in the fairness
+run at the end of this section, where PaperQA2's fixed pipeline also gets the tables as
+documents. The comparison asks two
 things: what strong general medical RAG and literature agents produce on these questions
 without a curated graph, and what the loop adds over PubMed alone, since two of the systems
 read the same PubMed abstracts our pipeline searches. LightRAG's indexing ran on a full H100
@@ -171,21 +173,21 @@ for throughput; model, quantization and sampling settings are unchanged.
 
 PGxQA (same metrics as section 3):
 
-| | **phase 15** | MedRAG | i-MedRAG | LightRAG | PaperQA2 agent | PaperQA2 fixed | n |
-|---|---|---|---|---|---|---|---|
-| drug→genes F1 (P / R) | **0.70 (0.69 / 0.85)** | 0.48 (0.50 / 0.48) | 0.54 (0.54 / 0.58) | 0.39 (0.30 / 0.60) | 0.53 (0.50 / 0.63) | 0.59 (0.54 / 0.78) | 20 |
-| drug→genes F1, refusal-set drugs | 0.59 | 0.19 | 0.49 | 0.46 | 0.49 | **0.68** | 18 |
-| gene→drugs F1 (P / R) | **0.58 (0.71 / 0.60)** | 0.07 (0.10 / 0.06) | 0.32 (0.43 / 0.32) | 0.34 (0.37 / 0.35) | 0.23 (0.33 / 0.21) | 0.54 (0.67 / 0.52) | 20 |
-| false refusal on well-specified items (PGxQA rule / extended) | **0.05 / 0.13** | 0.85 / 0.85 | 0.50 / 0.50 | 0.58 / 0.58 | 0.30 / 0.55 | 0.23 / 0.25 | 40 |
-| refusal on "misspecified" items (PGxQA rule / extended) | 0.14 / 0.43 | 0.86 / 0.86 | 0.71 / 0.71 | 0.86 / 0.86 | 0.29 / 0.86 | 0.29 / 0.71 | 7 |
-| consult: BERTScore F1 (rescaled) vs expert answer | 0.171 | 0.105 | 0.179 | 0.074 | 0.139 | 0.167 | 9 |
+| | **phase 15** | MedRAG | i-MedRAG | LightRAG | PaperQA2 agent | PaperQA2 fixed | PaperQA2 fixed + tables | n |
+|---|---|---|---|---|---|---|---|---|
+| drug→genes F1 (P / R) | **0.70 (0.69 / 0.85)** | 0.48 (0.50 / 0.48) | 0.54 (0.54 / 0.58) | 0.39 (0.30 / 0.60) | 0.53 (0.50 / 0.63) | 0.59 (0.54 / 0.78) | 0.60 (0.57 / 0.70) | 20 |
+| drug→genes F1, refusal-set drugs | 0.59 | 0.19 | 0.49 | 0.46 | 0.49 | **0.68** | 0.56 | 18 |
+| gene→drugs F1 (P / R) | **0.58 (0.71 / 0.60)** | 0.07 (0.10 / 0.06) | 0.32 (0.43 / 0.32) | 0.34 (0.37 / 0.35) | 0.23 (0.33 / 0.21) | 0.54 (0.67 / 0.52) | 0.26 (0.39 / 0.21) | 20 |
+| false refusal on well-specified items (PGxQA rule / extended) | **0.05 / 0.13** | 0.85 / 0.85 | 0.50 / 0.50 | 0.58 / 0.58 | 0.30 / 0.55 | 0.23 / 0.25 | 0.35 / 0.38 | 40 |
+| refusal on "misspecified" items (PGxQA rule / extended) | 0.14 / 0.43 | 0.86 / 0.86 | 0.71 / 0.71 | 0.86 / 0.86 | 0.29 / 0.86 | 0.29 / 0.71 | 0.71 / 0.71 | 7 |
+| consult: BERTScore F1 (rescaled) vs expert answer | 0.171 | 0.105 | 0.179 | 0.074 | 0.139 | 0.167 | (next scoring job) | 9 |
 
 Masked recovery (section 2): masked gene named in the answer, out of 10. The ledger
 columns of section 2 (candidate, confidence, route) have no counterpart in these systems.
 
-| | LLM-only | phase 13 | **phase 15** | MedRAG | i-MedRAG | LightRAG | PaperQA2 agent | PaperQA2 fixed |
-|---|---|---|---|---|---|---|---|---|
-| in answer | 0 | 0 | 4 (**9** as ledger candidates) | 0 | 0 | 4 | 4 | 5 |
+| | LLM-only | phase 13 | **phase 15** | MedRAG | i-MedRAG | LightRAG | PaperQA2 agent | PaperQA2 fixed | PaperQA2 fixed + masked tables |
+|---|---|---|---|---|---|---|---|---|---|
+| in answer | 0 | 0 | 4 (**9** as ledger candidates) | 0 | 0 | 4 | 4 | 5 | 1 |
 
 Reading.
 
@@ -223,12 +225,38 @@ Reading.
   since the manifest carries no authors); the keys are stripped from the scored text (the
   raw answer is kept in `generated_answer_cited`), and its fixed refusal sentence ("I
   cannot answer…") was added to the extended rule, which no other system's answers trigger.
+- **PaperQA2 with the ClinPGx tables as documents (fairness check, jobs 25095259–62).** The
+  objection to this section is that phase 15 reads ClinPGx and the external systems do not.
+  So the fixed pipeline was run again with the tables in its corpus: `extbase/build_clinpgx_docs.py`
+  renders clinicalVariants.tsv as one document per gene–drug pair (variants, evidence level,
+  annotation type, phenotypes, the pair's relationships line) and the remaining
+  relationships.tsv pairs as one document per gene, 5,452 documents next to the 3,699
+  abstracts, with the masked tables substituted for the masked questions. The documents are
+  retrieved: 71/76 PGxQA answers draw on them and they make up 74–89% of the evidence
+  chunks. The scores do not move the way the objection predicts. Drug→genes stays at 0.60:
+  the pipeline now finds the aminoglycoside–MT-RNR1 and nitrofurantoin–G6PD rows it had
+  refused before, but it lists whatever genes the retrieved table chunks mention (for
+  clopidogrel AGAP3, ECHS1, NECAB1 from level-3/4 rows, and CYP2C19 is gone; for
+  capecitabine DPYD is gone), because nothing in a flat evidence list ranks a level-1A row
+  above a level-4 one. Gene→drugs falls from 0.54 to 0.26 and false refusal rises from 23%
+  to 35%: given table chunks that state "level 1A" but not the word "guideline", the model
+  answers `UNKNOWN` 13 times instead of 7 (ABCG2, IFNL3, CYP4F2 among them), where it had
+  answered from its own knowledge before. On the masked questions the table chunks crowd
+  the abstracts out of the five answer sources (76% of the evidence) and it names 1/10
+  hidden genes instead of 5/10. Paired against phase 15 (section 5 method): gene→drugs
+  +0.32 [+0.11, +0.52], false refusal −0.30 [−0.45, −0.15], both p < 0.01; drug→genes +0.10,
+  within the interval. The tables are not a transferable advantage by being in the corpus:
+  what phase 15 gets from them is the structured lookup (gene/drug index, evidence levels,
+  class expansion) and a ledger that weighs levels, which section 3's ablation ladder
+  measures directly.
 - **Overall.** With the same model, the curated graph plus the loop still has the best
   drug→genes F1 (0.70 vs 0.59 for the next system), gene→drugs F1 (0.58 vs 0.54) and
   false-refusal rate (5% vs 23–85%), but PaperQA2's fixed pipeline over the same abstracts
   comes close on the list tasks and edges it on the refusal-set drugs. What separates them
   is what comes with the list: the ledger's graded candidates (9/10 hidden pairs with a
-  route and a confidence, against 4–5 names in prose) and the contradiction cards. On the
+  route and a confidence, against 4–5 names in prose) and the contradiction cards. Giving
+  PaperQA2 the tables as documents does not close the gap (it widens it on gene→drugs and
+  refusals), so the advantage is in how the tables are used, not in having them. On the
   misspecified items the systems that refuse most things "win" (0.71–0.86 under the
   extended rule); phase 15's 0.14 under PGxQA's rule is the cost of answering, and the fix
   identified in section 3 (a drug-existence check) is independent of retrieval.
