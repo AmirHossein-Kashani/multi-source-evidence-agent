@@ -13,6 +13,13 @@
 #       sbatch ... --time=01:00:00 --dependency=afterany:<previous job> run_extbase_alliance.bash
 #       Add PAPERQA_AGENT=fake for PaperQA2's fixed pipeline (search -> gather -> answer) in
 #       place of its LLM tool-selecting agent; results go to results/*_paperqa_fake.jsonl.
+#   sbatch --export=ALL,EXT_STAGE=paperqa_clinpgx,OLLAMA_NUM_PARALLEL=4 --gres=gpu:h100:1 --mem=64G --time=01:00:00 run_extbase_alliance.bash
+#       PaperQA2's fixed pipeline given the ClinPGx tables as documents as well (the fairness
+#       check of section 4: same curated inputs as phase 15). extbase/build_clinpgx_docs.py
+#       places the full tables in the corpus for the PGxQA items and the masked tables for the
+#       masked questions; the index sync adds ~5.5k documents the first time (~50 min), so run
+#       it as a chain of 1-hour jobs (--dependency=afterany:<previous>); every step resumes.
+#       Results: results/*_paperqa_fake_clinpgx.jsonl.
 #   sbatch --export=ALL,EXT_STAGE=lightrag --time=08:00:00 run_extbase_alliance.bash
 #       LightRAG (document-built graph, no curated KG) over the same corpus: index, then query.
 #
@@ -90,9 +97,22 @@ case "$STAGE" in
     ;;
   paperqa)
     source $EXT/venv-paperqa/bin/activate
+    python -u extbase/build_clinpgx_docs.py --set none --corpus $CORPUS     # abstracts only (the index sync drops the rest)
     SUF=${PAPERQA_AGENT:+_$PAPERQA_AGENT}        # PAPERQA_AGENT=fake -> results/*_paperqa_fake.jsonl
     python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --input $PGXQA  --out results/pgxqa_paperqa${SUF}.jsonl
     python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --input $MASKED --out results/maskrec_paperqa${SUF}.jsonl
+    ;;
+  paperqa_clinpgx)
+    # PaperQA2 fixed pipeline over the abstracts PLUS the ClinPGx tables as documents: the
+    # full tables for the PGxQA items, the masked tables (dataset/ADR_DataSet_masked) for the
+    # masked questions, exactly what phase 15 read in each test.
+    source $EXT/venv-paperqa/bin/activate
+    export PAPERQA_AGENT=fake PAPERQA_TAG=clinpgx
+    MAN=$EXT/paperqa_manifest_clinpgx.csv
+    python -u extbase/build_clinpgx_docs.py --set full --corpus $CORPUS --manifest $MAN
+    python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --manifest $MAN --input $PGXQA  --out results/pgxqa_paperqa_fake_clinpgx.jsonl
+    python -u extbase/build_clinpgx_docs.py --set masked --corpus $CORPUS --manifest $MAN
+    python -u extbase/run_paperqa_baseline.py --corpus $CORPUS --manifest $MAN --input $MASKED --out results/maskrec_paperqa_fake_clinpgx.jsonl
     ;;
   lightrag)
     source $EXT/venv-lightrag/bin/activate

@@ -164,6 +164,8 @@ def main():
     forced = os.environ.get("PAPERQA_AGENT")
     agent_order = (forced,) if forced else ("ToolSelector", "fake")
     system = f"paperqa2:{forced}" if forced else "paperqa2"
+    if os.environ.get("PAPERQA_TAG"):          # e.g. clinpgx: the corpus also holds the ClinPGx documents
+        system += "+" + os.environ["PAPERQA_TAG"]
 
     def run(question, agent_type):
         settings.agent.agent_type = agent_type
