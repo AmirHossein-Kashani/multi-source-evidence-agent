@@ -178,6 +178,7 @@ PGxQA (same metrics as section 3):
 | gene→drugs F1 (P / R) | **0.58 (0.71 / 0.60)** | 0.07 (0.10 / 0.06) | 0.32 (0.43 / 0.32) | 0.34 (0.37 / 0.35) | 0.23 (0.33 / 0.21) | 0.54 (0.67 / 0.52) | 20 |
 | false refusal on well-specified items (PGxQA rule / extended) | **0.05 / 0.13** | 0.85 / 0.85 | 0.50 / 0.50 | 0.58 / 0.58 | 0.30 / 0.55 | 0.23 / 0.25 | 40 |
 | refusal on "misspecified" items (PGxQA rule / extended) | 0.14 / 0.43 | 0.86 / 0.86 | 0.71 / 0.71 | 0.86 / 0.86 | 0.29 / 0.86 | 0.29 / 0.71 | 7 |
+| consult: BERTScore F1 (rescaled) vs expert answer | 0.171 | 0.105 | 0.179 | 0.074 | 0.139 | 0.167 | 9 |
 
 Masked recovery (section 2): masked gene named in the answer, out of 10. The ledger
 columns of section 2 (candidate, confidence, route) have no counterpart in these systems.
