@@ -20,7 +20,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 Q = os.path.join(HERE, "dataset", "PGxQA", "test_queries")
-OUT = os.path.join(HERE, "dataset", "PGxQA", "pgxqa_eval.jsonl")
+OUT = os.path.join(HERE, "dataset", "pgxqa_eval.jsonl")   # beside the clone: the clone has its own .git, so nothing inside it can be tracked
 
 
 def rows(name):
