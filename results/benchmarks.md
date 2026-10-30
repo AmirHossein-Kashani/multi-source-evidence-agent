@@ -142,8 +142,8 @@ tables are in `results/benchmarks_tables.md`):
 | gene→drugs F1 (n=20) | −0.02 [−0.13, +0.09] p=0.77 | −0.02 [−0.13, +0.09] p=0.71 | +0.04 [−0.04, +0.13] p=0.38 |
 | false refusal, PGxQA rule (n=40) | −0.03 [−0.10, +0.05] p=0.78 | +0.03 [+0.00, +0.07] p=0.73 | +0.03 [+0.00, +0.07] p=0.70 |
 
-Where the extra drug→genes answers come from. For every gene a system names beyond the
-CPIC gold, whether ClinPGx holds a row for that gene and drug (any level, or an ambiguous or
+Where the extra drug→genes answers come from (`eval_pgxqa_extra_genes.py`). For every gene a
+system names beyond the CPIC gold, whether ClinPGx holds a row for that gene and drug (any level, or an ambiguous or
 negative call) or no row at all:
 
 | system | extra genes (d2g + refusal-set) | with a ClinPGx row for the drug | no row |
