@@ -21,6 +21,8 @@ Answers cite their sources, and every retrieval is logged. A reader can trace an
 
 ![System overview](figure1_architecture.png)
 
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) describes the current pipeline in the order the code runs it, with every rule, constant and configuration.
+
 **A. Question and graph.** The LLM extracts entities from the question. ClinPGx records for the question terms seed *curated edges* (evidence level sets the edge weight). The LLM adds *hypothesized edges* that serve only as search leads.
 
 **B. Evidence retrieval.** Two routes:

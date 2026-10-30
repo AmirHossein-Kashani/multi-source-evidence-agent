@@ -135,7 +135,7 @@ Details fixed while implementing, beyond the design above:
 The 10 questions stay a development set. The 72-pair benchmark is the held-out set, with its
 label-leakage caveat stated.
 
-### Results so far (2026-10-23; details in `results/benchmarks.md`)
+### Results so far (2026-10-23, updated 2026-10-27; details in `results/benchmarks.md`)
 
 | Test | Result |
 |---|---|
@@ -144,9 +144,12 @@ label-leakage caveat stated.
 | E5 candidate reporting | dev run: 0/26 named (prompt fixed afterwards); masked run (fixed prompt): 4/9 recovered candidates named |
 | External: PGxCorpus extraction | drug F1 0.82 vs 0.49 (dictionary); gene F1 0.69 vs 0.51 |
 | External: PGxQA subsets | drug→genes F1 0.70 vs 0.37 (LLM) / 0.33 (AMG-RAG); gene→drugs 0.58 vs 0.11 / 0.16; false refusal 5% vs 28–38%; invented-drug trap fools all three systems |
+| E2 ablation ladder on PGxQA (jobs 25095263–66) | tables only 0.80 / 0.59, plain RAG 0.79 / 0.60, phase 13 at equal budget 0.75 / 0.54, phase 15 lite 0.70 / 0.58 (drug→genes / gene→drugs F1); recall 0.85 on every rung; all differences within noise (p ≥ 0.13). The PGxQA gain is the tables through the graph; the loop adds nothing there and is justified by E1 |
+| External: published systems, same model (section 4) | MedRAG / i-MedRAG / LightRAG / PaperQA2 agent / PaperQA2 fixed: drug→genes 0.48 / 0.54 / 0.39 / 0.53 / 0.59, false refusal 85 / 50 / 58 / 30 / 23% vs 0.70 and 5%; PaperQA2 fixed is matched on the list tasks, beaten on refusals (bootstrap, section 5). With the ClinPGx tables in its corpus PaperQA2 fixed gets worse (gene→drugs 0.26, masked 1/10): the tables do not transfer |
 
-Still pending: E2 fixed-retrieval ablation; E3 per-metapath precision on a larger question
-set; a drug-existence premise check (the vitanolix case).
+Still pending: E3 per-metapath precision on a larger question set; a drug-existence premise
+check (the vitanolix case); a "no guideline-level evidence" sentence when the ledger holds only
+level-3/4 or ambiguous rows; a human or LLM-judge rating of the dev-question answers.
 
 ## 7. Parked
 
