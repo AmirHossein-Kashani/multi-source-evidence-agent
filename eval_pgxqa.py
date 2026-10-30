@@ -1,4 +1,4 @@
-"""Score result files on the PGxQA subsets (dataset/PGxQA/pgxqa_eval.jsonl).
+"""Score result files on the PGxQA subsets (dataset/pgxqa_eval.jsonl).
 
     python eval_pgxqa.py phase15=results/pgxqa_phase15.jsonl llm=results/pgxqa_llmonly.jsonl \
         amgrag=results/pgxqa_amgrag.jsonl [--bertscore]

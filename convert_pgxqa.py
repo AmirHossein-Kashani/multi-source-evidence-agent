@@ -1,4 +1,4 @@
-"""PGxQA (Keat et al., PSB 2025; github.com/KarlKeat/PGxQA) -> dataset/PGxQA/pgxqa_eval.jsonl
+"""PGxQA (Keat et al., PSB 2025; github.com/KarlKeat/PGxQA) -> dataset/pgxqa_eval.jsonl
 
 Only the subsets this system is built for are taken; allele / diplotype lookups are not:
   d2g          drug_to_genes_queries.txt, researcher mode, every 4th drug (20 of 79):

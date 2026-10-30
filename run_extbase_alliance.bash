@@ -80,7 +80,7 @@ ollama run "$LLM_MODEL" "ready" >/dev/null 2>&1 || true
 # OpenAI-compatible endpoint (MedRAG uses the openai client; LiteLLM/LightRAG use Ollama natively)
 export OPENAI_BASE_URL="http://$OLLAMA_HOST/v1" OPENAI_API_BASE="http://$OLLAMA_HOST/v1" OPENAI_API_KEY=ollama
 export OLLAMA_API_BASE="http://$OLLAMA_HOST"
-PGXQA=dataset/PGxQA/pgxqa_eval.jsonl
+PGXQA=dataset/pgxqa_eval.jsonl
 MASKED=dataset/ADR_DataSet_masked/masked_questions.jsonl
 CORPUS=$EXT/corpus_pubmed
 

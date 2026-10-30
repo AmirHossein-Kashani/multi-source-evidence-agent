@@ -33,7 +33,7 @@ def strip_alleles(names) -> set:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("systems", nargs="+", help="name=results/pgxqa_<suffix>.jsonl")
-    ap.add_argument("--items", default="dataset/PGxQA/pgxqa_eval.jsonl")
+    ap.add_argument("--items", default="dataset/pgxqa_eval.jsonl")
     ap.add_argument("--by-source", action="append", default=[],
                     help="system name whose extra genes are also split by answer field (repeatable)")
     args = ap.parse_args()

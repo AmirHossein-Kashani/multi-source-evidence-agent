@@ -2,7 +2,7 @@
 
 The PGxQA repository ships every model's raw answer per question
 (dataset/PGxQA/results/{DrugToGenes,GeneToDrugs,Refusal}_<model>_results.txt, column
-llm_answer). Matching them to dataset/PGxQA/pgxqa_eval.jsonl by question text gives
+llm_answer). Matching them to dataset/pgxqa_eval.jsonl by question text gives
 reference rows (GPT-4o, GPT-4-turbo, GPT-3.5, Gemini Pro, Llama-3-70B) that eval_pgxqa.py
 scores with the same gene/drug extraction and refusal rules as our systems. Those models
 answered from parametric knowledge with no retrieval; the consult questions have no

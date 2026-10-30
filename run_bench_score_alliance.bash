@@ -31,7 +31,7 @@ existing() { local pre=$1; shift; for spec in "$@"; do f="results/${pre}_${spec#
 {
   echo "# Benchmark tables (generated $(date '+%Y-%m-%d %H:%M'))"
   echo
-  echo "## PGxQA subsets (dataset/PGxQA/pgxqa_eval.jsonl)"
+  echo "## PGxQA subsets (dataset/pgxqa_eval.jsonl)"
   echo
   # our systems and the ablation ladder (section 3), the external published systems
   # (section 4, with the ClinPGx-augmented PaperQA2), then the PGxQA paper's own models on

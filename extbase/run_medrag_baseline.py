@@ -10,7 +10,7 @@ Uses the authors' toolkit unchanged (github.com/Teddy-XiongGZ/MedRAG) with:
     are replaced by the same text minus the option machinery. Retrieval, context packing
     and (for i-MedRAG) the follow-up-question loop are the toolkit's code.
 
-    python extbase/run_medrag_baseline.py --mode medrag  --input dataset/PGxQA/pgxqa_eval.jsonl --out results/pgxqa_medrag.jsonl
+    python extbase/run_medrag_baseline.py --mode medrag  --input dataset/pgxqa_eval.jsonl --out results/pgxqa_medrag.jsonl
     python extbase/run_medrag_baseline.py --mode imedrag --input ... --out results/pgxqa_imedrag.jsonl
 
 Output records follow run_genmedgpt.py (id, question, generated_answer, references,

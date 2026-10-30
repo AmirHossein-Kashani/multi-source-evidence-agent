@@ -137,18 +137,18 @@ case "$STAGE" in
     python eval_masked_recovery.py phase15=results/maskrec_phase15.jsonl phase13=results/maskrec_phase13.jsonl llm=results/maskrec_llmonly.jsonl | tee results/masked_recovery.md
     ;;
   pgxqa15)
-    phase15_lite_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_phase15.jsonl
+    phase15_lite_env; run_set dataset/pgxqa_eval.jsonl results/pgxqa_phase15.jsonl
     ;;
   pgxqa_base)
-    baselineA_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_llmonly.jsonl
-    baselineB_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_amgrag.jsonl
+    baselineA_env; run_set dataset/pgxqa_eval.jsonl results/pgxqa_llmonly.jsonl
+    baselineB_env; run_set dataset/pgxqa_eval.jsonl results/pgxqa_amgrag.jsonl
     ;;
   pgxqa_ablate)
-    clinpgx_only_env; run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_clinpgx_only.jsonl
+    clinpgx_only_env; run_set dataset/pgxqa_eval.jsonl results/pgxqa_clinpgx_only.jsonl
     phase13_env; export AMG_COMBO_MAX_QUERIES=8 AMG_DIGEST_MAX_PAPERS=8     # = phase 15 lite's 4 base + 4 round
-                 run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_phase13.jsonl
+                 run_set dataset/pgxqa_eval.jsonl results/pgxqa_phase13.jsonl
     plain_rag_env; export AMG_COMBO_MAX_QUERIES=8
-                 run_set dataset/PGxQA/pgxqa_eval.jsonl results/pgxqa_plainrag.jsonl
+                 run_set dataset/pgxqa_eval.jsonl results/pgxqa_plainrag.jsonl
     ;;
   *) echo "unknown BENCH_STAGE=$STAGE"; exit 1 ;;
 esac
